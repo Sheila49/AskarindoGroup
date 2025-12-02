@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airmas Group - Solusi Teknologi Terintegrasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Gotham:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Poppins',sans-serif;background:#0a1f3d;color:white;overflow-x:hidden;}
+        .content-wrapper{min-height:100vh;background:linear-gradient(135deg,#0a2540 0%,#16213e 50%,#1a406e 100%);}
+
+        /* MENU SUPER GILA & MEWAH */
+        .menu-toggle{
+            position:fixed;top:30px;right:30px;z-index:1002;width:70px;height:70px;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            border:none;border-radius:50%;color:white;font-size:28px;
+            box-shadow:0 15px 40px rgba(102,126,234,.6);
+            transition:all .4s;backdrop-filter:blur(10px);cursor:pointer;
+        }
+        .menu-toggle:hover{transform:scale(1.2) rotate(90deg);box-shadow:0 20px 50px rgba(102,126,234,.8);}
+
+        .navigation-container{
+            position:fixed;top:0;left:0;width:100%;height:100vh;
+            background:rgba(10,20,40,.97);backdrop-filter:blur(20px);
+            display:flex;align-items:center;justify-content:center;
+            z-index:1001;transform:translateX(-100%);
+            transition:transform .8s cubic-bezier(0.7,0,.3,1);overflow:hidden;
+        }
+        .navigation-container.active{transform:translateX(0);}
+
+        .menu-bg-particles{
+            position:absolute;inset:0;opacity:0.4;
+            background-image:
+                radial-gradient(circle at 20% 80%,rgba(102,126,234,.4) 0%,transparent 50%),
+                radial-gradient(circle at 80% 20%,rgba(118,75,162,.4) 0%,transparent 50%),
+                radial-gradient(circle at 40% 40%,rgba(102,126,234,.3) 0%,transparent 50%);
+            animation:particles 25s linear infinite;
+        }
+        @keyframes particles{0%{transform:translate(0,0) rotate(0deg);}100%{transform:translate(60px,-60px) rotate(360deg);}}
+
+        .menu-close{
+            position:absolute;top:40px;right:40px;width:60px;height:60px;
+            background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.3);
+            border-radius:50%;color:white;font-size:36px;cursor:pointer;
+            backdrop-filter:blur(10px);transition:.4s;z-index:10;display:flex;align-items:center;justify-content:center;
+        }
+        .menu-close:hover{background:rgba(255,255,255,.25);transform:rotate(90deg);}
+
+        .nav-items{text-align:center;z-index:5;}
+        .nav-btn{
+            display:block;width:400px;padding:28px 40px;margin:20px auto;
+            background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+            border:2px solid rgba(255,255,255,.15);border-radius:28px;
+            color:white;font-size:26px;font-weight:700;letter-spacing:2px;
+            text-decoration:none;position:relative;overflow:hidden;
+            backdrop-filter:blur(15px);box-shadow:0 15px 40px rgba(0,0,0,.5);
+            transform:translateY(60px);opacity:0;
+            transition:all .7s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+        .navigation-container.active .nav-btn{opacity:1;transform:translateY(0);}
+        .navigation-container.active .nav-btn:nth-child(1){transition-delay:0.15s;}
+        .navigation-container.active .nav-btn:nth-child(2){transition-delay:0.25s;}
+        .navigation-container.active .nav-btn:nth-child(3){transition-delay:0.35s;}
+        .navigation-container.active .nav-btn:nth-child(4){transition-delay:0.45s;}
+        .navigation-container.active .nav-btn:nth-child(5){transition-delay:0.55s;}
+        .navigation-container.active .nav-btn:nth-child(6){transition-delay:0.65s;}
+        .navigation-container.active .nav-btn:nth-child(7){transition-delay:0.75s;}
+        .navigation-container.active .nav-btn:nth-child(8){transition-delay:0.85s;}
+
+        .nav-btn span{position:relative;z-index:2;}
+        .nav-btn::before{
+            content:'';position:absolute;inset:0;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            opacity:0;transform:scaleX(0);transform-origin:left;
+            transition:transform .6s,opacity .6s;
+        }
+        .nav-btn:hover::before{opacity:0.25;transform:scaleX(1);}
+        .nav-btn:hover{
+            transform:translateY(-10px) scale(1.05);
+            box-shadow:0 30px 70px rgba(102,126,234,.7);
+            border-color:rgba(102,126,234,.8);
+        }
+        .nav-btn.active{
+            background:rgba(102,126,234,.3);border-color:#667eea;
+            box-shadow:0 20px 50px rgba(102,126,234,.6);
+        }
+
+        .page-content{padding:140px 5% 0;opacity:0;transform:translateY(30px);transition:.8s ease;}
+        .page-content.active{opacity:1;transform:translateY(0);}
+        .content-section{max-width:1400px;margin:0 auto;}
+
+        /* Hero */
+        .hero-section{text-align:center;padding:100px 0 120px;}
+        .hero-title{font-size:clamp(3.8rem,9vw,7.5rem);font-weight:900;background:linear-gradient(135deg,#ffffff,#cfe8ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+        .hero-subtitle{font-size:1.45rem;color:#c0d8ff;max-width:900px;margin:30px auto 50px;}
+        .cta-button{padding:18px 60px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:60px;font-weight:700;text-decoration:none;box-shadow:0 15px 40px rgba(102,126,234,.5);transition:.3s;}
+        .cta-button:hover{transform:translateY(-6px);}
+
+        /* Stats Gotham */
+        .stats-section{background:rgba(255,255,255,.05);border-radius:32px;padding:80px 60px;margin:0 auto 140px;max-width:1200px;backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.1);box-shadow:0 20px 50px rgba(0,0,0,.4);}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:50px;text-align:center;}
+        .stat-number{font-family:'Gotham',sans-serif;font-weight:900;font-size:5rem;line-height:1;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+        .stat-label{font-size:1.25rem;color:#b8c6dc;margin-top:8px;font-weight:600;}
+
+        .section-title{text-align:center;font-size:3.6rem;font-weight:800;margin:120px 0 80px;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+
+        /* TENTANG KAMI */
+        .about-section{margin:140px auto;max-width:1400px;text-align:center;}
+        .about-slider{position:relative;overflow:hidden;border-radius:32px;margin-bottom:60px;box-shadow:0 30px 80px rgba(0,0,0,.6);height:650px;}
+        .about-slides{display:flex;transition:transform .8s ease;}
+        .about-slide{min-width:100%;height:650px;background-size:cover;background-position:center;}
+        .about-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');}
+        .about-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');}
+        .about-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');}
+        .about-dots{display:flex;justify-content:center;gap:15px;margin:25px 0;}
+        .dot{width:15px;height:15px;background:#555;border-radius:50%;cursor:pointer;transition:.4s;}
+        .dot.active{background:#667eea;transform:scale(1.5);}
+        .about-text{opacity:0;transform:translateY(40px);transition:all 1.2s ease;font-size:1.28rem;line-height:2.1;color:#c0d8ff;max-width:1100px;margin:0 auto;text-align:justify;}
+        .about-text.visible{opacity:1;transform:translateY(0);}
+
+        /* SAMBUTAN FOUNDER */
+        .founder-section{display:grid;grid-template-columns:1fr 1.4fr;gap:90px;align-items:center;margin:160px auto;max-width:1300px;}
+        .founder-photo img{width:100%;border-radius:28px;box-shadow:0 30px 60px rgba(0,0,0,.6);}
+        .founder-text h2{font-size:3.4rem;margin-bottom:30px;color:#667eea;}
+        .founder-text p{font-size:1.22rem;line-height:1.9;color:#c0d8ff;margin-bottom:20px;}
+        @media(max-width:992px){.founder-section{grid-template-columns:1fr;text-align:center;}}
+
+        /* PRODUK */
+        .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:45px;margin-bottom:140px;}
+        @media(max-width:992px){.products-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:600px){.products-grid{grid-template-columns:1fr;}}
+        .product-card{background:rgba(255,255,255,.08);border-radius:28px;overflow:hidden;text-align:center;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(15px);transition:.5s;}
+        .product-card:hover{transform:translateY(-18px);box-shadow:0 35px 70px rgba(0,0,0,.5);}
+        .product-card img{width:100%;height:260px;object-fit:cover;}
+        .product-card h3{padding:30px 20px;font-size:1.7rem;font-weight:700;}
+
+        /* TESTIMONI */
+        .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:35px;margin-bottom:140px;}
+        @media(max-width:1100px){.reviews-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:600px){.reviews-grid{grid-template-columns:1fr;}}
+        .review-card{background:rgba(255,255,255,.09);border-radius:24px;padding:35px 25px;text-align:center;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);transition:.4s;}
+        .review-card:hover{transform:translateY(-10px);}
+        .review-card img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:5px solid #667eea;margin-bottom:15px;}
+        .stars{font-size:1.9rem;letter-spacing:4px;position:relative;display:inline-block;}
+        .stars::before{content:'★★★★★';color:#444;position:absolute;left:0;top:0;width:0;overflow:hidden;transition:width 1.8s ease;}
+        .review-card.visible .stars::before{width:100%;color:#ffd700;text-shadow:0 0 15px #ff0;}
+
+        /* HUBUNGI KAMI GEDE */
+        .contact-section{margin:160px auto;max-width:1200px;text-align:center;}
+        .contact-section p{font-size:1.4rem;color:#c0d8ff;margin-bottom:50px;max-width:900px;margin-left:auto;margin-right:auto;}
+        .contact-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-bottom:60px;}
+        .contact-card{background:rgba(255,255,255,.08);padding:35px;border-radius:24px;min-width:280px;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);}
+        .contact-card i{font-size:3rem;margin-bottom:20px;color:#667eea;}
+        .contact-card:nth-child(2) i{color:#25d366;}
+        .contact-card h3{font-size:1.6rem;margin:15px 0;}
+
+        /* MITRA SLIDER */
+        .partner-section{padding:100px 0 200px;text-align:center;position:relative;}
+        .slider-container{overflow:hidden;position:relative;max-width:1300px;margin:0 auto;}
+        .slider-track{display:flex;gap:60px;transition:transform .8s ease;}
+        .partner-logo{min-width:200px;height:130px;background:rgba(255,255,255,.08);border-radius:20px;display:flex;align-items:center;justify-content:center;padding:25px;transition:.4s;}
+        .partner-logo:hover{transform:scale(1.15);background:rgba(255,255,255,.18);}
+        .partner-logo img{max-height:80px;filter:grayscale(70%);transition:.4s;}
+        .partner-logo:hover img{filter:grayscale(0%);}
+        .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.25);width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:2.2rem;backdrop-filter:blur(12px);z-index:10;transition:all .4s;}
+        .slider-arrow:hover{background:rgba(255,255,255,.45);transform:translateY(-50%) scale(1.2);}
+        .prev{left:10px;}.next{right:10px;}
+
+        /* WA FLOATING */
+        .wa-floating{position:fixed;bottom:30px;right:30px;z-index:999;width:70px;height:70px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.6);animation:pulse 2s infinite;}
+        .wa-floating:hover{transform:scale(1.1);}
+        .wa-floating i{font-size:2.5rem;color:white;}
+        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.7);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+        /* FOOTER */
+        .footer{background:rgba(0,0,0,.4);padding:90px 5% 40px;border-top:1px solid rgba(255,255,255,.15);}
+        .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:50px;}
+        .footer h3{font-size:1.8rem;margin-bottom:25px;color:#667eea;}
+        .footer p{color:#b8c6dc;line-height:1.8;font-size:1.1rem;}
+        .social-icons{display:flex;gap:30px;justify-content:center;margin-top:40px;}
+        .social-icons a{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;transition:.4s;box-shadow:0 10px 30px rgba(0,0,0,.3);}
+        .social-icons a:nth-child(1){background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+        .social-icons a:nth-child(2){background:#DB4437;}
+        .social-icons a:nth-child(3){background:#25D366;}
+        .social-icons a:hover{transform:translateY(-10px) scale(1.1);}
+        .copyright{text-align:center;padding-top:30px;color:#888;font-size:0.95rem;border-top:1px solid rgba(255,255,255,.1);margin-top:40px;}
+    </style>
+</head>
+<body>
+
+    <!-- MENU GILA -->
+    <button class="menu-toggle" id="menuBtn"><i class="fas fa-bars"></i></button>
+
+    <div class="navigation-container" id="nav">
+        <div class="menu-bg-particles"></div>
+        <button class="menu-close" id="menuClose">×</button>
+        <div class="nav-items">
+            <a href="#" class="nav-btn active" data-page="home"><span>Home</span></a>
+            <a href="#" class="nav-btn" data-page="tentang-kami"><span>Tentang Kami</span></a>
+            <a href="#" class="nav-btn" data-page="sambutan-founder"><span>Sambutan Founder</span></a>
+            <a href="#" class="nav-btn" data-page="produk"><span>Produk</span></a>
+            <a href="#" class="nav-btn" data-page="kontak"><span>Hubungi Kami</span></a>
+            <a href="#" class="nav-btn" data-page="business-government"><span>B2G</span></a>
+            <a href="#" class="nav-btn" data-page="business-business"><span>B2B</span></a>
+            <a href="#" class="nav-btn" data-page="business-consumer"><span>B2C</span></a>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div id="home" class="page-content active">
+            <div class="content-section">
+                <!-- Hero -->
+                <div class="hero-section">
+                    <h1 class="hero-title">Airmas Group</h1>
+                    <p class="hero-subtitle">Penyedia Solusi Teknologi Terintegrasi untuk Pendidikan, Bisnis & Pemerintahan</p>
+                    <a href="#" class="cta-button">Jelajahi Solusi Kami</a>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-section">
+                    <div class="stats-grid">
+                        <div><span class="stat-number" data-target="178">0</span><div class="stat-label">Proyek Selesai</div></div>
+                        <div><span class="stat-number" data-target="642">0</span><div class="stat-label">Klien Puas</div></div>
+                        <div><span class="stat-number" data-target="2150">0</span><div class="stat-label">Unit Terpasang</div></div>
+                        <div><span class="stat-number" data-target="68">0</span><div class="stat-label">Mitra Strategis</div></div>
+                    </div>
+                </div>
+
+                <!-- Tentang Kami -->
+                <div class="about-section">
+                    <h2 class="section-title">Tentang Kami</h2>
+                    <div class="about-slider">
+                        <div class="about-slides" id="aboutSlides">
+                            <div class="about-slide"></div>
+                            <div class="about-slide"></div>
+                            <div class="about-slide"></div>
+                        </div>
+                    </div>
+                    <div class="about-dots">
+                        <span class="dot active" onclick="currentAboutSlide(0)"></span>
+                        <span class="dot" onclick="currentAboutSlide(1)"></span>
+                        <span class="dot" onclick="currentAboutSlide(2)"></span>
+                    </div>
+                    <div class="about-text" id="aboutText">
+                        <p>Airmas Group (PT Air Mas Perkasa) merupakan perusahaan Teknologi Informasi yang bergerak di lini pengadaan barang dan jasa pemerintah, e-commerce, sewa dan Solution. Didirikan oleh Basuki Surodjo pada 4 April 2008, Airmas Group telah berpengalaman lebih dari 11 tahun dalam bidang IT, mulai dari bisnis distribusi, retail, sampai dengan Solution. Sejak berdirinya, Airmas Group telah menjalin kerja sama dengan brand-brand IT internasional dan telah melayani pelanggan mulai dari lembaga pemerintah dan korporasi. Kini Airmas Group tidak hanya bergerak di bidang IT, tetapi telah melebarkan sayap ke bidang-bidang usaha lain seperti bisnis food and beverages, fashion, dan lain-lain. Airmas Group berkomitmen untuk terus menjadi yang Terdepan, Terlengkap, Terluas, dan Tepercaya dalam melayani segala kebutuhan IT pelanggan-pelanggan Airmas Group.</p>
+                    </div>
+                </div>
+
+                <!-- Sambutan Founder -->
+                <div class="founder-section">
+                    <div class="founder-photo">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Rafly">
+                    </div>
+                    <div class="founder-text">
+                        <h2>Sambutan Founder</h2>
+                        <p><strong>Yth. Para Mitra, Klien, dan Keluarga Besar Airmas Group,</strong></p>
+                        <p>Assalamualaikum Warahmatullahi Wabarakatuh,</p>
+                        <p>Sejak didirikan pada tahun 2010, <strong>Airmas Group</strong> hadir dengan visi besar: menjadi mitra terpercaya dalam transformasi digital pendidikan dan bisnis di Indonesia melalui teknologi yang inovatif, berkualitas, dan berstandar tinggi.</p>
+                        <p>Saya, <strong>Rafly</strong>, selaku pendiri, sangat bangga melihat perjalanan kita dari sebuah mimpi menjadi perusahaan yang telah dipercaya oleh ratusan institusi di seluruh Indonesia.</p>
+                        <p>Terima kasih atas kepercayaan yang telah diberikan. Mari kita wujudkan masa depan Indonesia yang lebih cerdas!</p>
+                        <p>Wassalamualaikum Warahmatullahi Wabarakatuh.</p>
+                        <p><strong>Rafly</strong><br><small>Founder & CEO Airmas Group</small></p>
+                    </div>
+                </div>
+
+                <!-- Produk Unggulan -->
+                <h2 class="section-title">Produk Unggulan Kami</h2>
+                <div class="products-grid">
+                    <div class="product-card"><img src="https://cdn.pixabay.com/photo/2016/11/29/05/25/interactive-flat-panel-1867915_1280.jpg" alt=""><h3>Interactive Flat Panel</h3></div>
+                    <div class="product-card"><img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg" alt=""><h3>Laptop & PC Rakitan</h3></div>
+                    <div class="product-card"><img src="https://images.pexels.com/photos/394372/pexels-photo-394372.jpeg" alt=""><h3>Printer & Proyektor</h3></div>
+                    <div class="product-card"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt=""><h3>Mebeler Ergonomis</h3></div>
+                    <div class="product-card"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt=""><h3>Software Pendidikan</h3></div>
+                    <div class="product-card"><img src="https://images.unsplash.com/photo-1517433456452-d8dc952d8e35" alt=""><h3>Aksesoris Teknologi</h3></div>
+                </div>
+
+                <!-- Testimoni -->
+                <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+                <div class="reviews-grid">
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/44.jpg"><h4>Rina Wuliana</h4><div class="stars"></div><p>Interactive Flat Panel sangat membantu proses belajar!</p></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/32.jpg"><h4>Budi Santoso</h4><div class="stars"></div><p>PC rakitan performa tinggi, support super cepat!</p></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/68.jpg"><h4>Siti Nurhaliza</h4><div class="stars"></div><p>Proyektor jernih untuk ruang rapat!</p></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/86.jpg"><h4>Andi Pratama</h4><div class="stars"></div><p>Meja ergonomis bikin anak semangat belajar!</p></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/22.jpg"><h4>Putri Ayu</h4><div class="stars"></div><p>Software mudah dipakai guru!</p></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/57.jpg"><h4>Agus Salim</h4><div class="stars"></div><p>Stylus sangat responsif!</p></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/79.jpg"><h4>Dewi Lestari</h4><div class="stars"></div><p>Pelayanan after sales terbaik!</p></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/12.jpg"><h4>Rizky Ramadhani</h4><div class="stars"></div><p>Harga kompetitif, kualitas top!</p></div>
+                </div>
+
+                <!-- Hubungi Kami -->
+                <div class="contact-section">
+                    <h2 class="section-title">Hubungi Kami Sekarang</h2>
+                    <p>Tim kami siap membantu segala kebutuhan teknologi Anda — dari konsultasi hingga pengadaan skala besar.</p>
+                    <div class="contact-cards">
+                        <div class="contact-card"><i class="fas fa-phone"></i><h3>Telepon</h3><p>+62 811-2345-678</p></div>
+                        <div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+62 851-5676-0596</p></div>
+                        <div class="contact-card"><i class="fas fa-envelope"></i><h3>Email</h3><p>info@airmasgroup.co.id</p></div>
+                    </div>
+                    <a href="https://wa.me/6285156760596?text=Halo%20Airmas%20Group,%20saya%20mau%20konsultasi%20solusi%20teknologi" target="_blank" style="display:inline-block;background:#25d366;color:white;padding:20px 70px;font-size:1.5rem;font-weight:700;border-radius:70px;text-decoration:none;box-shadow:0 15px 40px rgba(37,211,102,.4);transition:.3s;">
+                        Chat via WhatsApp Sekarang
+                    </a>
+                </div>
+
+                <!-- Mitra Resmi -->
+                <div class="partner-section">
+                    <h2 class="section-title">Mitra Resmi Kami</h2>
+                    <div class="slider-container">
+                        <div class="slider-arrow prev" onclick="slide(-1)">←</div>
+                        <div class="slider-arrow next" onclick="slide(1)">→</div>
+                        <div class="slider-track" id="slider">
+                            <div class="partner-logo"><img src="https://www.tkdn.kemenperin.go.id/assets/images/logo-tkdn.png" alt=""></div>
+                            <div class="partner-logo"><img src="https://www.polytron.co.id/wp-content/uploads/2023/04/polytron-logo.png" alt=""></div>
+                            <div class="partner-logo"><img src="https://axiooworld.com/assets/img/logo-axioo.png" alt=""></div>
+                            <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Samsung_Logo.svg" alt=""></div>
+                            <div class="partner-logo"><img src="https://1000logos.net/wp-content/uploads/2017/06/Logo-Lenovo.png" alt=""></div>
+                            <div class="partner-logo"><img src="https://1000logos.net/wp-content/uploads/2017/08/HP-Logo-1999.png" alt=""></div>
+                            <div class="partner-logo"><img src="https://1000logos.net/wp-content/uploads/2017/06/Dell-Logo.png" alt=""></div>
+                            <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Epson_logo.svg" alt=""></div>
+                            <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/LG_logo_%282015%29.svg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/6285156760596?text=Halo%20Airmas%20Group,%20saya%20mau%20konsultasi" target="_blank" class="wa-floating">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-phone"></i> +62 811-2345-678</p>
+                <p><i class="fab fa-whatsapp"></i> +62 851-5676-0596</p>
+                <p><i class="fas fa-envelope"></i> info@airmasgroup.co.id</p>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Bogor KM 39, Cibinong, Kab. Bogor</p>
+            </div>
+            <div><h3>Ikuti Kami</h3><p>Tetap terhubung untuk update terbaru!</p></div>
+        </div>
+        <hr style="border:none;height:1px;background:linear-gradient(90deg,transparent,#667eea,transparent);margin:40px 0;">
+        <div class="social-icons">
+            <a href="https://instagram.com/raflydhani" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:info@airmasgroup.co.id"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/6285156760596" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="copyright">© 2025 Airmas Group. All rights reserved. | Dibuat dengan ❤️ di Indonesia</div>
+    </div>
+
+    <script>
+        // MENU GILA
+        const menuBtn = document.getElementById('menuBtn');
+        const nav = document.getElementById('nav');
+        const menuClose = document.getElementById('menuClose');
+
+        menuBtn.addEventListener('click', () => nav.classList.add('active'));
+        menuClose.addEventListener('click', () => nav.classList.remove('active'));
+        nav.addEventListener('click', (e) => { if (e.target === nav) nav.classList.remove('active'); });
+
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Counter
+        setTimeout(() => {
+            document.querySelectorAll('.stat-number').forEach(c => {
+                let target = +c.getAttribute('data-target'), count = 0, inc = target / 150;
+                const timer = setInterval(() => {
+                    count += inc;
+                    if (count >= target) { c.innerText = target + '+'; clearInterval(timer); }
+                    else c.innerText = Math.ceil(count);
+                }, 30);
+            });
+        }, 800);
+
+        // Bintang testimoni
+        const observer = new IntersectionObserver(e => e.forEach(en => en.isIntersecting && en.target.classList.add('visible')));
+        document.querySelectorAll('.review-card').forEach(r => observer.observe(r));
+
+        // About Slider Auto 5 detik
+        let aboutIndex = 0;
+        const aboutSlides = document.getElementById('aboutSlides');
+        const dots = document.querySelectorAll('.dot');
+        const aboutText = document.getElementById('aboutText');
+        function showAboutSlide(n){
+            aboutIndex = (n + 3) % 3;
+            aboutSlides.style.transform = `translateX(-${aboutIndex * 100}%)`;
+            dots.forEach((d,i) => d.classList.toggle('active', i === aboutIndex));
+            aboutText.classList.remove('visible');
+            setTimeout(() => aboutText.classList.add('visible'), 300);
+        }
+        function currentAboutSlide(n){ showAboutSlide(n); }
+        setInterval(() => showAboutSlide(aboutIndex + 1), 5000);
+        setTimeout(() => aboutText.classList.add('visible'), 1000);
+
+        // Mitra Slider
+        let currentSlide = 0;
+        function slide(dir){
+            const track = document.getElementById('slider');
+            const total = track.children.length;
+            currentSlide = (currentSlide + dir + total) % total;
+            track.style.transform = `translateX(-${currentSlide * 260}px)`;
+        }
+    </script>
+</body>
+</html>
