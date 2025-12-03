@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk Premium – Airmas Group</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root { --primary: #0066ff; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+
+        /* Background + Particles KEMBALI SEPERTI SEMULA */
+        #animated-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: linear-gradient(135deg, #0a0a0a 0%, #001a33 50%, #0a0a0a 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 18s ease infinite;
+        }
+        @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        .particle {
+            position: absolute; width: 3px; height: 3px; background: rgba(0,102,255,0.6); border-radius: 50%;
+            animation: floatParticle 20s infinite linear;
+        }
+        @keyframes floatParticle {
+            0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
+        }
+
+        /* Header */
+        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); z-index: 9999; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        nav { max-width: 1400px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+        .logo { font-family: 'Clash Display', sans-serif; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, #0066ff, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-family: 'Clash Display', sans-serif; font-size: clamp(60px,12vw,140px); font-weight: 700; background: linear-gradient(135deg,#fff,#a0c4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 28px; opacity: 0.9; margin: 20px 0 40px; }
+        .hero .cta { padding: 18px 50px; background: var(--primary); color: white; border-radius: 60px; font-size: 22px; font-weight: 600; text-decoration: none; box-shadow: 0 20px 50px rgba(0,102,255,0.4); transition: all .5s; }
+        .hero .cta:hover { transform: translateY(-10px); box-shadow: 0 30px 70px rgba(0,102,255,0.6); }
+
+        /* Section Title */
+        .section-title { font-family: 'Clash Display', sans-serif; text-align: center; font-size: clamp(50px,9vw,100px); font-weight: 700; padding: 140px 20px 80px; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Product Grid – KEMBALI ASYMMETRIS & DINAMIS */
+        .product-grid { max-width: 1600px; margin: 0 auto; padding: 0 40px 200px; display: grid; grid-template-columns: repeat(12,1fr); gap: 40px; }
+        .product:nth-child(1){grid-column:span 7}.product:nth-child(2){grid-column:span 5}
+        .product:nth-child(3){grid-column:span 5}.product:nth-child(4){grid-column:span 7}
+        .product:nth-child(5){grid-column:span 12}
+        @media(max-width:1024px){.product{grid-column:span 12 !important}}
+
+        .product { padding:50px 40px; border-radius:40px; background:rgba(255,255,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); transition:all .8s cubic-bezier(.25,.8,.25,1); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
+        .product:hover { transform:translateY(-30px) scale(1.03); box-shadow:0 40px 100px rgba(0,102,255,0.3); border-color:var(--primary); }
+        .product img { width:100%; height:320px; object-fit:contain; margin-bottom:30px; filter:drop-shadow(0 20px 40px rgba(0,0,0,0.5)); transition:transform .8s; }
+        .product:nth-child(1):hover img{transform:translateY(-20px) scale(1.1)}
+        .product:nth-child(2):hover img{transform:translateX(-15px) rotate(-5deg)}
+        .product:nth-child(3):hover img{transform:translateX(15px) rotate(5deg)}
+        .product:nth-child(4):hover img{transform:translateY(-25px) rotateY(15deg)}
+        .product:nth-child(5):hover img{transform:scale(1.15) rotateY(-10deg)}
+
+        .product h3 { font-family:'Clash Display',sans-serif; font-size:42px; margin:20px 0 12px; }
+        .product .tagline { font-size:19px; color:#aaa; margin-bottom:20px; }
+        .product .price { font-size:18px; color:#00d4ff; font-weight:600; margin-bottom:30px; }
+
+        /* Tombol — SUDAH PASTI JALAN */
+        .btn { padding:16px 40px; background:var(--primary); color:white; border-radius:50px; font-weight:600; text-decoration:none; display:inline-block; transition:all .4s; }
+        .btn:hover { background:#3388ff; transform:scale(1.05); }
+
+        .wa-float { position:fixed; bottom:30px; right:30px; width:70px; height:70px; background:#25d366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:38px; box-shadow:0 10px 40px rgba(37,211,102,0.6); z-index:999; animation:floatBtn 3s ease-in-out infinite; }
+        @keyframes floatBtn{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+    </style>
+</head>
+<body>
+
+    <div id="animated-bg"></div>
+    <div class="particles"></div>
+
+    <header>
+        <nav>
+            <div class="logo">AirmasGroup</div>
+            <div style="display:flex;gap:30px;font-weight:500;">
+                <a href="./index.html" style="color:#ccc;text-decoration:none;">Beranda</a>
+                <a href="./produk.html" style="color:#fff;text-decoration:none;">Produk</a>
+                <a href="#" style="color:#ccc;text-decoration:none;">Tentang</a>
+                <a href="#" style="color:#ccc;text-decoration:none;">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Airmas Group</h1>
+        <p>Teknologi Premium untuk Masa Depan Indonesia</p>
+        <a href="#katalog" class="cta">Lihat Produk Unggulan</a>
+    </section>
+
+    <h2 class="section-title" id="katalog">Produk Premium</h2>
+
+    <div class="product-grid">
+
+        <!-- 1. Flip Pro 85" -->
+        <div class="product">
+            <img src="https://www.eskanusa.id/wp-content/uploads/2023/08/Samsung-Flip-Pro-WMB-Series-Interactive-Display-1.png" alt="Flip Pro 85">
+            <h3>Flip Pro 85"</h3>
+            <p class="tagline">Kolaborasi 4K Tanpa Batas</p>
+            <p class="price">Rp98.000.000</p>
+            <a href="./flip-85.html" class="btn">Lihat Detail →</a>
+        </div>
+
+        <!-- 2. Flip Pro 75" -->
+        <div class="product">
+            <img src="https://samsungmagazine.eu/wp-content/uploads/2021/07/samsung-flip-pro-75-01.jpg" alt="Flip Pro 75">
+            <h3>Flip Pro 75"</h3>
+            <p class="tagline">Interactive Display Terbaik</p>
+            <p class="price">Rp78.000.000</p>
+            <a href="./flip-75.html" class="btn">Lihat Detail →</a>
+        </div>
+
+        <!-- 3. ThinkPad P1 Gen 7 -->
+        <div class="product">
+            <img src="https://p3-ofp.static.pub/fes/cms/2024/06/27/9n7q8k7v8m9n0p8q9w8x9v0n1m2k3j456789.png" alt="ThinkPad">
+            <h3>ThinkPad P1 Gen 7</h3>
+            <p class="tagline">Workstation Mobile Terkuat</p>
+            <p class="price">Rp72.000.000++</p>
+            <a href="./thinkpad-p1.html" class="btn">Lihat Detail →</a>
+        </div>
+
+        <!-- 4. Epson L18050 -->
+        <div class="product">
+            <img src="https://files.epson.com/assets/products/001/001/001/001001001/L18050_690x460.png" alt="Epson">
+            <h3>Epson L18050 A3+</h3>
+            <p class="tagline">Printer Foto Hemat 90%</p>
+            <p class="price">Rp14.800.000</p>
+            <a href="./epson-l18050.html" class="btn">Lihat Detail →</a>
+        </div>
+
+        <!-- 5. ViewBoard 98" -->
+        <div class="product">
+            <img src="https://www.viewsonic.com/globalassets/images/products/ifp9850-4/viewboard-ifp9850-front-large.png" alt="ViewBoard">
+            <h3>ViewBoard 98"</h3>
+            <p class="tagline">Panel Terbesar di Indonesia</p>
+            <p class="price">Rp168.000.000</p>
+            <a href="./viewboard-98.html" class="btn">Lihat Detail →</a>
+        </div>
+
+    </div>
+
+    <a href="https://wa.me/6285156760596" target="_blank" class="wa-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Partikel KEMBALI AKTIF -->
+    <script>
+        const p = document.querySelector('.particles');
+        for(let i=0;i<50;i++){
+            const el=document.createElement('div');
+            el.className='particle';
+            el.style.left=Math.random()*100+'%';
+            el.style.animationDelay=Math.random()*20+'s';
+            el.style.animationDuration=(Math.random()*10+15)+'s';
+            p.appendChild(el);
+        }
+    </script>
+</body>
+</html>
