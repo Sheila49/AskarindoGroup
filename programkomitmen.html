@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program & Komitmen - Kalogirourania</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --dark: #0a0a0a;
+            --light: #f8f9ff;
+            --gray: #888;
+            --white: #ffffff;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Background Animated */
+        #animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #000000 0%, #001a33 50%, #000000 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Particles */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 102, 255, 0.4);
+            border-radius: 50%;
+            animation: floatParticle 25s infinite linear;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 80px;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+        .logo {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 15px;
+            font-size: 15px;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        /* Hero Section */
+        .hero-section {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 80px;
+        }
+        .hero-section h1 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: clamp(50px, 10vw, 100px);
+            font-weight: 700;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: fadeUp 1s ease;
+        }
+        .hero-section p {
+            font-size: clamp(18px, 3vw, 24px);
+            color: #ccc;
+            max-width: 800px;
+            line-height: 1.6;
+            animation: fadeUp 1.2s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Clash Display', sans-serif;
+            text-align: center;
+            font-size: clamp(40px, 7vw, 70px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.7;
+        }
+
+        /* Program Cards */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        .program-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        .program-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 25px 60px rgba(0,102,255,0.3);
+        }
+        .program-header {
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .program-icon {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .program-header h3 {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 700;
+        }
+        .program-body {
+            padding: 35px 30px;
+        }
+        .program-body p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .program-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .program-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .program-features li:last-child {
+            border-bottom: none;
+        }
+        .program-features i {
+            color: #00d4ff;
+            font-size: 1.2rem;
+        }
+
+        /* Stats Section */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+            padding: 50px 40px;
+            background: rgba(0,102,255,0.08);
+            border-radius: 25px;
+            border: 1px solid rgba(0,102,255,0.2);
+            backdrop-filter: blur(15px);
+        }
+        .impact-stat {
+            text-align: center;
+        }
+        .impact-number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .impact-label {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        /* Commitment Grid */
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .commitment-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+            text-align: center;
+        }
+        .commitment-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(0,102,255,0.1);
+        }
+        .commitment-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+        }
+        .commitment-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .commitment-card p {
+            color: #ccc;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* CSR Timeline */
+        .csr-timeline {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .csr-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .csr-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .csr-year {
+            min-width: 120px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .csr-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+        .csr-content p {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        /* Certification Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .cert-card {
+            background: rgba(255,255,255,0.05);
+            padding: 35px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .cert-card:hover {
+            border-color: #00d4ff;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,102,255,0.3);
+        }
+        .cert-badge {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+        .cert-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .cert-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0,102,255,0.15), rgba(0,212,255,0.1));
+            border: 1px solid rgba(0,102,255,0.3);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 80px 0;
+            backdrop-filter: blur(15px);
+        }
+        .cta-section h2 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: clamp(35px, 6vw, 55px);
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            color: white;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(0,102,255,0.4);
+            transition: all 0.4s ease;
+        }
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,102,255,0.6);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            padding: 60px 40px;
+            margin: 60px 0;
+            background: rgba(255,255,255,0.03);
+            border-radius: 25px;
+            border-left: 5px solid #0066ff;
+        }
+        .quote-section blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .quote-author {
+            color: #00d4ff;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.5);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        footer p {
+            color: #888;
+            margin: 10px 0;
+        }
+
+        /* WA Float */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+            z-index: 999;
+            text-decoration: none;
+            animation: floatBtn 3s ease-in-out infinite;
+        }
+        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .program-grid { grid-template-columns: 1fr; }
+            .csr-item { flex-direction: column; gap: 15px; }
+            .csr-year { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background -->
+    <div id="animated-bg"></div>
+    <div class="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Kalogirourania</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="#program">Program Kami</a>
+                <a href="#csr">CSR</a>
+                <a href="#komitmen">Komitmen</a>
+                <a href="#sertifikasi">Sertifikasi</a>
+                <a href="#kontak">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-section">
+        <h1>Program & Komitmen</h1>
+        <p>Dedikasi kami untuk menciptakan dampak positif bagi pendidikan, bisnis, dan masyarakat Indonesia melalui program berkelanjutan</p>
+    </section>
+
+    <!-- Impact Stats -->
+    <div class="section">
+        <div class="impact-stats">
+            <div class="impact-stat">
+                <div class="impact-number">5000+</div>
+                <div class="impact-label">Individu Terlatih</div>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-number">150+</div>
+                <div class="impact-label">Sekolah Mitra CSR</div>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-number">2500+</div>
+                <div class="impact-label">Perangkat Didonasikan</div>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-number">40%</div>
+                <div class="impact-label">TKDN Minimum</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Program Section -->
+    <section id="program" class="section">
+        <h2 class="section-title">Program Unggulan Kami</h2>
+        <p class="section-subtitle">Inisiatif strategis yang dirancang untuk memberdayakan SDM dan meningkatkan akses teknologi di Indonesia</p>
+        
+        <div class="program-grid">
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Pelatihan Teknologi</h3>
+                </div>
+                <div class="program-body">
+                    <p>Program pelatihan komprehensif untuk meningkatkan kompetensi digital guru, siswa, dan profesional di seluruh Indonesia dengan fokus pada teknologi terkini.</p>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check-circle"></i> Workshop gratis untuk guru setiap bulan</li>
+                        <li><i class="fas fa-check-circle"></i> Pelatihan coding untuk siswa SMA</li>
+                        <li><i class="fas fa-check-circle"></i> Sertifikasi internasional tersedia</li>
+                        <li><i class="fas fa-check-circle"></i> Materi pembelajaran digital lengkap</li>
+                        <li><i class="fas fa-check-circle"></i> Mentoring dari praktisi industri</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Digital Literacy</h3>
+                </div>
+                <div class="program-body">
+                    <p>Kampanye literasi digital nasional untuk meningkatkan pemahaman masyarakat tentang teknologi, keamanan siber, dan pemanfaatan internet yang bijak.</p>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check-circle"></i> Seminar online gratis bulanan</li>
+                        <li><i class="fas fa-check-circle"></i> Panduan cybersecurity praktis</li>
+                        <li><i class="fas fa-check-circle"></i> Workshop media sosial sehat</li>
+                        <li><i class="fas fa-check-circle"></i> Materi edukasi orang tua</li>
+                        <li><i class="fas fa-check-circle"></i> Kampanye anti-hoax digital</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Community Outreach</h3>
+                </div>
+                <div class="program-body">
+                    <p>Program penjangkauan komunitas untuk membawa teknologi ke daerah terpencil dan membantu transformasi digital UMKM lokal.</p>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check-circle"></i> Bantuan setup sistem UMKM</li>
+                        <li><i class="fas fa-check-circle"></i> Donasi perangkat ke daerah 3T</li>
+                        <li><i class="fas fa-check-circle"></i> Training e-commerce untuk pelaku usaha</li>
+                        <li><i class="fas fa-check-circle"></i> Konsultasi teknologi gratis</li>
+                        <li><i class="fas fa-check-circle"></i> Partnership dengan komunitas lokal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSR Timeline -->
+    <section id="csr" class="section">
+        <h2 class="section-title">Program CSR Kami</h2>
+        <p class="section-subtitle">Jejak kontribusi nyata kami dalam meningkatkan kualitas pendidikan dan kehidupan masyarakat Indonesia</p>
+        
+        <div class="csr-timeline">
+            <div class="csr-item">
+                <div class="csr-year">2015</div>
+                <div class="csr-content">
+                    <h3>Donasi Lab Komputer</h3>
+                    <p>Mendonasikan 25 unit komputer lengkap dengan furniture ke 5 sekolah di daerah terpencil Papua dan Kalimantan. Program ini berhasil meningkatkan akses pendidikan teknologi untuk lebih dari 1,200 siswa.</p>
+                </div>
+            </div>
+
+            <div class="csr-item">
+                <div class="csr-year">2017</div>
+                <div class="csr-content">
+                    <h3>Pelatihan Guru Digital</h3>
+                    <p>Meluncurkan program pelatihan intensif untuk 500 guru se-Indonesia dalam mengintegrasikan teknologi dalam pembelajaran. Program ini mencakup workshop, mentoring, dan pemberian sertifikat kompetensi.</p>
+                </div>
+            </div>
+
+            <div class="csr-item">
+                <div class="csr-year">2019</div>
+                <div class="csr-content">
+                    <h3>Smart Classroom Initiative</h3>
+                    <p>Membangun 15 smart classroom dengan interactive flat panel dan projector di sekolah negeri. Dilengkapi dengan pelatihan intensif untuk guru dan sistem maintenance berkelanjutan selama 3 tahun.</p>
+                </div>
+            </div>
+
+            <div class="csr-item">
+                <div class="csr-year">2021</div>
+                <div class="csr-content">
+                    <h3>Pandemi Response Program</h3>
+                    <p>Donasi 300 laptop untuk siswa kurang mampu agar dapat mengikuti pembelajaran online selama pandemi. Termasuk paket internet gratis selama 6 bulan dan technical support 24/7.</p>
+                </div>
+            </div>
+
+            <div class="csr-item">
+                <div class="csr-year">2023</div>
+                <div class="csr-content">
+                    <h3>UMKM Digital Transformation</h3>
+                    <p>Membantu 200 UMKM bertransformasi digital dengan memberikan perangkat, software, dan pelatihan e-commerce. Program ini meningkatkan penjualan rata-rata UMKM hingga 150% dalam 6 bulan.</p>
+                </div>
+            </div>
+
+            <div class="csr-item">
+                <div class="csr-year">2025</div>
+                <div class="csr-content">
+                    <h3>AI for Education</h3>
+                    <p>Meluncurkan program pilot AI-assisted learning di 10 sekolah mitra dengan menyediakan tools AI, pelatihan guru, dan monitoring dampak pembelajaran selama 1 tahun penuh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <div class="section">
+        <div class="quote-section">
+            <blockquote>"Kesuksesan sejati diukur dari seberapa banyak kita memberi dampak positif kepada masyarakat, bukan hanya dari profit yang kita raih."</blockquote>
+            <div class="quote-author">— Tim Kalogirourania</div>
+        </div>
+    </div>
+
+    <!-- Commitment Section -->
+    <section id="komitmen" class="section">
+        <h2 class="section-title">Komitmen Kami</h2>
+        <p class="section-subtitle">Janji kami kepada pelanggan dan masyarakat yang menjadi fondasi setiap keputusan bisnis</p>
+        
+        <div class="commitment-grid">
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Kualitas Terjamin</h3>
+                <p>100% produk original dengan garansi resmi. Quality control ketat pada setiap item untuk memastikan performa optimal.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-flag"></i></div>
+                <h3>TKDN 40%+</h3>
+                <p>Mendukung industri lokal dengan mempertahankan Tingkat Komponen Dalam Negeri minimal 40% pada setiap proyek.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Transparansi</h3>
+                <p>Praktik bisnis transparan dan etis. Komunikasi terbuka dengan klien tentang harga, timeline, dan proses pengadaan.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-lock"></i></div>
+                <h3>Keamanan Data</h3>
+                <p>Perlindungan data pelanggan dengan enkripsi tingkat enterprise dan kepatuhan penuh terhadap regulasi privasi data.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Ramah Lingkungan</h3>
+                <p>Prioritas pada produk eco-friendly, pengemasan minimal, dan program daur ulang perangkat elektronik lama.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-headset"></i></div>
+                <h3>Support 24/7</h3>
+                <p>Layanan customer support tersedia 24/7 dengan waktu respons maksimal 3 jam untuk setiap pertanyaan atau kendala.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-tools"></i></div>
+                <h3>Purna Jual</h3>
+                <p>Garansi komprehensif, maintenance berkala, dan spare parts tersedia. Technical support gratis selama masa garansi.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-clock"></i></div>
+                <h3>Tepat Waktu</h3>
+                <p>Komitmen pengiriman dan instalasi tepat waktu. Jaminan uang kembali jika terlambat tanpa alasan force majeure.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-dollar-sign"></i></div>
+                <h3>Harga Kompetitif</h3>
+                <p>Best value for money dengan harga yang jujur dan transparan. Tanpa biaya tersembunyi, fleksibilitas pembayaran tersedia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section id="sertifikasi" class="section">
+        <h2 class="section-title">Sertifikasi & Standar</h2>
+        <p class="section-subtitle">Komitmen kami terhadap standar kualitas internasional dan regulasi pemerintah Indonesia</p>
+        
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-award"></i></div>
+                <h4>ISO 9001:2015</h4>
+                <p>Sistem Manajemen Mutu Internasional</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+                <h4>TKDN Certified</h4>
+                <p>Tingkat Komponen Dalam Negeri 40%+</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-shield-alt"></i></div>
+                <h4>SNI Compliant</h4>
+                <p>Standar Nasional Indonesia</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-check-circle"></i></div>
+                <h4>Verified Supplier</h4>
+                <p>Partner Resmi Brand Internasional</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-leaf"></i></div>
+                <h4>Eco-Friendly</h4>
+                <p>Green Business Certification</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-lock"></i></div>
+                <h4>Data Security</h4>
+                <p>ISO 27001 Information Security</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="section">
+        <div class="cta-section">
+            <h2>Mari Berkolaborasi untuk Indonesia Lebih Baik</h2>
+            <p>Bergabunglah dengan ratusan institusi yang telah mempercayai kami sebagai partner teknologi terpercaya</p>
+            <a href="#kontak" class="cta-btn">Hubungi Kami Sekarang</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="section">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p class="section-subtitle">Diskusikan program kemitraan dan CSR bersama tim kami</p>
+        
+        <div class="commitment-grid">
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <p><a href="mailto:raflyasmyramadhani@gmail.com" style="color: #00d4ff; text-decoration: none;">raflyasmyramadhani@gmail.com</a></p>
+            </div>
+            
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/6285156760596" target="_blank" style="color: #00d4ff; text-decoration: none;">+62 851-5676-0596</a></p>
+            </div>
+            
+            <div class="commitment-card">
+                <div class="commitment-icon"><i class="fab fa-instagram"></i></div>
+                <h3>Instagram</h3>
+                <p><a href="https://instagram.com/raflydhani" target="_blank" style="color: #00d4ff; text-decoration: none;">@raflydhani</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Kalogirourania. All rights reserved.</p>
+        <p>Bersama Membangun Indonesia Digital</p>
+    </footer>
+
+    <!-- WA Float -->
+    <a href="https://wa.me/6285156760596" target="_blank" class="wa-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Particle Script -->
+    <script>
+        // Generate particles
+        const particlesContainer = document.querySelector('.particles');
+        for (let i = 0; i < 60; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.program-card, .commitment-card, .csr-item, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for impact stats
+        const animateCounter = (element, target) => {
+            const isPercentage = element.textContent.includes('%');
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (isPercentage ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (isPercentage ? '%' : '+');
+                }
+            }, 20);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.impact-number');
+                    const targetText = number.textContent;
+                    const target = parseInt(targetText.replace(/\D/g, ''));
+                    animateCounter(number, target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.impact-stat').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // Add stagger animation to CSR timeline
+        const csrItems = document.querySelectorAll('.csr-item');
+        csrItems.forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>

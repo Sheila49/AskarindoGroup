@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Kalogirourania</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --dark: #0a0a0a;
+            --light: #f8f9ff;
+            --gray: #888;
+            --white: #ffffff;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Background Animated */
+        #animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #000000 0%, #001a33 50%, #000000 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Particles */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 102, 255, 0.4);
+            border-radius: 50%;
+            animation: floatParticle 25s infinite linear;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 80px;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+        .logo {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 15px;
+            font-size: 15px;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        /* Hero Section */
+        .hero-section {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 80px;
+        }
+        .hero-section h1 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: clamp(50px, 10vw, 100px);
+            font-weight: 700;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: fadeUp 1s ease;
+        }
+        .hero-section p {
+            font-size: clamp(18px, 3vw, 24px);
+            color: #ccc;
+            max-width: 800px;
+            line-height: 1.6;
+            animation: fadeUp 1.2s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #0066ff, transparent);
+        }
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .timeline-content {
+            width: 45%;
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(0,102,255,0.1);
+        }
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 30px rgba(0,102,255,0.4);
+        }
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+        .timeline-content p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(0,102,255,0.1);
+        }
+        .stat-number {
+            font-weight: 800;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        .team-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(0,102,255,0.3);
+        }
+        .team-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+        .team-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .team-card .role {
+            color: #00d4ff;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .team-card p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Value Cards */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .value-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(0,102,255,0.1);
+        }
+        .value-icon {
+            font-size: 3rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .value-card p {
+            line-height: 1.7;
+            color: #ccc;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Clash Display', sans-serif;
+            text-align: center;
+            font-size: clamp(40px, 7vw, 70px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: rgba(0,102,255,0.1);
+            border: 1px solid rgba(0,102,255,0.3);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 80px 0;
+            backdrop-filter: blur(15px);
+        }
+        .cta-section h2 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: clamp(35px, 6vw, 55px);
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            color: white;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(0,102,255,0.4);
+            transition: all 0.4s ease;
+        }
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,102,255,0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.5);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        footer p {
+            color: #888;
+            margin: 10px 0;
+        }
+
+        /* WA Float */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+            z-index: 999;
+            text-decoration: none;
+            animation: floatBtn 3s ease-in-out infinite;
+        }
+        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .timeline::before { left: 20px; }
+            .timeline-item { flex-direction: column !important; }
+            .timeline-content { width: 100%; margin-left: 60px; }
+            .timeline-year { left: 20px; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background -->
+    <div id="animated-bg"></div>
+    <div class="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Kalogirourania</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="#sejarah">Sejarah</a>
+                <a href="#visi-misi">Visi & Misi</a>
+                <a href="#tim">Tim Kami</a>
+                <a href="#nilai">Nilai</a>
+                <a href="#kontak">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-section">
+        <h1>Tentang Kalogirourania</h1>
+        <p>Lebih dari sekadar penyedia teknologi, kami adalah mitra transformasi digital Anda menuju masa depan yang lebih efisien dan produktif</p>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Tahun Pengalaman</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">178+</div>
+                <div class="stat-label">Proyek Selesai</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">642+</div>
+                <div class="stat-label">Klien Puas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">68+</div>
+                <div class="stat-label">Mitra Strategis</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Section -->
+    <section id="sejarah" class="section">
+        <h2 class="section-title">Perjalanan Kami</h2>
+        <p class="section-subtitle">Dari startup kecil hingga menjadi pemimpin solusi teknologi terintegrasi di Indonesia</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Lahirnya Visi</h3>
+                    <p>Kalogirourania didirikan dengan visi revolusioner untuk menghadirkan solusi teknologi berkualitas tinggi yang terjangkau bagi sektor pendidikan, bisnis, dan pemerintahan di Indonesia.</p>
+                </div>
+                <div class="timeline-year">2010</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Ekspansi Regional</h3>
+                    <p>Membuka kantor cabang di 5 kota besar Indonesia dan menjalin kemitraan strategis dengan brand internasional terkemuka untuk memperluas jangkauan layanan.</p>
+                </div>
+                <div class="timeline-year">2015</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Inovasi Digital</h3>
+                    <p>Meluncurkan platform e-procurement pertama dan memperkenalkan solusi interactive learning untuk transformasi digital pendidikan Indonesia.</p>
+                </div>
+                <div class="timeline-year">2018</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Pencapaian Milestone</h3>
+                    <p>Meraih sertifikasi ISO 9001:2015 dan melayani lebih dari 500 institusi pendidikan serta 100+ perusahaan di seluruh Indonesia.</p>
+                </div>
+                <div class="timeline-year">2020</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Masa Depan Cerah</h3>
+                    <p>Terus berinovasi dengan AI dan IoT solutions, berkomitmen menjadi pemimpin pasar teknologi terintegrasi dengan layanan 24/7 dan dukungan purna jual terbaik.</p>
+                </div>
+                <div class="timeline-year">2025</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="visi-misi" class="section">
+        <h2 class="section-title">Visi & Misi</h2>
+        <p class="section-subtitle">Komitmen kami untuk membawa Indonesia ke era transformasi digital yang inklusif dan berkelanjutan</p>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-eye"></i></div>
+                <h3>Visi Kami</h3>
+                <p>Menjadi perusahaan penyedia solusi teknologi terintegrasi terpercaya dan terdepan di Indonesia, yang mampu mengakselerasi transformasi digital di berbagai sektor dengan inovasi berkelanjutan dan layanan berkelas dunia.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+                <h3>Misi Kami</h3>
+                <p>Menghadirkan produk dan layanan teknologi berkualitas tinggi yang terjangkau, memberikan dukungan purna jual excellent, dan memberdayakan SDM Indonesia melalui program pelatihan dan edukasi berkelanjutan.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-heart"></i></div>
+                <h3>Komitmen Sosial</h3>
+                <p>Berkontribusi aktif dalam pengembangan pendidikan Indonesia melalui program CSR, donasi perangkat teknologi, dan pelatihan gratis untuk meningkatkan literasi digital di daerah terpencil.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="tim" class="section">
+        <h2 class="section-title">Tim Profesional</h2>
+        <p class="section-subtitle">Didukung oleh para ahli berpengalaman yang berkomitmen memberikan solusi terbaik untuk setiap kebutuhan Anda</p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Management Team</h3>
+                <div class="role">Kepemimpinan Visioner</div>
+                <p>Tim manajemen dengan pengalaman 15+ tahun di industri teknologi, memimpin dengan integritas dan fokus pada kepuasan pelanggan.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Technical Team</h3>
+                <div class="role">Ahli Teknologi</div>
+                <p>Engineer bersertifikat internasional yang siap memberikan solusi teknis kompleks dan dukungan instalasi profesional 24/7.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-icon"><i class="fas fa-shopping-cart"></i></div>
+                <h3>Sales & Marketing</h3>
+                <div class="role">Konsultan Solusi</div>
+                <p>Tim sales profesional yang memahami kebutuhan klien dan memberikan rekomendasi produk terbaik sesuai budget dan kebutuhan spesifik.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-icon"><i class="fas fa-headset"></i></div>
+                <h3>Customer Support</h3>
+                <div class="role">Layanan Prima</div>
+                <p>Tim support responsif yang siap membantu Anda kapan saja dengan waktu respons rata-rata di bawah 1 jam untuk setiap pertanyaan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="nilai" class="section">
+        <h2 class="section-title">Nilai-Nilai Kami</h2>
+        <p class="section-subtitle">Prinsip fundamental yang menjadi fondasi setiap keputusan dan tindakan kami</p>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Kualitas Terjamin</h3>
+                <p>100% produk original dengan garansi resmi. Setiap item melewati quality control ketat untuk memastikan performa optimal dan kepuasan jangka panjang.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Integritas Bisnis</h3>
+                <p>Transparansi, kejujuran, dan etika bisnis adalah prioritas utama. Kami membangun kepercayaan melalui praktik bisnis yang bertanggung jawab.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Inovasi Berkelanjutan</h3>
+                <p>Terus berinovasi mengikuti perkembangan teknologi terkini untuk memberikan solusi yang relevan dan kompetitif di pasar global.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-users"></i></div>
+                <h3>Customer Centric</h3>
+                <p>Kepuasan pelanggan adalah ukuran kesuksesan kami. Setiap keputusan diambil dengan mempertimbangkan dampak terbaik bagi klien.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Ramah Lingkungan</h3>
+                <p>Komitmen terhadap keberlanjutan dengan memprioritaskan produk eco-friendly dan praktik bisnis yang mengurangi jejak karbon.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-flag"></i></div>
+                <h3>TKDN 40%+</h3>
+                <p>Mendukung industri lokal dengan menjaga Tingkat Komponen Dalam Negeri minimal 40% untuk berkontribusi pada ekonomi Indonesia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="section">
+        <div class="cta-section">
+            <h2>Siap Bertransformasi Bersama Kami?</h2>
+            <p>Mari wujudkan visi digital Anda dengan solusi teknologi terbaik dari Kalogirourania</p>
+            <a href="#kontak" class="cta-btn">Hubungi Kami Sekarang</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="section">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p class="section-subtitle">Tim kami siap membantu mewujudkan solusi teknologi terbaik untuk kebutuhan Anda</p>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <p><a href="mailto:raflyasmyramadhani@gmail.com" style="color: #00d4ff; text-decoration: none;">raflyasmyramadhani@gmail.com</a></p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/6285156760596" target="_blank" style="color: #00d4ff; text-decoration: none;">+62 851-5676-0596</a></p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon"><i class="fab fa-instagram"></i></div>
+                <h3>Instagram</h3>
+                <p><a href="https://instagram.com/raflydhani" target="_blank" style="color: #00d4ff; text-decoration: none;">@raflydhani</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Kalogirourania. All rights reserved.</p>
+        <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
+    </footer>
+
+    <!-- WA Float -->
+    <a href="https://wa.me/6285156760596" target="_blank" class="wa-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Particle Script -->
+    <script>
+        // Generate particles
+        const particlesContainer = document.querySelector('.particles');
+        for (let i = 0; i < 60; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.timeline-item, .stat-card, .team-card, .value-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 20);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const target = parseInt(number.textContent);
+                    animateCounter(number, target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statsObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
