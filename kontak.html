@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak Kami - Kalogirourania</title>
+    <title>Kontak Kami - Askarindo Integrasi Group</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -11,12 +11,12 @@
     
     <style>
         :root {
-            --primary: #0066ff;
-            --primary-dark: #0052cc;
-            --dark: #0a0a0a;
-            --light: #f8f9ff;
-            --gray: #888;
+            --primary: #2B7A8C;
+            --primary-light: #3B96A9;
+            --primary-dark: #1D5563;
+            --dark: #000000;
             --white: #ffffff;
+            --gray: #cccccc;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
@@ -30,7 +30,7 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, #000000 0%, #001a33 50%, #000000 100%);
+            background: linear-gradient(135deg, #000000 0%, #0d3d47 50%, #000000 100%);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
         }
@@ -50,7 +50,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: rgba(0, 102, 255, 0.4);
+            background: rgba(43, 122, 140, 0.4);
             border-radius: 50%;
             animation: floatParticle 25s infinite linear;
         }
@@ -65,10 +65,10 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             height: 80px;
-            background: rgba(10,10,10,0.9);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(20px);
             z-index: 9999;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         nav {
             max-width: 1400px;
@@ -80,13 +80,23 @@
             padding: 0 40px;
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+        .logo span {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
         .nav-links {
             display: flex;
@@ -117,7 +127,7 @@
             font-size: clamp(50px, 10vw, 100px);
             font-weight: 700;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -148,7 +158,7 @@
             font-size: clamp(40px, 7vw, 70px);
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -168,7 +178,7 @@
             margin: 60px 0;
         }
         .quick-btn {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.06);
             padding: 35px;
             border-radius: 25px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -184,8 +194,8 @@
         .quick-btn:hover {
             transform: translateY(-15px);
             border-color: var(--primary);
-            background: rgba(0,102,255,0.1);
-            box-shadow: 0 25px 50px rgba(0,102,255,0.4);
+            background: rgba(43, 122, 140, 0.15);
+            box-shadow: 0 25px 50px rgba(43, 122, 140, 0.4);
         }
         .quick-btn-icon {
             width: 80px;
@@ -224,7 +234,7 @@
             gap: 30px;
         }
         .contact-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.06);
             padding: 35px;
             border-radius: 25px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -237,14 +247,14 @@
         .contact-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            background: rgba(0,102,255,0.1);
-            box-shadow: 0 20px 40px rgba(0,102,255,0.3);
+            background: rgba(43, 122, 140, 0.15);
+            box-shadow: 0 20px 40px rgba(43, 122, 140, 0.3);
         }
         .contact-icon {
             width: 70px;
             height: 70px;
             min-width: 70px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -266,7 +276,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #00d4ff;
+            color: #3B96A9;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -277,7 +287,7 @@
         }
 
         .contact-form {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.06);
             padding: 50px;
             border-radius: 25px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -311,7 +321,7 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(0,102,255,0.1);
+            background: rgba(43, 122, 140, 0.1);
         }
         .form-group textarea {
             resize: vertical;
@@ -324,7 +334,7 @@
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white;
             border: none;
             border-radius: 15px;
@@ -332,16 +342,16 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,102,255,0.4);
+            box-shadow: 0 10px 30px rgba(43, 122, 140, 0.4);
         }
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,102,255,0.6);
+            box-shadow: 0 15px 40px rgba(43, 122, 140, 0.6);
         }
 
         .business-hours {
-            background: rgba(0,102,255,0.1);
-            border: 1px solid rgba(0,102,255,0.3);
+            background: rgba(43, 122, 140, 0.15);
+            border: 1px solid rgba(43, 122, 140, 0.3);
             border-radius: 25px;
             padding: 50px;
             margin: 60px 0;
@@ -367,7 +377,7 @@
             font-weight: 600;
         }
         .hours-row .time {
-            color: #00d4ff;
+            color: #3B96A9;
             font-weight: 500;
         }
 
@@ -378,7 +388,7 @@
             margin: 60px 0;
         }
         .location-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.06);
             padding: 40px 35px;
             border-radius: 25px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -388,7 +398,7 @@
         .location-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            background: rgba(0,102,255,0.1);
+            background: rgba(43, 122, 140, 0.15);
         }
         .location-header {
             display: flex;
@@ -399,7 +409,7 @@
         .location-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -424,13 +434,13 @@
             line-height: 1.7;
         }
         .location-item i {
-            color: #00d4ff;
+            color: #3B96A9;
             margin-top: 4px;
             width: 20px;
         }
 
         .map-container {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.06);
             border-radius: 25px;
             border: 1px solid rgba(255,255,255,0.1);
             overflow: hidden;
@@ -446,13 +456,13 @@
         }
         .map-placeholder i {
             font-size: 4rem;
-            color: #00d4ff;
+            color: #3B96A9;
             margin-bottom: 20px;
         }
 
         footer {
-            background: rgba(10,10,10,0.95);
-            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.8);
+            border-top: 1px solid rgba(255,255,255,0.12);
             padding: 80px 40px 30px;
             margin-top: 100px;
         }
@@ -467,7 +477,7 @@
         .footer-section h3 {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -496,10 +506,10 @@
             transition: color 0.3s;
         }
         .footer-section ul li a:hover {
-            color: #00d4ff;
+            color: #3B96A9;
         }
         .footer-section ul li i {
-            color: #0066ff;
+            color: #2B7A8C;
             margin-right: 10px;
             width: 20px;
         }
@@ -509,8 +519,8 @@
             margin-top: 20px;
         }
         .social-icons a {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -518,20 +528,12 @@
             font-size: 20px;
             color: white;
             transition: all 0.4s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .social-icons a:nth-child(1) {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-        }
-        .social-icons a:nth-child(2) {
-            background: #DB4437;
-        }
-        .social-icons a:nth-child(3) {
-            background: #25D366;
+            background: #2B7A8C;
+            box-shadow: 0 5px 20px rgba(43, 122, 140, 0.4);
         }
         .social-icons a:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(0,102,255,0.4);
+            background: #3B96A9;
+            transform: translateY(-8px) scale(1.1);
         }
         .footer-bottom {
             text-align: center;
@@ -580,6 +582,8 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            .logo span { font-size: 22px; }
+            .logo img { height: 35px; }
         }
     </style>
 </head>
@@ -590,7 +594,10 @@
 
     <header>
         <nav>
-            <div class="logo">Kalogirourania</div>
+            <a href="index.html" class="logo">
+                <img src="logoaskarindo1-removebg-preview.png" alt="Logo Askarindo">
+                <span>Askarindogroup</span>
+            </a>
             <div class="nav-links">
                 <a href="index.html">Beranda</a>
                 <a href="#hubungi">Hubungi Kami</a>
@@ -610,33 +617,33 @@
         <p class="section-subtitle">Pilih cara tercepat untuk menghubungi kami sesuai kebutuhan Anda</p>
         
         <div class="quick-contact">
-            <a href="https://wa.me/6285156760596?text=Halo%20Kalogirourania,%20saya%20ingin%20bertanya%20tentang" target="_blank" class="quick-btn">
+            <a href="https://wa.me/6285854542007?text=Halo%20Askarindogroup,%20saya%20ingin%20bertanya%20tentang" target="_blank" class="quick-btn">
                 <div class="quick-btn-icon whatsapp">
                     <i class="fab fa-whatsapp"></i>
                 </div>
                 <div>
                     <h3>WhatsApp</h3>
-                    <p>Respon tercepat 24/7<br>+62 851-5676-0596</p>
+                    <p>Respon tercepat 24/7<br>0858-5454-2007</p>
                 </div>
             </a>
 
-            <a href="mailto:raflyasmyramadhani@gmail.com?subject=Pertanyaan%20dari%20Website" class="quick-btn">
+            <a href="mailto:askarindointegrasigroup@gmail.com?subject=Pertanyaan%20dari%20Website" class="quick-btn">
                 <div class="quick-btn-icon email">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div>
                     <h3>Email</h3>
-                    <p>Untuk pertanyaan detail<br>raflyasmyramadhani@gmail.com</p>
+                    <p>Untuk pertanyaan detail<br>askarindointegrasigroup@gmail.com</p>
                 </div>
             </a>
 
-            <a href="https://instagram.com/raflydhani" target="_blank" class="quick-btn">
+            <a href="https://instagram.com/askarindogroup" target="_blank" class="quick-btn">
                 <div class="quick-btn-icon instagram">
                     <i class="fab fa-instagram"></i>
                 </div>
                 <div>
                     <h3>Instagram</h3>
-                    <p>Follow untuk info terbaru<br>@raflydhani</p>
+                    <p>Follow untuk info terbaru<br>@askarindogroup</p>
                 </div>
             </a>
         </div>
@@ -655,8 +662,8 @@
                     <div class="contact-details">
                         <h3>Telepon & WhatsApp</h3>
                         <p>Hubungi kami langsung untuk konsultasi cepat dan responsif</p>
-                        <a href="https://wa.me/6285156760596" target="_blank" class="contact-link">
-                            +62 851-5676-0596 <i class="fas fa-arrow-right"></i>
+                        <a href="https://wa.me/6285854542007" target="_blank" class="contact-link">
+                            0858-5454-2007 <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -668,8 +675,8 @@
                     <div class="contact-details">
                         <h3>Email</h3>
                         <p>Kirim pertanyaan detail via email, kami akan membalas dalam 2 jam</p>
-                        <a href="mailto:raflyasmyramadhani@gmail.com" class="contact-link">
-                            raflyasmyramadhani@gmail.com <i class="fas fa-arrow-right"></i>
+                        <a href="mailto:askarindointegrasigroup@gmail.com" class="contact-link">
+                            askarindointegrasigroup@gmail.com <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -681,8 +688,8 @@
                     <div class="contact-details">
                         <h3>Social Media</h3>
                         <p>Follow Instagram kami untuk update produk, promo, dan tips teknologi</p>
-                        <a href="https://instagram.com/raflydhani" target="_blank" class="contact-link">
-                            @raflydhani <i class="fas fa-arrow-right"></i>
+                        <a href="https://instagram.com/askarindogroup" target="_blank" class="contact-link">
+                            @askarindogroup <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -797,11 +804,11 @@
                     </div>
                     <div class="location-item">
                         <i class="fas fa-phone"></i>
-                        <span>+62 851-5676-0596</span>
+                        <span>+62 858-5454-2007</span>
                     </div>
                     <div class="location-item">
                         <i class="fas fa-envelope"></i>
-                        <span>raflyasmyramadhani@gmail.com</span>
+                        <span>askarindointegrasigroup@gmail.com</span>
                     </div>
                 </div>
             </div>
@@ -820,7 +827,7 @@
                     </div>
                     <div class="location-item">
                         <i class="fas fa-phone"></i>
-                        <span>+62 851-5676-0596</span>
+                        <span>+62 858-5454-2007</span>
                     </div>
                     <div class="location-item">
                         <i class="fas fa-clock"></i>
@@ -865,16 +872,16 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Kalogirourania</h3>
+                <h3>Askarindogroup</h3>
                 <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
                 <div class="social-icons">
-                    <a href="https://instagram.com/raflydhani" target="_blank" aria-label="Instagram">
+                    <a href="https://instagram.com/askarindogroup" target="_blank" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="mailto:raflyasmyramadhani@gmail.com" aria-label="Email">
+                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="https://wa.me/6285156760596" target="_blank" aria-label="WhatsApp">
+                    <a href="https://wa.me/6285854542007" target="_blank" aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
@@ -905,8 +912,8 @@
             <div class="footer-section">
                 <h4>Hubungi Kami</h4>
                 <ul>
-                    <li><i class="fas fa-phone"></i> +62 851-5676-0596</li>
-                    <li><i class="fas fa-envelope"></i> raflyasmyramadhani@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
+                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
                     <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
                     <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
@@ -914,12 +921,12 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 Kalogirourania. All rights reserved.</p>
+            <p>© 2025 Askarindogroup. All rights reserved.</p>
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/6285156760596?text=Halo%20Kalogirourania,%20saya%20ingin%20bertanya%20tentang" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <a href="https://wa.me/6285854542007?text=Halo%20Askarindogroup,%20saya%20ingin%20bertanya%20tentang" target="_blank" class="wa-float" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -946,10 +953,10 @@
             const message = document.getElementById('message').value;
             
             // Format WhatsApp message
-            const waMessage = `Halo Kalogirourania,%0A%0ANama: ${name}%0AEmail: ${email}%0ATelepon: ${phone}%0ASubjek: ${subject}%0A%0APesan:%0A${message}`;
+            const waMessage = `Halo Askarindogroup,%0A%0ANama: ${name}%0AEmail: ${email}%0ATelepon: ${phone}%0ASubjek: ${subject}%0A%0APesan:%0A${message}`;
             
             // Redirect to WhatsApp
-            window.open(`https://wa.me/6285156760596?text=${waMessage}`, '_blank');
+            window.open(`https://wa.me/6285854542007?text=${waMessage}`, '_blank');
             
             // Reset form
             this.reset();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Proyek - Kalogirourania</title>
+    <title>Portofolio Proyek - Askarindo Integrasi Group</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -11,27 +11,27 @@
     
     <style>
         :root {
-            --primary: #0066ff;
-            --primary-dark: #0052cc;
-            --dark: #0a0a0a;
-            --light: #f8f9ff;
-            --gray: #888;
+            --primary: #2B7A8C;
+            --primary-light: #3B96A9;
+            --primary-dark: #1D5563;
+            --dark: #000000;
             --white: #ffffff;
+            --gray: #cccccc;
+            --gray-dark: #888888;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #000;
-            color: #fff;
+            background: var(--dark);
+            color: var(--white);
             overflow-x: hidden;
         }
 
-        /* Background Animated */
         #animated-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, #000000 0%, #001a33 50%, #000000 100%);
+            background: linear-gradient(135deg, #000000 0%, #0d3d47 50%, #000000 100%);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
         }
@@ -41,7 +41,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Particles */
         .particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -52,7 +51,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: rgba(0, 102, 255, 0.4);
+            background: rgba(43, 122, 140, 0.4);
             border-radius: 50%;
             animation: floatParticle 25s infinite linear;
         }
@@ -63,15 +62,14 @@
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
-        /* Header */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
             height: 80px;
-            background: rgba(10,10,10,0.9);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(20px);
             z-index: 9999;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         nav {
             max-width: 1400px;
@@ -83,29 +81,37 @@
             padding: 0 40px;
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo img {
+            height: 48px;
+            width: auto;
+        }
+        .logo span {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 8px;
         }
         .nav-links a {
-            color: #ccc;
+            color: #cccccc;
             text-decoration: none;
             font-weight: 500;
+            padding: 10px 16px;
             transition: color 0.3s;
-            padding: 10px 15px;
             font-size: 15px;
         }
         .nav-links a:hover { color: #fff; }
 
-        /* Hero Section */
         .hero-section {
             height: 70vh;
             display: flex;
@@ -121,7 +127,7 @@
             font-size: clamp(50px, 10vw, 100px);
             font-weight: 700;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -130,31 +136,24 @@
         .hero-section p {
             font-size: clamp(18px, 3vw, 24px);
             color: #ccc;
-            max-width: 800px;
+            max-width: 900px;
             line-height: 1.6;
             animation: fadeUp 1.2s ease;
         }
-
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Section */
-        .section {
-            padding: 80px 40px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
+        .section { padding: 80px 40px; max-width: 1600px; margin: 0 auto; }
 
-        /* Section Title */
         .section-title {
             font-family: 'Clash Display', sans-serif;
             text-align: center;
             font-size: clamp(40px, 7vw, 70px);
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -167,7 +166,6 @@
             line-height: 1.7;
         }
 
-        /* Filter Buttons */
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -187,22 +185,21 @@
         }
         .filter-btn:hover,
         .filter-btn.active {
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             border-color: transparent;
             color: white;
             transform: translateY(-2px);
         }
 
-        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             margin: 60px 0;
             padding: 50px 40px;
-            background: rgba(0,102,255,0.08);
+            background: rgba(43,122,140,0.08);
             border-radius: 25px;
-            border: 1px solid rgba(0,102,255,0.2);
+            border: 1px solid rgba(43,122,140,0.2);
             backdrop-filter: blur(15px);
         }
         .stat-card {
@@ -211,7 +208,7 @@
         .stat-number {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
@@ -221,14 +218,12 @@
             font-size: 1rem;
         }
 
-        /* Portfolio Grid - Masonry Style */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 40px;
             margin: 60px 0;
         }
-        
         .portfolio-item {
             background: rgba(255,255,255,0.05);
             border-radius: 25px;
@@ -237,12 +232,11 @@
             backdrop-filter: blur(10px);
             transition: all 0.6s ease;
             cursor: pointer;
-            position: relative;
         }
         .portfolio-item:hover {
             transform: translateY(-15px);
             border-color: var(--primary);
-            box-shadow: 0 30px 70px rgba(0,102,255,0.4);
+            box-shadow: 0 30px 70px rgba(43,122,140,0.4);
         }
         .portfolio-image {
             width: 100%;
@@ -258,7 +252,7 @@
         }
         .portfolio-category {
             display: inline-block;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
             padding: 6px 18px;
             border-radius: 20px;
@@ -288,10 +282,9 @@
             gap: 8px;
         }
         .portfolio-meta i {
-            color: #00d4ff;
+            color: var(--primary-light);
         }
 
-        /* Testimonial Section */
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -305,16 +298,15 @@
             border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
             transition: all 0.5s ease;
-            position: relative;
         }
         .testimonial-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            background: rgba(0,102,255,0.1);
+            background: rgba(43,122,140,0.1);
         }
         .quote-icon {
             font-size: 3rem;
-            color: #0066ff;
+            color: var(--primary);
             opacity: 0.3;
             margin-bottom: 20px;
         }
@@ -334,7 +326,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -352,10 +344,9 @@
             font-size: 0.9rem;
         }
 
-        /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, rgba(0,102,255,0.15), rgba(0,212,255,0.1));
-            border: 1px solid rgba(0,102,255,0.3);
+            background: rgba(43,122,140,0.1);
+            border: 1px solid rgba(43,122,140,0.3);
             border-radius: 30px;
             padding: 60px 40px;
             text-align: center;
@@ -376,24 +367,23 @@
         .cta-btn {
             display: inline-block;
             padding: 18px 45px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 15px 40px rgba(0,102,255,0.4);
+            box-shadow: 0 15px 40px rgba(43,122,140,0.4);
             transition: all 0.4s ease;
         }
         .cta-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,102,255,0.6);
+            box-shadow: 0 20px 50px rgba(43,122,140,0.6);
         }
 
-        /* Footer */
         footer {
-            background: rgba(10,10,10,0.95);
-            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.95);
+            border-top: 1px solid rgba(255,255,255,0.08);
             padding: 80px 40px 30px;
             margin-top: 100px;
         }
@@ -401,14 +391,14 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
             gap: 60px;
             margin-bottom: 50px;
         }
         .footer-section h3 {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -419,29 +409,25 @@
             margin-bottom: 20px;
             font-weight: 600;
         }
-        .footer-section p {
+        .footer-section p, .footer-section ul li, .footer-section ul li a {
             color: #aaa;
             line-height: 1.8;
-            margin-bottom: 25px;
         }
         .footer-section ul {
             list-style: none;
         }
         .footer-section ul li {
             margin-bottom: 12px;
-            color: #aaa;
-            transition: color 0.3s;
         }
         .footer-section ul li a {
-            color: #aaa;
             text-decoration: none;
             transition: color 0.3s;
         }
         .footer-section ul li a:hover {
-            color: #00d4ff;
+            color: var(--primary-light);
         }
         .footer-section ul li i {
-            color: #0066ff;
+            color: var(--primary);
             margin-right: 10px;
             width: 20px;
         }
@@ -453,91 +439,71 @@
         .social-icons a {
             width: 45px;
             height: 45px;
+            background: var(--primary);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            color: white;
             transition: all 0.4s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .social-icons a:nth-child(1) {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-        }
-        .social-icons a:nth-child(2) {
-            background: #DB4437;
-        }
-        .social-icons a:nth-child(3) {
-            background: #25D366;
         }
         .social-icons a:hover {
+            background: var(--primary-light);
             transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(0,102,255,0.4);
         }
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.08);
             color: #666;
-        }
-        .footer-bottom p {
-            margin: 8px 0;
             font-size: 14px;
         }
 
-        /* WA Float */
         .wa-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 65px;
-            height: 65px;
+            width: 70px;
+            height: 70px;
             background: #25d366;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 35px;
-            box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+            font-size: 38px;
+            box-shadow: 0 10px 40px rgba(37,211,102,0.6);
             z-index: 999;
             text-decoration: none;
             animation: floatBtn 3s ease-in-out infinite;
         }
-        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes floatBtn { 
+            0%,100% { transform: translateY(0); } 
+            50% { transform: translateY(-15px); } 
+        }
 
         @media (max-width: 1024px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
+            .footer-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Background -->
     <div id="animated-bg"></div>
     <div class="particles"></div>
 
-    <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Kalogirourania</div>
+            <div class="logo">
+                <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Integrasi Group">
+                <span>Askarindogroup</span>
+            </div>
             <div class="nav-links">
                 <a href="index.html">Beranda</a>
                 <a href="#proyek">Proyek</a>
@@ -547,13 +513,11 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="hero-section">
+    <section class="hero-section">
         <h1>Portofolio Proyek</h1>
         <p>Dokumentasi perjalanan sukses kami dalam menghadirkan solusi teknologi terbaik untuk berbagai sektor di Indonesia</p>
     </section>
 
-    <!-- Stats Section -->
     <div class="section">
         <div class="stats-grid">
             <div class="stat-card">
@@ -575,12 +539,10 @@
         </div>
     </div>
 
-    <!-- Portfolio Section -->
     <section id="proyek" class="section">
         <h2 class="section-title">Proyek Terkini</h2>
         <p class="section-subtitle">Setiap proyek adalah komitmen kami terhadap kualitas, inovasi, dan kepuasan pelanggan</p>
         
-        <!-- Filter Buttons -->
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">Semua Proyek</button>
             <button class="filter-btn" data-filter="pendidikan">Pendidikan</button>
@@ -588,9 +550,8 @@
             <button class="filter-btn" data-filter="pemerintahan">Pemerintahan</button>
         </div>
 
-        <!-- Portfolio Grid -->
         <div class="portfolio-grid">
-            <!-- Project 1 -->
+
             <div class="portfolio-item" data-category="pendidikan">
                 <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Smart Classroom" class="portfolio-image">
                 <div class="portfolio-content">
@@ -604,7 +565,6 @@
                 </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="portfolio-item" data-category="bisnis">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Setup" class="portfolio-image">
                 <div class="portfolio-content">
@@ -618,7 +578,6 @@
                 </div>
             </div>
 
-            <!-- Project 3 -->
             <div class="portfolio-item" data-category="pemerintahan">
                 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Government Office" class="portfolio-image">
                 <div class="portfolio-content">
@@ -632,7 +591,6 @@
                 </div>
             </div>
 
-            <!-- Project 4 -->
             <div class="portfolio-item" data-category="pendidikan">
                 <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="University Lab" class="portfolio-image">
                 <div class="portfolio-content">
@@ -646,7 +604,6 @@
                 </div>
             </div>
 
-            <!-- Project 5 -->
             <div class="portfolio-item" data-category="bisnis">
                 <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Coworking Space" class="portfolio-image">
                 <div class="portfolio-content">
@@ -660,7 +617,6 @@
                 </div>
             </div>
 
-            <!-- Project 6 -->
             <div class="portfolio-item" data-category="pendidikan">
                 <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Library Digital" class="portfolio-image">
                 <div class="portfolio-content">
@@ -674,7 +630,6 @@
                 </div>
             </div>
 
-            <!-- Project 7 -->
             <div class="portfolio-item" data-category="pemerintahan">
                 <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Command Center" class="portfolio-image">
                 <div class="portfolio-content">
@@ -688,7 +643,6 @@
                 </div>
             </div>
 
-            <!-- Project 8 -->
             <div class="portfolio-item" data-category="bisnis">
                 <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="portfolio-image">
                 <div class="portfolio-content">
@@ -702,7 +656,6 @@
                 </div>
             </div>
 
-            <!-- Project 9 -->
             <div class="portfolio-item" data-category="pendidikan">
                 <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="STEM Lab" class="portfolio-image">
                 <div class="portfolio-content">
@@ -715,19 +668,18 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Testimonial Section -->
     <section id="testimoni" class="section">
         <h2 class="section-title">Testimoni Klien</h2>
         <p class="section-subtitle">Kepercayaan dan kepuasan klien adalah pencapaian terbesar kami</p>
         
         <div class="testimonial-grid">
-            <!-- Testimonial 1 -->
             <div class="testimonial-card">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Pelayanan luar biasa! Tim Kalogirourania sangat profesional dalam instalasi 50 unit Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
+                <p class="testimonial-text">"Pelayanan luar biasa! Tim Askarindo sangat profesional dalam instalasi Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">DH</div>
                     <div class="author-info">
@@ -737,10 +689,9 @@
                 </div>
             </div>
 
-            <!-- Testimonial 2 -->
             <div class="testimonial-card">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik untuk kebutuhan development tim kami. Highly recommended!"</p>
+                <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik. Highly recommended!"</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">AS</div>
                     <div class="author-info">
@@ -750,10 +701,9 @@
                 </div>
             </div>
 
-            <!-- Testimonial 3 -->
             <div class="testimonial-card">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan untuk modernisasi kantor kami."</p>
+                <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">RK</div>
                     <div class="author-info">
@@ -763,10 +713,9 @@
                 </div>
             </div>
 
-            <!-- Testimonial 4 -->
             <div class="testimonial-card">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Proses pengadaan sangat transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, dan training untuk staff sangat membantu. Partner yang sangat dapat diandalkan."</p>
+                <p class="testimonial-text">"Proses pengadaan transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, training untuk staff sangat membantu."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">SM</div>
                     <div class="author-info">
@@ -776,10 +725,9 @@
                 </div>
             </div>
 
-            <!-- Testimonial 5 -->
             <div class="testimonial-card">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern dan fungsional, sangat cocok untuk co-working space premium kami. Terima kasih Kalogirourania!"</p>
+                <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern, sangat cocok untuk co-working space premium kami."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">LP</div>
                     <div class="author-info">
@@ -789,10 +737,9 @@
                 </div>
             </div>
 
-            <!-- Testimonial 6 -->
             <div class="testimonial-card">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Projector dan sound system yang dipasang di ruang meeting kami bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
+                <p class="testimonial-text">"Projector dan sound system bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">BP</div>
                     <div class="author-info">
@@ -804,72 +751,67 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <div class="section">
         <div class="cta-section">
-            <h2>Wujudkan Proyek Teknologi Anda Bersama Kami</h2>
+            <h2>Wujudkan Proyek Teknologi Anda Bersama Askarindo</h2>
             <p>Konsultasi gratis untuk solusi teknologi terbaik yang disesuaikan dengan kebutuhan Anda</p>
-            <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20untuk%20konsultasi%20proyek" target="_blank" class="cta-btn">Mulai Konsultasi Gratis</a>
+            <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20untuk%20konsultasi%20proyek" target="_blank" class="cta-btn">Mulai Konsultasi Gratis</a>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Kalogirourania</h3>
+                <h3>Askarindo Integrasi Group</h3>
                 <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
                 <div class="social-icons">
-                    <a href="https://instagram.com/raflydhani" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:raflyasmyramadhani@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/6285156760596" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/askarindogroup" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/6285854542007" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             
             <div class="footer-section">
                 <h4>Produk</h4>
                 <ul>
-                    <li><a href="#ifp">Interactive Flat Panel</a></li>
-                    <li><a href="#laptop">Laptop & PC Rakitan</a></li>
-                    <li><a href="#printer">Printer & Proyektor</a></li>
-                    <li><a href="#mebel">Mebeler</a></li>
+                    <li><a href="#">Interactive Flat Panel</a></li>
+                    <li><a href="#">Laptop & PC Rakitan</a></li>
+                    <li><a href="#">Printer & Proyektor</a></li>
+                    <li><a href="#">Mebel</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Perusahaan</h4>
                 <ul>
-                    <li><a href="#tentang">Tentang Kami</a></li>
-                    <li><a href="#program">Program & Komitmen</a></li>
-                    <li><a href="#portofolio">Portofolio</a></li>
-                    <li><a href="#support">Support</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Program & Komitmen</a></li>
+                    <li><a href="#">Portofolio</a></li>
+                    <li><a href="#">Support</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Hubungi Kami</h4>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> raflyasmyramadhani@gmail.com</li>
-                    <li><i class="fab fa-whatsapp"></i> +62 851-5676-0596</li>
-                    <li><i class="fab fa-instagram"></i> @raflydhani</li>
+                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fab fa-whatsapp"></i> +62 858-5454-2007</li>
+                    <li><i class="fab fa-instagram"></i> @askarindogroup</li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>© 2025 Kalogirourania. All rights reserved.</p>
+            <p>© 2025 Askarindo Integrasi Group. All rights reserved.</p>
             <p>Dibuat dengan ❤️ di Indonesia</p>
         </div>
     </footer>
 
-    <!-- WA Float -->
-    <a href="https://wa.me/6285156760596" target="_blank" class="wa-float">
+    <a href="https://wa.me/6285854542007" target="_blank" class="wa-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
     <script>
-        // Generate particles
         const particlesContainer = document.querySelector('.particles');
         for (let i = 0; i < 60; i++) {
             const particle = document.createElement('div');
@@ -880,7 +822,6 @@
             particlesContainer.appendChild(particle);
         }
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -891,15 +832,12 @@
             });
         });
 
-        // Filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
                 btn.classList.add('active');
 
                 const filter = btn.getAttribute('data-filter');
@@ -922,7 +860,6 @@
             });
         });
 
-        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -937,7 +874,6 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
         document.querySelectorAll('.portfolio-item, .testimonial-card, .stat-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -945,7 +881,6 @@
             observer.observe(el);
         });
 
-        // Counter animation for stats
         const animateCounter = (element, target) => {
             const isPercentage = element.textContent.includes('%');
             let current = 0;

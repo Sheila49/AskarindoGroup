@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalogirourania - Solusi Teknologi Terintegrasi</title>
+    <title>Askarindo Integrasi Group - Solusi Teknologi Terintegrasi</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -11,9 +11,10 @@
     
     <style>
         :root {
-            --primary: #0066ff;
-            --primary-light: #3388ff;
-            --primary-dark: #0052cc;
+            --primary: #2B7A8C;
+            --primary-light: #3B96A9;
+            --primary-dark: #1D5563;
+            --secondary: #4A92A3;
             --dark: #000000;
             --white: #ffffff;
             --gray: #cccccc;
@@ -27,12 +28,12 @@
             overflow-x: hidden;
         }
 
-        /* Background hanya hitam & biru tua */
+        /* Background hanya hitam & teal tua */
         #animated-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, #000000 0%, #001a33 50%, #000000 100%);
+            background: linear-gradient(135deg, #000000 0%, #0d3d47 50%, #000000 100%);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
         }
@@ -42,7 +43,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Particles biru */
+        /* Particles teal */
         .particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -53,7 +54,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: rgba(0, 102, 255, 0.4);
+            background: rgba(43, 122, 140, 0.4);
             border-radius: 50%;
             animation: floatParticle 25s infinite linear;
         }
@@ -84,13 +85,22 @@
             padding: 0 40px;
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+        .logo span {
             font-family: 'Clash Display', sans-serif;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #0066ff, #3388ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
         .nav-links {
             display: flex;
@@ -115,12 +125,21 @@
             text-align: center;
             padding: 0 20px;
         }
+        .hero-logo {
+            margin-bottom: 40px;
+            animation: fadeUp 1s ease;
+        }
+        .hero-logo img {
+            height: 120px;
+            width: auto;
+            filter: drop-shadow(0 10px 30px rgba(43, 122, 140, 0.4));
+        }
         .hero h1 {
             font-family: 'Clash Display', sans-serif;
             font-size: clamp(60px, 12vw, 140px);
             font-weight: 700;
             line-height: 0.9;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -140,14 +159,14 @@
             font-size: 22px;
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 20px 50px rgba(0,102,255,0.4);
+            box-shadow: 0 20px 50px rgba(43, 122, 140, 0.4);
             animation: fadeUp 1.6s ease;
             transition: all 0.5s;
         }
         .hero .cta:hover {
             transform: translateY(-10px);
             background: var(--primary-light);
-            box-shadow: 0 30px 70px rgba(0,102,255,0.6);
+            box-shadow: 0 30px 70px rgba(43, 122, 140, 0.6);
         }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(60px); }
@@ -165,7 +184,7 @@
             font-size: clamp(50px, 9vw, 100px);
             font-weight: 700;
             margin-bottom: 60px;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -193,7 +212,7 @@
         .stat-number {
             font-weight: 800;
             font-size: clamp(3rem, 7vw, 5rem);
-            background: linear-gradient(135deg, #0066ff, #3388ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -201,6 +220,131 @@
             font-size: 1.2rem;
             color: #cccccc;
             margin-top: 10px;
+        }
+
+        /* Visi Misi Layout Menarik */
+        .visi-misi-container {
+            margin: 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .visi-card {
+            background: linear-gradient(135deg, rgba(43, 122, 140, 0.15), rgba(59, 150, 169, 0.05));
+            border-radius: 30px;
+            padding: 60px 50px;
+            border: 2px solid rgba(43, 122, 140, 0.3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+        .visi-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(43, 122, 140, 0.1) 0%, transparent 70%);
+            animation: rotateGradient 15s linear infinite;
+        }
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .visi-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            border-color: var(--primary-light);
+            box-shadow: 0 40px 80px rgba(43, 122, 140, 0.4);
+        }
+        .visi-card i {
+            font-size: 4.5rem;
+            color: #3B96A9;
+            margin-bottom: 30px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .visi-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #fff;
+            font-family: 'Clash Display', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+        .visi-card p {
+            color: #e0e0e0;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            position: relative;
+            z-index: 1;
+        }
+        .misi-card {
+            background: linear-gradient(135deg, rgba(59, 150, 169, 0.15), rgba(43, 122, 140, 0.05));
+            border-radius: 30px;
+            padding: 60px 50px;
+            border: 2px solid rgba(59, 150, 169, 0.3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+        .misi-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 150, 169, 0.1) 0%, transparent 70%);
+            animation: rotateGradient 20s linear infinite reverse;
+        }
+        .misi-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            border-color: var(--primary-light);
+            box-shadow: 0 40px 80px rgba(59, 150, 169, 0.4);
+        }
+        .misi-card i {
+            font-size: 4.5rem;
+            color: #2B7A8C;
+            margin-bottom: 30px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .misi-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #fff;
+            font-family: 'Clash Display', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+        .misi-card .misi-item {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            color: #e0e0e0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            z-index: 1;
+        }
+        .misi-card .misi-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3B96A9;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 968px) {
+            .visi-misi-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         /* Grid Cards */
@@ -221,12 +365,12 @@
         .card:hover {
             transform: translateY(-15px);
             border-color: var(--primary);
-            box-shadow: 0 30px 60px rgba(0,102,255,0.35);
-            background: rgba(0,102,255,0.12);
+            box-shadow: 0 30px 60px rgba(43, 122, 140, 0.35);
+            background: rgba(43, 122, 140, 0.12);
         }
         .card i {
             font-size: 3rem;
-            color: #3388ff;
+            color: #3B96A9;
             margin-bottom: 20px;
         }
         .card h3 {
@@ -257,7 +401,7 @@
         .product-card:hover {
             transform: translateY(-15px);
             border-color: var(--primary);
-            box-shadow: 0 30px 60px rgba(0,102,255,0.35);
+            box-shadow: 0 30px 60px rgba(43, 122, 140, 0.35);
         }
         .product-card img {
             width: 100%;
@@ -346,7 +490,7 @@
         }
         .contact-card:hover {
             transform: translateY(-10px);
-            background: rgba(0,102,255,0.15);
+            background: rgba(43, 122, 140, 0.15);
             border-color: var(--primary);
         }
         .contact-card i {
@@ -354,13 +498,8 @@
             margin-bottom: 20px;
             color: var(--primary);
         }
-        /* Hilangkan hijau & pink */
-        .contact-card:nth-child(2) i,
-        .contact-card:nth-child(3) i {
-            color: var(--primary) !important;
-        }
         .contact-card a {
-            color: #3388ff;
+            color: #3B96A9;
             text-decoration: none;
             font-weight: 600;
         }
@@ -375,7 +514,7 @@
         .social-icons a {
             width: 50px;
             height: 50px;
-            background: #0066ff;
+            background: #2B7A8C;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -383,10 +522,10 @@
             justify-content: center;
             font-size: 1.8rem;
             transition: all 0.4s;
-            box-shadow: 0 5px 20px rgba(0,102,255,0.4);
+            box-shadow: 0 5px 20px rgba(43, 122, 140, 0.4);
         }
         .social-icons a:hover {
-            background: #3388ff;
+            background: #3B96A9;
             transform: translateY(-8px) scale(1.1);
         }
 
@@ -424,6 +563,8 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .logo span { font-size: 22px; }
+            .logo img { height: 35px; }
         }
     </style>
 </head>
@@ -436,7 +577,10 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Kalogirourania</div>
+            <div class="logo">
+                <img src="logoaskarindo1-removebg-preview.png">
+                <span>Askarindogroup</span>
+            </div>
             <div class="nav-links">
                 <a href="#beranda">Beranda</a>
                 <a href="tentangkami.html">Tentang Kami</a>
@@ -451,7 +595,10 @@
 
     <!-- HERO -->
     <section id="beranda" class="hero">
-        <h1>Kalogirourania</h1>
+        <div class="hero-logo">
+            <img src="logoaskarindo1-removebg-preview.png">
+        </div>
+        <h1>Askarindo Integrasi Group</h1>
         <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
         <a href="#produk" class="cta">Lihat Produk Kami</a>
     </section>
@@ -482,24 +629,28 @@
         
         <div class="section-text">
             <h3 style="font-size: 2rem; margin-bottom: 20px;">Biografi Perusahaan</h3>
-            <p>Kalogirourania didirikan dengan visi untuk menjadi pelopor dalam penyediaan solusi teknologi terintegrasi di Indonesia. Kami fokus pada pengadaan barang dan jasa teknologi untuk sektor pendidikan, bisnis, dan pemerintahan. Dengan lebih dari 15 tahun pengalaman, kami telah menyelesaikan ratusan proyek dan melayani ribuan klien di seluruh Indonesia.</p>
+            <p>Askarindo Integrasi Group adalah perusahaan yang bergerak di bidang teknologi digital dan pengadaan sarana-prasarana modern. Kami melayani sektor bisnis, pemerintahan, pendidikan, dan institusi publik melalui penyediaan solusi teknologi, perangkat operasional, infrastruktur jaringan, dan layanan implementatif. Sebagai mitra pengadaan, Askarindo memastikan setiap kebutuhan terpenuhi secara terukur dan profesional mulai dari perencanaan dan distribusi hingga integrasi sistem dan dukungan purna jual. Kami mendukung kerja sama dalam bentuk retail, proyek B2B, dan pengadaan pemerintah yang sesuai dengan regulasi dan standar legalitas.</p>
         </div>
 
         <div class="section-text">
             <h3 style="font-size: 2rem; margin-bottom: 20px;">Tujuan Perusahaan</h3>
-            <p>Tujuan kami adalah memberikan solusi teknologi terbaik yang dapat meningkatkan produktivitas dan efisiensi klien kami. Kami berkomitmen untuk terus berinovasi dan menghadirkan produk-produk berkualitas tinggi dengan harga kompetitif, didukung oleh layanan purna jual yang excellent.</p>
+            <p>Dalam menjalankan operasional, kami mengedepankan tanggung jawab terhadap stakeholder melalui layanan berkualitas, keterbukaan bisnis, dan hubungan kemitraan jangka panjang. Komitmen ini diperkuat dengan program CSR yang berfokus pada pengembangan pendidikan, literasi digital, pelatihan SDM, serta kontribusi sosial yang berdampak langsung. Askarindo percaya bahwa kolaborasi yang kuat, pengadaan yang tepat, dan kontribusi berkelanjutan adalah fondasi pertumbuhan bersama.</p>
         </div>
 
-        <div class="grid-2">
-            <div class="card">
+        <!-- Visi Misi Layout Baru -->
+        <div class="visi-misi-container">
+            <div class="visi-card">
                 <i class="fas fa-rocket"></i>
                 <h3>Visi</h3>
-                <p>Menjadi pemimpin pasar dalam penyediaan solusi teknologi terintegrasi yang inovatif dan terpercaya di Indonesia.</p>
+                <p>Menjadi mitra strategis terdepan dalam menghadirkan solusi digital dan teknologi yang terintegrasi dengan sarana prasarana, guna mendukung kemajuan bisnis, institusi, dan pemerintahan menuju masa depan yang berdaya saing, inovatif, dan berkelanjutan.</p>
             </div>
-            <div class="card">
+            <div class="misi-card">
                 <i class="fas fa-bullseye"></i>
                 <h3>Misi</h3>
-                <p>Memberikan produk dan layanan berkualitas tinggi yang membantu klien mencapai transformasi digital dengan efektif dan efisien.</p>
+                <div class="misi-item">Mengembangkan layanan digital dan teknologi yang inovatif, adaptif, dan relevan dengan kebutuhan zaman.</div>
+                <div class="misi-item">Menyediakan sarana dan prasarana yang berkualitas serta terintegrasi untuk mendukung operasional dan pengembangan mitra.</div>
+                <div class="misi-item">Membangun kemitraan strategis yang berlandaskan profesionalisme, kepercayaan, dan keberlanjutan.</div>
+                <div class="misi-item">Memberikan nilai tambah melalui solusi terpadu yang mendorong efisiensi, produktivitas, serta pertumbuhan jangka panjang.</div>
             </div>
         </div>
     </section>
@@ -633,24 +784,24 @@
         <h2 class="section-title">Kontak Kami</h2>
         
         <div class="section-text">
-            <p>Tim Kalogirourania siap membantu segala kebutuhan teknologi Anda. Hubungi kami untuk konsultasi gratis.</p>
+            <p>Tim Askarindogroup siap membantu segala kebutuhan teknologi Anda. Hubungi kami untuk konsultasi gratis.</p>
         </div>
 
         <div class="contact-cards">
             <div class="contact-card">
                 <i class="fas fa-envelope"></i>
                 <h3>Email</h3>
-                <p><a href="mailto:raflyasmyramadhani@gmail.com">raflyasmyramadhani@gmail.com</a></p>
+                <p><a href="mailto:askarindointegrasigroup@gmail.com">askarindointegrasigroup@gmail.com</a></p>
             </div>
             <div class="contact-card">
                 <i class="fab fa-whatsapp"></i>
                 <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/6285156760596" target="_blank">085156760596</a></p>
+                <p><a href="https://wa.me/6285854542007" target="_blank">0858-5454-2007</a></p>
             </div>
             <div class="contact-card">
                 <i class="fab fa-instagram"></i>
                 <h3>Instagram</h3>
-                <p><a href="https://instagram.com/raflydhani" target="_blank">@raflydhani</a></p>
+                <p><a href="https://instagram.com/askarindogroup" target="_blank">@askarindogroup</a></p>
             </div>
         </div>
     </section>
@@ -659,16 +810,16 @@
     <footer>
         <h3>Ikuti Kami</h3>
         <div class="social-icons">
-            <a href="https://instagram.com/raflydhani" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:raflyasmyramadhani@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/6285156760596" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/askarindogroup" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:askarindointegrasigroup@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/6285854542007" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p>© 2025 Kalogirourania. All rights reserved.</p>
-        <p>Dibuat dengan [Love] di Indonesia</p>
+        <p>© 2025 Askarindogroup. All rights reserved.</p>
+        <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
     </footer>
 
     <!-- WA Float -->
-    <a href="https://wa.me/6285156760596" target="_blank" class="wa-float">
+    <a href="https://wa.me/6285854542007" target="_blank" class="wa-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 

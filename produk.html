@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk Premium – Kalogirourania</title>
+    <title>Produk Premium – Askarindo Integrasi Group</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        :root { --primary: #0066ff; }
+        :root {
+            --primary: #2B7A8C;
+            --primary-light: #3B96A9;
+            --primary-dark: #1D5563;
+            --secondary: #4A92A3;
+            --dark: #000000;
+            --white: #ffffff;
+            --gray: #cccccc;
+            --gray-dark: #888888;
+        }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
 
         /* Background + Particles */
         #animated-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-            background: linear-gradient(135deg, #0a0a0a 0%, #001a33 50%, #0a0a0a 100%);
+            background: linear-gradient(135deg, #000000 0%, #0d3d47 50%, #000000 100%);
             background-size: 400% 400%;
             animation: gradientShift 18s ease infinite;
         }
@@ -24,34 +33,52 @@
 
         .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
         .particle {
-            position: absolute; width: 3px; height: 3px; background: rgba(0,102,255,0.6); border-radius: 50%;
+            position: absolute; width: 2px; height: 2px; background: rgba(43, 122, 140, 0.4); border-radius: 50%;
             animation: floatParticle 20s infinite linear;
         }
         @keyframes floatParticle {
             0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
-            10%  { opacity: 1; }
-            90%  { opacity: 1; }
+            10%  { opacity: 0.6; }
+            90%  { opacity: 0.6; }
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
         /* Header */
-        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); z-index: 9999; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(0,0,0,0.95); backdrop-filter: blur(20px); z-index: 9999; border-bottom: 1px solid rgba(255,255,255,0.08); }
         nav { max-width: 1400px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
-        .logo { font-family: 'Clash Display', sans-serif; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, #0066ff, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-links { display: flex; gap: 30px; font-weight: 500; }
-        .nav-links a { color: #ccc; text-decoration: none; transition: color 0.3s; }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            background: transparent;
+        }
+        .logo span {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-links a { color: #ccc; text-decoration: none; transition: color 0.3s; font-weight: 500; padding: 10px 16px; font-size: 15px; }
         .nav-links a:hover { color: #fff; }
 
         /* Hero */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero h1 { font-family: 'Clash Display', sans-serif; font-size: clamp(60px,12vw,140px); font-weight: 700; background: linear-gradient(135deg,#fff,#a0c4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 28px; opacity: 0.9; margin: 20px 0 40px; }
-        .hero .cta { padding: 18px 50px; background: var(--primary); color: white; border-radius: 60px; font-size: 22px; font-weight: 600; text-decoration: none; box-shadow: 0 20px 50px rgba(0,102,255,0.4); transition: all .5s; }
-        .hero .cta:hover { transform: translateY(-10px); box-shadow: 0 30px 70px rgba(0,102,255,0.6); }
+        .hero h1 { font-family: 'Clash Display', sans-serif; font-size: clamp(60px,12vw,140px); font-weight: 700; background: linear-gradient(135deg,#ffffff,#2B7A8C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 28px; opacity: 0.9; margin: 20px 0 40px; color: #ccc; }
+        .hero .cta { padding: 18px 50px; background: linear-gradient(135deg, #2B7A8C, #3B96A9); color: white; border-radius: 60px; font-size: 22px; font-weight: 600; text-decoration: none; box-shadow: 0 20px 50px rgba(43, 122, 140, 0.4); transition: all .5s; }
+        .hero .cta:hover { transform: translateY(-10px); box-shadow: 0 30px 70px rgba(43, 122, 140, 0.6); }
 
         /* Category Section */
         .category-section { max-width: 1600px; margin: 0 auto; padding: 140px 40px 100px; }
-        .category-title { font-family: 'Clash Display', sans-serif; font-size: clamp(40px,7vw,80px); font-weight: 700; margin-bottom: 60px; background: linear-gradient(135deg,#ffffff,#0066ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
+        .category-title { font-family: 'Clash Display', sans-serif; font-size: clamp(40px,7vw,80px); font-weight: 700; margin-bottom: 60px; background: linear-gradient(135deg,#ffffff,#2B7A8C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
 
         /* Product Grid – ASYMMETRIS & DINAMIS */
         .product-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 40px; margin-bottom: 120px; }
@@ -83,20 +110,20 @@
         @media(max-width:1024px){.product{grid-column:span 12 !important}}
 
         .product { padding:50px 40px; border-radius:40px; background:rgba(255,255,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); transition:all .8s cubic-bezier(.25,.8,.25,1); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
-        .product:hover { transform:translateY(-30px) scale(1.03); box-shadow:0 40px 100px rgba(0,102,255,0.3); border-color:var(--primary); }
+        .product:hover { transform:translateY(-30px) scale(1.03); box-shadow:0 40px 100px rgba(43, 122, 140, 0.3); border-color:var(--primary); }
         .product img { width:100%; height:320px; object-fit:contain; margin-bottom:30px; filter:drop-shadow(0 20px 40px rgba(0,0,0,0.5)); transition:transform .8s; }
         .product:nth-child(odd):hover img{transform:translateY(-20px) scale(1.1)}
         .product:nth-child(even):hover img{transform:translateX(-15px) rotate(-5deg)}
 
         .product h3 { font-family:'Clash Display',sans-serif; font-size:36px; margin:20px 0 12px; }
         .product .tagline { font-size:17px; color:#aaa; margin-bottom:20px; line-height: 1.5; }
-        .product .price { font-size:18px; color:#00d4ff; font-weight:600; margin-bottom:30px; }
+        .product .price { font-size:18px; color:#3B96A9; font-weight:600; margin-bottom:30px; }
 
         /* Tombol */
-        .btn { padding:16px 40px; background:var(--primary); color:white; border-radius:50px; font-weight:600; text-decoration:none; display:inline-block; transition:all .4s; }
-        .btn:hover { background:#3388ff; transform:scale(1.05); }
+        .btn { padding:16px 40px; background: linear-gradient(135deg, #2B7A8C, #3B96A9); color:white; border-radius:50px; font-weight:600; text-decoration:none; display:inline-block; transition:all .4s; }
+        .btn:hover { background:#3B96A9; transform:scale(1.05); }
 
-        .wa-float { position:fixed; bottom:30px; right:30px; width:70px; height:70px; background:#25d366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:38px; box-shadow:0 10px 40px rgba(37,211,102,0.6); z-index:999; animation:floatBtn 3s ease-in-out infinite; }
+        .wa-float { position:fixed; bottom:30px; right:30px; width:70px; height:70px; background:#25d366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:38px; box-shadow:0 10px 40px rgba(37,211,102,0.6); z-index:999; animation:floatBtn 3s ease-in-out infinite; text-decoration:none; }
         @keyframes floatBtn{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
 
         /* Footer */
@@ -117,7 +144,7 @@
         .footer-section h3 {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -148,10 +175,10 @@
         }
         .footer-section ul li a:hover,
         .footer-section ul li:hover {
-            color: #00d4ff;
+            color: #3B96A9;
         }
         .footer-section ul li i {
-            color: #0066ff;
+            color: #2B7A8C;
             margin-right: 10px;
             width: 20px;
         }
@@ -183,7 +210,7 @@
         }
         .social-icons a:hover {
             transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(0,102,255,0.4);
+            box-shadow: 0 10px 25px rgba(43, 122, 140, 0.4);
         }
         .footer-bottom {
             text-align: center;
@@ -201,6 +228,9 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 40px;
             }
+            .nav-links { display: none; }
+            .logo span { font-size: 22px; }
+            .logo img { height: 35px; }
         }
         @media(max-width: 768px) {
             .footer-content {
@@ -210,7 +240,7 @@
         }
 
         /* Category Badge */
-        .category-badge { display: inline-block; background: linear-gradient(135deg, #0066ff, #00d4ff); color: white; padding: 8px 20px; border-radius: 30px; font-size: 14px; font-weight: 600; margin-bottom: 30px; }
+        .category-badge { display: inline-block; background: linear-gradient(135deg, #2B7A8C, #3B96A9); color: white; padding: 8px 20px; border-radius: 30px; font-size: 14px; font-weight: 600; margin-bottom: 30px; }
     </style>
 </head>
 <body>
@@ -220,7 +250,10 @@
 
     <header>
         <nav>
-            <div class="logo">Kalogirourania</div>
+            <div class="logo">
+                <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
+                <span>Askarindogroup</span>
+            </div>
             <div class="nav-links">
                 <a href="index.html">Beranda</a>
                 <a href="#ifp">Interactive Panel</a>
@@ -232,8 +265,8 @@
     </header>
 
     <section id="beranda" class="hero">
-        <h1>Kalogirourania</h1>
-        <p>Teknologi Premium untuk Masa Depan Indonesia</p>
+        <h1>Askarindo Integrasi Group</h1>
+        <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
         <a href="#ifp" class="cta">Lihat Produk Unggulan</a>
     </section>
 
@@ -249,7 +282,7 @@
                 <h3>Samsung Flip Pro 85"</h3>
                 <p class="tagline">Kolaborasi 4K UHD dengan teknologi multi-touch 20 titik untuk meeting room dan ruang kelas modern</p>
                 <p class="price">Rp 145.000.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Samsung%20Flip%20Pro%2085" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Samsung%20Flip%20Pro%2085" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 2. ViewBoard IFP7550 75" -->
@@ -258,7 +291,7 @@
                 <h3>ViewBoard IFP7550 75"</h3>
                 <p class="tagline">Display interaktif 4K dengan myViewBoard software gratis dan stylus pen presisi tinggi</p>
                 <p class="price">Rp 68.500.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20ViewBoard%2075" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20ViewBoard%2075" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 3. BenQ Board RP6502 65" -->
@@ -267,7 +300,7 @@
                 <h3>BenQ Board RP6502 65"</h3>
                 <p class="tagline">Smart display dengan Air Quality Sensor dan Eye-Care technology untuk kesehatan mata</p>
                 <p class="price">Rp 42.800.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20BenQ%20Board%2065" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20BenQ%20Board%2065" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 4. Sharp AQUOS Board 86" -->
@@ -276,16 +309,16 @@
                 <h3>Sharp AQUOS Board 86"</h3>
                 <p class="tagline">Panel raksasa dengan teknologi bonding yang superior untuk auditorium dan convention hall</p>
                 <p class="price">Rp 125.000.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Sharp%20AQUOS%2086" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Sharp%20AQUOS%2086" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
-            <!-- 55. Promethean ActivPanel 55" -->
+            <!-- 5. Promethean ActivPanel 55" -->
             <div class="product">
                 <img src="https://www.prometheanworld.com/wp-content/uploads/2023/08/ActivPanel-9-Premium-hero.png" alt="Promethean 55">
                 <h3>Promethean ActivPanel 55"</h3>
                 <p class="tagline">Interactive panel khusus pendidikan dengan ClassFlow software dan unlimited cloud storage</p>
                 <p class="price">Rp 35.200.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Promethean%20ActivPanel%2055" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Promethean%20ActivPanel%2055" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
         </div>
     </section>
@@ -302,7 +335,7 @@
                 <h3>Lenovo ThinkPad P1 Gen 7</h3>
                 <p class="tagline">Workstation mobile dengan Intel Core Ultra 9 dan NVIDIA RTX 5000 untuk rendering 3D dan video editing</p>
                 <p class="price">Rp 85.500.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20ThinkPad%20P1%20Gen%207" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20ThinkPad%20P1%20Gen%207" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 2. Dell XPS 15 9530 -->
@@ -311,7 +344,7 @@
                 <h3>Dell XPS 15 9530</h3>
                 <p class="tagline">Laptop premium dengan layar OLED 3.5K dan performa i9 untuk creative professionals</p>
                 <p class="price">Rp 42.300.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Dell%20XPS%2015" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Dell%20XPS%2015" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 3. PC Rakitan Rendering Pro -->
@@ -320,7 +353,7 @@
                 <h3>PC Rakitan Rendering Pro</h3>
                 <p class="tagline">AMD Ryzen 9 7950X | RTX 4090 24GB | 128GB RAM | NVMe 2TB untuk workstation profesional</p>
                 <p class="price">Rp 95.800.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20PC%20Rendering%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20PC%20Rendering%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 4. PC Rakitan Office Pro -->
@@ -329,7 +362,7 @@
                 <h3>PC Rakitan Office Pro</h3>
                 <p class="tagline">Intel Core i7-13700 | RTX 4060 | 32GB RAM | NVMe 1TB untuk produktivitas harian</p>
                 <p class="price">Rp 18.500.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20PC%20Office%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20PC%20Office%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
         </div>
     </section>
@@ -346,7 +379,7 @@
                 <h3>Epson L18050 A3+</h3>
                 <p class="tagline">Printer foto 6 warna dengan sistem tangki tinta hemat hingga 90% untuk cetakan berkualitas lab</p>
                 <p class="price">Rp 16.200.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Epson%20L18050" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Epson%20L18050" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 2. HP LaserJet Enterprise -->
@@ -355,7 +388,7 @@
                 <h3>HP LaserJet Enterprise M611dn</h3>
                 <p class="tagline">Printer laser monochrome kecepatan 65 ppm dengan duplex otomatis untuk kantor</p>
                 <p class="price">Rp 14.500.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20HP%20LaserJet%20M611dn" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20HP%20LaserJet%20M611dn" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 3. Epson EB-L630U Projector -->
@@ -364,7 +397,7 @@
                 <h3>Epson EB-L630U</h3>
                 <p class="tagline">Proyektor laser 6200 lumens WUXGA dengan masa pakai 20,000 jam untuk auditorium</p>
                 <p class="price">Rp 48.800.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Epson%20EB-L630U" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Epson%20EB-L630U" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 4. Canon imagePROGRAF -->
@@ -373,7 +406,7 @@
                 <h3>Canon imagePROGRAF PRO-4100</h3>
                 <p class="tagline">Large format printer A0 dengan 12 tinta Lucia PRO untuk poster dan banner profesional</p>
                 <p class="price">Rp 128.000.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Canon%20imagePROGRAF" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Canon%20imagePROGRAF" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
         </div>
     </section>
@@ -390,7 +423,7 @@
                 <h3>Meja Kerja Executive Pro</h3>
                 <p class="tagline">Meja ergonomis adjustable height dengan cable management dan built-in USB charging ports</p>
                 <p class="price">Rp 8.500.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Meja%20Executive%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Meja%20Executive%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 2. Kursi Gaming Pro -->
@@ -399,7 +432,7 @@
                 <h3>Kursi Gaming Pro Series</h3>
                 <p class="tagline">Kursi ergonomis dengan lumbar support, 4D armrest, dan reclining 180 derajat untuk kenyamanan maksimal</p>
                 <p class="price">Rp 5.200.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Kursi%20Gaming%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Kursi%20Gaming%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 3. Rak Penyimpanan Modular -->
@@ -408,7 +441,7 @@
                 <h3>Rak Penyimpanan Modular</h3>
                 <p class="tagline">Sistem penyimpanan modular 5 tingkat dengan desain minimalis untuk ruang kerja modern</p>
                 <p class="price">Rp 3.800.000</p>
-                <a href="https://wa.me/6285156760596?text=Saya%20tertarik%20dengan%20Rak%20Modular" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Rak%20Modular" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
         </div>
     </section>
@@ -417,12 +450,12 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Kalogirourania</h3>
+                <h3>Askarindo Integrasi Group</h3>
                 <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
                 <div class="social-icons">
-                    <a href="https://instagram.com/raflydhani" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:raflyasmyramadhani@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/6285156760596" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/askarindogroup" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/6285854542007" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             
@@ -449,27 +482,27 @@
             <div class="footer-section">
                 <h4>Hubungi Kami</h4>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> raflyasmyramadhani@gmail.com</li>
-                    <li><i class="fab fa-whatsapp"></i> +62 851-5676-0596</li>
-                    <li><i class="fab fa-instagram"></i> @raflydhani</li>
+                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fab fa-whatsapp"></i> +62 858-5454-2007</li>
+                    <li><i class="fab fa-instagram"></i> @askarindogroup</li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>© 2025 Kalogirourania. All rights reserved.</p>
-            <p>Dibuat dengan ❤️ di Indonesia</p>
+            <p>© 2025 Askarindo Integrasi Group. All rights reserved.</p>
+            <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/6285156760596" target="_blank" class="wa-float">
+    <a href="https://wa.me/6285854542007" target="_blank" class="wa-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Partikel -->
     <script>
         const p = document.querySelector('.particles');
-        for(let i=0;i<50;i++){
+        for(let i=0;i<60;i++){
             const el=document.createElement('div');
             el.className='particle';
             el.style.left=Math.random()*100+'%';
@@ -488,6 +521,29 @@
                 }
             });
         });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all products
+        document.querySelectorAll('.product').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
     </script>
 </body>
-</html>
+</html

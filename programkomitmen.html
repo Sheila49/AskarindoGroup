@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program & Komitmen - Kalogirourania</title>
+    <title>Program & Komitmen - Askarindo Integrasi Group</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -11,18 +11,20 @@
     
     <style>
         :root {
-            --primary: #0066ff;
-            --primary-dark: #0052cc;
-            --dark: #0a0a0a;
-            --light: #f8f9ff;
-            --gray: #888;
+            --primary: #2B7A8C;
+            --primary-light: #3B96A9;
+            --primary-dark: #1D5563;
+            --secondary: #4A92A3;
+            --dark: #000000;
             --white: #ffffff;
+            --gray: #cccccc;
+            --gray-dark: #888888;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #000;
-            color: #fff;
+            background: var(--dark);
+            color: var(--white);
             overflow-x: hidden;
         }
 
@@ -31,7 +33,7 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, #000000 0%, #001a33 50%, #000000 100%);
+            background: linear-gradient(135deg, #000000 0%, #0d3d47 50%, #000000 100%);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
         }
@@ -52,7 +54,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: rgba(0, 102, 255, 0.4);
+            background: rgba(43, 122, 140, 0.4);
             border-radius: 50%;
             animation: floatParticle 25s infinite linear;
         }
@@ -68,7 +70,7 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             height: 80px;
-            background: rgba(10,10,10,0.9);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(20px);
             z-index: 9999;
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -83,13 +85,22 @@
             padding: 0 40px;
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        .logo span {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
         .nav-links {
             display: flex;
@@ -121,7 +132,7 @@
             font-size: clamp(50px, 10vw, 100px);
             font-weight: 700;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -154,7 +165,7 @@
             font-size: clamp(40px, 7vw, 70px);
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #0066ff);
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -186,10 +197,10 @@
         .program-card:hover {
             transform: translateY(-15px);
             border-color: var(--primary);
-            box-shadow: 0 25px 60px rgba(0,102,255,0.3);
+            box-shadow: 0 25px 60px rgba(43, 122, 140, 0.3);
         }
         .program-header {
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             padding: 40px 30px;
             text-align: center;
         }
@@ -227,7 +238,7 @@
             border-bottom: none;
         }
         .program-features i {
-            color: #00d4ff;
+            color: #3B96A9;
             font-size: 1.2rem;
         }
 
@@ -238,9 +249,9 @@
             gap: 30px;
             margin: 60px 0;
             padding: 50px 40px;
-            background: rgba(0,102,255,0.08);
+            background: rgba(43, 122, 140, 0.08);
             border-radius: 25px;
-            border: 1px solid rgba(0,102,255,0.2);
+            border: 1px solid rgba(43, 122, 140, 0.2);
             backdrop-filter: blur(15px);
         }
         .impact-stat {
@@ -249,7 +260,7 @@
         .impact-number {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
@@ -278,13 +289,13 @@
         .commitment-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            background: rgba(0,102,255,0.1);
+            background: rgba(43, 122, 140, 0.1);
         }
         .commitment-icon {
             width: 80px;
             height: 80px;
             margin: 0 auto 25px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -327,14 +338,14 @@
             min-width: 120px;
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .csr-content h3 {
             font-size: 1.6rem;
             margin-bottom: 15px;
-            color: #00d4ff;
+            color: #3B96A9;
         }
         .csr-content p {
             color: #ccc;
@@ -357,15 +368,15 @@
             transition: all 0.4s ease;
         }
         .cert-card:hover {
-            border-color: #00d4ff;
+            border-color: #3B96A9;
             transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,102,255,0.3);
+            box-shadow: 0 15px 40px rgba(43, 122, 140, 0.3);
         }
         .cert-badge {
             width: 100px;
             height: 100px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -385,8 +396,8 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, rgba(0,102,255,0.15), rgba(0,212,255,0.1));
-            border: 1px solid rgba(0,102,255,0.3);
+            background: linear-gradient(135deg, rgba(43, 122, 140, 0.15), rgba(59, 150, 169, 0.1));
+            border: 1px solid rgba(43, 122, 140, 0.3);
             border-radius: 30px;
             padding: 60px 40px;
             text-align: center;
@@ -407,18 +418,18 @@
         .cta-btn {
             display: inline-block;
             padding: 18px 45px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 15px 40px rgba(0,102,255,0.4);
+            box-shadow: 0 15px 40px rgba(43, 122, 140, 0.4);
             transition: all 0.4s ease;
         }
         .cta-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,102,255,0.6);
+            box-shadow: 0 20px 50px rgba(43, 122, 140, 0.6);
         }
 
         /* Quote Section */
@@ -428,7 +439,7 @@
             margin: 60px 0;
             background: rgba(255,255,255,0.03);
             border-radius: 25px;
-            border-left: 5px solid #0066ff;
+            border-left: 5px solid #2B7A8C;
         }
         .quote-section blockquote {
             font-size: 1.5rem;
@@ -438,17 +449,17 @@
             margin-bottom: 20px;
         }
         .quote-author {
-            color: #00d4ff;
+            color: #3B96A9;
             font-weight: 600;
             font-size: 1.1rem;
         }
 
         /* Footer */
         footer {
-            background: rgba(0,0,0,0.5);
-            padding: 40px;
+            background: rgba(0,0,0,0.8);
+            padding: 60px 40px;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.12);
         }
         footer p {
             color: #888;
@@ -460,21 +471,24 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 65px;
-            height: 65px;
+            width: 70px;
+            height: 70px;
             background: #25d366;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 35px;
-            box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+            font-size: 38px;
+            box-shadow: 0 10px 40px rgba(37,211,102,0.6);
             z-index: 999;
             text-decoration: none;
             animation: floatBtn 3s ease-in-out infinite;
         }
-        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes floatBtn { 
+            0%,100% { transform: translateY(0); } 
+            50% { transform: translateY(-15px); } 
+        }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -493,9 +507,13 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Kalogirourania</div>
+            <div class="logo">
+                <img src="logoaskarindo1-removebg-preview.png">
+                <span>Askarindogroup</span>
+            </div>
             <div class="nav-links">
                 <a href="index.html">Beranda</a>
+                <a href="tentangkami.html">Tentang Kami</a>
                 <a href="#program">Program Kami</a>
                 <a href="#csr">CSR</a>
                 <a href="#komitmen">Komitmen</a>
@@ -652,7 +670,7 @@
     <div class="section">
         <div class="quote-section">
             <blockquote>"Kesuksesan sejati diukur dari seberapa banyak kita memberi dampak positif kepada masyarakat, bukan hanya dari profit yang kita raih."</blockquote>
-            <div class="quote-author">— Tim Kalogirourania</div>
+            <div class="quote-author">— Tim Askarindo Integrasi Group</div>
         </div>
     </div>
 
@@ -665,55 +683,49 @@
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3>Kualitas Terjamin</h3>
-                <p>100% produk original dengan garansi resmi. Quality control ketat pada setiap item untuk memastikan performa optimal.</p>
+                <p>100% produk original dengan garansi resmi. Quality control ketat pada setiap item untuk memastikan performa optimal dan kepuasan jangka panjang.</p>
             </div>
 
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-flag"></i></div>
                 <h3>TKDN 40%+</h3>
-                <p>Mendukung industri lokal dengan mempertahankan Tingkat Komponen Dalam Negeri minimal 40% pada setiap proyek.</p>
+                <p>Mendukung industri lokal dengan mempertahankan Tingkat Komponen Dalam Negeri minimal 40% pada setiap proyek untuk berkontribusi pada ekonomi Indonesia.</p>
             </div>
 
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-handshake"></i></div>
-                <h3>Transparansi</h3>
-                <p>Praktik bisnis transparan dan etis. Komunikasi terbuka dengan klien tentang harga, timeline, dan proses pengadaan.</p>
+                <h3>Integritas Bisnis</h3>
+                <p>Transparansi, kejujuran, dan etika bisnis adalah prioritas utama. Kami membangun kepercayaan melalui praktik bisnis yang bertanggung jawab dan komunikasi terbuka.</p>
             </div>
 
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-lock"></i></div>
                 <h3>Keamanan Data</h3>
-                <p>Perlindungan data pelanggan dengan enkripsi tingkat enterprise dan kepatuhan penuh terhadap regulasi privasi data.</p>
-            </div>
-
-            <div class="commitment-card">
-                <div class="commitment-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Ramah Lingkungan</h3>
-                <p>Prioritas pada produk eco-friendly, pengemasan minimal, dan program daur ulang perangkat elektronik lama.</p>
+                <p>Perlindungan data pelanggan dengan enkripsi tingkat enterprise dan kepatuhan penuh terhadap regulasi privasi data. Privasi dan kerahasiaan informasi klien adalah prioritas tertinggi.</p>
             </div>
 
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-headset"></i></div>
                 <h3>Support 24/7</h3>
-                <p>Layanan customer support tersedia 24/7 dengan waktu respons maksimal 3 jam untuk setiap pertanyaan atau kendala.</p>
+                <p>Layanan customer support tersedia 24/7 dengan waktu respons cepat untuk setiap pertanyaan atau kendala. Tim support responsif siap membantu Anda kapan saja.</p>
             </div>
 
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-tools"></i></div>
-                <h3>Purna Jual</h3>
-                <p>Garansi komprehensif, maintenance berkala, dan spare parts tersedia. Technical support gratis selama masa garansi.</p>
+                <h3>Purna Jual Excellent</h3>
+                <p>Garansi komprehensif, maintenance berkala, dan spare parts tersedia. Technical support gratis selama masa garansi untuk kepuasan jangka panjang.</p>
             </div>
 
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-clock"></i></div>
                 <h3>Tepat Waktu</h3>
-                <p>Komitmen pengiriman dan instalasi tepat waktu. Jaminan uang kembali jika terlambat tanpa alasan force majeure.</p>
+                <p>Komitmen pengiriman dan instalasi tepat waktu. Respon cepat dan efisien dalam setiap tahap pengadaan untuk memastikan proyek berjalan sesuai timeline.</p>
             </div>
 
             <div class="commitment-card">
-                <div class="commitment-icon"><i class="fas fa-dollar-sign"></i></div>
-                <h3>Harga Kompetitif</h3>
-                <p>Best value for money dengan harga yang jujur dan transparan. Tanpa biaya tersembunyi, fleksibilitas pembayaran tersedia.</p>
+                <div class="commitment-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Inovasi Berkelanjutan</h3>
+                <p>Terus berinovasi mengikuti perkembangan teknologi terkini untuk memberikan solusi yang relevan dan kompetitif di pasar global.</p>
             </div>
         </div>
     </section>
@@ -759,7 +771,18 @@
                 <h4>Data Security</h4>
                 <p>ISO 27001 Information Security</p>
             </div>
+             <div class="cert-card">
+            <div class="cert-badge"><i class="fas fa-recycle"></i></div>
+            <h4>Energy Efficiency</h4>
+            <p>Sertifikasi Efisiensi Energi</p>
         </div>
+        <div class="cert-card">
+            <div class="cert-badge"><i class="fas fa-globe-asia"></i></div>
+            <h4>Global Compliance</h4>
+            <p>Kesesuaian Standar Internasional</p>
+        </div>
+        </div>
+       
     </section>
 
     <!-- CTA Section -->
@@ -780,31 +803,31 @@
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fas fa-envelope"></i></div>
                 <h3>Email</h3>
-                <p><a href="mailto:raflyasmyramadhani@gmail.com" style="color: #00d4ff; text-decoration: none;">raflyasmyramadhani@gmail.com</a></p>
+                <p><a href="mailto:askarindointegrasigroup@gmail.com" style="color: #3B96A9; text-decoration: none;">askarindointegrasigroup@gmail.com</a></p>
             </div>
             
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fab fa-whatsapp"></i></div>
                 <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/6285156760596" target="_blank" style="color: #00d4ff; text-decoration: none;">+62 851-5676-0596</a></p>
+                <p><a href="https://wa.me/6285854542007" target="_blank" style="color: #3B96A9; text-decoration: none;">0858-5454-2007</a></p>
             </div>
             
             <div class="commitment-card">
                 <div class="commitment-icon"><i class="fab fa-instagram"></i></div>
                 <h3>Instagram</h3>
-                <p><a href="https://instagram.com/raflydhani" target="_blank" style="color: #00d4ff; text-decoration: none;">@raflydhani</a></p>
+                <p><a href="https://instagram.com/askarindogroup" target="_blank" style="color: #3B96A9; text-decoration: none;">@askarindogroup</a></p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Kalogirourania. All rights reserved.</p>
-        <p>Bersama Membangun Indonesia Digital</p>
+        <p>© 2025 Askarindogroup. All rights reserved.</p>
+        <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
     </footer>
 
     <!-- WA Float -->
-    <a href="https://wa.me/6285156760596" target="_blank" class="wa-float">
+    <a href="https://wa.me/6285854542007" target="_blank" class="wa-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
