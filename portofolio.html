@@ -62,55 +62,69 @@
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
+        /* Header */
         header {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0; 
+            left: 0; 
+            right: 0;
             height: 80px;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             z-index: 9999;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-        nav {
+        
+       nav {
             max-width: 1400px;
             margin: 0 auto;
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             padding: 0 40px;
+            gap: 100px;
         }
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
+        
         .logo img {
-            height: 48px;
+            height: 45px;
             width: auto;
         }
+        
         .logo span {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
+            white-space: nowrap;
         }
+        
         .nav-links {
             display: flex;
-            gap: 8px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
+        
         .nav-links a {
             color: #cccccc;
             text-decoration: none;
             font-weight: 500;
-            padding: 10px 16px;
+            padding: 10px 20px;
             transition: color 0.3s;
-            font-size: 15px;
         }
-        .nav-links a:hover { color: #fff; }
+        
+        .nav-links a:hover { 
+            color: #fff; 
+        }
 
         .hero-section {
             height: 70vh;
@@ -383,45 +397,88 @@
 
         footer {
             background: rgba(0,0,0,0.8);
-            padding: 60px 40px;
-            text-align: center;
             border-top: 1px solid rgba(255,255,255,0.12);
-            color: #cccccc;
+            padding: 80px 40px 30px;
             margin-top: 100px;
         }
-        footer h3 {
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        .footer-section h3 {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
+        .footer-section h4 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 12px;
+            color: #aaa;
+        }
+        .footer-section ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: #3B96A9;
+        }
+        .footer-section ul li i {
+            color: #2B7A8C;
+            margin-right: 10px;
+            width: 20px;
+        }
         .social-icons {
             display: flex;
-            gap: 25px;
-            justify-content: center;
-            margin: 30px 0;
+            gap: 15px;
+            margin-top: 20px;
         }
         .social-icons a {
             width: 50px;
             height: 50px;
-            background: #2B7A8C;
-            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            transition: all 0.4s;
+            font-size: 20px;
+            color: white;
+            transition: all 0.4s ease;
+            background: #2B7A8C;
             box-shadow: 0 5px 20px rgba(43, 122, 140, 0.4);
         }
         .social-icons a:hover {
             background: #3B96A9;
             transform: translateY(-8px) scale(1.1);
         }
-        footer p {
-            margin: 10px 0;
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #666;
+        }
+        .footer-bottom p {
+            margin: 8px 0;
+            font-size: 14px;
         }
 
         .wa-float {
@@ -460,17 +517,21 @@
     <div id="animated-bg"></div>
     <div class="particles"></div>
 
+    <!-- Header -->
     <header>
         <nav>
             <div class="logo">
-                <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Integrasi Group">
+                <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
                 <span>Askarindogroup</span>
             </div>
             <div class="nav-links">
                 <a href="index.html">Beranda</a>
-                <a href="#proyek">Proyek</a>
-                <a href="#testimoni">Testimoni</a>
-                <a href="#kontak">Kontak</a>
+                <a href="tentangkami.html">Tentang Kami</a>
+                <a href="programkomitmen.html">Program & Komitmen</a>
+                <a href="produk.html">Produk</a>
+                <a href="portofolio.html">Portofolio</a>
+                <a href="support.html">Support</a>
+                <a href="kontak.html">Kontak</a>
             </div>
         </nav>
     </header>
@@ -722,14 +783,60 @@
     </div>
 
     <footer>
-        <h3>Ikuti Kami</h3>
-        <div class="social-icons">
-            <a href="https://instagram.com/askarindogroup" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:askarindointegrasigroup@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/6285854542007" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Askarindogroup</h3>
+                <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/askarindogroup" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/6285854542007" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="products.html">Produk</a></li>
+                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Konsultasi Gratis</a></li>
+                    <li><a href="#">Instalasi & Setup</a></li>
+                    <li><a href="#">Pelatihan Pengguna</a></li>
+                    <li><a href="#">Maintenance</a></li>
+                    <li><a href="#">Garansi & Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
+                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
+                </ul>
+            </div>
         </div>
-        <p>© 2025 Askarindogroup. All rights reserved.</p>
-        <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
+
+        <div class="footer-bottom">
+            <p>© 2025 Askarindogroup. All rights reserved.</p>
+            <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
+        </div>
     </footer>
 
     <a href="https://wa.me/6285854542007" target="_blank" class="wa-float">

@@ -44,18 +44,40 @@
         }
 
         /* Header */
-        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(0,0,0,0.95); backdrop-filter: blur(20px); z-index: 9999; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        nav { max-width: 1400px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+        header {
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        
+       nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            gap: 100px;
+        }
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
+        
         .logo img {
-            height: 50px;
+            height: 45px;
             width: auto;
-            background: transparent;
         }
+        
         .logo span {
             font-family: 'Clash Display', sans-serif;
             font-size: 28px;
@@ -64,10 +86,26 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
+            white-space: nowrap;
         }
-        .nav-links { display: flex; gap: 8px; }
-        .nav-links a { color: #ccc; text-decoration: none; transition: color 0.3s; font-weight: 500; padding: 10px 16px; font-size: 15px; }
-        .nav-links a:hover { color: #fff; }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #cccccc;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { 
+            color: #fff; 
+        }
 
         /* Hero */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -126,10 +164,9 @@
         .wa-float { position:fixed; bottom:30px; right:30px; width:70px; height:70px; background:#25d366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:38px; box-shadow:0 10px 40px rgba(37,211,102,0.6); z-index:999; animation:floatBtn 3s ease-in-out infinite; text-decoration:none; }
         @keyframes floatBtn{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
 
-        /* Footer */
         footer {
-            background: rgba(10,10,10,0.95);
-            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.8);
+            border-top: 1px solid rgba(255,255,255,0.12);
             padding: 80px 40px 30px;
             margin-top: 100px;
         }
@@ -166,15 +203,13 @@
         .footer-section ul li {
             margin-bottom: 12px;
             color: #aaa;
-            transition: color 0.3s;
         }
         .footer-section ul li a {
             color: #aaa;
             text-decoration: none;
             transition: color 0.3s;
         }
-        .footer-section ul li a:hover,
-        .footer-section ul li:hover {
+        .footer-section ul li a:hover {
             color: #3B96A9;
         }
         .footer-section ul li i {
@@ -188,8 +223,8 @@
             margin-top: 20px;
         }
         .social-icons a {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -197,20 +232,12 @@
             font-size: 20px;
             color: white;
             transition: all 0.4s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .social-icons a:nth-child(1) {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-        }
-        .social-icons a:nth-child(2) {
-            background: #DB4437;
-        }
-        .social-icons a:nth-child(3) {
-            background: #25D366;
+            background: #2B7A8C;
+            box-shadow: 0 5px 20px rgba(43, 122, 140, 0.4);
         }
         .social-icons a:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(43, 122, 140, 0.4);
+            background: #3B96A9;
+            transform: translateY(-8px) scale(1.1);
         }
         .footer-bottom {
             text-align: center;
@@ -248,6 +275,7 @@
     <div id="animated-bg"></div>
     <div class="particles"></div>
 
+    <!-- Header -->
     <header>
         <nav>
             <div class="logo">
@@ -256,14 +284,15 @@
             </div>
             <div class="nav-links">
                 <a href="index.html">Beranda</a>
-                <a href="#ifp">Interactive Panel</a>
-                <a href="#laptop">Laptop & PC</a>
-                <a href="#printer">Printer & Proyektor</a>
-                <a href="#mebel">Mebeler</a>
+                <a href="tentangkami.html">Tentang Kami</a>
+                <a href="programkomitmen.html">Program & Komitmen</a>
+                <a href="produk.html">Produk</a>
+                <a href="portofolio.html">Portofolio</a>
+                <a href="support.html">Support</a>
+                <a href="kontak.html">Kontak</a>
             </div>
         </nav>
     </header>
-
     <section id="beranda" class="hero">
         <h1>Askarindo Integrasi Group</h1>
         <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
@@ -282,7 +311,7 @@
                 <h3>Samsung Flip Pro 85"</h3>
                 <p class="tagline">Kolaborasi 4K UHD dengan teknologi multi-touch 20 titik untuk meeting room dan ruang kelas modern</p>
                 <p class="price">Rp 145.000.000</p>
-                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Samsung%20Flip%20Pro%2085" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="flip-85.html" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 2. ViewBoard IFP7550 75" -->
@@ -291,7 +320,7 @@
                 <h3>ViewBoard IFP7550 75"</h3>
                 <p class="tagline">Display interaktif 4K dengan myViewBoard software gratis dan stylus pen presisi tinggi</p>
                 <p class="price">Rp 68.500.000</p>
-                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20ViewBoard%2075" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="flip-75.html" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 3. BenQ Board RP6502 65" -->
@@ -335,7 +364,7 @@
                 <h3>Lenovo ThinkPad P1 Gen 7</h3>
                 <p class="tagline">Workstation mobile dengan Intel Core Ultra 9 dan NVIDIA RTX 5000 untuk rendering 3D dan video editing</p>
                 <p class="price">Rp 85.500.000</p>
-                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20ThinkPad%20P1%20Gen%207" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="thinkpad-p1.html" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 2. Dell XPS 15 9530 -->
@@ -379,7 +408,7 @@
                 <h3>Epson L18050 A3+</h3>
                 <p class="tagline">Printer foto 6 warna dengan sistem tangki tinta hemat hingga 90% untuk cetakan berkualitas lab</p>
                 <p class="price">Rp 16.200.000</p>
-                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Epson%20L18050" target="_blank" class="btn">Pesan Sekarang →</a>
+                <a href="epson-l18050.html" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
 
             <!-- 2. HP LaserJet Enterprise -->
@@ -446,51 +475,59 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Askarindo Integrasi Group</h3>
-                <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
+                <h3>Askarindogroup</h3>
+                <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
                 <div class="social-icons">
-                    <a href="https://instagram.com/askarindogroup" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:askarindointegrasigroup@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/6285854542007" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/askarindogroup" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/6285854542007" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
-                <h4>Produk</h4>
+                <h4>Menu</h4>
                 <ul>
-                    <li><a href="#ifp">Interactive Flat Panel</a></li>
-                    <li><a href="#laptop">Laptop & PC Rakitan</a></li>
-                    <li><a href="#printer">Printer & Proyektor</a></li>
-                    <li><a href="#mebel">Mebeler</a></li>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="products.html">Produk</a></li>
+                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
-                <h4>Perusahaan</h4>
+                <h4>Layanan</h4>
                 <ul>
-                    <li><a href="tentangkami.html">Tentang Kami</a></li>
-                    <li><a href="programkomitmen.html">Program & Komitmen</a></li>
-                    <li><a href="#portofolio">Portofolio</a></li>
-                    <li><a href="#support">Support</a></li>
+                    <li><a href="#">Konsultasi Gratis</a></li>
+                    <li><a href="#">Instalasi & Setup</a></li>
+                    <li><a href="#">Pelatihan Pengguna</a></li>
+                    <li><a href="#">Maintenance</a></li>
+                    <li><a href="#">Garansi & Support</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h4>Hubungi Kami</h4>
                 <ul>
+                    <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
                     <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
-                    <li><i class="fab fa-whatsapp"></i> +62 858-5454-2007</li>
-                    <li><i class="fab fa-instagram"></i> @askarindogroup</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
-            <p>© 2025 Askarindo Integrasi Group. All rights reserved.</p>
+            <p>© 2025 Askarindogroup. All rights reserved.</p>
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
