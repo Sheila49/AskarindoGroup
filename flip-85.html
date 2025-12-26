@@ -65,28 +65,90 @@
             left: 0; 
             width: 100%; 
             height: 100%;
-            z-index: -1;
+            z-index: 1;
             pointer-events: none;
         }
         
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(43, 122, 140, 0.4);
             border-radius: 50%;
             animation: floatParticle 25s infinite linear;
+            pointer-events: none;
+        }
+        
+        /* Particle variations */
+        .particle.small {
+            width: 3px;
+            height: 3px;
+            background: rgba(43, 122, 140, 0.7);
+        }
+        
+        .particle.medium {
+            width: 4px;
+            height: 4px;
+            background: rgba(43, 122, 140, 0.8);
+            box-shadow: 0 0 8px rgba(43, 122, 140, 0.6);
+        }
+        
+        .particle.large {
+            width: 5px;
+            height: 5px;
+            background: rgba(59, 150, 169, 0.9);
+            box-shadow: 0 0 12px rgba(59, 150, 169, 0.7);
+        }
+        
+        .particle.glow {
+            width: 6px;
+            height: 6px;
+            background: rgba(59, 150, 169, 1);
+            box-shadow: 0 0 15px rgba(59, 150, 169, 0.9), 0 0 25px rgba(43, 122, 140, 0.5);
         }
         
         @keyframes floatParticle {
             0% { 
-                transform: translateY(100vh) translateX(0); 
+                transform: translateY(100vh) translateX(0) rotate(0deg); 
                 opacity: 0; 
             }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% { 
-                transform: translateY(-100vh) translateX(80px); 
+                transform: translateY(-100vh) translateX(100px) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Diagonal particles */
+        .particle.diagonal {
+            animation: floatDiagonal 30s infinite linear;
+        }
+        
+        @keyframes floatDiagonal {
+            0% { 
+                transform: translate(100vw, 100vh) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translate(-100px, -100vh) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Horizontal floating particles */
+        .particle.horizontal {
+            animation: floatHorizontal 35s infinite linear;
+        }
+        
+        @keyframes floatHorizontal {
+            0% { 
+                transform: translateX(-100px) translateY(0); 
+                opacity: 0; 
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { 
+                transform: translateX(calc(100vw + 100px)) translateY(-50px); 
                 opacity: 0; 
             }
         }
@@ -114,7 +176,7 @@
             font-family: 'Clash Display', sans-serif;
             font-size: 32px;
             font-weight: 700;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
@@ -161,7 +223,7 @@
         .product-image img {
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 30px 60px rgba(0,102,255,0.3));
+            filter: drop-shadow(0 30px 60px rgba(43, 122, 140, 0.3));
             animation: float 6s ease-in-out infinite;
         }
         @keyframes float {
@@ -175,7 +237,7 @@
             font-size: clamp(48px, 8vw, 72px);
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff, #a0c4ff);
+            background: linear-gradient(135deg, #fff, #3B96A9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -187,7 +249,7 @@
         .product-info .price {
             font-size: 48px;
             font-weight: 700;
-            color: #00d4ff;
+            color: #3B96A9;
             margin-bottom: 40px;
         }
 
@@ -198,7 +260,7 @@
         .specs h3 {
             font-size: 28px;
             margin-bottom: 20px;
-            color: #00d4ff;
+            color: #3B96A9;
         }
         .spec-item {
             display: flex;
@@ -225,7 +287,7 @@
         .features h3 {
             font-size: 28px;
             margin-bottom: 30px;
-            color: #00d4ff;
+            color: #3B96A9;
         }
         .feature-grid {
             display: grid;
@@ -240,7 +302,7 @@
             transition: all 0.4s;
         }
         .feature-item:hover {
-            background: rgba(0,102,255,0.1);
+            background: rgba(43, 122, 140, 0.1);
             border-color: var(--primary);
             transform: translateY(-5px);
         }
@@ -267,14 +329,14 @@
         .btn-primary {
             flex: 1;
             padding: 20px 40px;
-            background: var(--primary);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
             text-decoration: none;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,102,255,0.4);
+            box-shadow: 0 20px 50px rgba(43, 122, 140, 0.4);
             transition: all 0.4s;
             display: flex;
             align-items: center;
@@ -282,9 +344,9 @@
             gap: 10px;
         }
         .btn-primary:hover {
-            background: #3388ff;
+            background: #3B96A9;
             transform: translateY(-5px);
-            box-shadow: 0 30px 70px rgba(0,102,255,0.6);
+            box-shadow: 0 30px 70px rgba(43, 122, 140, 0.6);
         }
         .btn-secondary {
             flex: 1;
@@ -365,14 +427,14 @@
             margin-bottom: 10px;
         }
         .related-item .price {
-            color: #00d4ff;
+            color: #3B96A9;
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 20px;
         }
         .related-item a {
             padding: 12px 30px;
-            background: var(--primary);
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white;
             border-radius: 50px;
             text-decoration: none;
@@ -380,7 +442,7 @@
             transition: all 0.3s;
         }
         .related-item a:hover {
-            background: #3388ff;
+            background: #3B96A9;
         }
 
         /* WA Float */
@@ -400,6 +462,7 @@
             box-shadow: 0 10px 40px rgba(37,211,102,0.6);
             z-index: 999;
             animation: floatBtn 3s ease-in-out infinite;
+            text-decoration: none;
         }
         @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 

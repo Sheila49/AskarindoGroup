@@ -108,11 +108,50 @@
         }
 
         /* Hero */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero h1 { font-family: 'Clash Display', sans-serif; font-size: clamp(60px,12vw,140px); font-weight: 700; background: linear-gradient(135deg,#ffffff,#2B7A8C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 28px; opacity: 0.9; margin: 20px 0 40px; color: #ccc; }
-        .hero .cta { padding: 18px 50px; background: linear-gradient(135deg, #2B7A8C, #3B96A9); color: white; border-radius: 60px; font-size: 22px; font-weight: 600; text-decoration: none; box-shadow: 0 20px 50px rgba(43, 122, 140, 0.4); transition: all .5s; }
-        .hero .cta:hover { transform: translateY(-10px); box-shadow: 0 30px 70px rgba(43, 122, 140, 0.6); }
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: clamp(50px, 10vw, 100px); /* sama seperti kode 2 */
+    font-weight: 700;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff, #2B7A8C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: clamp(18px, 3vw, 24px); /* sama seperti kode 2 */
+    opacity: 0.9;
+    margin: 20px 0 40px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.hero .cta {
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+    color: white;
+    border-radius: 60px;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 20px 50px rgba(43, 122, 140, 0.4);
+    transition: all .5s;
+}
+
+.hero .cta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(43, 122, 140, 0.6);
+}
+
 
         /* Category Section */
         .category-section { max-width: 1600px; margin: 0 auto; padding: 140px 40px 100px; }
