@@ -790,6 +790,94 @@
                 font-size: 2rem;
             }
         }
+        /* ================================================= */
+/* SAFE RESPONSIVE TABLET LAYER (SEMUA SECTION) */
+/* ================================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* GLOBAL SAFETY */
+    body {
+        overflow-x: hidden;
+    }
+
+    section, .section {
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* TEXT SAFETY */
+    h1, h2, h3 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* HERO */
+    .hero {
+        height: auto;
+        min-height: 85vh;
+        padding-top: 120px;
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(44px, 6vw, 76px);
+        white-space: normal;
+    }
+
+    .hero p {
+        font-size: 22px;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* GRID LOCK (INI KUNCI UTAMA) */
+    .grid-2,
+    .products-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); /* 🔒 dikunci */
+        gap: 30px;
+    }
+
+    /* VISI MISI */
+    .visi-misi-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .visi-card,
+    .misi-card {
+        padding: 50px 40px;
+    }
+
+    /* STATS */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 50px 30px;
+        gap: 30px;
+    }
+
+    /* CONTACT */
+    .contact-cards {
+        justify-content: center;
+    }
+
+    .contact-card {
+        max-width: 420px;
+    }
+
+    /* FOOTER */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+
     </style>
 </head>
 <body>
