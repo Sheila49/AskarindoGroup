@@ -115,7 +115,8 @@
         .nav-links {
             display: flex;
             gap: 15px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;      /* ✅ PENTING */
+            white-space: nowrap;    /* ✅ PENTING */
         }
         
         .nav-links a {
@@ -557,6 +558,92 @@
             .timeline-content { width: 100%; margin-left: 60px; }
             .timeline-year { left: 20px; transform: translateX(0); }
         }
+
+        /* ============================= */
+        /* TABLET + MOBILE NAV FIX */
+        /* ============================= */
+        @media (max-width: 1024px) {
+            nav {
+                justify-content: space-between;
+                gap: 0;
+                padding: 0 25px;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                top: -6px; /* geser ke atas supaya kontak gak keliatan */
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(5, 30, 40, 0.98); 
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 28px;
+                transform: translateY(-120%);
+                transition: transform 0.45s ease;
+                z-index: 9998;
+            }
+
+            .nav-links a {
+                font-size: 22px;
+                color: #ffffff;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+        }
+
+
+        /* ============================= */
+        /* HAMBURGER BASE */
+        /* ============================= */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 3px;
+            transition: all 0.4s ease;
+        }
+
+        /* ANIMASI JADI SILANG */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* FORCE SAME MENU COLOR MOBILE & TABLET */
+        @media (max-width: 1024px) {
+            .nav-links {
+                background: rgba(0, 0, 0, 0.96) !important;
+                backdrop-filter: blur(20px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -572,7 +659,7 @@
                 <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
                 <span>Askarindogroup</span>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="navMenu">
                 <a href="index.html">Beranda</a>
                 <a href="tentangkami.html">Tentang Kami</a>
                 <a href="programkomitmen.html">Program & Komitmen</a>
@@ -580,6 +667,11 @@
                 <a href="portofolio.html">Portofolio</a>
                 <a href="support.html">Support</a>
                 <a href="kontak.html">Kontak</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
@@ -943,6 +1035,14 @@
 
         document.querySelectorAll('.stat-card').forEach(card => {
             statsObserver.observe(card);
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
     </script>
 </body>
