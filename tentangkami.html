@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -66,7 +65,7 @@
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
-        /* Header */
+        /* Header - SAMA DENGAN INDEX */
         header {
             position: fixed;
             top: 0; 
@@ -79,15 +78,15 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         
-       nav {
+        nav {
             max-width: 1400px;
             margin: 0 auto;
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between; /* ✅ space-between seperti index */
             padding: 0 40px;
-            gap: 100px;
+            gap: 40px;
         }
         
         .logo {
@@ -115,20 +114,49 @@
         .nav-links {
             display: flex;
             gap: 15px;
-            flex-wrap: nowrap;      /* ✅ PENTING */
-            white-space: nowrap;    /* ✅ PENTING */
+            flex-wrap: nowrap;
+            white-space: nowrap;
         }
         
         .nav-links a {
             color: #cccccc;
             text-decoration: none;
             font-weight: 500;
-            padding: 10px 20px;
+            padding: 8px 14px;
+            font-size: 15px;
             transition: color 0.3s;
         }
         
         .nav-links a:hover { 
             color: #fff; 
+        }
+
+        /* Hamburger - HIDDEN by default */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        /* ANIMASI SILANG */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* Hero Section */
@@ -478,7 +506,7 @@
             border-radius: 50%;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             font-size: 20px;
             color: white;
             transition: all 0.4s ease;
@@ -498,31 +526,6 @@
         .footer-bottom p {
             margin: 8px 0;
             font-size: 14px;
-        }
-
-        /* Social Icons Footer */
-        .social-icons {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            margin: 30px 0;
-        }
-        .social-icons a {
-            width: 50px;
-            height: 50px;
-            background: #2B7A8C;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            transition: all 0.4s;
-            box-shadow: 0 5px 20px rgba(43, 122, 140, 0.4);
-        }
-        .social-icons a:hover {
-            background: #3B96A9;
-            transform: translateY(-8px) scale(1.1);
         }
 
         /* WA Float */
@@ -549,99 +552,99 @@
             50% { transform: translateY(-15px); } 
         }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .logo span { font-size: 22px; }
-            .logo img { height: 35px; }
+        /* =============================== */
+        /* TABLET & MOBILE - SAMA DENGAN INDEX */
+        /* =============================== */
+        @media (max-width: 1024px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 9999;
+                background: rgba(5, 30, 40, 0.95);
+                backdrop-filter: blur(10px);
+            }
+
+            nav {
+                height: 70px;
+                padding: 0 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 40px;
+            }
+
+            /* LOGO TIDAK BOLEH HILANG */
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 10001;
+            }
+
+            .logo img {
+                height: 40px;
+                width: auto;
+            }
+
+            /* HAMBURGER AKTIF */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                cursor: pointer;
+                z-index: 10001;
+            }
+
+            /* NAV MENU */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(5, 30, 40, 0.98);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 25px;
+
+                transform: translateY(-100%);
+                transition: transform 0.45s ease;
+                z-index: 10000;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 22px;
+            }
+
+            /* HERO OFFSET */
+            .hero-section {
+                padding-top: 120px;
+            }
+
             .timeline::before { left: 20px; }
             .timeline-item { flex-direction: column !important; }
             .timeline-content { width: 100%; margin-left: 60px; }
             .timeline-year { left: 20px; transform: translateX(0); }
         }
 
-        /* ============================= */
-        /* TABLET + MOBILE NAV FIX */
-        /* ============================= */
-        @media (max-width: 1024px) {
-            nav {
-                justify-content: space-between;
-                gap: 0;
-                padding: 0 25px;
-            }
-
-            .hamburger {
-                display: flex;
-                position: relative;
-                top: -6px; /* geser ke atas supaya kontak gak keliatan */
-            }
-            
-            .hamburger {
-                display: none;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(5, 30, 40, 0.98); 
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 28px;
-                transform: translateY(-120%);
-                transition: transform 0.45s ease;
-                z-index: 9998;
-            }
-
-            .nav-links a {
-                font-size: 22px;
-                color: #ffffff;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-            }
-        }
-
-
-        /* ============================= */
-        /* HAMBURGER BASE */
-        /* ============================= */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 10000;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: #ffffff;
-            border-radius: 3px;
-            transition: all 0.4s ease;
-        }
-
-        /* ANIMASI JADI SILANG */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* FORCE SAME MENU COLOR MOBILE & TABLET */
-        @media (max-width: 1024px) {
-            .nav-links {
-                background: rgba(0, 0, 0, 0.96) !important;
-                backdrop-filter: blur(20px);
+        @media (max-width: 768px) {
+            .logo span { font-size: 22px; }
+            .logo img { height: 35px; }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
     </style>
@@ -1037,6 +1040,7 @@
             statsObserver.observe(card);
         });
 
+        // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
 

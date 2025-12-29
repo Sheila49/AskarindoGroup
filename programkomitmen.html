@@ -78,15 +78,15 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         
-       nav {
+        nav {
             max-width: 1400px;
             margin: 0 auto;
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             padding: 0 40px;
-            gap: 100px;
+            gap: 40px;
         }
         
         .logo {
@@ -114,19 +114,37 @@
         .nav-links {
             display: flex;
             gap: 15px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            white-space: nowrap;
         }
         
         .nav-links a {
             color: #cccccc;
             text-decoration: none;
             font-weight: 500;
-            padding: 10px 20px;
+            padding: 8px 14px;
+            font-size: 15px;
             transition: color 0.3s;
         }
         
         .nav-links a:hover { 
             color: #fff; 
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.4s ease;
         }
 
         /* Hero Section */
@@ -577,11 +595,219 @@
             50% { transform: translateY(-15px); } 
         }
 
+        /* =============================== */
+        /* RESPONSIVE STYLES */
+        /* =============================== */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links { 
+                flex-wrap: nowrap;
+                white-space: nowrap;
+                display: flex; 
+            }
+            
+            .hamburger {
+                display: none;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 9999;
+                background: rgba(5, 30, 40, 0.95);
+                backdrop-filter: blur(10px);
+            }
+
+            nav {
+                height: 70px;
+                padding: 0 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 40px;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 10001;
+            }
+
+            .logo img {
+                height: 40px;
+                width: auto;
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                cursor: pointer;
+                z-index: 10001;
+            }
+
+            .hamburger span {
+                width: 28px;
+                height: 3px;
+                background: #fff;
+                border-radius: 2px;
+                transition: all 0.4s ease;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(5, 30, 40, 0.98);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 25px;
+                transform: translateY(-100%);
+                transition: transform 0.45s ease;
+                z-index: 10000;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 22px;
+            }
+
+            .hero-section {
+                padding-top: 120px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links { 
+                display: flex; 
+            }
+            
+            .hamburger {
+                display: none;
+                margin-top: -6px;
+            }
+            
+            header {
+                height: 80px;
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 24px;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 10001;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(5, 30, 40, 0.98); 
+                backdrop-filter: blur(10px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 28px;
+                transform: translateY(-120%);
+                transition: transform 0.4s ease;
+                z-index: 9999;
+            }
+
+            .nav-links a {
+                font-size: 22px;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                cursor: pointer;
+                z-index: 10001;
+                margin-top: -6px;
+            }
+
+            .hamburger span {
+                width: 26px;
+                height: 3px;
+                background: #fff;
+                border-radius: 3px;
+                transition: all 0.4s ease;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .program-grid { grid-template-columns: 1fr; }
-            .csr-item { flex-direction: column; gap: 15px; }
-            .csr-year { min-width: auto; }
+            .program-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .csr-item { 
+                flex-direction: column; 
+                gap: 15px; 
+            }
+            .csr-year { 
+                min-width: auto; 
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .logo span { 
+                font-size: 22px; 
+            }
+            
+            .logo img { 
+                height: 35px; 
+            }
         }
     </style>
 </head>
@@ -598,7 +824,7 @@
                 <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
                 <span>Askarindogroup</span>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="navMenu">
                 <a href="index.html">Beranda</a>
                 <a href="tentangkami.html">Tentang Kami</a>
                 <a href="programkomitmen.html">Program & Komitmen</a>
@@ -606,6 +832,13 @@
                 <a href="portofolio.html">Portofolio</a>
                 <a href="support.html">Support</a>
                 <a href="kontak.html">Kontak</a>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
@@ -858,18 +1091,19 @@
                 <h4>Data Security</h4>
                 <p>ISO 27001 Information Security</p>
             </div>
-             <div class="cert-card">
-            <div class="cert-badge"><i class="fas fa-recycle"></i></div>
-            <h4>Energy Efficiency</h4>
-            <p>Sertifikasi Efisiensi Energi</p>
+            
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-recycle"></i></div>
+                <h4>Energy Efficiency</h4>
+                <p>Sertifikasi Efisiensi Energi</p>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-badge"><i class="fas fa-globe-asia"></i></div>
+                <h4>Global Compliance</h4>
+                <p>Kesesuaian Standar Internasional</p>
+            </div>
         </div>
-        <div class="cert-card">
-            <div class="cert-badge"><i class="fas fa-globe-asia"></i></div>
-            <h4>Global Compliance</h4>
-            <p>Kesesuaian Standar Internasional</p>
-        </div>
-        </div>
-       
     </section>
 
     <!-- CTA Section -->
@@ -981,6 +1215,16 @@
             particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
             particlesContainer.appendChild(particle);
         }
+
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

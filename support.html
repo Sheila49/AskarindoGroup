@@ -65,7 +65,7 @@
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
-       /* Header */
+        /* Header - SAMA SEPERTI INDEX */
         header {
             position: fixed;
             top: 0; 
@@ -78,15 +78,15 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         
-       nav {
+        nav {
             max-width: 1400px;
             margin: 0 auto;
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             padding: 0 40px;
-            gap: 100px;
+            gap: 40px;
         }
         
         .logo {
@@ -114,20 +114,48 @@
         .nav-links {
             display: flex;
             gap: 15px;
-            flex-wrap: nowrap;      /* ✅ PENTING */
-            white-space: nowrap;    /* ✅ PENTING */
+            flex-wrap: nowrap;
+            white-space: nowrap;
         }
         
         .nav-links a {
             color: #cccccc;
             text-decoration: none;
             font-weight: 500;
-            padding: 10px 20px;
+            padding: 8px 14px;
+            font-size: 15px;
             transition: color 0.3s;
         }
         
         .nav-links a:hover { 
             color: #fff; 
+        }
+
+        /* Hamburger - Hidden by default */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* Hero Section */
@@ -610,12 +638,98 @@
         }
         @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .logo span { font-size: 22px; }
-            .logo img { height: 35px; }
+        /* =============================== */
+        /* RESPONSIVE - TABLET & MOBILE */
+        /* =============================== */
+        @media (max-width: 1024px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 9999;
+                background: rgba(5, 30, 40, 0.95);
+                backdrop-filter: blur(10px);
+            }
+
+            nav {
+                height: 70px;
+                padding: 0 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 10001;
+            }
+
+            .logo img {
+                height: 40px;
+                width: auto;
+            }
+
+            .logo span {
+                font-size: 22px;
+            }
+
+            /* HAMBURGER AKTIF */
+            .hamburger {
+                display: flex;
+            }
+
+            /* NAV MENU - FULLSCREEN OVERLAY */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(5, 30, 40, 0.98);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 25px;
+                transform: translateY(-100%);
+                transition: transform 0.45s ease;
+                z-index: 10000;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 22px;
+                padding: 10px 20px;
+            }
+
+            .hero-section {
+                padding-top: 120px;
+            }
+
             .support-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
     </style>
@@ -626,14 +740,14 @@
     <div id="animated-bg"></div>
     <div class="particles"></div>
 
-    <!-- Header -->
+    <!-- Header - SAMA DENGAN INDEX -->
     <header>
         <nav>
             <div class="logo">
                 <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
                 <span>Askarindogroup</span>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="navMenu">
                 <a href="index.html">Beranda</a>
                 <a href="tentangkami.html">Tentang Kami</a>
                 <a href="programkomitmen.html">Program & Komitmen</a>
@@ -641,6 +755,13 @@
                 <a href="portofolio.html">Portofolio</a>
                 <a href="support.html">Support</a>
                 <a href="kontak.html">Kontak</a>
+            </div>
+
+            <!-- Hamburger Menu -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
@@ -895,85 +1016,84 @@
     </section>
 
     <!-- Download Center -->
-<section id="download" class="section">
-    <h2 class="section-title">Download Center</h2>
-    <p class="section-subtitle">Unduh manual, driver, dan software pendukung untuk produk Anda</p>
-    
-    <div class="download-grid">
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-book"></i></div>
-            <h4>User Manual</h4>
-            <p>Panduan lengkap penggunaan produk dalam Bahasa Indonesia dan Inggris</p>
-            <a href="https://wa.me/6285854542007?text=Request%20User%20Manual" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Manual
-            </a>
-        </div>
+    <section id="download" class="section">
+        <h2 class="section-title">Download Center</h2>
+        <p class="section-subtitle">Unduh manual, driver, dan software pendukung untuk produk Anda</p>
+        
+        <div class="download-grid">
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-book"></i></div>
+                <h4>User Manual</h4>
+                <p>Panduan lengkap penggunaan produk dalam Bahasa Indonesia dan Inggris</p>
+                <a href="https://wa.me/6285854542007?text=Request%20User%20Manual" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Manual
+                </a>
+            </div>
 
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-compact-disc"></i></div>
-            <h4>Driver & Software</h4>
-            <p>Driver terbaru dan software pendukung untuk berbagai produk</p>
-            <a href="https://wa.me/6285854542007?text=Request%20Driver%20Software" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Driver
-            </a>
-        </div>
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-compact-disc"></i></div>
+                <h4>Driver & Software</h4>
+                <p>Driver terbaru dan software pendukung untuk berbagai produk</p>
+                <a href="https://wa.me/6285854542007?text=Request%20Driver%20Software" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Driver
+                </a>
+            </div>
 
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-wrench"></i></div>
-            <h4>Troubleshooting Guide</h4>
-            <p>Panduan mengatasi masalah umum dan tips maintenance</p>
-            <a href="https://wa.me/6285854542007?text=Request%20Troubleshooting%20Guide" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Guide
-            </a>
-        </div>
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-wrench"></i></div>
+                <h4>Troubleshooting Guide</h4>
+                <p>Panduan mengatasi masalah umum dan tips maintenance</p>
+                <a href="https://wa.me/6285854542007?text=Request%20Troubleshooting%20Guide" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Guide
+                </a>
+            </div>
 
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-file-video"></i></div>
-            <h4>Video Tutorial</h4>
-            <p>Tutorial video step-by-step untuk instalasi dan penggunaan</p>
-            <a href="https://wa.me/6285854542007?text=Request%20Video%20Tutorial" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Video
-            </a>
-        </div>
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-file-video"></i></div>
+                <h4>Video Tutorial</h4>
+                <p>Tutorial video step-by-step untuk instalasi dan penggunaan</p>
+                <a href="https://wa.me/6285854542007?text=Request%20Video%20Tutorial" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Video
+                </a>
+            </div>
 
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
-            <h4>Katalog Produk</h4>
-            <p>Katalog lengkap semua produk dengan spesifikasi detail</p>
-            <a href="https://wa.me/6285854542007?text=Request%20Katalog%20Produk" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Katalog
-            </a>
-        </div>
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                <h4>Katalog Produk</h4>
+                <p>Katalog lengkap semua produk dengan spesifikasi detail</p>
+                <a href="https://wa.me/6285854542007?text=Request%20Katalog%20Produk" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Katalog
+                </a>
+            </div>
 
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-certificate"></i></div>
-            <h4>Sertifikasi & Dokumen</h4>
-            <p>Sertifikat produk, TKDN, ISO, dan dokumen legal lainnya</p>
-            <a href="https://wa.me/6285854542007?text=Request%20Sertifikasi%20Dokumen" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Dokumen
-            </a>
-        </div>
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-certificate"></i></div>
+                <h4>Sertifikasi & Dokumen</h4>
+                <p>Sertifikat produk, TKDN, ISO, dan dokumen legal lainnya</p>
+                <a href="https://wa.me/6285854542007?text=Request%20Sertifikasi%20Dokumen" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Dokumen
+                </a>
+            </div>
 
-        <!-- 2 CARD BARU -->
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-laptop-code"></i></div>
-            <h4>Firmware Update</h4>
-            <p>Update firmware terbaru untuk Interactive Flat Panel & perangkat lainnya</p>
-            <a href="https://wa.me/6285854542007?text=Request%20Firmware%20Update" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Firmware
-            </a>
-        </div>
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-laptop-code"></i></div>
+                <h4>Firmware Update</h4>
+                <p>Update firmware terbaru untuk Interactive Flat Panel & perangkat lainnya</p>
+                <a href="https://wa.me/6285854542007?text=Request%20Firmware%20Update" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Firmware
+                </a>
+            </div>
 
-        <div class="download-card">
-            <div class="download-icon"><i class="fas fa-file-contract"></i></div>
-            <h4>Formulir & Template</h4>
-            <p>Form pemesanan, surat penawaran, SPK, dan template dokumen proyek</p>
-            <a href="https://wa.me/6285854542007?text=Request%20Formulir%20&%20Template" target="_blank" class="download-btn">
-                <i class="fas fa-download"></i> Request Formulir
-            </a>
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-file-contract"></i></div>
+                <h4>Formulir & Template</h4>
+                <p>Form pemesanan, surat penawaran, SPK, dan template dokumen proyek</p>
+                <a href="https://wa.me/6285854542007?text=Request%20Formulir%20&%20Template" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Request Formulir
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Support -->
     <section id="kontak" class="section">
@@ -1037,10 +1157,10 @@
                 <h4>Menu</h4>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="products.html">Produk</a></li>
-                    <li><a href="services.html">Layanan</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
+                    <li><a href="tentangkami.html">Tentang Kami</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="portofolio.html">Portofolio</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
 
@@ -1071,6 +1191,7 @@
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
+
     <!-- WA Float -->
     <a href="https://wa.me/6285854542007" target="_blank" class="wa-float">
         <i class="fab fa-whatsapp"></i>
@@ -1088,6 +1209,23 @@
             particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
             particlesContainer.appendChild(particle);
         }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
