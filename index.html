@@ -162,6 +162,21 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            background-image: url('784dd277-f2f0-4112-8739-c16767875997 (1).jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 61, 71, 0.7); /* Overlay teal gelap untuk readability dan match theme */
+            z-index: -1;
         }
         
         .hero-logo {
@@ -193,25 +208,26 @@
         } */
         
         .hero h1 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(32px, 6vw, 100px);
-            font-weight: 700;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #2B7A8C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            animation: fadeUp 1.2s ease;
-            white-space: nowrap;
-        }
-        
-        .hero p {
-            font-size: 28px;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            animation: fadeUp 1.4s ease;
-        }
-        
+    font-family: 'Clash Display', sans-serif;
+    font-size: clamp(32px, 6vw, 100px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sedikit bayangan */
+    margin-bottom: 20px;
+    animation: fadeUp 1.2s ease;
+    white-space: nowrap;
+}
+
+.hero p {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sedikit bayangan */
+    opacity: 1;
+    margin-bottom: 40px;
+    animation: fadeUp 1.4s ease;
+}
         .hero .cta {
             padding: 18px 50px;
             background: var(--primary);
@@ -474,53 +490,53 @@
         }
 
         /* Products Grid */
+        /* Products Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             margin: 60px 0;
         }
-        
+
         .product-card {
             background: rgba(255,255,255,0.06);
-            border-radius: 20px;
-            overflow: hidden;
+            border-radius: 30px;
+            overflow: hidden; /* ✅ Kembali ke hidden */
             border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(15px);
             transition: all 0.6s ease;
         }
-        
+
         .product-card:hover {
             transform: translateY(-15px);
             border-color: var(--primary);
             box-shadow: 0 30px 60px rgba(43, 122, 140, 0.35);
         }
-        
+
         .product-card img {
             width: 100%;
             height: 280px;
-            object-fit: contain;
-            padding: 20px; /* biar ada jarak, card tetap kelihatan */
-            background: rgba(255,255,255,0.02);
+            object-fit: cover;
             transition: transform 0.6s ease;
-            border-radius: 20px; /* bikin gambar ikut tumpul */
+            border-radius: 0; /* ✅ Hilangkan border-radius */
+            display: block;
         }
-        
+
         .product-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
-        
+
         .product-card-content {
             padding: 30px;
             text-align: center;
         }
-        
+
         .product-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: #fff;
         }
-        
+
         .product-card p {
             color: #cccccc;
             line-height: 1.6;
@@ -1048,7 +1064,7 @@
         </div>
         <h1>Askarindo Integrasi Group</h1>
         <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
-        <a href="#produk" class="cta">Lihat Produk Kami</a>
+        <a href="produk.html" class="cta">Lihat Produk Kami</a>
     </section>
 
     <!-- STATS SECTION dengan Counter Animation -->
@@ -1137,7 +1153,7 @@
     
     <div class="products-grid">
         <div class="product-card">
-            <img src="https://www.eskanusa.id/wp-content/uploads/2023/08/Samsung-Flip-Pro-WMB-Series-Interactive-Display-1.png" alt="Interactive Flat Panel">
+            <img src="assets\image\Gemini_Generated_Image_r9amtgr9amtgr9am.png" alt="Interactive Flat Panel">
             <div class="product-card-content">
                 <h3>Interactive Flat Panel</h3>
                 <p>Perangkat tampilan interaktif berteknologi tinggi dengan resolusi 4K UHD, dukungan multi-touch hingga 20 titik, ideal untuk ruang kelas dan meeting room modern.</p>
@@ -1151,7 +1167,7 @@
             </div>
         </div>
         <div class="product-card">
-            <img src="https://images.pexels.com/photos/394372/pexels-photo-394372.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Printer">
+            <img src="assets\image\Gemini_Generated_Image_n49kg6n49kg6n49k.png" alt="Printer">
             <div class="product-card-content">
                 <h3>Printer & Proyektor</h3>
                 <p>Solusi pencetakan dan proyeksi berkualitas tinggi dengan fitur wireless, duplex otomatis, dan kecerahan hingga 5000 lumens.</p>
@@ -1162,20 +1178,6 @@
             <div class="product-card-content">
                 <h3>Mebeler</h3>
                 <p>Furniture ergonomis untuk ruang kerja dan belajar, termasuk meja, kursi, dan rak penyimpanan dengan desain modern dan fungsional.</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Accessories">
-            <div class="product-card-content">
-                <h3>Accessories & Peripheral</h3>
-                <p>Aksesoris dan perangkat pelengkap seperti mouse, keyboard, webcam, headset, dan perangkat USB berkualitas tinggi untuk produktivitas maksimal.</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Smart Classroom">
-            <div class="product-card-content">
-                <h3>Smartclass Room & Digitalisasi</h3>
-                <p>Solusi ruang kelas digital terintegrasi dengan interactive display, sound system, dan management software untuk pembelajaran modern yang efektif.</p>
             </div>
         </div>
     </div>
