@@ -4,31 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami - Askarindo Integrasi Group</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        /* ===== AVENIR FONT ===== */
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next'), local('Avenir'), local('Century Gothic'); font-weight: 300; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic'); font-weight: 400 500; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold'); font-weight: 600 700; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold'); font-weight: 800 900; }
+
         :root {
             --primary: #2B7A8C;
             --primary-light: #3B96A9;
             --primary-dark: #1D5563;
-            --secondary: #4A92A3;
             --dark: #000000;
             --white: #ffffff;
-            --gray: #cccccc;
-            --gray-dark: #888888;
+            --font: 'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
         }
-        * { margin:0; padding:0; box-sizing:border-box; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font);
             background: var(--dark);
             color: var(--white);
             overflow-x: hidden;
         }
 
-        /* Background hanya hitam & teal tua */
         #animated-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -37,663 +39,657 @@
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
         }
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Particles teal */
-        .particles {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
         .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(43, 122, 140, 0.4);
-            border-radius: 50%;
+            position: absolute; width: 2px; height: 2px;
+            background: rgba(43,122,140,0.4); border-radius: 50%;
             animation: floatParticle 25s infinite linear;
         }
         @keyframes floatParticle {
-            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
+            0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10%  { opacity: 0.6; }
+            90%  { opacity: 0.6; }
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
-        /* Header - SAMA DENGAN INDEX */
+        /* ===== HEADER ===== */
         header {
-            position: fixed;
-            top: 0; 
-            left: 0; 
-            right: 0;
+            position: fixed; top: 0; left: 0; right: 0;
             height: 80px;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(20px);
             z-index: 9999;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-        
+
         nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* ✅ space-between seperti index */
-            padding: 0 40px;
-            gap: 40px;
+            max-width: 1400px; margin: 0 auto; height: 100%;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 40px; gap: 40px;
         }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .logo img {
-            height: 70px;
-            width: auto;
-        }
-        
+
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { height: 70px; width: auto; }
         .logo span {
-            font-family: 'Clash Display', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
+            font-family: var(--font); font-size: 28px; font-weight: 800;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-            white-space: nowrap;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px; white-space: nowrap;
         }
-        
-        .nav-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: nowrap;
-            white-space: nowrap;
-        }
-        
+
+        .nav-links { display: flex; gap: 15px; flex-wrap: nowrap; white-space: nowrap; }
         .nav-links a {
-            color: #cccccc;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 14px;
-            font-size: 15px;
-            transition: color 0.3s;
+            font-family: var(--font); color: #ccc; text-decoration: none;
+            font-weight: 500; padding: 8px 14px; font-size: 15px; transition: color 0.3s;
         }
-        
-        .nav-links a:hover { 
-            color: #fff; 
-        }
+        .nav-links a:hover { color: #fff; }
 
-        /* Hamburger - HIDDEN by default */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 10001;
-        }
+        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; }
+        .hamburger span { width: 28px; height: 3px; background: #fff; border-radius: 2px; transition: all 0.4s ease; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: #fff;
-            border-radius: 2px;
-            transition: all 0.4s ease;
-        }
-
-        /* ANIMASI SILANG */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* Hero Section */
+        /* ===== HERO ===== */
         .hero-section {
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            min-height: 60vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
             text-align: center;
-            padding: 0 20px;
-            margin-top: 80px;
+            padding: 120px 40px 60px;
         }
+
         .hero-section h1 {
-    font-family: 'Clash Display', sans-serif;
-    font-size: clamp(24px, 5vw, 40px); /* lebih kecil */
-    font-weight: 200;
-    line-height: 1.1;
-    background: linear-gradient(135deg, #ffffff, #2B7A8C);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
-    animation: fadeUp 1s ease;
-    letter-spacing: 6px; /* melebar */
-    transform: scaleX(1.2); /* melebar horizontal */
-    text-transform: uppercase; /* opsional */
-}
-        .hero-section p {
-            font-size: clamp(18px, 3vw, 24px);
-            color: #ccc;
-            max-width: 800px;
-            line-height: 1.6;
+            font-family: var(--font);
+            font-size: clamp(14px, 2.2vw, 22px);
+            font-weight: 300;
+            letter-spacing: 0.55em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 28px;
+            animation: fadeUp 1s ease;
+            line-height: 1.4;
+        }
+
+        .hero-bio-box {
+            width: 100%;
+            max-width: 1320px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 60px 40px;
+            text-align: left;
             animation: fadeUp 1.2s ease;
+        }
+
+        .hero-bio-box h3 {
+            font-family: var(--font);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero-bio-box p {
+            font-family: var(--font);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #cccccc;
+            text-align: justify;
         }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Section */
+        /* ===== SECTION ===== */
         .section {
             padding: 80px 40px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, #2B7A8C, transparent);
-        }
-        .timeline-item {
-            display: flex;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        .timeline-content {
-            width: 45%;
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
-        }
-        .timeline-content:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: rgba(43, 122, 140, 0.1);
-        }
-        .timeline-year {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            box-shadow: 0 10px 30px rgba(43, 122, 140, 0.4);
-        }
-        .timeline-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #3B96A9;
-        }
-        .timeline-content p {
-            line-height: 1.6;
-            color: #ccc;
+        .section-title {
+            font-family: var(--font);
+            text-align: center;
+            font-size: clamp(36px, 6vw, 70px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #2B7A8C);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* Stats Grid */
+        .section-subtitle {
+            font-family: var(--font);
+            text-align: center; font-size: 1.05rem; color: #ccc;
+            max-width: 700px; margin: 0 auto 60px; line-height: 1.7;
+        }
+
+        /* ===== STATS ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+            gap: 30px; margin: 60px 0;
         }
+
         .stat-card {
             background: rgba(255,255,255,0.05);
-            padding: 40px 20px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+            padding: 40px 20px; border-radius: 20px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
             transition: all 0.4s ease;
         }
+
         .stat-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: rgba(43, 122, 140, 0.1);
+            transform: translateY(-10px); border-color: var(--primary);
+            background: rgba(43,122,140,0.1);
         }
+
         .stat-number {
-            font-weight: 800;
+            font-family: var(--font); font-weight: 900;
             font-size: clamp(2.5rem, 5vw, 4rem);
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
-        .stat-label {
-            font-size: 1rem;
-            color: #ccc;
+
+        .stat-label { font-family: var(--font); font-size: 1rem; color: #ccc; }
+
+        /* ===== TIMELINE ===== */
+        .timeline { position: relative; padding: 40px 0; }
+        .timeline::before {
+            content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+            width: 2px; height: 100%;
+            background: linear-gradient(180deg, transparent, #2B7A8C, transparent);
         }
 
-        /* Team Grid */
+        .timeline-item { display: flex; margin-bottom: 60px; position: relative; }
+        .timeline-item:nth-child(odd)  { flex-direction: row; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255,255,255,0.05); padding: 30px;
+            border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px); transition: all 0.5s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px); border-color: var(--primary);
+            background: rgba(43,122,140,0.1);
+        }
+
+        .timeline-year {
+            position: absolute; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-family: var(--font); font-weight: 700; font-size: 18px;
+            box-shadow: 0 10px 30px rgba(43,122,140,0.4);
+        }
+
+        .timeline-content h3 { font-family: var(--font); font-size: 1.5rem; margin-bottom: 15px; color: #3B96A9; }
+        .timeline-content p  { font-family: var(--font); line-height: 1.6; color: #ccc; }
+
+        /* ===== VISI MISI ===== */
+        .visi-misi-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 60px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .vm-block {
+            padding: 50px 48px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .vm-block:last-child { border-right: none; }
+
+        .vm-block::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .vm-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .vm-header h3 {
+            font-family: var(--font);
+            font-size: 1.6rem; font-weight: 700;
+            color: #fff; letter-spacing: 0.02em;
+        }
+
+        .vm-number {
+            font-family: var(--font);
+            font-size: 2rem; font-weight: 900;
+            color: rgba(255,255,255,0.12);
+            line-height: 1;
+        }
+
+        .vm-list { list-style: none; display: flex; flex-direction: column; gap: 20px; position: relative; z-index: 1; }
+
+        .vm-list li {
+            display: flex; gap: 18px; align-items: flex-start;
+            font-family: var(--font); font-size: 0.95rem;
+            color: #ccc; line-height: 1.65;
+        }
+
+        .vm-list li .num {
+            font-family: var(--font);
+            font-size: 1rem; font-weight: 700;
+            color: rgba(255,255,255,0.35);
+            flex-shrink: 0; min-width: 18px;
+            padding-top: 1px;
+        }
+
+        .vm-text {
+            font-family: var(--font);
+            font-size: 0.95rem; color: #ccc;
+            line-height: 1.8; position: relative; z-index: 1;
+        }
+
+        .vm-side-img {
+            display: flex; flex-direction: column; gap: 0;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .vm-side-img img {
+            width: 100%; height: 50%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .visi-misi-3col {
+            display: grid;
+            grid-template-columns: 220px 1fr 1fr;
+            gap: 0;
+            margin: 60px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 460px;
+        }
+
+        .vm-images {
+            display: flex; flex-direction: column;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .vm-images .img-half {
+            flex: 1;
+            background: rgba(43,122,140,0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .vm-images .img-half + .img-half {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .vm-images .img-half img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.55) saturate(0.7);
+            transition: transform 0.5s ease;
+        }
+
+        .vm-images .img-half:hover img { transform: scale(1.05); }
+
+        .vm-images .img-half .img-label {
+            position: absolute; bottom: 14px; left: 14px;
+            font-family: var(--font); font-size: 11px; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== TEAM ===== */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
-        }
-        .team-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
-        }
-        .team-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 50px rgba(43, 122, 140, 0.3);
-        }
-        .team-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 25px;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-        }
-        .team-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        .team-card .role {
-            color: #3B96A9;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-        .team-card p {
-            color: #ccc;
-            line-height: 1.6;
-            font-size: 0.95rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 40px; margin: 60px 0;
         }
 
-        /* Value Cards */
+        .team-card {
+            background: rgba(255,255,255,0.05); border-radius: 20px;
+            padding: 40px 30px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px); border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(43,122,140,0.3);
+        }
+
+        .team-icon {
+            width: 100px; height: 100px; margin: 0 auto 25px;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; color: white;
+        }
+
+        .team-card h3 { font-family: var(--font); font-size: 1.5rem; margin-bottom: 10px; color: #fff; font-weight: 700; }
+        .team-card .role { font-family: var(--font); color: #3B96A9; font-size: 1rem; margin-bottom: 15px; }
+        .team-card p { font-family: var(--font); color: #ccc; line-height: 1.6; font-size: 0.95rem; }
+
+        /* ===== VALUES ===== */
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+            gap: 30px; margin: 60px 0;
         }
+
         .value-card {
-            background: rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
             transition: all 0.5s ease;
         }
+
         .value-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: rgba(43, 122, 140, 0.1);
+            transform: translateY(-10px); border-color: var(--primary);
+            background: rgba(43,122,140,0.1);
         }
-        .value-icon {
-            font-size: 3rem;
-            color: #3B96A9;
-            margin-bottom: 20px;
-        }
-        .value-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-        .value-card p {
-            line-height: 1.7;
-            color: #ccc;
-        }
-/* Grid Cards */
+
+        .value-icon { font-size: 3rem; color: #3B96A9; margin-bottom: 20px; }
+        .value-card h3 { font-family: var(--font); font-size: 1.5rem; margin-bottom: 15px; color: #fff; font-weight: 700; }
+        .value-card p  { font-family: var(--font); line-height: 1.7; color: #ccc; }
+
+        /* ===== GRID CARDS ===== */
         .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+            gap: 40px; margin: 60px 0;
         }
-        
+
         .card {
-            background: rgba(255,255,255,0.06);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.06); border-radius: 20px; padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(15px);
             transition: all 0.6s ease;
         }
-        
+
         .card:hover {
-            transform: translateY(-15px);
-            border-color: var(--primary);
-            box-shadow: 0 30px 60px rgba(43, 122, 140, 0.35);
-            background: rgba(43, 122, 140, 0.12);
-        }
-        
-        .card i {
-            font-size: 3rem;
-            color: #3B96A9;
-            margin-bottom: 20px;
-        }
-        
-        .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-        
-        .card p {
-            color: #cccccc;
-            line-height: 1.6;
-        }
-        /* Section Title */
-        .section-title {
-            font-family: 'Clash Display', sans-serif;
-            text-align: center;
-            font-size: clamp(40px, 7vw, 70px);
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #2B7A8C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #ccc;
-            max-width: 700px;
-            margin: 0 auto 60px;
-            line-height: 1.7;
+            transform: translateY(-15px); border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(43,122,140,0.35);
+            background: rgba(43,122,140,0.12);
         }
 
-        /* CTA Section */
+        .card i { font-size: 3rem; color: #3B96A9; margin-bottom: 20px; }
+        .card h3 { font-family: var(--font); font-size: 1.8rem; margin-bottom: 15px; color: #fff; font-weight: 700; }
+        .card p  { font-family: var(--font); color: #ccc; line-height: 1.6; }
+
+        /* ===== LOGO MARQUEE ===== */
+        .logo-marquee-wrapper {
+            width: 100%; overflow: hidden;
+            background: rgba(0,0,0,0.4);
+            padding: 28px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin: 0 0 60px;
+        }
+
+        .logo-marquee-track {
+            display: flex; gap: 70px; width: max-content;
+            animation: marquee-left 30s linear infinite;
+            align-items: center;
+        }
+
+        .logo-marquee-track:hover { animation-play-state: paused; }
+
+        .logo-item { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+        .logo-item img {
+            height: 40px; width: auto;
+            filter: none;
+            opacity: 1; transition: opacity 0.3s;
+        }
+
+        .logo-item img:hover { opacity: 0.85; }
+
+        @keyframes marquee-left {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== DRAG SLIDER ===== */
+        .portofolio-pelanggan { margin-top: 20px; padding: 0; }
+
+        .portofolio-pelanggan-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .portofolio-pelanggan-title {
+            font-family: var(--font); font-size: 1.6rem; font-weight: 800;
+            color: #fff; opacity: 0.85; margin: 0;
+        }
+
+        .slider-nav-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .slider-nav-btn {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .slider-nav-btn.prev {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        .slider-nav-btn.next {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        .slider-nav-btn:hover { transform: scale(1.1); }
+        .slider-nav-btn.prev:hover { background: rgba(255,255,255,0.22); }
+        .slider-nav-btn.next:hover { background: rgba(255,255,255,0.22); }
+
+        .portofolio-drag-track {
+            display: flex; gap: 16px;
+            overflow-x: scroll; overflow-y: hidden;
+            cursor: grab; user-select: none;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; -ms-overflow-style: none;
+            padding-bottom: 4px;
+        }
+
+        .portofolio-drag-track::-webkit-scrollbar { display: none; }
+        .portofolio-drag-track.dragging { cursor: grabbing; scroll-behavior: auto; }
+
+        .portofolio-img-item {
+            flex-shrink: 0;
+            width: 340px;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            /* ===== PERUBAHAN: background transparan ===== */
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        /* ===== PERUBAHAN: hapus warna pink/ungu, ganti transparan ===== */
+        .portofolio-img-item:nth-child(3n+1) { background: transparent; }
+        .portofolio-img-item:nth-child(3n+2) { background: transparent; }
+        .portofolio-img-item:nth-child(3n+3) { background: transparent; }
+
+        .portofolio-img-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block; pointer-events: none; transition: transform 0.4s ease;
+        }
+
+        .portofolio-img-item:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(43,122,140,0.25);
+        }
+
+        .portofolio-img-item:hover img { transform: scale(1.04); }
+
+        .portofolio-img-placeholder {
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; color: rgba(255,255,255,0.25);
+            position: relative; overflow: hidden;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .portofolio-img-placeholder::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px,transparent 20px);
+        }
+
+        /* ===== CTA ===== */
         .cta-section {
-            background: rgba(43, 122, 140, 0.1);
-            border: 1px solid rgba(43, 122, 140, 0.3);
-            border-radius: 30px;
-            padding: 60px 40px;
-            text-align: center;
-            margin: 80px 0;
+            background: rgba(43,122,140,0.1);
+            border: 1px solid rgba(43,122,140,0.3);
+            border-radius: 30px; padding: 60px 40px;
+            text-align: center; margin: 80px 0;
             backdrop-filter: blur(15px);
         }
+
         .cta-section h2 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(35px, 6vw, 55px);
-            margin-bottom: 20px;
-            color: #fff;
-        }
-        .cta-section p {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-        .cta-btn {
-            display: inline-block;
-            padding: 18px 45px;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            color: white;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 15px 40px rgba(43, 122, 140, 0.4);
-            transition: all 0.4s ease;
-        }
-        .cta-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(43, 122, 140, 0.6);
+            font-family: var(--font); font-size: clamp(30px, 5vw, 50px);
+            font-weight: 900; margin-bottom: 20px; color: #fff;
         }
 
+        .cta-section p { font-family: var(--font); font-size: 1.1rem; color: #ccc; margin-bottom: 30px; }
+
+        .cta-btn {
+            font-family: var(--font);
+            display: inline-block; padding: 18px 45px;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            color: white; border-radius: 50px; font-size: 18px; font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(43,122,140,0.4);
+            transition: all 0.4s ease;
+        }
+
+        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(43,122,140,0.6); }
+
+        /* ===== FOOTER ===== */
         footer {
             background: rgba(0,0,0,0.8);
             border-top: 1px solid rgba(255,255,255,0.12);
-            padding: 80px 40px 30px;
-            margin-top: 100px;
-        }
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 60px;
-            margin-bottom: 50px;
-        }
-        .footer-section h3 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: 28px;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-        .footer-section h4 {
-            font-size: 18px;
-            color: #fff;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        .footer-section p {
-            color: #aaa;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-        .footer-section ul {
-            list-style: none;
-        }
-        .footer-section ul li {
-            margin-bottom: 12px;
-            color: #aaa;
-        }
-        .footer-section ul li a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-section ul li a:hover {
-            color: #3B96A9;
-        }
-        .footer-section ul li i {
-            color: #2B7A8C;
-            margin-right: 10px;
-            width: 20px;
-        }
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: flex-start;
-        }
-        .social-icons a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: white;
-            transition: all 0.4s ease;
-            background: #2B7A8C;
-            box-shadow: 0 5px 20px rgba(43, 122, 140, 0.4);
-        }
-        .social-icons a:hover {
-            background: #3B96A9;
-            transform: translateY(-8px) scale(1.1);
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            color: #666;
-        }
-        .footer-bottom p {
-            margin: 8px 0;
-            font-size: 14px;
+            padding: 80px 40px 30px; margin-top: 100px;
         }
 
-        /* WA Float */
+        .footer-content {
+            max-width: 1400px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px; margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font); font-size: 28px; font-weight: 800;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 { font-family: var(--font); font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .footer-section p  { font-family: var(--font); color: #aaa; line-height: 1.8; margin-bottom: 25px; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { font-family: var(--font); margin-bottom: 12px; color: #aaa; }
+        .footer-section ul li a { font-family: var(--font); color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-section ul li a:hover { color: #3B96A9; }
+        .footer-section ul li i { color: #2B7A8C; margin-right: 10px; width: 20px; }
+
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; justify-content: flex-start; }
+        .social-icons a {
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; color: white; transition: all 0.4s ease;
+            background: #2B7A8C; box-shadow: 0 5px 20px rgba(43,122,140,0.4);
+        }
+        .social-icons a:hover { background: #3B96A9; transform: translateY(-8px) scale(1.1); }
+
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); color: #666; }
+        .footer-bottom p { font-family: var(--font); margin: 8px 0; font-size: 14px; }
+
         .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: #25d366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            box-shadow: 0 10px 40px rgba(37,211,102,0.6);
-            z-index: 999;
-            text-decoration: none;
+            position: fixed; bottom: 30px; right: 30px;
+            width: 70px; height: 70px; background: #25d366; color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 38px; box-shadow: 0 10px 40px rgba(37,211,102,0.6);
+            z-index: 999; text-decoration: none;
             animation: floatBtn 3s ease-in-out infinite;
         }
-        @keyframes floatBtn { 
-            0%,100% { transform: translateY(0); } 
-            50% { transform: translateY(-15px); } 
-        }
+        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        /* =============================== */
-        /* TABLET & MOBILE - SAMA DENGAN INDEX */
-        /* =============================== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            body {
-                overflow-x: hidden;
-            }
+            body { overflow-x: hidden; }
+            header { background: rgba(5,30,40,0.95); }
+            nav { height: 70px; padding: 0 20px; }
+            .logo img { height: 40px; }
 
-            header {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 9999;
-                background: rgba(5, 30, 40, 0.95);
-                backdrop-filter: blur(10px);
-            }
+            .hamburger { display: flex; }
 
-            nav {
-                height: 70px;
-                padding: 0 20px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 40px;
-            }
-
-            /* LOGO TIDAK BOLEH HILANG */
-            .logo {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                z-index: 10001;
-            }
-
-            .logo img {
-                height: 40px;
-                width: auto;
-            }
-
-            /* HAMBURGER AKTIF */
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-                cursor: pointer;
-                z-index: 10001;
-            }
-
-            /* NAV MENU */
             .nav-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: rgba(5, 30, 40, 0.98);
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 25px;
-
-                transform: translateY(-100%);
-                transition: transform 0.45s ease;
-                z-index: 10000;
+                position: fixed; top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background: rgba(5,30,40,0.98);
+                flex-direction: column; align-items: center; justify-content: center;
+                gap: 25px; transform: translateY(-100%);
+                transition: transform 0.45s ease; z-index: 10000;
             }
-
-            .nav-links.active {
-                transform: translateY(0);
-            }
-
-            .nav-links a {
-                font-size: 22px;
-            }
-
-            /* HERO OFFSET */
-            .hero-section {
-                padding-top: 120px;
-            }
+            .nav-links.active { transform: translateY(0); }
+            .nav-links a { font-size: 22px; }
 
             .timeline::before { left: 20px; }
             .timeline-item { flex-direction: column !important; }
             .timeline-content { width: 100%; margin-left: 60px; }
-            .timeline-year { left: 20px; transform: translateX(0); }
+            .timeline-year { left: 20px; transform: none; }
+
+            .visi-misi-3col { grid-template-columns: 1fr; }
+            .vm-images { flex-direction: row; height: 160px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .vm-images .img-half + .img-half { border-top: none; border-left: 1px solid rgba(255,255,255,0.1); }
         }
 
         @media (max-width: 768px) {
             .logo span { font-size: 22px; }
             .logo img { height: 35px; }
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+            .visi-misi-3col { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Background -->
     <div id="animated-bg"></div>
     <div class="particles"></div>
 
@@ -714,47 +710,21 @@
                 <a href="kontak.html">Kontak</a>
             </div>
             <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="hero-section">
+    <!-- ===== HERO ===== -->
+    <section class="hero-section">
         <h1>Tentang Askarindo</h1>
-        <p>Askarindo Integrasi Group adalah perusahaan
-yang bergerak di bidang teknologi digital dan
-pengadaan sarana-prasarana modern. Kami
-melayani sektor bisnis, pemerintahan,
-pendidikan, dan institusi publik melalui
-penyediaan solusi teknologi, perangkat
-operasional, infrastruktur jaringan, dan layanan
-implementatif.
-Sebagai mitra pengadaan, Askarindo
-memastikan setiap kebutuhan terpenuhi secara
-terukur dan profesional—mulai dari perencanaan
-dan distribusi hingga integrasi sistem dan
-dukungan purna jual.
-Kami mendukung kerja sama dalam bentuk retail,
-proyek B2B, dan pengadaan pemerintah yang
-sesuai dengan regulasi dan standar legalitas.
-Dalam menjalankan operasional, kami
-mengedepankan tanggung jawab terhadap
-stakeholder melalui layanan berkualitas,
-keterbukaan bisnis, dan hubungan kemitraan
-jangka panjang. Komitmen ini diperkuat dengan
-program CSR yang berfokus pada
-pengembangan pendidikan, literasi digital,
-pelatihan SDM, serta kontribusi sosial yang
-berdampak langsung.
-Askarindo percaya bahwa kolaborasi yang kuat,
-pengadaan yang tepat, dan kontribusi
-berkelanjutan adalah fondasi pertumbuhan bersama</p>
+        <div class="hero-bio-box">
+            <h3>Biografi Perusahaan</h3>
+            <p>Askarindo Integrasi Group adalah perusahaan yang bergerak di bidang teknologi digital dan pengadaan sarana-prasarana modern. Kami melayani sektor bisnis, pemerintahan, pendidikan, dan institusi publik melalui penyediaan solusi teknologi, perangkat operasional, infrastruktur jaringan, dan layanan implementatif. Sebagai mitra pengadaan, Askarindo memastikan setiap kebutuhan terpenuhi secara terukur dan profesional—mulai dari perencanaan dan distribusi hingga integrasi sistem dan dukungan purna jual. Kami mendukung kerja sama dalam bentuk retail, proyek B2B, dan pengadaan pemerintah yang sesuai dengan regulasi dan standar legalitas.</p>
+        </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- ===== STATS ===== -->
     <div class="section">
         <div class="stats-grid">
             <div class="stat-card">
@@ -776,11 +746,11 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
         </div>
     </div>
 
-    <!-- Timeline Section -->
-    <section id="sejarah" class="section">
+    <!-- ===== TIMELINE ===== -->
+    <section class="section">
         <h2 class="section-title">Perjalanan Kami</h2>
         <p class="section-subtitle">Dari startup kecil hingga menjadi pemimpin solusi teknologi terintegrasi di Indonesia</p>
-        
+
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
@@ -789,7 +759,6 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
                 </div>
                 <div class="timeline-year">2010</div>
             </div>
-            
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h3>Ekspansi Regional</h3>
@@ -797,7 +766,6 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
                 </div>
                 <div class="timeline-year">2015</div>
             </div>
-            
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h3>Inovasi Digital</h3>
@@ -805,7 +773,6 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
                 </div>
                 <div class="timeline-year">2018</div>
             </div>
-            
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h3>Pencapaian Milestone</h3>
@@ -813,7 +780,6 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
                 </div>
                 <div class="timeline-year">2020</div>
             </div>
-            
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h3>Masa Depan Cerah</h3>
@@ -824,37 +790,63 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
         </div>
     </section>
 
-    <!-- Vision & Mission -->
-    <section id="visi-misi" class="section">
+    <!-- ===== VISI MISI ===== -->
+    <section class="section">
         <h2 class="section-title">Visi & Misi</h2>
         <p class="section-subtitle">Komitmen kami untuk membawa Indonesia ke era transformasi digital yang inklusif dan berkelanjutan</p>
-        
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-eye"></i></div>
-                <h3>Visi Kami</h3>
-                <p>Menjadi mitra strategis terdepan dalam menghadirkan solusi digital dan teknologi yang terintegrasi dengan sarana prasarana, guna mendukung kemajuan bisnis, institusi, dan pemerintahan menuju masa depan yang berdaya saing, inovatif, dan berkelanjutan.</p>
+
+        <div class="visi-misi-3col">
+            <div class="vm-images">
+                <div class="img-half">
+                    <img src="assets/image/foto-visi1.jpg" alt="Foto Visi" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4a55,#0d3d47)'">
+                    <span class="img-label">Visi</span>
+                </div>
+                <div class="img-half">
+                    <img src="assets/image/foto-misi1.jpg" alt="Foto Misi" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d3d47,#1a4a55)'">
+                    <span class="img-label">Misi</span>
+                </div>
             </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-bullseye"></i></div>
-                <h3>Misi Kami</h3>
-                <p>Menghadirkan produk dan layanan teknologi berkualitas tinggi yang terjangkau, memberikan dukungan purna jual excellent, dan memberdayakan SDM Indonesia melalui program pelatihan dan edukasi berkelanjutan.</p>
+
+            <div class="vm-block">
+                <div class="vm-header">
+                    <h3>Visi</h3>
+                    <span class="vm-number">01</span>
+                </div>
+                <ul class="vm-list">
+                    <li>
+                        <span class="num">1</span>
+                        <span>Mengembangkan layanan digital dan teknologi yang inovatif, adaptif, dan relevan dengan kebutuhan zaman.</span>
+                    </li>
+                    <li>
+                        <span class="num">2</span>
+                        <span>Menyediakan sarana dan prasarana yang berkualitas serta terintegrasi untuk mendukung operasional dan pengembangan mitra.</span>
+                    </li>
+                    <li>
+                        <span class="num">3</span>
+                        <span>Membangun kemitraan strategis yang berlandaskan profesionalisme, kepercayaan, dan keberlanjutan.</span>
+                    </li>
+                    <li>
+                        <span class="num">4</span>
+                        <span>Memberikan nilai tambah melalui solusi terpadu yang mendorong efisiensi, produktivitas, serta pertumbuhan jangka panjang.</span>
+                    </li>
+                </ul>
             </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-heart"></i></div>
-                <h3>Komitmen Sosial</h3>
-                <p>Berkontribusi aktif dalam pengembangan pendidikan Indonesia melalui program CSR, donasi perangkat teknologi, dan pelatihan gratis untuk meningkatkan literasi digital di daerah terpencil.</p>
+
+            <div class="vm-block">
+                <div class="vm-header">
+                    <h3>Misi</h3>
+                    <span class="vm-number">02</span>
+                </div>
+                <p class="vm-text">Menjadi mitra strategis terdepan dalam menghadirkan solusi digital dan teknologi yang terintegrasi dengan sarana prasarana, guna mendukung kemajuan bisnis, institusi, dan pemerintahan menuju masa depan yang berdaya saing, inovatif, dan berkelanjutan.</p>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="tim" class="section">
+    <!-- ===== TIM ===== -->
+    <section class="section">
         <h2 class="section-title">Tim Profesional</h2>
         <p class="section-subtitle">Didukung oleh para ahli berpengalaman yang berkomitmen memberikan solusi terbaik untuk setiap kebutuhan Anda</p>
-        
+
         <div class="team-grid">
             <div class="team-card">
                 <div class="team-icon"><i class="fas fa-user-tie"></i></div>
@@ -862,21 +854,18 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
                 <div class="role">Kepemimpinan Visioner</div>
                 <p>Tim manajemen dengan pengalaman 15+ tahun di industri teknologi, memimpin dengan integritas dan fokus pada kepuasan pelanggan.</p>
             </div>
-            
             <div class="team-card">
                 <div class="team-icon"><i class="fas fa-cogs"></i></div>
                 <h3>Technical Team</h3>
                 <div class="role">Ahli Teknologi</div>
                 <p>Engineer bersertifikat internasional yang siap memberikan solusi teknis kompleks dan dukungan instalasi profesional 24/7.</p>
             </div>
-            
             <div class="team-card">
                 <div class="team-icon"><i class="fas fa-shopping-cart"></i></div>
                 <h3>Sales & Marketing</h3>
                 <div class="role">Konsultan Solusi</div>
                 <p>Tim sales profesional yang memahami kebutuhan klien dan memberikan rekomendasi produk terbaik sesuai budget dan kebutuhan spesifik.</p>
             </div>
-            
             <div class="team-card">
                 <div class="team-icon"><i class="fas fa-headset"></i></div>
                 <h3>Customer Support</h3>
@@ -886,174 +875,107 @@ berkelanjutan adalah fondasi pertumbuhan bersama</p>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section id="nilai" class="section">
+    <!-- ===== NILAI UTAMA ===== -->
+    <section class="section">
         <h2 class="section-title">Nilai Utama</h2>
-        <p class="section-subtitle"></p>
-        
+
         <div class="values-grid">
             <div class="value-card">
                 <div class="value-icon"><i class="fas fa-certificate"></i></div>
                 <h3>Solusi & Orientasi</h3>
-                <p>Kami menghadirkanprodukdan layanan
-yangdirancangberdasarkan kebutuhan
-nyata,denganpendekatan kustomisasidan
-hasil yang terukur.
-</p>
+                <p>Kami menghadirkan produk dan layanan yang dirancang berdasarkan kebutuhan nyata, dengan pendekatan kustomisasi dan hasil yang terukur.</p>
             </div>
-
-            
             <div class="value-card">
                 <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
                 <h3>Handal & Berkualitas</h3>
-                <p>Keandalan sistem, kualitasperangkat,dan
-implementasiprofesional menjadi standar
-utamadalam setiapproyekdan layanan.
-</p>
+                <p>Keandalan sistem, kualitas perangkat, dan implementasi profesional menjadi standar utama dalam setiap proyek dan layanan.</p>
             </div>
-            
             <div class="value-card">
                 <div class="value-icon"><i class="fas fa-users"></i></div>
                 <h3>Adaptif & Berkelanjutan</h3>
-                <p>Solusi kamidirancang fleksibel, efisien,dan
-siapberkembang mengikutiperubahan
-teknologi sertatantangan masadepan.</p>
+                <p>Solusi kami dirancang fleksibel, efisien, dan siap berkembang mengikuti perubahan teknologi serta tantangan masa depan.</p>
             </div>
-
-
             <div class="value-card">
                 <div class="value-icon"><i class="fas fa-rocket"></i></div>
                 <h3>Dukungan Layanan 24/7</h3>
-                <p>Pendekatan end-to-end: mulaiperencanaan,
-pengadaan, integrasi, instalasi, hingga
-pemeliharaandanpendampingan teknis.</p>
+                <p>Pendekatan end-to-end: mulai perencanaan, pengadaan, integrasi, instalasi, hingga pemeliharaan dan pendampingan teknis.</p>
             </div>
         </div>
     </section>
 
-    <!-- PROGRAM & KOMITMEN -->
-    <section id="program-komitmen" class="section">
+    <!-- ===== PRODUK & LAYANAN ===== -->
+    <section class="section">
         <h2 class="section-title">Produk & Layanan Kami</h2>
-        
+
         <div class="grid-2">
             <div class="card">
                 <i class="fas fa-graduation-cap"></i>
                 <h3>Sarana & Prasarana Teknologi</h3>
-                <p>Penyedia Layanan Barang dan Jasa kebutuhan aspek bisnis dari mulai Business to Business & Business to Goverment
-</p>
+                <p>Penyedia Layanan Barang dan Jasa kebutuhan aspek bisnis dari mulai Business to Business & Business to Government.</p>
             </div>
             <div class="card">
                 <i class="fas fa-handshake"></i>
                 <h3>Program Edukasi & Pengembangan SDM</h3>
-                <p>Program pelatihan digital dan teknologi menjadi fokus utama, dengan memberikan workshop penggunaan perangkat interaktif, pelatihan software pendukung pembelajaran, serta sertifikasi bagi tenaga pendidik.
-</p>
+                <p>Program pelatihan digital dan teknologi menjadi fokus utama, dengan memberikan workshop penggunaan perangkat interaktif, pelatihan software pendukung pembelajaran, serta sertifikasi bagi tenaga pendidik.</p>
             </div>
             <div class="card">
                 <i class="fas fa-award"></i>
                 <h3>CSR & Komitmen Industri</h3>
                 <p>Melalui program Corporate Social Responsibility (CSR), perusahaan berupaya memberikan dampak nyata bagi Stakeholder, khususnya di sektor pendidikan, UMKM, pengembangan SDM, dan pemerataan akses teknologi.</p>
             </div>
+        </div>
     </section>
 
-   <!-- PENCAPAIAN KERJA -->
-<section id="program-komitmen" class="section">
-  <h2 class="section-title">Pencapaian Kerja & Portofolio Pelayanan</h2>
+    <!-- ===== PENCAPAIAN KERJA ===== -->
+    <section class="section">
+        <h2 class="section-title">Pencapaian Kerja & Portofolio Pelayanan</h2>
 
-  <!-- Logo Marquee -->
-  <div class="logo-marquee-wrapper">
-    <div class="logo-marquee-track">
-      <!-- Logo 1 -->
-      <div class="logo-item">
-        <img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Dropbox">
-      </div>
-      <!-- Logo 2 -->
-      <div class="logo-item">
-        <img src="assets/image/Logo Digipay.png" alt="Digipay">
-      </div>
-      <!-- Logo 3 -->
-      <div class="logo-item">
-        <img src="assets/image/Logo Inaproc.png" alt="Clear">
-      </div>
-      <!-- Logo 4 -->
-      <div class="logo-item">
-        <img src="assets/image/Logo MbizM.png" alt="Orangetheory Fitness">
-      </div>
-      <!-- Logo 5 -->
-      <div class="logo-item">
-        <img src="assets/image/Logo PadiUMKM.png" alt="Checkout.com">
-      </div>
-      <!-- Logo 6 -->
-      <div class="logo-item">
-        <img src="assets/image/Logo Siplah Blibli.png" alt="SoundCloud">
-      </div>
-      <!-- Logo 7 -->
-      <div class="logo-item">
-        <img src="assets/image/Logo Siplah Tokoladang.png" alt="Walker & Dunlop">
-      </div>
-      <!-- Duplikat untuk efek seamless loop -->
-      <div class="logo-item">
-        <img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Dropbox">
-      </div>
-      <div class="logo-item">
-        <img src="assets/image/Logo Digipay.png" alt="Greenhouse">
-      </div>
-      <div class="logo-item">
-        <img src="assets/image/Logo Inaproc.png" alt="Clear">
-      </div>
-      <div class="logo-item">
-        <img src="assets/image/Logo MbizM.png" alt="Orangetheory Fitness">
-      </div>
-      <div class="logo-item">
-        <img src="assets/image/Logo PadiUMKM.png" alt="Checkout.com">
-      </div>
-      <div class="logo-item">
-        <img src="assets/image/Logo Siplah Blibli.png" alt="SoundCloud">
-      </div>
-      <div class="logo-item">
-        <img src="assets/image/Logo Siplah Tokoladang.png" alt="Walker & Dunlop">
-      </div>
-    </div>
-  </div>
-
-  <!-- Kepercayaan Pelanggan - Slider -->
-  <div class="portofolio-section">
-    <h3 class="portofolio-title">Kepercayaan Pelanggan</h3>
-
-    <div class="portofolio-slider-wrapper">
-      <!-- Tombol Prev -->
-      <button class="slider-btn prev-btn" onclick="slidePortofolio(-1)">&#8592;</button>
-
-      <div class="portofolio-slider" id="portofolioSlider">
-        <!-- Card 1 -->
-        <div class="portofolio-card" style="background: #d946a8;">
-          <img src="assets/portofolio/foto1.jpg" alt="Portofolio 1">
+        <div class="logo-marquee-wrapper">
+            <div class="logo-marquee-track">
+                <div class="logo-item"><img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Bela Gratis Ongkir"></div>
+                <div class="logo-item"><img src="assets/image/Logo Digipay.png" alt="Digipay"></div>
+                <div class="logo-item"><img src="assets/image/Logo Inaproc.png" alt="Inaproc"></div>
+                <div class="logo-item"><img src="assets/image/Logo MbizM.png" alt="MbizM"></div>
+                <div class="logo-item"><img src="assets/image/Logo PadiUMKM.png" alt="PadiUMKM"></div>
+                <div class="logo-item"><img src="assets/image/Logo Siplah Blibli.png" alt="Siplah Blibli"></div>
+                <div class="logo-item"><img src="assets/image/Logo Siplah Tokoladang.png" alt="Siplah Tokoladang"></div>
+                <!-- Duplikat seamless loop -->
+                <div class="logo-item"><img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Bela Gratis Ongkir"></div>
+                <div class="logo-item"><img src="assets/image/Logo Digipay.png" alt="Digipay"></div>
+                <div class="logo-item"><img src="assets/image/Logo Inaproc.png" alt="Inaproc"></div>
+                <div class="logo-item"><img src="assets/image/Logo MbizM.png" alt="MbizM"></div>
+                <div class="logo-item"><img src="assets/image/Logo PadiUMKM.png" alt="PadiUMKM"></div>
+                <div class="logo-item"><img src="assets/image/Logo Siplah Blibli.png" alt="Siplah Blibli"></div>
+                <div class="logo-item"><img src="assets/image/Logo Siplah Tokoladang.png" alt="Siplah Tokoladang"></div>
+            </div>
         </div>
-        <!-- Card 2 -->
-        <div class="portofolio-card" style="background: #d946a8;">
-          <img src="assets/portofolio/foto2.jpg" alt="Portofolio 2">
-        </div>
-        <!-- Card 3 -->
-        <div class="portofolio-card" style="background: #7c3aed;">
-          <img src="assets/portofolio/foto3.jpg" alt="Portofolio 3">
-        </div>
-        <!-- Card 4 -->
-        <div class="portofolio-card" style="background: #7c3aed;">
-          <img src="assets/portofolio/foto4.jpg" alt="Portofolio 4">
-        </div>
-        <!-- Card 5 -->
-        <div class="portofolio-card" style="background: #a3e635;">
-          <img src="assets/portofolio/foto5.jpg" alt="Portofolio 5">
-        </div>
-        <!-- Tambah card sesuai kebutuhan -->
-      </div>
 
-      <!-- Tombol Next -->
-      <button class="slider-btn next-btn" onclick="slidePortofolio(1)">&#8594;</button>
-    </div>
-  </div>
-</section>
+        <div class="portofolio-pelanggan">
+            <div class="portofolio-pelanggan-header">
+                <h3 class="portofolio-pelanggan-title">Kepercayaan Pelanggan</h3>
+                <div class="slider-nav-btns">
+                    <button class="slider-nav-btn prev" id="slidePrev">&#8592;</button>
+                    <button class="slider-nav-btn next" id="slideNext">&#8594;</button>
+                </div>
+            </div>
+            <div class="portofolio-drag-track" id="dragTrack">
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder"><img src="image-pelanggan.jpg" alt=""></div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder"><img src="image-pelanggan.jpg" alt=""></div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder"><img src="image-pelanggan.jpg" alt=""></div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder"><img src="image-pelanggan.jpg" alt=""></div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder"><img src="image-pelanggan.jpg" alt=""></div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder"><img src="image-pelanggan.jpg" alt=""></div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder"><img src="image-pelanggan.jpg" alt=""></div></div>
+            </div>
+            <div>
+                <hr style="border: transparent; margin: 30px 0;">
+                <p style="text-align:center;">"Kami berupaya menjaga kepercayaan pelanggan melalui konsistensi dalam memberikan pelayanan terbaik"</p>
+                <hr style="border: 1px solid rgba(255,255,255,0.08); margin: 30px 0;">
+            </div>
+        </div>
+    </section>
 
-    <!-- CTA Section -->
+    <!-- ===== CTA ===== -->
     <div class="section">
         <div class="cta-section">
             <h2>Siap Bertransformasi Bersama Kami?</h2>
@@ -1062,60 +984,52 @@ pemeliharaandanpendampingan teknis.</p>
         </div>
     </div>
 
-    <!-- Contact Section -->
+    <!-- ===== KONTAK ===== -->
     <section id="kontak" class="section">
         <h2 class="section-title">Hubungi Kami</h2>
         <p class="section-subtitle">Tim kami siap membantu mewujudkan solusi teknologi terbaik untuk kebutuhan Anda</p>
-        
+
         <div class="values-grid">
             <div class="value-card">
                 <div class="value-icon"><i class="fas fa-envelope"></i></div>
                 <h3>Email</h3>
-                <p><a href="mailto:askarindointegrasigroup@gmail.com" style="color: #00d4ff; text-decoration: none;">askarindointegrasigroup@gmail.com</a></p>
+                <p><a href="mailto:info@askarindogroup.com" style="color:#3B96A9;text-decoration:none;">info@askarindogroup.com</a></p>
             </div>
-            
             <div class="value-card">
                 <div class="value-icon"><i class="fab fa-whatsapp"></i></div>
                 <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/6285854542007" target="_blank" style="color: #00d4ff; text-decoration: none;">0858-5454-2007</a></p>
+                <p><a href="https://wa.me/6285854542007" target="_blank" style="color:#3B96A9;text-decoration:none;">0858-5454-2007</a></p>
             </div>
-            
             <div class="value-card">
                 <div class="value-icon"><i class="fab fa-instagram"></i></div>
                 <h3>Instagram</h3>
-                <p><a href="https://instagram.com/askarindogroup" target="_blank" style="color: #00d4ff; text-decoration: none;">@askarindogroup</a></p>
+                <p><a href="https://instagram.com/askarindogroup" target="_blank" style="color:#3B96A9;text-decoration:none;">@askarindogroup</a></p>
             </div>
         </div>
     </section>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Askarindogroup</h3>
                 <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
                 <div class="social-icons">
-                    <a href="https://instagram.com/askarindogroup" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/6285854542007" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                    <a href="https://instagram.com/askarindogroup" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:info@askarindogroup.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/6285854542007" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h4>Menu</h4>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="products.html">Produk</a></li>
-                    <li><a href="services.html">Layanan</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
+                    <li><a href="tentangkami.html">Tentang Kami</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="programkomitmen.html">Program & Komitmen</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>Layanan</h4>
                 <ul>
@@ -1126,58 +1040,48 @@ pemeliharaandanpendampingan teknis.</p>
                     <li><a href="#">Garansi & Support</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fas fa-envelope"></i> info@askarindogroup.com</li>
                     <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
                     <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>© 2025 Askarindogroup. All rights reserved.</p>
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
-    <!-- WA Float -->
+
     <a href="https://wa.me/6285854542007" target="_blank" class="wa-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Particle Script -->
     <script>
-        // Generate particles
+        // Particles
         const particlesContainer = document.querySelector('.particles');
         for (let i = 0; i < 60; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 25 + 's';
-            particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
-            particlesContainer.appendChild(particle);
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 25 + 's';
+            p.style.animationDuration = (Math.random() * 15 + 20) + 's';
+            particlesContainer.appendChild(p);
         }
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Scroll fade-in animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1185,9 +1089,8 @@ pemeliharaandanpendampingan teknis.</p>
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        // Observe all animated elements
         document.querySelectorAll('.timeline-item, .stat-card, .team-card, .value-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -1195,43 +1098,70 @@ pemeliharaandanpendampingan teknis.</p>
             observer.observe(el);
         });
 
-        // Counter animation for stats
-        const animateCounter = (element, target) => {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + '+';
-                }
-            }, 20);
-        };
-
+        // Counter animation
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const number = entry.target.querySelector('.stat-number');
                     const target = parseInt(number.textContent);
-                    animateCounter(number, target);
+                    let current = 0;
+                    const increment = target / 100;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            number.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            number.textContent = Math.floor(current) + '+';
+                        }
+                    }, 20);
                     statsObserver.unobserve(entry.target);
                 }
             });
         });
+        document.querySelectorAll('.stat-card').forEach(card => statsObserver.observe(card));
 
-        document.querySelectorAll('.stat-card').forEach(card => {
-            statsObserver.observe(card);
-        });
-
-        // Hamburger menu toggle
+        // Hamburger
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
-
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        // Tombol Prev/Next slider
+        const dragTrack = document.getElementById('dragTrack');
+        document.getElementById('slidePrev').addEventListener('click', () => {
+            dragTrack.scrollBy({ left: -380, behavior: 'smooth' });
+        });
+        document.getElementById('slideNext').addEventListener('click', () => {
+            dragTrack.scrollBy({ left: 380, behavior: 'smooth' });
+        });
+
+        // Drag scroll
+        let isDown = false, startX, scrollLeft;
+
+        dragTrack.addEventListener('mousedown', (e) => {
+            isDown = true;
+            dragTrack.classList.add('dragging');
+            startX = e.pageX - dragTrack.offsetLeft;
+            scrollLeft = dragTrack.scrollLeft;
+        });
+        dragTrack.addEventListener('mouseleave', () => { isDown = false; dragTrack.classList.remove('dragging'); });
+        dragTrack.addEventListener('mouseup',    () => { isDown = false; dragTrack.classList.remove('dragging'); });
+        dragTrack.addEventListener('mousemove',  (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - dragTrack.offsetLeft;
+            dragTrack.scrollLeft = scrollLeft - (x - startX) * 1.5;
+        });
+        dragTrack.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - dragTrack.offsetLeft;
+            scrollLeft = dragTrack.scrollLeft;
+        });
+        dragTrack.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX - dragTrack.offsetLeft;
+            dragTrack.scrollLeft = scrollLeft - (x - startX) * 1.5;
         });
     </script>
 </body>
