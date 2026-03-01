@@ -96,7 +96,7 @@
         }
         
         .logo img {
-            height: 45px;
+            height: 70px;
             width: auto;
         }
         
@@ -171,16 +171,19 @@
             margin-top: 80px;
         }
         .hero-section h1 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(50px, 10vw, 100px);
-            font-weight: 700;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #2B7A8C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            animation: fadeUp 1s ease;
-        }
+    font-family: 'Clash Display', sans-serif;
+    font-size: clamp(24px, 5vw, 40px); /* lebih kecil */
+    font-weight: 200;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff, #2B7A8C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    animation: fadeUp 1s ease;
+    letter-spacing: 6px; /* melebar */
+    transform: scaleX(1.2); /* melebar horizontal */
+    text-transform: uppercase; /* opsional */
+}
         .hero-section p {
             font-size: clamp(18px, 3vw, 24px);
             color: #ccc;
@@ -382,7 +385,46 @@
             line-height: 1.7;
             color: #ccc;
         }
-
+/* Grid Cards */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            transition: all 0.6s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(43, 122, 140, 0.35);
+            background: rgba(43, 122, 140, 0.12);
+        }
+        
+        .card i {
+            font-size: 3rem;
+            color: #3B96A9;
+            margin-bottom: 20px;
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
         /* Section Title */
         .section-title {
             font-family: 'Clash Display', sans-serif;
@@ -682,7 +724,34 @@
     <!-- Hero Section -->
     <section id="beranda" class="hero-section">
         <h1>Tentang Askarindo</h1>
-        <p>Lebih dari sekadar penyedia teknologi, kami adalah mitra transformasi digital Anda menuju masa depan yang lebih efisien dan produktif</p>
+        <p>Askarindo Integrasi Group adalah perusahaan
+yang bergerak di bidang teknologi digital dan
+pengadaan sarana-prasarana modern. Kami
+melayani sektor bisnis, pemerintahan,
+pendidikan, dan institusi publik melalui
+penyediaan solusi teknologi, perangkat
+operasional, infrastruktur jaringan, dan layanan
+implementatif.
+Sebagai mitra pengadaan, Askarindo
+memastikan setiap kebutuhan terpenuhi secara
+terukur dan profesional—mulai dari perencanaan
+dan distribusi hingga integrasi sistem dan
+dukungan purna jual.
+Kami mendukung kerja sama dalam bentuk retail,
+proyek B2B, dan pengadaan pemerintah yang
+sesuai dengan regulasi dan standar legalitas.
+Dalam menjalankan operasional, kami
+mengedepankan tanggung jawab terhadap
+stakeholder melalui layanan berkualitas,
+keterbukaan bisnis, dan hubungan kemitraan
+jangka panjang. Komitmen ini diperkuat dengan
+program CSR yang berfokus pada
+pengembangan pendidikan, literasi digital,
+pelatihan SDM, serta kontribusi sosial yang
+berdampak langsung.
+Askarindo percaya bahwa kolaborasi yang kuat,
+pengadaan yang tepat, dan kontribusi
+berkelanjutan adalah fondasi pertumbuhan bersama</p>
     </section>
 
     <!-- Stats Section -->
@@ -819,54 +888,170 @@
 
     <!-- Values Section -->
     <section id="nilai" class="section">
-        <h2 class="section-title">Nilai Esensial</h2>
-        <p class="section-subtitle">Prinsip fundamental yang menjadi fondasi setiap keputusan dan tindakan kami</p>
+        <h2 class="section-title">Nilai Utama</h2>
+        <p class="section-subtitle"></p>
         
         <div class="values-grid">
             <div class="value-card">
                 <div class="value-icon"><i class="fas fa-certificate"></i></div>
-                <h3>Kualitas Terjamin</h3>
-                <p>100% produk original dengan garansi resmi. Setiap item melewati quality control ketat untuk memastikan performa optimal dan kepuasan jangka panjang.</p>
-            </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-handshake"></i></div>
-                <h3>Integritas Bisnis</h3>
-                <p>Transparansi, kejujuran, dan etika bisnis adalah prioritas utama. Kami membangun kepercayaan melalui praktik bisnis yang bertanggung jawab.</p>
-            </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
-                <h3>Inovasi Berkelanjutan</h3>
-                <p>Terus berinovasi mengikuti perkembangan teknologi terkini untuk memberikan solusi yang relevan dan kompetitif di pasar global.</p>
-            </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-users"></i></div>
-                <h3>Customer Centric</h3>
-                <p>Kepuasan pelanggan adalah ukuran kesuksesan kami. Setiap keputusan diambil dengan mempertimbangkan dampak terbaik bagi klien.</p>
+                <h3>Solusi & Orientasi</h3>
+                <p>Kami menghadirkanprodukdan layanan
+yangdirancangberdasarkan kebutuhan
+nyata,denganpendekatan kustomisasidan
+hasil yang terukur.
+</p>
             </div>
 
             
             <div class="value-card">
-                <div class="value-icon"><i class="fas fa-flag"></i></div>
-                <h3>TKDN 40%+</h3>
-                <p>Mendukung industri lokal dengan menjaga Tingkat Komponen Dalam Negeri minimal 40% untuk berkontribusi pada ekonomi Indonesia.</p>
+                <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Handal & Berkualitas</h3>
+                <p>Keandalan sistem, kualitasperangkat,dan
+implementasiprofesional menjadi standar
+utamadalam setiapproyekdan layanan.
+</p>
             </div>
             
             <div class="value-card">
-                <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Keamanan Data</h3>
-                <p>Perlindungan data maksimal dengan standar keamanan internasional. Privasi dan kerahasiaan informasi klien adalah prioritas tertinggi kami.</p>
+                <div class="value-icon"><i class="fas fa-users"></i></div>
+                <h3>Adaptif & Berkelanjutan</h3>
+                <p>Solusi kamidirancang fleksibel, efisien,dan
+siapberkembang mengikutiperubahan
+teknologi sertatantangan masadepan.</p>
             </div>
-            
+
+
             <div class="value-card">
                 <div class="value-icon"><i class="fas fa-rocket"></i></div>
-                <h3>Kecepatan Layanan</h3>
-                <p>Respon cepat dan efisien dalam setiap tahap pengadaan. Dari konsultasi hingga instalasi, kami pastikan proyek Anda berjalan tepat waktu.</p>
+                <h3>Dukungan Layanan 24/7</h3>
+                <p>Pendekatan end-to-end: mulaiperencanaan,
+pengadaan, integrasi, instalasi, hingga
+pemeliharaandanpendampingan teknis.</p>
             </div>
         </div>
     </section>
+
+    <!-- PROGRAM & KOMITMEN -->
+    <section id="program-komitmen" class="section">
+        <h2 class="section-title">Produk & Layanan Kami</h2>
+        
+        <div class="grid-2">
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Sarana & Prasarana Teknologi</h3>
+                <p>Penyedia Layanan Barang dan Jasa kebutuhan aspek bisnis dari mulai Business to Business & Business to Goverment
+</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-handshake"></i>
+                <h3>Program Edukasi & Pengembangan SDM</h3>
+                <p>Program pelatihan digital dan teknologi menjadi fokus utama, dengan memberikan workshop penggunaan perangkat interaktif, pelatihan software pendukung pembelajaran, serta sertifikasi bagi tenaga pendidik.
+</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-award"></i>
+                <h3>CSR & Komitmen Industri</h3>
+                <p>Melalui program Corporate Social Responsibility (CSR), perusahaan berupaya memberikan dampak nyata bagi Stakeholder, khususnya di sektor pendidikan, UMKM, pengembangan SDM, dan pemerataan akses teknologi.</p>
+            </div>
+    </section>
+
+   <!-- PENCAPAIAN KERJA -->
+<section id="program-komitmen" class="section">
+  <h2 class="section-title">Pencapaian Kerja & Portofolio Pelayanan</h2>
+
+  <!-- Logo Marquee -->
+  <div class="logo-marquee-wrapper">
+    <div class="logo-marquee-track">
+      <!-- Logo 1 -->
+      <div class="logo-item">
+        <img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Dropbox">
+      </div>
+      <!-- Logo 2 -->
+      <div class="logo-item">
+        <img src="assets/image/Logo Digipay.png" alt="Digipay">
+      </div>
+      <!-- Logo 3 -->
+      <div class="logo-item">
+        <img src="assets/image/Logo Inaproc.png" alt="Clear">
+      </div>
+      <!-- Logo 4 -->
+      <div class="logo-item">
+        <img src="assets/image/Logo MbizM.png" alt="Orangetheory Fitness">
+      </div>
+      <!-- Logo 5 -->
+      <div class="logo-item">
+        <img src="assets/image/Logo PadiUMKM.png" alt="Checkout.com">
+      </div>
+      <!-- Logo 6 -->
+      <div class="logo-item">
+        <img src="assets/image/Logo Siplah Blibli.png" alt="SoundCloud">
+      </div>
+      <!-- Logo 7 -->
+      <div class="logo-item">
+        <img src="assets/image/Logo Siplah Tokoladang.png" alt="Walker & Dunlop">
+      </div>
+      <!-- Duplikat untuk efek seamless loop -->
+      <div class="logo-item">
+        <img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Dropbox">
+      </div>
+      <div class="logo-item">
+        <img src="assets/image/Logo Digipay.png" alt="Greenhouse">
+      </div>
+      <div class="logo-item">
+        <img src="assets/image/Logo Inaproc.png" alt="Clear">
+      </div>
+      <div class="logo-item">
+        <img src="assets/image/Logo MbizM.png" alt="Orangetheory Fitness">
+      </div>
+      <div class="logo-item">
+        <img src="assets/image/Logo PadiUMKM.png" alt="Checkout.com">
+      </div>
+      <div class="logo-item">
+        <img src="assets/image/Logo Siplah Blibli.png" alt="SoundCloud">
+      </div>
+      <div class="logo-item">
+        <img src="assets/image/Logo Siplah Tokoladang.png" alt="Walker & Dunlop">
+      </div>
+    </div>
+  </div>
+
+  <!-- Kepercayaan Pelanggan - Slider -->
+  <div class="portofolio-section">
+    <h3 class="portofolio-title">Kepercayaan Pelanggan</h3>
+
+    <div class="portofolio-slider-wrapper">
+      <!-- Tombol Prev -->
+      <button class="slider-btn prev-btn" onclick="slidePortofolio(-1)">&#8592;</button>
+
+      <div class="portofolio-slider" id="portofolioSlider">
+        <!-- Card 1 -->
+        <div class="portofolio-card" style="background: #d946a8;">
+          <img src="assets/portofolio/foto1.jpg" alt="Portofolio 1">
+        </div>
+        <!-- Card 2 -->
+        <div class="portofolio-card" style="background: #d946a8;">
+          <img src="assets/portofolio/foto2.jpg" alt="Portofolio 2">
+        </div>
+        <!-- Card 3 -->
+        <div class="portofolio-card" style="background: #7c3aed;">
+          <img src="assets/portofolio/foto3.jpg" alt="Portofolio 3">
+        </div>
+        <!-- Card 4 -->
+        <div class="portofolio-card" style="background: #7c3aed;">
+          <img src="assets/portofolio/foto4.jpg" alt="Portofolio 4">
+        </div>
+        <!-- Card 5 -->
+        <div class="portofolio-card" style="background: #a3e635;">
+          <img src="assets/portofolio/foto5.jpg" alt="Portofolio 5">
+        </div>
+        <!-- Tambah card sesuai kebutuhan -->
+      </div>
+
+      <!-- Tombol Next -->
+      <button class="slider-btn next-btn" onclick="slidePortofolio(1)">&#8594;</button>
+    </div>
+  </div>
+</section>
 
     <!-- CTA Section -->
     <div class="section">
