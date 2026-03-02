@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Askarindo Integrasi Group – Penyedia solusi pengadaan IT, elektronik, mebeler, interactive display, dan teknologi terintegrasi untuk pemerintah, pendidikan, BUMN, dan swasta di Indonesia.">
     <title>Askarindo Integrasi Group - Solusi Teknologi Terintegrasi</title>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -162,7 +163,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background-image: url('784dd277-f2f0-4112-8739-c16767875997 (1).jpg');
+            background-image: url('assets/images/hero-bg.jpg'); /* <-- Ganti dengan file asli Anda */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -254,7 +255,7 @@
             line-height: 1.8;
             margin-bottom: 40px;
             text-align: justify;
-            color: #cccccc;
+            color: #dddddd; /* sedikit lebih terang agar kontras lebih baik */
         }
         
         /* Stats */
@@ -288,8 +289,6 @@
             color: #cccccc;
             margin-top: 10px;
         }
-
-
 
         /* Cards */
         .grid-2 {
@@ -482,7 +481,6 @@
 
         .logo-item img:hover { opacity: 1; }
 
-        /* Teks fallback jika logo belum ada */
         .logo-item span {
             font-family: var(--font);
             font-size: 15px;
@@ -545,10 +543,6 @@
             position: relative;
             background: #1a1a2e;
         }
-
-        .portofolio-img-item:nth-child(3n+1) { background: #d946a8; }
-        .portofolio-img-item:nth-child(3n+2) { background: #7c3aed; }
-        .portofolio-img-item:nth-child(3n+3) { background: #6d28d9; }
 
         .portofolio-img-item img {
             width: 100%; height: 100%;
@@ -729,34 +723,22 @@
         }
 
         /* Responsive */
-        @media (max-width: 968px) {
-
-
-        }
-
-        @media (max-width: 768px) {
-            .logo span { font-size: 22px; }
-            .logo img { height: 35px; }
-            .hero h1 { white-space: normal; }
-            .hero p { font-size: 20px; }
-            .section-title { font-size: 40px; }
-
-
-            .footer-content { grid-template-columns: 1fr; gap: 30px; }
-        }
-
         @media (max-width: 1024px) {
-            .nav-links { flex-wrap: nowrap; white-space: nowrap; }
-            body { overflow-x: hidden; }
-
-            header {
-                position: fixed; top: 0; width: 100%;
-                z-index: 9999;
-                background: rgba(5,30,40,0.95);
-                backdrop-filter: blur(10px);
+            .nav-links { 
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background: rgba(5,30,40,0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 25px;
+                transform: translateY(-100%);
+                transition: transform 0.45s ease;
+                z-index: 10000;
             }
 
-            nav { height: 70px; padding: 0 20px; }
+            .nav-links.active { transform: translateY(0); }
 
             .hamburger {
                 display: flex;
@@ -776,68 +758,15 @@
             .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
             .hamburger.active span:nth-child(2) { opacity: 0; }
             .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-
-            .nav-links {
-                position: fixed;
-                top: 0; left: 0;
-                width: 100%; height: 100vh;
-                background: rgba(5,30,40,0.98);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 25px;
-                transform: translateY(-100%);
-                transition: transform 0.45s ease;
-                z-index: 10000;
-            }
-
-            .nav-links.active { transform: translateY(0); }
-            .nav-links a { font-size: 22px; }
-            .hero { padding-top: 120px; }
         }
 
-        @media (min-width: 769px) and (max-width: 1024px) {
-            header { height: 80px; }
-
-            nav { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
-
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-                cursor: pointer;
-                z-index: 10001;
-            }
-
-            .hamburger span {
-                width: 26px; height: 3px;
-                background: #fff;
-                border-radius: 3px;
-                transition: all 0.4s ease;
-            }
-
-            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-            .hamburger.active span:nth-child(2) { opacity: 0; }
-            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
-
-            .nav-links {
-                position: fixed;
-                top: 80px; left: 0;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(5,30,40,0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 28px;
-                transform: translateY(-120%);
-                transition: transform 0.4s ease;
-                z-index: 9999;
-            }
-
-            .nav-links a { font-size: 22px; }
-            .nav-links.active { transform: translateY(0); }
+        @media (max-width: 768px) {
+            .logo span { font-size: 22px; }
+            .logo img { height: 35px; }
+            .hero h1 { white-space: normal; }
+            .hero p { font-size: 20px; }
+            .section-title { font-size: 40px; }
+            .footer-content { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
@@ -850,17 +779,17 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
+                <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Integrasi Group Logo">
                 <span>Askarindogroup</span>
             </div>
             <div class="nav-links" id="navMenu">
-                <a href="index.html">Beranda</a>
-                <a href="tentangkami.html">Tentang Kami</a>
-                <a href="programkomitmen.html">Program & Komitmen</a>
-                <a href="produk.html">Produk</a>
-                <a href="portofolio.html">Portofolio</a>
-                <a href="support.html">Support</a>
-                <a href="kontak.html">Kontak</a>
+                <a href="#beranda">Beranda</a>
+                <a href="#tentang-kami">Tentang Kami</a>
+                <a href="#program-komitmen">Program & Komitmen</a>
+                <a href="#produk">Produk</a>
+                <a href="#portofolio">Portofolio</a>
+                <a href="#support">Support</a>
+                <a href="#kontak">Kontak</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -871,11 +800,11 @@
     <!-- HERO -->
     <section id="beranda" class="hero">
         <div class="hero-logo">
-            <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
+            <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Integrasi Group Logo Besar">
         </div>
         <h1>Askarindo Integrasi Group</h1>
         <p>Integrasi Solusi, Membangun Kepercayaan.</p>
-        <a href="produk.html" class="cta">Lihat Produk Kami</a>
+        <a href="#produk" class="cta">Lihat Produk Kami</a>
     </section>
 
     <!-- STATS -->
@@ -903,16 +832,14 @@
         <h2 class="section-title">Tentang Kami</h2>
         
         <div class="section-text">
-            <h3 style="font-family: var(--font); font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: #fff;">Biografi Perusahaan</h3>
-            <p>Askarindo Integrasi Group adalah perusahaan yang bergerak di bidang teknologi digital dan pengadaan sarana-prasarana modern. Kami melayani sektor bisnis, pemerintahan, pendidikan, dan institusi publik melalui penyediaan solusi teknologi, perangkat operasional, infrastruktur jaringan, dan layanan implementatif. Sebagai mitra pengadaan, Askarindo memastikan setiap kebutuhan terpenuhi secara terukur dan profesional mulai dari perencanaan dan distribusi hingga integrasi sistem dan dukungan purna jual. Kami mendukung kerja sama dalam bentuk retail, proyek B2B, dan pengadaan pemerintah yang sesuai dengan regulasi dan standar legalitas.</p>
+            <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: #fff;">Biografi Perusahaan</h3>
+            <p>Askarindo Integrasi Group adalah perusahaan yang bergerak di bidang teknologi digital dan pengadaan sarana-prasarana modern. Kami melayani sektor bisnis, pemerintahan, pendidikan, dan institusi publik melalui penyediaan solusi teknologi, perangkat operasional, infrastruktur jaringan, dan layanan implementatif. Sebagai mitra pengadaan, Askarindo memastikan setiap kebutuhan terpenuhi secara terukur dan profesional mulai dari perencanaan dan distribusi hingga integrasi sistem dan dukungan purna jual.</p>
         </div>
 
         <div class="section-text">
-            <h3 style="font-family: var(--font); font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: #fff;">Tujuan Perusahaan</h3>
-            <p>Dalam menjalankan operasional, kami mengedepankan tanggung jawab terhadap stakeholder melalui layanan berkualitas, keterbukaan bisnis, dan hubungan kemitraan jangka panjang. Komitmen ini diperkuat dengan program CSR yang berfokus pada pengembangan pendidikan, literasi digital, pelatihan SDM, serta kontribusi sosial yang berdampak langsung. Askarindo percaya bahwa kolaborasi yang kuat, pengadaan yang tepat, dan kontribusi berkelanjutan adalah fondasi pertumbuhan bersama.</p>
+            <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: #fff;">Tujuan Perusahaan</h3>
+            <p>Kami mengedepankan tanggung jawab terhadap stakeholder melalui layanan berkualitas, keterbukaan bisnis, dan hubungan kemitraan jangka panjang. Komitmen ini diperkuat dengan program CSR yang berfokus pada pengembangan pendidikan, literasi digital, pelatihan SDM, serta kontribusi sosial yang berdampak langsung.</p>
         </div>
-
-
     </section>
 
     <!-- PROGRAM & KOMITMEN -->
@@ -923,89 +850,52 @@
             <div class="card">
                 <i class="fas fa-graduation-cap"></i>
                 <h3>Edukasi Pengembangan SDM & CSR</h3>
-                <p>Program pelatihan teknologi gratis untuk guru dan siswa di daerah terpencil, donasi perangkat pendidikan, dan kerjasama dengan pemerintah untuk pengembangan laboratorium komputer. Telah melatih lebih dari 5.000 individu sejak 2015 dan berkontribusi dalam peningkatan literasi digital di Indonesia.</p>
+                <p>Program pelatihan teknologi gratis untuk guru dan siswa di daerah terpencil, donasi perangkat pendidikan, dan kerjasama dengan pemerintah untuk pengembangan laboratorium komputer.</p>
             </div>
             <div class="card">
                 <i class="fas fa-handshake"></i>
                 <h3>Komitmen Kami</h3>
-                <p>Kami berkomitmen pada TKDN minimal 40%, praktik bisnis yang transparan dan beretika, perlindungan data pelanggan, penggunaan material ramah lingkungan, dan layanan purna jual 24/7. Kepuasan pelanggan adalah prioritas utama kami dalam setiap aspek bisnis.</p>
+                <p>TKDN minimal 40%, praktik bisnis transparan, perlindungan data pelanggan, material ramah lingkungan, dan layanan purna jual 24/7. Kepuasan pelanggan adalah prioritas utama.</p>
             </div>
             <div class="card">
                 <i class="fas fa-award"></i>
                 <h3>Kualitas Terjamin</h3>
-                <p>Semua produk yang kami sediakan adalah original, bergaransi resmi, dan telah melalui quality control ketat untuk memastikan performa optimal dan kepuasan pelanggan jangka panjang.</p>
+                <p>Semua produk original, bergaransi resmi, dan melalui quality control ketat untuk performa optimal dan kepuasan jangka panjang.</p>
             </div>
             <div class="card">
                 <i class="fas fa-headset"></i>
                 <h3>Support 24/7</h3>
-                <p>Tim support kami siap membantu Anda kapan saja dengan respon cepat maksimal 3 hari kerja. Kami menyediakan dukungan teknis, konsultasi, dan solusi untuk setiap kebutuhan teknologi Anda.</p>
+                <p>Tim support siap membantu kapan saja dengan respon cepat maksimal 3 hari kerja.</p>
             </div>
         </div>
 
-        <!-- ===== PENCAPAIAN KERJA - LOGO MARQUEE ===== -->
-        <h2 class="section-title" style="margin-top: 80px; font-size: clamp(30px, 5vw, 60px);">Pencapaian Kerja & Portofolio Pelayanan</h2>
-
-        <!-- Logo berjalan ke kiri -->
+        <!-- Logo marquee (placeholder - ganti dengan logo klien asli) -->
+        <h2 class="section-title" style="margin-top: 80px;">Klien & Mitra Terpercaya</h2>
         <div class="logo-marquee-wrapper">
             <div class="logo-marquee-track" id="marqueeTrack">
-                <!-- Ganti src dengan path logo asli Anda di folder assets -->
-                <div class="logo-item"><img src="assets/logo/dropbox.png" alt="Dropbox" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Dropbox</span></div>
-                <div class="logo-item"><img src="assets/logo/greenhouse.png" alt="Greenhouse" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Greenhouse</span></div>
-                <div class="logo-item"><img src="assets/logo/clear.png" alt="Clear" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">CLEAR</span></div>
-                <div class="logo-item"><img src="assets/logo/orangetheory.png" alt="Orangetheory" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Orangetheory</span></div>
-                <div class="logo-item"><img src="assets/logo/checkout.png" alt="Checkout.com" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Checkout.com</span></div>
-                <div class="logo-item"><img src="assets/logo/soundcloud.png" alt="SoundCloud" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">SoundCloud</span></div>
-                <div class="logo-item"><img src="assets/logo/walker-dunlop.png" alt="Walker & Dunlop" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Walker & Dunlop</span></div>
-                <div class="logo-item"><img src="assets/logo/reddit.png" alt="Reddit" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Reddit</span></div>
-                <div class="logo-item"><img src="assets/logo/docusign.png" alt="DocuSign" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">DocuSign</span></div>
-                <!-- Duplikat untuk seamless loop -->
-                <div class="logo-item"><img src="assets/logo/dropbox.png" alt="Dropbox" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Dropbox</span></div>
-                <div class="logo-item"><img src="assets/logo/greenhouse.png" alt="Greenhouse" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Greenhouse</span></div>
-                <div class="logo-item"><img src="assets/logo/clear.png" alt="Clear" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">CLEAR</span></div>
-                <div class="logo-item"><img src="assets/logo/orangetheory.png" alt="Orangetheory" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Orangetheory</span></div>
-                <div class="logo-item"><img src="assets/logo/checkout.png" alt="Checkout.com" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Checkout.com</span></div>
-                <div class="logo-item"><img src="assets/logo/soundcloud.png" alt="SoundCloud" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">SoundCloud</span></div>
-                <div class="logo-item"><img src="assets/logo/walker-dunlop.png" alt="Walker & Dunlop" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Walker & Dunlop</span></div>
-                <div class="logo-item"><img src="assets/logo/reddit.png" alt="Reddit" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">Reddit</span></div>
-                <div class="logo-item"><img src="assets/logo/docusign.png" alt="DocuSign" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none">DocuSign</span></div>
+                <div class="logo-item"><span>MITRA PEMERINTAH</span></div>
+                <div class="logo-item"><span>SEKOLAH NASIONAL</span></div>
+                <div class="logo-item"><span>BUMN</span></div>
+                <div class="logo-item"><span>UNIVERSITAS</span></div>
+                <!-- Duplikat untuk loop mulus -->
+                <div class="logo-item"><span>MITRA PEMERINTAH</span></div>
+                <div class="logo-item"><span>SEKOLAH NASIONAL</span></div>
+                <div class="logo-item"><span>BUMN</span></div>
+                <div class="logo-item"><span>UNIVERSITAS</span></div>
             </div>
         </div>
 
-        <!-- Kepercayaan Pelanggan - Drag Scroll -->
+        <!-- Portofolio pelanggan drag -->
         <div class="portofolio-pelanggan">
             <h3 class="portofolio-pelanggan-title">Kepercayaan Pelanggan</h3>
-
             <div class="portofolio-drag-track" id="dragTrack">
-                <!-- Ganti src dengan foto dari folder assets Anda -->
-                <!-- Contoh: <img src="assets/portofolio/foto1.jpg" alt="Klien 1"> -->
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
-                <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder">📷</div>
-                </div>
+                <!-- Tambahkan gambar asli nanti -->
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder">Proyek 1</div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder">Proyek 2</div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder">Proyek 3</div></div>
+                <div class="portofolio-img-item"><div class="portofolio-img-placeholder">Proyek 4</div></div>
             </div>
-            <hr style="margin: 25px 0; border-color: transparent;">
-            <p style="text-align: center;">“Kami berupaya menjaga kepercayaan pelanggan melalui konsistensi dalam memberikan pelayanan terbaik”</p>
-            <hr style="margin: 40px 0; border-color: rgba(255,255,255,0.1);">
+            <p style="text-align: center; margin-top: 20px;">“Konsistensi dalam memberikan pelayanan terbaik”</p>
         </div>
     </section>
 
@@ -1014,31 +904,31 @@
         <h2 class="section-title">Produk Kami</h2>
         <div class="products-grid">
             <div class="product-card">
-                <img src="assets/image/Gemini_Generated_Image_r9amtgr9amtgr9am.png" alt="Interactive Flat Panel">
+                <img loading="lazy" src="assets/image/Gemini_Generated_Image_r9amtgr9amtgr9am.png" alt="Interactive Flat Panel">
                 <div class="product-card-content">
-                    <h3>Visual & Interactive Display Solutions</h3>
-                    <p>Perangkat tampilan interaktif berteknologi tinggi dengan resolusi 4K UHD, dukungan multi-touch hingga 20 titik, ideal untuk ruang kelas dan meeting room modern.</p>
+                    <h3>Visual & Interactive Display</h3>
+                    <p>Interactive flat panel 4K UHD, multi-touch 20 titik, ideal untuk kelas dan ruang meeting modern.</p>
                 </div>
             </div>
             <div class="product-card">
-                <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Laptop & PC">
+                <img loading="lazy" src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Laptop dan PC">
                 <div class="product-card-content">
                     <h3>IT & Computing Solutions</h3>
-                    <p>Laptop dan PC custom dengan komponen premium untuk performa tinggi, cocok untuk desain grafis, rendering, dan multitasking berat.</p>
+                    <p>Laptop dan PC custom performa tinggi untuk desain, rendering, dan multitasking berat.</p>
                 </div>
             </div>
             <div class="product-card">
-                <img src="assets/image/Gemini_Generated_Image_n49kg6n49kg6n49k.png" alt="Printer">
+                <img loading="lazy" src="assets/image/Gemini_Generated_Image_n49kg6n49kg6n49k.png" alt="Printer dan Proyektor">
                 <div class="product-card-content">
-                    <h3>AV & Multimedia Solutions</h3>
-                    <p>Solusi pencetakan dan proyeksi berkualitas tinggi dengan fitur wireless, duplex otomatis, dan kecerahan hingga 5000 lumens.</p>
+                    <h3>AV & Multimedia</h3>
+                    <p>Printer wireless, proyektor high-lumen, dan solusi audio visual berkualitas.</p>
                 </div>
             </div>
             <div class="product-card">
-                <img src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mebeler">
+                <img loading="lazy" src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mebeler Kantor">
                 <div class="product-card-content">
-                    <h3>Home & Comercial Appliance</h3>
-                    <p>Furniture ergonomis untuk ruang kerja dan belajar, termasuk meja, kursi, dan rak penyimpanan dengan desain modern dan fungsional.</p>
+                    <h3>Furniture Ergonomis</h3>
+                    <p>Meja, kursi, dan rak modern untuk ruang kerja dan belajar yang nyaman.</p>
                 </div>
             </div>
         </div>
@@ -1048,28 +938,28 @@
     <section id="portofolio" class="section">
         <h2 class="section-title">Portofolio Proyek</h2>
         <div class="section-text">
-            <p>Dokumentasi hasil pekerjaan kami di berbagai sektor menunjukkan komitmen terhadap kualitas, inovasi, dan kepuasan klien. Setiap proyek diselesaikan tepat waktu dengan standar tertinggi.</p>
+            <p>Dokumentasi proyek di berbagai sektor menunjukkan komitmen kami terhadap kualitas dan kepuasan klien.</p>
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Proyek Pendidikan">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Instalasi Interactive Panel di Sekolah">
                 <div class="portfolio-overlay">
                     <h4>Instalasi Interactive Panel</h4>
-                    <p>Pemasangan 50 unit interactive flat panel di sekolah negeri, meningkatkan kualitas pembelajaran digital.</p>
+                    <p>Pemasangan 50 unit di sekolah negeri untuk pembelajaran digital.</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Proyek Bisnis">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Pengadaan PC Startup">
                 <div class="portfolio-overlay">
-                    <h4>Pengadaan PC untuk Startup</h4>
-                    <p>200 unit PC rakitan custom untuk startup teknologi dengan spesifikasi tinggi.</p>
+                    <h4>Pengadaan PC Custom</h4>
+                    <p>200 unit PC high-spec untuk startup teknologi.</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Proyek Pemerintahan">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Modernisasi Ruang Konferensi">
                 <div class="portfolio-overlay">
-                    <h4>Modernisasi Ruang Konferensi</h4>
-                    <p>Implementasi proyektor dan furniture ergonomis untuk kantor pemerintahan.</p>
+                    <h4>Modernisasi Ruang Rapat</h4>
+                    <p>Proyektor dan furniture ergonomis untuk instansi pemerintahan.</p>
                 </div>
             </div>
         </div>
@@ -1079,23 +969,23 @@
     <section id="support" class="section">
         <h2 class="section-title">Support</h2>
         <div class="section-text">
-            <p>Kami menyediakan berbagai sumber daya untuk membantu Anda memaksimalkan produk dan layanan kami dengan dukungan lengkap.</p>
+            <p>Kami menyediakan sumber daya lengkap untuk memaksimalkan penggunaan produk dan layanan kami.</p>
         </div>
         <div class="grid-2">
             <div class="card">
                 <i class="fas fa-book"></i>
                 <h3>Katalog Produk</h3>
-                <p>Akses katalog lengkap produk kami dengan spesifikasi detail, harga, dan opsi kustomisasi. Katalog diperbarui secara rutin.</p>
+                <p>Akses katalog lengkap dengan spesifikasi dan opsi kustomisasi.</p>
             </div>
             <div class="card">
                 <i class="fas fa-video"></i>
                 <h3>Video Tutorial</h3>
-                <p>Tonton video tutorial instalasi, penggunaan, dan tips optimalisasi produk. Dirancang untuk pemula hingga ahli.</p>
+                <p>Tutorial instalasi dan tips optimalisasi produk.</p>
             </div>
             <div class="card">
                 <i class="fas fa-headset"></i>
                 <h3>Dukungan Teknis</h3>
-                <p>Bantuan langsung dari tim teknis kami melalui chat, email, atau telepon. Layanan 24/7.</p>
+                <p>Bantuan 24/7 via chat, email, atau telepon.</p>
             </div>
         </div>
     </section>
@@ -1104,13 +994,13 @@
     <section id="kontak" class="section">
         <h2 class="section-title">Kontak Kami</h2>
         <div class="section-text">
-            <p>Tim Askarindogroup siap membantu segala kebutuhan teknologi Anda. Hubungi kami untuk konsultasi gratis.</p>
+            <p>Tim kami siap membantu kebutuhan teknologi Anda. Hubungi untuk konsultasi gratis.</p>
         </div>
         <div class="contact-cards">
             <div class="contact-card">
                 <i class="fas fa-envelope"></i>
                 <h3>Email</h3>
-                <p><a href="/cdn-cgi/l/email-protection#88e9fbe3e9fae1e6ece7e1e6fcedeffae9fbe1effae7fdf8c8efe5e9e1e4a6ebe7e5"><span class="__cf_email__" data-cfemail="2243514943504b4c464d4b4c5647455043514b45504d575262454f434b4e0c414d4f">[email&#160;protected]</span></a></p>
+                <p><a href="mailto:askarindointegrasigroup@gmail.com">askarindointegrasigroup@gmail.com</a></p>
             </div>
             <div class="contact-card">
                 <i class="fab fa-whatsapp"></i>
@@ -1129,21 +1019,21 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Askarindogroup</h3>
-                <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
+                <p>Penyedia solusi teknologi terintegrasi untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2025.</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="/cdn-cgi/l/email-protection#caabb9a1abb8a3a4aea5a3a4beafadb8abb9a3adb8a5bfba8aada7aba3a6e4a9a5a7"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h4>Menu</h4>
                 <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="tentangkami.html">Tentang Kami</a></li>
-                    <li><a href="produk.html">Produk</a></li>
-                    <li><a href="programkomitmen.html">Program & Komitmen</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="#produk">Produk</a></li>
+                    <li><a href="#program-komitmen">Program & Komitmen</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1160,14 +1050,14 @@
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7a6b4aca6b5aea9a3a8aea9b3a2a0b5a6b4aea0b5a8b2b787a0aaa6aeabe9a4a8aa">[email&#160;protected]</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:askarindointegrasigroup@gmail.com">askarindointegrasigroup@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
                     <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Askarindogroup. All rights reserved.</p>
+            <p>© <script>document.write(new Date().getFullYear());</script> Askarindogroup. All rights reserved.</p>
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
@@ -1176,7 +1066,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Particles
         const particlesContainer = document.querySelector('.particles');
         for (let i = 0; i < 60; i++) {
@@ -1217,16 +1107,7 @@
 
         document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Hamburger
+        // Hamburger Menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
         hamburger.addEventListener('click', () => {
@@ -1234,11 +1115,10 @@
             navMenu.classList.toggle('active');
         });
 
-        // Drag Scroll - Kepercayaan Pelanggan
+        // Drag Scroll for portfolio
         const dragTrack = document.getElementById('dragTrack');
         let isDown = false;
-        let startX;
-        let scrollLeft;
+        let startX, scrollLeft;
 
         dragTrack.addEventListener('mousedown', (e) => {
             isDown = true;
@@ -1247,11 +1127,7 @@
             scrollLeft = dragTrack.scrollLeft;
         });
 
-        dragTrack.addEventListener('mouseleave', () => {
-            isDown = false;
-            dragTrack.classList.remove('dragging');
-        });
-
+        dragTrack.addEventListener('mouseleave', () => isDown = false);
         dragTrack.addEventListener('mouseup', () => {
             isDown = false;
             dragTrack.classList.remove('dragging');
@@ -1265,7 +1141,7 @@
             dragTrack.scrollLeft = scrollLeft - walk;
         });
 
-        // Touch support (mobile)
+        // Touch support
         dragTrack.addEventListener('touchstart', (e) => {
             startX = e.touches[0].pageX - dragTrack.offsetLeft;
             scrollLeft = dragTrack.scrollLeft;
