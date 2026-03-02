@@ -254,7 +254,6 @@
             white-space: nowrap;
         }
 
-        /* Nav right group — sama seperti portofolio.html */
         .nav-right {
             display: flex; align-items: center; gap: 4px;
         }
@@ -316,14 +315,18 @@
             padding: 120px 40px 60px;
         }
 
+        /* ✅ DIUBAH: h1 hero-section kini sama style dengan .section-title */
         .hero-section h1 {
             font-family: var(--font);
-            font-size: clamp(14px, 2.2vw, 22px); font-weight: 300;
-            letter-spacing: 0.55em; text-transform: uppercase;
-            line-height: 1.4; padding-bottom: 0.15em;
-            background: linear-gradient(135deg, var(--hero-g1), var(--hero-g2));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 28px; animation: fadeUp 1s ease;
+            font-size: clamp(36px, 6vw, 70px);
+            font-weight: 900;
+            margin-bottom: 28px;
+            line-height: 1.2;
+            padding-bottom: 0.1em;
+            background: linear-gradient(135deg, var(--title-g1), var(--title-g2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeUp 1s ease;
         }
 
         .hero-bio-box {
@@ -367,22 +370,18 @@
         }
 
         /* ══════════════════════════════════════════
-           STATS
+           STATS — satu kotak besar
         ══════════════════════════════════════════ */
         .stats-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px; margin: 60px 0;
+            gap: 0; margin: 60px 0; padding: 50px 40px;
+            background: var(--card-bg); border-radius: 25px;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            transition: background 0.3s, border-color 0.3s;
         }
         .stat-card {
-            background: var(--card-bg); padding: 40px 20px;
-            border-radius: 20px; text-align: center;
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-10px); border-color: var(--primary);
-            background: var(--card-hover-bg);
+            text-align: center; padding: 20px;
         }
         .stat-number {
             font-family: var(--font); font-weight: 900;
@@ -834,20 +833,20 @@
     <div class="section">
         <div class="stats-grid">
             <div class="stat-card">
-                <span class="stat-number">15+</span>
-                <div class="stat-label">Tahun Pengalaman</div>
-            </div>
-            <div class="stat-card">
                 <span class="stat-number">178+</span>
-                <div class="stat-label">Proyek Selesai</div>
+                <div class="stat-label">Proyek Terselesaikan</div>
             </div>
             <div class="stat-card">
                 <span class="stat-number">642+</span>
-                <div class="stat-label">Klien Puas</div>
+                <div class="stat-label">Tingkat Kepuasan Klien</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1473+</span>
+                <div class="stat-label">Repeat Order</div>
             </div>
             <div class="stat-card">
                 <span class="stat-number">68+</span>
-                <div class="stat-label">Mitra Strategis</div>
+                <div class="stat-label">Stakeholder Eksternal</div>
             </div>
         </div>
     </div>
@@ -1012,20 +1011,30 @@
 
         <div class="logo-marquee-wrapper">
             <div class="logo-marquee-track">
-                <div class="logo-item"><img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Bela Gratis Ongkir"></div>
-                <div class="logo-item"><img src="assets/image/Logo Digipay.png" alt="Digipay"></div>
-                <div class="logo-item"><img src="assets/image/Logo Inaproc.png" alt="Inaproc"></div>
-                <div class="logo-item"><img src="assets/image/Logo MbizM.png" alt="MbizM"></div>
-                <div class="logo-item"><img src="assets/image/Logo PadiUMKM.png" alt="PadiUMKM"></div>
-                <div class="logo-item"><img src="assets/image/Logo Siplah Blibli.png" alt="Siplah Blibli"></div>
-                <div class="logo-item"><img src="assets/image/Logo Siplah Tokoladang.png" alt="Siplah Tokoladang"></div>
-                <div class="logo-item"><img src="assets/image/Logo Bela Gratis Ongkir.png" alt="Bela Gratis Ongkir"></div>
-                <div class="logo-item"><img src="assets/image/Logo Digipay.png" alt="Digipay"></div>
-                <div class="logo-item"><img src="assets/image/Logo Inaproc.png" alt="Inaproc"></div>
-                <div class="logo-item"><img src="assets/image/Logo MbizM.png" alt="MbizM"></div>
-                <div class="logo-item"><img src="assets/image/Logo PadiUMKM.png" alt="PadiUMKM"></div>
-                <div class="logo-item"><img src="assets/image/Logo Siplah Blibli.png" alt="Siplah Blibli"></div>
-                <div class="logo-item"><img src="assets/image/Logo Siplah Tokoladang.png" alt="Siplah Tokoladang"></div>
+                <div class="logo-item"><img src="assets/instansi/Bank Jatim.png" alt="Bela Gratis Ongkir"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Angkasa Pura.jpg" alt="Digipay"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Astra.png" alt="Inaproc"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Bank BCA.png" alt="MbizM"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo BKD.png" alt="PadiUMKM"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo BPJS Kesehatan.png" alt="Siplah Blibli"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo BPJS Ketenagakerjaan.png" alt="Siplah Tokoladang"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo BPOM.png" alt="Bela Gratis Ongkir"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo BUMN.png" alt="Digipay"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo CIMB Niaga.png" alt="Inaproc"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Dinas Pendidikan.png" alt="MbizM"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Disnaker.png" alt="PadiUMKM"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Kemenag.png" alt="Siplah Blibli"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Kemenham.png" alt="Siplah Tokoladang"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Kementerian Kesehatan.png" alt="Bela Gratis Ongkir"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Kementrian Sosial.webp" alt="Digipay"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Kimia Farma.png" alt="Inaproc"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Komdigi.webp" alt="MbizM"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo KOperasi Indonesia.png" alt="PadiUMKM"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Polri.png" alt="Siplah Blibli"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo POS Indonesia.png" alt="Siplah Tokoladang"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Prudential.jpg" alt="Bela Gratis Ongkir"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Ristekdikti.png" alt="Digipay"></div>
+                <div class="logo-item"><img src="assets/instansi/Logo Taspen.jpg" alt="Inaproc"></div>
             </div>
         </div>
 
@@ -1063,29 +1072,6 @@
         </div>
     </div>
 
-    <!-- ══════════ KONTAK ══════════ -->
-    <section id="kontak" class="section">
-        <h2 class="section-title">Hubungi Kami</h2>
-        <p class="section-subtitle">Tim kami siap membantu mewujudkan solusi teknologi terbaik untuk kebutuhan Anda</p>
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-envelope"></i></div>
-                <h3>Email</h3>
-                <p><a href="mailto:askarindointegrasigroup@gmail.com" style="color:#3B96A9;text-decoration:none;">askarindointegrasigroup@gmail.com</a></p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon"><i class="fab fa-whatsapp"></i></div>
-                <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/6285854542007" target="_blank" style="color:#3B96A9;text-decoration:none;">0858-5454-2007</a></p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon"><i class="fab fa-instagram"></i></div>
-                <h3>Instagram</h3>
-                <p><a href="https://instagram.com/askarindogroup" target="_blank" style="color:#3B96A9;text-decoration:none;">@askarindogroup</a></p>
-            </div>
-        </div>
-    </section>
-
     <!-- ══════════ FOOTER ══════════ -->
     <footer>
         <div class="footer-content">
@@ -1104,7 +1090,7 @@
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="tentangkami.html">Tentang Kami</a></li>
                     <li><a href="produk.html">Produk</a></li>
-                    <li><a href="programkomitmen.html">Program &amp; Komitmen</a></li>
+                    <li><a href="portofolio.html">Portofolio</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
@@ -1138,7 +1124,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
