@@ -5,15 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program & Komitmen - Askarindo Integrasi Group</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next'), local('Avenir'), local('Century Gothic');
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic');
+            font-weight: 400 500;
+        }
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold');
+            font-weight: 600 700;
+        }
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold');
+            font-weight: 800 900;
+        }
+
         /* ══════════════════════════════════════════
            THEME VARIABLES — DARK (default)
         ══════════════════════════════════════════ */
         :root {
+            --font:              'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
             --primary:           #2B7A8C;
             --primary-light:     #3B96A9;
 
@@ -82,39 +102,30 @@
             --bg-grad-a:         #ffffff;
             --bg-grad-b:         #f0f0f0;
             --bg-grad-c:         #ffffff;
-
             --header-bg:         rgba(255,255,255,0.92);
             --header-border:     rgba(0,0,0,0.08);
             --nav-mobile-bg:     rgba(255,255,255,0.99);
-
             --txt-1:             #0a0a0a;
             --txt-2:             #2a2a2a;
             --txt-3:             #555555;
             --txt-4:             #666666;
-
             --card-bg:           rgba(0,0,0,0.03);
             --card-border:       rgba(0,0,0,0.08);
             --card-hover-bg:     rgba(43,122,140,0.06);
             --card-hover-border: #2B7A8C;
             --card-shadow:       rgba(43,122,140,0.15);
-
             --stats-bg:          rgba(43,122,140,0.05);
             --stats-border:      rgba(43,122,140,0.15);
-
             --csr-bg:            rgba(0,0,0,0.02);
             --csr-border:        rgba(0,0,0,0.07);
             --csr-item-border:   rgba(0,0,0,0.08);
-
             --quote-bg:          rgba(43,122,140,0.04);
             --quote-border:      #2B7A8C;
             --quote-txt:         #111111;
-
             --cta-bg:            rgba(43,122,140,0.06);
             --cta-border:        rgba(43,122,140,0.20);
-
             --cert-border:       rgba(0,0,0,0.08);
             --cert-hover-border: #3B96A9;
-
             --footer-bg:         #111111;
             --footer-border:     rgba(255,255,255,0.08);
             --footer-sep:        rgba(255,255,255,0.06);
@@ -122,20 +133,16 @@
             --footer-link:       #888888;
             --footer-link-h:     #3B96A9;
             --footer-title:      #ffffff;
-
             --pill-bg:           rgba(0,0,0,0.06);
             --pill-border:       rgba(0,0,0,0.10);
-
             --hero-g1:           #0a0a0a;
             --hero-g2:           #2B7A8C;
             --title-g1:          #0a0a0a;
             --title-g2:          #2B7A8C;
-
             --prog-feat-bdr:     rgba(0,0,0,0.06);
             --prog-feat-txt:     #555555;
         }
 
-        /* System preference: light */
         @media (prefers-color-scheme: light) {
             body:not(.dark):not(.light) {
                 --bg-page:           #ffffff;
@@ -190,7 +197,7 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font);
             background: var(--bg-page);
             color: var(--txt-1);
             overflow-x: hidden;
@@ -245,17 +252,22 @@
         }
         .logo img  { height: 54px; width: auto; }
         .logo span {
-            font-family: 'Clash Display', sans-serif; font-size: 21px; font-weight: 700;
+            font-family: var(--font); font-size: 21px; font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             white-space: nowrap;
         }
 
+        /* Nav right group */
+        .nav-right {
+            display: flex; align-items: center; gap: 4px;
+        }
+
         .nav-links {
             display: flex; align-items: center; gap: 2px;
-            flex: 1; justify-content: center;
         }
         .nav-links a {
+            font-family: var(--font);
             color: var(--txt-2); text-decoration: none; font-weight: 500;
             font-size: 14px; padding: 7px 11px; border-radius: 8px;
             transition: color 0.25s, background 0.25s; white-space: nowrap;
@@ -263,10 +275,8 @@
         .nav-links a:hover  { color: var(--primary-light); }
         .nav-links a.active { color: var(--primary-light); }
 
-        /* Mobile appearance toggle — hidden on desktop */
         .nav-appearance { display: none; }
 
-        /* Appearance toggle pill */
         .appearance-toggle {
             display: flex; align-items: center; gap: 3px;
             background: var(--pill-bg); border: 1px solid var(--pill-border);
@@ -285,8 +295,8 @@
             background: #3B96A9; color: #ffffff;
             box-shadow: 0 2px 10px rgba(59,150,169,0.45);
         }
+        .appearance-btn:focus-visible { outline: 2px solid #3B96A9; outline-offset: 3px; }
 
-        /* Hamburger */
         .hamburger {
             display: none; flex-direction: column; gap: 5px;
             cursor: pointer; z-index: 10001; padding: 4px;
@@ -310,13 +320,15 @@
             padding: 120px 24px 60px;
         }
         .hero-section h1 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(50px, 10vw, 100px); font-weight: 700; line-height: 1.1;
+            font-family: var(--font);
+            font-size: clamp(50px, 10vw, 100px); font-weight: 900;
+            line-height: 1.2; padding-bottom: 0.15em;
             background: linear-gradient(135deg, var(--hero-g1), var(--hero-g2));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px; animation: fadeUp 1s ease;
         }
         .hero-section p {
+            font-family: var(--font);
             font-size: clamp(18px, 3vw, 24px); color: var(--txt-2);
             max-width: 800px; line-height: 1.6;
             animation: fadeUp 1.2s ease;
@@ -332,12 +344,14 @@
         .section { padding: 80px 40px; max-width: 1400px; margin: 0 auto; }
 
         .section-title {
-            font-family: 'Clash Display', sans-serif; text-align: center;
-            font-size: clamp(40px, 7vw, 70px); font-weight: 700; margin-bottom: 20px;
+            font-family: var(--font); text-align: center;
+            font-size: clamp(40px, 7vw, 70px); font-weight: 900; margin-bottom: 20px;
+            line-height: 1.2; padding-bottom: 0.1em;
             background: linear-gradient(135deg, var(--title-g1), var(--title-g2));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .section-subtitle {
+            font-family: var(--font);
             text-align: center; font-size: 1.1rem; color: var(--txt-3);
             max-width: 700px; margin: 0 auto 60px; line-height: 1.7;
         }
@@ -355,12 +369,13 @@
         }
         .impact-stat { text-align: center; }
         .impact-number {
-            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800;
+            font-family: var(--font);
+            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 10px; display: block;
         }
-        .impact-label { color: var(--txt-2); font-size: 1rem; }
+        .impact-label { font-family: var(--font); color: var(--txt-2); font-size: 1rem; }
 
         /* ══════════════════════════════════════════
            PROGRAM CARDS
@@ -385,11 +400,12 @@
             padding: 40px 30px; text-align: center;
         }
         .program-icon { font-size: 4rem; color: white; margin-bottom: 20px; }
-        .program-header h3 { font-size: 1.8rem; color: white; font-weight: 700; }
+        .program-header h3 { font-family: var(--font); font-size: 1.8rem; color: white; font-weight: 700; }
         .program-body { padding: 35px 30px; }
-        .program-body p { color: var(--txt-2); line-height: 1.8; margin-bottom: 20px; }
+        .program-body p { font-family: var(--font); color: var(--txt-2); line-height: 1.8; margin-bottom: 20px; }
         .program-features { list-style: none; margin-top: 20px; }
         .program-features li {
+            font-family: var(--font);
             padding: 12px 0; border-bottom: 1px solid var(--prog-feat-bdr);
             color: var(--prog-feat-txt); display: flex; align-items: center; gap: 15px;
         }
@@ -411,12 +427,13 @@
         }
         .csr-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .csr-year {
-            min-width: 120px; font-size: 2.5rem; font-weight: 800;
+            font-family: var(--font);
+            min-width: 120px; font-size: 2.5rem; font-weight: 900;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .csr-content h3 { font-size: 1.6rem; margin-bottom: 15px; color: #3B96A9; }
-        .csr-content p  { color: var(--txt-2); line-height: 1.8; }
+        .csr-content h3 { font-family: var(--font); font-size: 1.6rem; margin-bottom: 15px; color: #3B96A9; font-weight: 700; }
+        .csr-content p  { font-family: var(--font); color: var(--txt-2); line-height: 1.8; }
 
         /* ══════════════════════════════════════════
            QUOTE
@@ -428,10 +445,11 @@
             transition: background 0.3s;
         }
         .quote-section blockquote {
+            font-family: var(--font);
             font-size: 1.5rem; font-style: italic;
             color: var(--quote-txt); line-height: 1.8; margin-bottom: 20px;
         }
-        .quote-author { color: #3B96A9; font-weight: 600; font-size: 1.1rem; }
+        .quote-author { font-family: var(--font); color: #3B96A9; font-weight: 600; font-size: 1.1rem; }
 
         /* ══════════════════════════════════════════
            COMMITMENT GRID
@@ -457,8 +475,8 @@
             border-radius: 50%; display: flex; align-items: center;
             justify-content: center; font-size: 2.2rem; color: white;
         }
-        .commitment-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--txt-1); }
-        .commitment-card p  { color: var(--txt-2); line-height: 1.7; font-size: 0.95rem; }
+        .commitment-card h3 { font-family: var(--font); font-size: 1.4rem; margin-bottom: 15px; color: var(--txt-1); font-weight: 700; }
+        .commitment-card p  { font-family: var(--font); color: var(--txt-2); line-height: 1.7; font-size: 0.95rem; }
 
         /* ══════════════════════════════════════════
            CERTIFICATION
@@ -483,8 +501,8 @@
             border-radius: 50%; display: flex; align-items: center;
             justify-content: center; font-size: 2.5rem; color: white;
         }
-        .cert-card h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--txt-1); }
-        .cert-card p  { color: var(--txt-3); font-size: 0.9rem; }
+        .cert-card h4 { font-family: var(--font); font-size: 1.3rem; margin-bottom: 10px; color: var(--txt-1); font-weight: 700; }
+        .cert-card p  { font-family: var(--font); color: var(--txt-3); font-size: 0.9rem; }
 
         /* ══════════════════════════════════════════
            CTA
@@ -496,11 +514,12 @@
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
         }
         .cta-section h2 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(35px, 6vw, 55px); margin-bottom: 20px; color: var(--txt-1);
+            font-family: var(--font);
+            font-size: clamp(35px, 6vw, 55px); margin-bottom: 20px; color: var(--txt-1); font-weight: 900;
         }
-        .cta-section p { font-size: 1.2rem; color: var(--txt-2); margin-bottom: 30px; }
+        .cta-section p { font-family: var(--font); font-size: 1.2rem; color: var(--txt-2); margin-bottom: 30px; }
         .cta-btn {
+            font-family: var(--font);
             display: inline-block; padding: 18px 45px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white; border-radius: 50px; font-size: 18px; font-weight: 600;
@@ -523,16 +542,16 @@
             display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px;
         }
         .footer-section h3 {
-            font-family: 'Clash Display', sans-serif; font-size: 28px;
+            font-family: var(--font); font-size: 28px; font-weight: 800;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
-        .footer-section h4 { font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
-        .footer-section p  { color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
+        .footer-section h4 { font-family: var(--font); font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
+        .footer-section p  { font-family: var(--font); color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
         .footer-section ul { list-style: none; }
-        .footer-section ul li { margin-bottom: 12px; color: var(--footer-txt); }
-        .footer-section ul li a { color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
+        .footer-section ul li { font-family: var(--font); margin-bottom: 12px; color: var(--footer-txt); }
+        .footer-section ul li a { font-family: var(--font); color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
         .footer-section ul li a:hover { color: var(--footer-link-h); }
         .footer-section ul li i { color: #2B7A8C; margin-right: 10px; width: 20px; }
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
@@ -549,7 +568,7 @@
             padding-top: 30px; border-top: 1px solid var(--footer-sep);
             color: var(--footer-txt);
         }
-        .footer-bottom p { margin: 8px 0; font-size: 14px; }
+        .footer-bottom p { font-family: var(--font); margin: 8px 0; font-size: 14px; }
 
         /* WA Float */
         .wa-float {
@@ -564,14 +583,12 @@
         @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         .wa-float:hover { animation: none; transform: scale(1.1); }
 
-        /* Accessibility */
-        .appearance-btn:focus-visible { outline: 2px solid #3B96A9; outline-offset: 3px; }
-
         /* ══════════════════════════════════════════
            RESPONSIVE
         ══════════════════════════════════════════ */
         @media (max-width: 860px) {
             nav { padding: 0 18px; gap: 10px; }
+            .nav-right { gap: 0; }
             .nav-links {
                 position: fixed; top: 0; left: 0;
                 width: 100%; height: 100vh;
@@ -587,9 +604,7 @@
             .hamburger      { display: flex; }
             .logo img       { height: 42px; }
             .logo span      { font-size: 17px; }
-
             .appearance-toggle { display: none; }
-
             .nav-appearance {
                 display: flex;
                 position: absolute; bottom: 24px; right: 24px;
@@ -598,7 +613,6 @@
                 border-radius: 999px; padding: 4px 5px;
                 transition: background 0.3s, border-color 0.3s;
             }
-
             .program-grid { grid-template-columns: 1fr; }
             .csr-item     { flex-direction: column; gap: 15px; }
             .csr-year     { min-width: auto; }
@@ -608,8 +622,6 @@
 
         @media (max-width: 768px) {
             .footer-content { grid-template-columns: 1fr; gap: 40px; }
-            .logo span { font-size: 17px; }
-            .logo img  { height: 42px; }
         }
     </style>
 </head>
@@ -626,40 +638,30 @@
                 <span>Askarindogroup</span>
             </a>
 
-            <div class="nav-links" id="navMenu">
-                <a href="index.html">Beranda</a>
-                <a href="tentangkami.html">Tentang Kami</a>
-                <a href="programkomitmen.html" class="active">Program &amp; Komitmen</a>
-                <a href="produk.html">Produk</a>
-                <a href="portofolio.html">Portofolio</a>
-                <a href="support.html">Support</a>
-                <a href="kontak.html">Kontak</a>
+            <div class="nav-right">
+                <div class="nav-links" id="navMenu">
+                    <a href="index.html">Beranda</a>
+                    <a href="tentangkami.html">Tentang Kami</a>
+                    <a href="programkomitmen.html" class="active">Program &amp; Komitmen</a>
+                    <a href="produk.html">Produk</a>
+                    <a href="portofolio.html">Portofolio</a>
+                    <a href="support.html">Support</a>
+                    <a href="kontak.html">Kontak</a>
 
-                <!-- Appearance Toggle Mobile -->
-                <div class="nav-appearance" role="group" aria-label="Pilih tema tampilan">
-                    <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                    <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem">
-                        <i class="fas fa-desktop"></i>
-                    </button>
+                    <!-- Appearance Toggle Mobile -->
+                    <div class="nav-appearance" role="group" aria-label="Pilih tema tampilan">
+                        <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
+                        <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
+                        <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem"><i class="fas fa-desktop"></i></button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Appearance Toggle Desktop -->
-            <div class="appearance-toggle" role="group" aria-label="Pilih tema tampilan">
-                <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem">
-                    <i class="fas fa-desktop"></i>
-                </button>
+                <!-- Appearance Toggle Desktop -->
+                <div class="appearance-toggle" role="group" aria-label="Pilih tema tampilan">
+                    <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
+                    <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
+                    <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem"><i class="fas fa-desktop"></i></button>
+                </div>
             </div>
 
             <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Buka menu">
@@ -997,9 +999,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ══════════ JAVASCRIPT ══════════ -->
     <script>
-    /* ─── THEME SYSTEM ─── */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
@@ -1018,7 +1018,6 @@
         if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
     });
 
-    /* ─── PARTICLES ─── */
     const pc = document.getElementById('particles');
     for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
@@ -1029,7 +1028,6 @@
         pc.appendChild(p);
     }
 
-    /* ─── HAMBURGER ─── */
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('navMenu');
     function toggleMenu(f) {
@@ -1042,7 +1040,6 @@
     hamburger.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') toggleMenu(); });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    /* ─── SMOOTH SCROLL ─── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const el = document.querySelector(this.getAttribute('href'));
@@ -1050,7 +1047,6 @@
         });
     });
 
-    /* ─── SCROLL REVEAL ─── */
     const obs = new IntersectionObserver(entries => {
         entries.forEach(en => {
             if (en.isIntersecting) {
@@ -1067,12 +1063,10 @@
         obs.observe(el);
     });
 
-    /* ─── CSR STAGGER ─── */
     document.querySelectorAll('.csr-item').forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.1}s`;
     });
 
-    /* ─── COUNTER ANIMATION ─── */
     const animateCounter = (element, target) => {
         const isPercentage = element.textContent.includes('%');
         let current = 0;
@@ -1100,7 +1094,6 @@
     });
     document.querySelectorAll('.impact-stat').forEach(stat => statsObs.observe(stat));
 
-    /* ─── ACTIVE NAV HIGHLIGHT ─── */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => {

@@ -5,15 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support & Bantuan - Askarindo Integrasi Group</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next'), local('Avenir'), local('Century Gothic');
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic');
+            font-weight: 400 500;
+        }
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold');
+            font-weight: 600 700;
+        }
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold');
+            font-weight: 800 900;
+        }
+
         /* ══════════════════════════════════════════
            THEME VARIABLES — DARK (default)
         ══════════════════════════════════════════ */
         :root {
+            --font:              'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
             --primary:           #2B7A8C;
             --primary-light:     #3B96A9;
 
@@ -74,24 +94,19 @@
             --bg-grad-a:         #ffffff;
             --bg-grad-b:         #f2f2f2;
             --bg-grad-c:         #ffffff;
-
             --header-bg:         rgba(255,255,255,0.92);
             --header-border:     rgba(0,0,0,0.08);
             --nav-mobile-bg:     rgba(255,255,255,0.99);
-
             --txt-1:             #0a0a0a;
             --txt-2:             #2a2a2a;
             --txt-3:             #555555;
-
             --card-bg:           rgba(0,0,0,0.03);
             --card-border:       rgba(0,0,0,0.08);
             --card-hover-bg:     rgba(43,122,140,0.06);
             --card-hover-border: #2B7A8C;
             --card-shadow:       rgba(43,122,140,0.15);
-
             --hours-bg:          rgba(43,122,140,0.05);
             --hours-border:      rgba(43,122,140,0.15);
-
             --footer-bg:         #111111;
             --footer-border:     rgba(255,255,255,0.08);
             --footer-sep:        rgba(255,255,255,0.06);
@@ -99,27 +114,21 @@
             --footer-link:       #888888;
             --footer-link-h:     #3B96A9;
             --footer-title:      #ffffff;
-
             --faq-bg:            rgba(0,0,0,0.03);
             --faq-border:        rgba(0,0,0,0.08);
             --faq-answer:        #444444;
-
             --pill-bg:           rgba(0,0,0,0.06);
             --pill-border:       rgba(0,0,0,0.10);
-
             --hero-g1:           #0a0a0a;
             --hero-g2:           #2B7A8C;
             --title-g1:          #0a0a0a;
             --title-g2:          #2B7A8C;
-
             --emergency-bg:      rgba(255,0,0,0.05);
             --emergency-border:  rgba(255,0,0,0.20);
-
             --download-btn-bg:   rgba(43,122,140,0.10);
             --download-btn-bdr:  rgba(43,122,140,0.35);
         }
 
-        /* System preference: light */
         @media (prefers-color-scheme: light) {
             body:not(.dark):not(.light) {
                 --bg-page:           #ffffff;
@@ -168,17 +177,15 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font);
             background: var(--bg-page);
             color: var(--txt-1);
             overflow-x: hidden;
             transition: background 0.3s, color 0.3s;
         }
 
-        /* Background Animated */
         #animated-bg {
-            position: fixed;
-            inset: 0; z-index: -1;
+            position: fixed; inset: 0; z-index: -1;
             background: linear-gradient(135deg, var(--bg-grad-a) 0%, var(--bg-grad-b) 50%, var(--bg-grad-c) 100%);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
@@ -189,17 +196,10 @@
             50%      { background-position: 100% 50%; }
         }
 
-        /* Particles */
-        #particles {
-            position: fixed;
-            inset: 0; z-index: -1;
-            pointer-events: none;
-        }
+        #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
         .particle {
-            position: absolute;
-            width: 2px; height: 2px;
-            background: rgba(43,122,140,0.4);
-            border-radius: 50%;
+            position: absolute; width: 2px; height: 2px;
+            background: rgba(43,122,140,0.4); border-radius: 50%;
             animation: floatParticle 25s infinite linear;
         }
         @keyframes floatParticle {
@@ -232,17 +232,22 @@
         }
         .logo img  { height: 54px; width: auto; }
         .logo span {
-            font-family: 'Clash Display', sans-serif; font-size: 21px; font-weight: 700;
+            font-family: var(--font); font-size: 21px; font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             white-space: nowrap;
         }
 
+        /* Nav right group — links + theme pill */
+        .nav-right {
+            display: flex; align-items: center; gap: 4px;
+        }
+
         .nav-links {
             display: flex; align-items: center; gap: 2px;
-            flex: 1; justify-content: center;
         }
         .nav-links a {
+            font-family: var(--font);
             color: var(--txt-2); text-decoration: none; font-weight: 500;
             font-size: 14px; padding: 7px 11px; border-radius: 8px;
             transition: color 0.25s, background 0.25s; white-space: nowrap;
@@ -250,10 +255,8 @@
         .nav-links a:hover { color: var(--primary-light); }
         .nav-links a.active { color: var(--primary-light); }
 
-        /* Appearance toggle pill — mobile version hidden on desktop */
         .nav-appearance { display: none; }
 
-        /* Appearance toggle pill */
         .appearance-toggle {
             display: flex; align-items: center; gap: 3px;
             background: var(--pill-bg); border: 1px solid var(--pill-border);
@@ -272,8 +275,8 @@
             background: #3B96A9; color: #ffffff;
             box-shadow: 0 2px 10px rgba(59,150,169,0.45);
         }
+        .appearance-btn:focus-visible { outline: 2px solid #3B96A9; outline-offset: 3px; }
 
-        /* Hamburger */
         .hamburger {
             display: none; flex-direction: column; gap: 5px;
             cursor: pointer; z-index: 10001; padding: 4px;
@@ -297,13 +300,15 @@
             padding: 120px 24px 60px;
         }
         .hero-section h1 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(50px, 10vw, 100px); font-weight: 700; line-height: 1.1;
+            font-family: var(--font);
+            font-size: clamp(50px, 10vw, 100px); font-weight: 900; line-height: 1.25;
+            padding-bottom: 0.1em;
             background: linear-gradient(135deg, var(--hero-g1), var(--hero-g2));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px; animation: fadeUp 1s ease;
         }
         .hero-section p {
+            font-family: var(--font);
             font-size: clamp(18px, 3vw, 24px); color: var(--txt-2);
             max-width: 800px; line-height: 1.6;
             animation: fadeUp 1.2s ease;
@@ -319,12 +324,13 @@
         .section { padding: 80px 40px; max-width: 1400px; margin: 0 auto; }
 
         .section-title {
-            font-family: 'Clash Display', sans-serif; text-align: center;
-            font-size: clamp(40px, 7vw, 70px); font-weight: 700; margin-bottom: 20px;
+            font-family: var(--font); text-align: center;
+            font-size: clamp(40px, 7vw, 70px); font-weight: 900; margin-bottom: 20px;
             background: linear-gradient(135deg, var(--title-g1), var(--title-g2));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .section-subtitle {
+            font-family: var(--font);
             text-align: center; font-size: 1.1rem; color: var(--txt-3);
             max-width: 700px; margin: 0 auto 60px; line-height: 1.7;
         }
@@ -354,9 +360,10 @@
             border-radius: 50%; display: flex; align-items: center;
             justify-content: center; font-size: 2rem; color: white;
         }
-        .support-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--txt-1); }
-        .support-card p  { color: var(--txt-2); line-height: 1.7; margin-bottom: 20px; }
+        .support-card h3 { font-family: var(--font); font-size: 1.5rem; margin-bottom: 15px; color: var(--txt-1); }
+        .support-card p  { font-family: var(--font); color: var(--txt-2); line-height: 1.7; margin-bottom: 20px; }
         .support-btn {
+            font-family: var(--font);
             display: inline-block; padding: 12px 30px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white; border-radius: 50px; font-weight: 600;
@@ -378,8 +385,8 @@
         }
         .hours-item { text-align: center; }
         .hours-item i { font-size: 2.5rem; color: #3B96A9; margin-bottom: 15px; display: block; }
-        .hours-item h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--txt-1); }
-        .hours-item p  { color: var(--txt-2); line-height: 1.6; }
+        .hours-item h4 { font-family: var(--font); font-size: 1.2rem; margin-bottom: 10px; color: var(--txt-1); }
+        .hours-item p  { font-family: var(--font); color: var(--txt-2); line-height: 1.6; }
 
         /* ══════════════════════════════════════════
            EMERGENCY
@@ -390,9 +397,10 @@
             border-radius: 25px; padding: 40px;
             text-align: center; margin: 60px 0;
         }
-        .emergency-contact h3 { font-size: 2rem; color: #ff4444; margin-bottom: 15px; }
-        .emergency-contact p  { color: var(--txt-2); margin-bottom: 25px; font-size: 1.1rem; }
+        .emergency-contact h3 { font-family: var(--font); font-size: 2rem; color: #ff4444; margin-bottom: 15px; }
+        .emergency-contact p  { font-family: var(--font); color: var(--txt-2); margin-bottom: 25px; font-size: 1.1rem; }
         .emergency-btn {
+            font-family: var(--font);
             display: inline-block; padding: 15px 40px;
             background: linear-gradient(135deg, #ff0000, #ff6600);
             color: white; border-radius: 50px; font-size: 18px;
@@ -413,6 +421,7 @@
         }
         .faq-item:hover { border-color: var(--primary); }
         .faq-question {
+            font-family: var(--font);
             padding: 25px 30px; cursor: pointer;
             display: flex; justify-content: space-between; align-items: center;
             font-weight: 600; font-size: 1.1rem; color: var(--txt-1);
@@ -421,6 +430,7 @@
         .faq-question.active i { transform: rotate(180deg); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
         .faq-answer-content {
+            font-family: var(--font);
             padding: 0 30px 25px;
             color: var(--faq-answer); line-height: 1.8;
         }
@@ -445,13 +455,14 @@
             background: var(--card-hover-bg);
         }
         .warranty-badge {
+            font-family: var(--font);
             display: inline-block; padding: 8px 20px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             border-radius: 20px; font-weight: 600; font-size: 0.9rem; color: #fff;
             margin-bottom: 20px;
         }
-        .warranty-card h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--txt-1); }
-        .warranty-card ul { list-style: none; color: var(--txt-2); }
+        .warranty-card h4 { font-family: var(--font); font-size: 1.4rem; margin-bottom: 15px; color: var(--txt-1); }
+        .warranty-card ul { font-family: var(--font); list-style: none; color: var(--txt-2); }
         .warranty-card ul li {
             padding: 8px 0; display: flex; align-items: flex-start; gap: 10px;
         }
@@ -476,9 +487,10 @@
             background: var(--card-hover-bg);
         }
         .download-icon { font-size: 2.5rem; color: #3B96A9; margin-bottom: 20px; display: block; }
-        .download-card h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--txt-1); }
-        .download-card p  { color: var(--txt-3); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6; }
+        .download-card h4 { font-family: var(--font); font-size: 1.3rem; margin-bottom: 10px; color: var(--txt-1); }
+        .download-card p  { font-family: var(--font); color: var(--txt-3); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6; }
         .download-btn {
+            font-family: var(--font);
             display: inline-flex; align-items: center; gap: 10px;
             padding: 10px 25px;
             background: var(--download-btn-bg);
@@ -501,11 +513,12 @@
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
         }
         .cta-section h2 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(35px, 6vw, 55px); margin-bottom: 20px; color: var(--txt-1);
+            font-family: var(--font);
+            font-size: clamp(35px, 6vw, 55px); margin-bottom: 20px; color: var(--txt-1); font-weight: 900;
         }
-        .cta-section p { font-size: 1.2rem; color: var(--txt-2); margin-bottom: 30px; }
+        .cta-section p { font-family: var(--font); font-size: 1.2rem; color: var(--txt-2); margin-bottom: 30px; }
         .cta-btn {
+            font-family: var(--font);
             display: inline-block; padding: 18px 45px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white; border-radius: 50px; font-size: 18px;
@@ -529,16 +542,16 @@
             display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px;
         }
         .footer-section h3 {
-            font-family: 'Clash Display', sans-serif; font-size: 28px;
+            font-family: var(--font); font-size: 28px; font-weight: 800;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
-        .footer-section h4 { font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
-        .footer-section p  { color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
+        .footer-section h4 { font-family: var(--font); font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
+        .footer-section p  { font-family: var(--font); color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
         .footer-section ul { list-style: none; }
-        .footer-section ul li { margin-bottom: 12px; color: var(--footer-txt); }
-        .footer-section ul li a { color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
+        .footer-section ul li { font-family: var(--font); margin-bottom: 12px; color: var(--footer-txt); }
+        .footer-section ul li a { font-family: var(--font); color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
         .footer-section ul li a:hover { color: var(--footer-link-h); }
         .footer-section ul li i { color: #2B7A8C; margin-right: 10px; width: 20px; }
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
@@ -555,7 +568,7 @@
             padding-top: 30px; border-top: 1px solid var(--footer-sep);
             color: var(--footer-txt);
         }
-        .footer-bottom p { margin: 8px 0; font-size: 14px; }
+        .footer-bottom p { font-family: var(--font); margin: 8px 0; font-size: 14px; }
 
         /* WA Float */
         .wa-float {
@@ -570,17 +583,12 @@
         @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         .wa-float:hover { animation: none; transform: scale(1.1); }
 
-        /* Accessibility focus rings */
-        .appearance-btn:focus-visible {
-            outline: 2px solid #3B96A9;
-            outline-offset: 3px;
-        }
-
         /* ══════════════════════════════════════════
            RESPONSIVE
         ══════════════════════════════════════════ */
         @media (max-width: 860px) {
             nav { padding: 0 18px; gap: 10px; }
+            .nav-right { gap: 0; }
             .nav-links {
                 position: fixed; top: 0; left: 0;
                 width: 100%; height: 100vh;
@@ -596,22 +604,15 @@
             .hamburger      { display: flex; }
             .logo img       { height: 42px; }
             .logo span      { font-size: 17px; }
-
-            /* Sembunyikan toggle di header saat mobile */
             .appearance-toggle { display: none; }
-
-            /* Toggle di dalam nav-links (mobile only) */
             .nav-appearance {
                 display: flex;
-                position: absolute;
-                bottom: 24px;
-                right: 24px;
+                position: absolute; bottom: 24px; right: 24px;
                 align-items: center; gap: 3px;
                 background: var(--pill-bg); border: 1px solid var(--pill-border);
                 border-radius: 999px; padding: 4px 5px;
                 transition: background 0.3s, border-color 0.3s;
             }
-
             .support-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
@@ -636,40 +637,30 @@
                 <span>Askarindogroup</span>
             </a>
 
-            <div class="nav-links" id="navMenu">
-                <a href="index.html">Beranda</a>
-                <a href="tentangkami.html">Tentang Kami</a>
-                <a href="programkomitmen.html">Program &amp; Komitmen</a>
-                <a href="produk.html">Produk</a>
-                <a href="portofolio.html">Portofolio</a>
-                <a href="support.html" class="active">Support</a>
-                <a href="kontak.html">Kontak</a>
+            <div class="nav-right">
+                <div class="nav-links" id="navMenu">
+                    <a href="index.html">Beranda</a>
+                    <a href="tentangkami.html">Tentang Kami</a>
+                    <a href="programkomitmen.html">Program &amp; Komitmen</a>
+                    <a href="produk.html">Produk</a>
+                    <a href="portofolio.html">Portofolio</a>
+                    <a href="support.html" class="active">Support</a>
+                    <a href="kontak.html">Kontak</a>
 
-                <!-- Appearance Toggle Mobile (pojok kanan bawah menu) -->
-                <div class="nav-appearance" role="group" aria-label="Pilih tema tampilan">
-                    <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                    <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem">
-                        <i class="fas fa-desktop"></i>
-                    </button>
+                    <!-- Appearance Toggle Mobile -->
+                    <div class="nav-appearance" role="group" aria-label="Pilih tema tampilan">
+                        <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
+                        <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
+                        <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem"><i class="fas fa-desktop"></i></button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Appearance Toggle Desktop -->
-            <div class="appearance-toggle" role="group" aria-label="Pilih tema tampilan">
-                <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem">
-                    <i class="fas fa-desktop"></i>
-                </button>
+                <!-- Appearance Toggle Desktop -->
+                <div class="appearance-toggle" role="group" aria-label="Pilih tema tampilan">
+                    <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
+                    <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
+                    <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem"><i class="fas fa-desktop"></i></button>
+                </div>
             </div>
 
             <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Buka menu">
@@ -696,35 +687,30 @@
                 <p>Chat langsung dengan tim support kami untuk bantuan cepat dan responsif. Tersedia 24/7.</p>
                 <a href="https://wa.me/6285854542007?text=Halo,%20saya%20butuh%20bantuan%20support" target="_blank" class="support-btn">Chat Sekarang</a>
             </div>
-
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-envelope"></i></div>
                 <h3>Email Support</h3>
                 <p>Kirim pertanyaan detail via email. Kami akan merespons dalam waktu maksimal 2 jam.</p>
                 <a href="mailto:askarindointegrasigroup@gmail.com?subject=Support%20Request" class="support-btn">Kirim Email</a>
             </div>
-
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-phone-alt"></i></div>
                 <h3>Hotline Support</h3>
                 <p>Hubungi hotline kami untuk bantuan darurat dan konsultasi teknis langsung.</p>
                 <a href="tel:+6285854542007" class="support-btn">+62 858-5454-2007</a>
             </div>
-
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-tools"></i></div>
                 <h3>Remote Support</h3>
                 <p>Teknisi kami dapat melakukan remote access untuk troubleshooting lebih efektif.</p>
                 <a href="https://wa.me/6285854542007?text=Request%20Remote%20Support" target="_blank" class="support-btn">Request Remote</a>
             </div>
-
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <h3>Onsite Support</h3>
                 <p>Tim teknisi siap datang ke lokasi Anda untuk instalasi dan perbaikan kompleks.</p>
                 <a href="https://wa.me/6285854542007?text=Request%20Onsite%20Support" target="_blank" class="support-btn">Jadwalkan Kunjungan</a>
             </div>
-
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-graduation-cap"></i></div>
                 <h3>Training & Edukasi</h3>
@@ -739,7 +725,6 @@
         <div class="service-hours">
             <h2 class="section-title" style="margin-bottom: 10px;">Jam Layanan Support</h2>
             <p class="section-subtitle" style="margin-bottom: 0;">Kami berkomitmen memberikan layanan terbaik dengan ketersediaan maksimal</p>
-            
             <div class="hours-grid">
                 <div class="hours-item">
                     <i class="fas fa-clock"></i>
@@ -783,99 +768,36 @@
         
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Berapa lama garansi produk yang dibeli?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Semua produk kami dilengkapi dengan garansi resmi dari distributor/brand. Garansi bervariasi: Interactive Flat Panel (3 tahun), Laptop &amp; PC (1-3 tahun), Printer (1 tahun), Proyektor (2 tahun), dan Furniture (1 tahun). Garansi mencakup kerusakan pabrik dan spare parts original.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Berapa lama garansi produk yang dibeli?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Semua produk kami dilengkapi dengan garansi resmi dari distributor/brand. Garansi bervariasi: Interactive Flat Panel (3 tahun), Laptop &amp; PC (1-3 tahun), Printer (1 tahun), Proyektor (2 tahun), dan Furniture (1 tahun). Garansi mencakup kerusakan pabrik dan spare parts original.</div></div>
             </div>
-
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Bagaimana cara mengklaim garansi?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Hubungi support kami via WhatsApp/Email dengan menyertakan: nomor invoice, foto produk, dan deskripsi masalah. Tim kami akan memverifikasi dan mengarahkan ke service center terdekat atau mengatur pickup jika diperlukan. Proses klaim biasanya selesai dalam 3-7 hari kerja.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Bagaimana cara mengklaim garansi?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Hubungi support kami via WhatsApp/Email dengan menyertakan: nomor invoice, foto produk, dan deskripsi masalah. Tim kami akan memverifikasi dan mengarahkan ke service center terdekat atau mengatur pickup jika diperlukan. Proses klaim biasanya selesai dalam 3-7 hari kerja.</div></div>
             </div>
-
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Apakah tersedia layanan instalasi?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Ya, kami menyediakan layanan instalasi profesional untuk semua produk. Untuk pembelian dalam jumlah besar (10+ unit) atau proyek institusi, instalasi GRATIS. Untuk pembelian retail, biaya instalasi bervariasi tergantung kompleksitas dan lokasi.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Apakah tersedia layanan instalasi?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Ya, kami menyediakan layanan instalasi profesional untuk semua produk. Untuk pembelian dalam jumlah besar (10+ unit) atau proyek institusi, instalasi GRATIS. Untuk pembelian retail, biaya instalasi bervariasi tergantung kompleksitas dan lokasi.</div></div>
             </div>
-
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Apakah ada biaya untuk support teknis?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Support online (WhatsApp, Email, Remote) 100% GRATIS selama masa garansi dan selamanya untuk konsultasi umum. Onsite support dalam masa garansi GRATIS. Setelah garansi, biaya onsite support disesuaikan dengan lokasi dan kompleksitas masalah.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Apakah ada biaya untuk support teknis?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Support online (WhatsApp, Email, Remote) 100% GRATIS selama masa garansi dan selamanya untuk konsultasi umum. Onsite support dalam masa garansi GRATIS. Setelah garansi, biaya onsite support disesuaikan dengan lokasi dan kompleksitas masalah.</div></div>
             </div>
-
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Bagaimana jika produk rusak saat pengiriman?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Semua pengiriman kami diasuransikan penuh. Jika terjadi kerusakan saat pengiriman, segera laporkan maksimal 2x24 jam dengan video unboxing dan foto kerusakan. Kami akan mengganti dengan unit baru tanpa biaya tambahan atau refund 100%.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Bagaimana jika produk rusak saat pengiriman?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Semua pengiriman kami diasuransikan penuh. Jika terjadi kerusakan saat pengiriman, segera laporkan maksimal 2x24 jam dengan video unboxing dan foto kerusakan. Kami akan mengganti dengan unit baru tanpa biaya tambahan atau refund 100%.</div></div>
             </div>
-
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Apakah produk bisa dikustomisasi sesuai kebutuhan?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Tentu! Kami menerima custom order untuk PC Rakitan dengan spesifikasi khusus, branding logo untuk pembelian korporat, dan modifikasi furniture sesuai dimensi ruangan. Minimal order untuk custom adalah 5 unit dengan lead time 7-14 hari kerja.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Apakah produk bisa dikustomisasi sesuai kebutuhan?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Tentu! Kami menerima custom order untuk PC Rakitan dengan spesifikasi khusus, branding logo untuk pembelian korporat, dan modifikasi furniture sesuai dimensi ruangan. Minimal order untuk custom adalah 5 unit dengan lead time 7-14 hari kerja.</div></div>
             </div>
-
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Bagaimana cara mendapatkan training untuk produk?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Training GRATIS untuk semua pembelian proyek (20+ unit). Training mencakup: cara penggunaan, maintenance, troubleshooting dasar. Tersedia dalam format onsite atau online. Request training via WhatsApp dengan jadwal yang fleksibel sesuai kebutuhan Anda.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Bagaimana cara mendapatkan training untuk produk?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Training GRATIS untuk semua pembelian proyek (20+ unit). Training mencakup: cara penggunaan, maintenance, troubleshooting dasar. Tersedia dalam format onsite atau online. Request training via WhatsApp dengan jadwal yang fleksibel sesuai kebutuhan Anda.</div></div>
             </div>
-
             <div class="faq-item">
-                <div class="faq-question">
-                    <span>Apa yang dilakukan jika produk tidak sesuai ekspektasi?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Kami memiliki kebijakan Return &amp; Exchange 7 hari untuk produk yang tidak sesuai (dalam kondisi segel, belum digunakan). Untuk kasus tertentu, kami bisa diskusikan solusi terbaik seperti tukar model atau refund parsial. Kepuasan Anda adalah prioritas kami.
-                    </div>
-                </div>
+                <div class="faq-question"><span>Apa yang dilakukan jika produk tidak sesuai ekspektasi?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-content">Kami memiliki kebijakan Return &amp; Exchange 7 hari untuk produk yang tidak sesuai (dalam kondisi segel, belum digunakan). Untuk kasus tertentu, kami bisa diskusikan solusi terbaik seperti tukar model atau refund parsial. Kepuasan Anda adalah prioritas kami.</div></div>
             </div>
         </div>
     </section>
@@ -897,7 +819,6 @@
                     <li><i class="fas fa-check-circle"></i> Free service &amp; spare parts original</li>
                 </ul>
             </div>
-
             <div class="warranty-card">
                 <span class="warranty-badge">Garansi Premium</span>
                 <h4>Furniture & Mebel</h4>
@@ -909,7 +830,6 @@
                     <li><i class="fas fa-check-circle"></i> Free maintenance consultation</li>
                 </ul>
             </div>
-
             <div class="warranty-card">
                 <span class="warranty-badge">Extended Warranty</span>
                 <h4>Perpanjangan Garansi</h4>
@@ -934,65 +854,49 @@
                 <i class="fas fa-book download-icon"></i>
                 <h4>User Manual</h4>
                 <p>Panduan lengkap penggunaan produk dalam Bahasa Indonesia dan Inggris</p>
-                <a href="https://wa.me/6285854542007?text=Request%20User%20Manual" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Manual
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20User%20Manual" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Manual</a>
             </div>
             <div class="download-card">
                 <i class="fas fa-compact-disc download-icon"></i>
                 <h4>Driver & Software</h4>
                 <p>Driver terbaru dan software pendukung untuk berbagai produk</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Driver%20Software" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Driver
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20Driver%20Software" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Driver</a>
             </div>
             <div class="download-card">
                 <i class="fas fa-wrench download-icon"></i>
                 <h4>Troubleshooting Guide</h4>
                 <p>Panduan mengatasi masalah umum dan tips maintenance</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Troubleshooting%20Guide" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Guide
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20Troubleshooting%20Guide" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Guide</a>
             </div>
             <div class="download-card">
                 <i class="fas fa-file-video download-icon"></i>
                 <h4>Video Tutorial</h4>
                 <p>Tutorial video step-by-step untuk instalasi dan penggunaan</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Video%20Tutorial" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Video
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20Video%20Tutorial" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Video</a>
             </div>
             <div class="download-card">
                 <i class="fas fa-file-pdf download-icon"></i>
                 <h4>Katalog Produk</h4>
                 <p>Katalog lengkap semua produk dengan spesifikasi detail</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Katalog%20Produk" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Katalog
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20Katalog%20Produk" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Katalog</a>
             </div>
             <div class="download-card">
                 <i class="fas fa-certificate download-icon"></i>
                 <h4>Sertifikasi & Dokumen</h4>
                 <p>Sertifikat produk, TKDN, ISO, dan dokumen legal lainnya</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Sertifikasi%20Dokumen" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Dokumen
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20Sertifikasi%20Dokumen" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Dokumen</a>
             </div>
             <div class="download-card">
                 <i class="fas fa-laptop-code download-icon"></i>
                 <h4>Firmware Update</h4>
                 <p>Update firmware terbaru untuk Interactive Flat Panel &amp; perangkat lainnya</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Firmware%20Update" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Firmware
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20Firmware%20Update" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Firmware</a>
             </div>
             <div class="download-card">
                 <i class="fas fa-file-contract download-icon"></i>
                 <h4>Formulir & Template</h4>
                 <p>Form pemesanan, surat penawaran, SPK, dan template dokumen proyek</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Formulir%20&%20Template" target="_blank" class="download-btn">
-                    <i class="fas fa-download"></i> Request Formulir
-                </a>
+                <a href="https://wa.me/6285854542007?text=Request%20Formulir%20&%20Template" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Formulir</a>
             </div>
         </div>
     </section>
@@ -1083,14 +987,11 @@
         </div>
     </footer>
 
-    <!-- WA Float -->
     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ══════════ JAVASCRIPT ══════════ -->
     <script>
-    /* ─── THEME SYSTEM (identik dengan kontak.html) ─── */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
@@ -1109,7 +1010,6 @@
         if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
     });
 
-    /* ─── PARTICLES ─── */
     const pc = document.getElementById('particles');
     for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
@@ -1120,7 +1020,6 @@
         pc.appendChild(p);
     }
 
-    /* ─── HAMBURGER ─── */
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('navMenu');
     function toggleMenu(f) {
@@ -1133,7 +1032,6 @@
     hamburger.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') toggleMenu(); });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    /* ─── SMOOTH SCROLL ─── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const el = document.querySelector(this.getAttribute('href'));
@@ -1141,7 +1039,6 @@
         });
     });
 
-    /* ─── FAQ TOGGLE ─── */
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const faqItem = question.parentElement;
@@ -1157,7 +1054,6 @@
         });
     });
 
-    /* ─── SCROLL REVEAL ─── */
     const obs = new IntersectionObserver(entries => {
         entries.forEach(en => {
             if (en.isIntersecting) {
@@ -1174,7 +1070,6 @@
         obs.observe(el);
     });
 
-    /* ─── ACTIVE NAV HIGHLIGHT ─── */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => {
