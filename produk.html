@@ -179,6 +179,10 @@
             0%,100% { background-position: 0% 50%; }
             50%      { background-position: 100% 50%; }
         }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
 
         #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
         .particle {
@@ -193,86 +197,25 @@
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
-        /* ══════════════════════════════════════════
-           HEADER & NAV
-        ══════════════════════════════════════════ */
-        header {
-            position: fixed; top: 0; left: 0; right: 0; height: 75px;
-            background: var(--header-bg);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--header-border);
-            z-index: 9999;
-            transition: background 0.3s, border-color 0.3s;
-        }
-        nav {
-            max-width: 1400px; margin: 0 auto; height: 100%;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 36px; gap: 20px;
-        }
-
-        .logo {
-            display: flex; align-items: center; gap: 10px;
-            flex-shrink: 0; text-decoration: none;
-        }
-        .logo img  { height: 54px; width: auto; }
-        .logo span {
-            font-family: var(--font); font-size: 21px; font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            white-space: nowrap;
-        }
-
-        /* Nav right group — sama persis dengan portofolio.html */
-        .nav-right {
-            display: flex; align-items: center; gap: 4px;
-        }
-
-        .nav-links {
-            display: flex; align-items: center; gap: 2px;
-        }
-        .nav-links a {
-            font-family: var(--font);
-            color: var(--txt-2); text-decoration: none; font-weight: 500;
-            font-size: 14px; padding: 7px 11px; border-radius: 8px;
-            transition: color 0.25s, background 0.25s; white-space: nowrap;
-        }
+         /* ══ HEADER ══ */
+        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: var(--header-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--header-border); z-index: 9999; transition: background 0.3s, border-color 0.3s; }
+        nav { max-width: 1400px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; gap: 20px; }
+        .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; text-decoration: none; }
+        .logo img  { height: 70px; width: auto; }
+        .logo span { font-family: var(--font); font-size: 28px; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; white-space: nowrap; }
+        .nav-right { display: flex; align-items: center; gap: 4px; }
+        .nav-links { display: flex; align-items: center; gap: 2px; }
+        .nav-links a { font-family: var(--font); color: var(--txt-2); text-decoration: none; font-weight: 500; font-size: 15px; padding: 8px 14px; border-radius: 8px; transition: color 0.25s, background 0.25s; white-space: nowrap; }
         .nav-links a:hover  { color: var(--primary-light); }
         .nav-links a.active { color: var(--primary-light); }
-
-        /* Mobile appearance toggle — hidden on desktop */
         .nav-appearance { display: none; }
-
-        /* Appearance toggle pill */
-        .appearance-toggle {
-            display: flex; align-items: center; gap: 3px;
-            background: var(--pill-bg); border: 1px solid var(--pill-border);
-            border-radius: 999px; padding: 4px 5px; flex-shrink: 0;
-            transition: background 0.3s, border-color 0.3s;
-        }
-        .appearance-btn {
-            width: 32px; height: 32px; border-radius: 50%; border: none;
-            background: transparent; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 13px; color: var(--txt-3);
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-        }
+        .appearance-toggle { display: flex; align-items: center; gap: 3px; background: var(--pill-bg); border: 1px solid var(--pill-border); border-radius: 999px; padding: 4px 5px; flex-shrink: 0; transition: background 0.3s, border-color 0.3s; }
+        .appearance-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--txt-3); transition: background 0.2s, color 0.2s, box-shadow 0.2s; }
         .appearance-btn:hover { background: var(--card-bg); color: var(--txt-1); }
-        .appearance-btn.active {
-            background: #3B96A9; color: #ffffff;
-            box-shadow: 0 2px 10px rgba(59,150,169,0.45);
-        }
+        .appearance-btn.active { background: #3B96A9; color: #ffffff; box-shadow: 0 2px 10px rgba(59,150,169,0.45); }
         .appearance-btn:focus-visible { outline: 2px solid #3B96A9; outline-offset: 3px; }
-
-        /* Hamburger */
-        .hamburger {
-            display: none; flex-direction: column; gap: 5px;
-            cursor: pointer; z-index: 10001; padding: 4px;
-        }
-        .hamburger span {
-            display: block; width: 26px; height: 2.5px;
-            background: var(--txt-1); border-radius: 2px;
-            transition: all 0.35s ease;
-        }
+        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; padding: 4px; }
+        .hamburger span { display: block; width: 26px; height: 2.5px; background: var(--txt-1); border-radius: 2px; transition: all 0.35s ease; }
         .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
         .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
@@ -292,11 +235,13 @@
             padding-bottom: 0.15em;
             background: linear-gradient(135deg, var(--hero-g1), var(--hero-g2));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: fadeUp 1s ease;
         }
         .hero p {
             font-family: var(--font);
             font-size: clamp(18px, 3vw, 24px); color: var(--hero-txt);
             margin: 20px 0 40px; line-height: 1.6; max-width: 700px;
+            animation: fadeUp 1.2s ease;
         }
         .hero .cta {
             font-family: var(--font);
@@ -305,6 +250,7 @@
             color: white; border-radius: 60px; font-size: 22px; font-weight: 600;
             text-decoration: none; box-shadow: 0 20px 50px rgba(43,122,140,0.4);
             transition: all 0.5s;
+            animation: fadeUp 1.4s ease;
         }
         .hero .cta:hover { transform: translateY(-10px); box-shadow: 0 30px 70px rgba(43,122,140,0.6); }
 
@@ -437,18 +383,62 @@
         }
         .footer-bottom p { font-family: var(--font); margin: 8px 0; font-size: 14px; }
 
-        /* WA Float */
-        .wa-float {
+        /* ══════════════════════════════════════════
+           WA FLOAT BUBBLE
+        ══════════════════════════════════════════ */
+        .wa-wrapper {
             position: fixed; bottom: 30px; right: 30px;
-            width: 70px; height: 70px; background: #25d366; color: white;
+            display: flex; align-items: center; gap: 14px;
+            z-index: 9998;
+        }
+        .wa-bubble {
+            position: relative;
+            background: #2B7A8C;
+            color: #fff;
+            padding: 13px 18px;
+            border-radius: 16px 16px 4px 16px;
+            font-family: var(--font);
+            font-size: 13.5px;
+            font-weight: 600;
+            line-height: 1.5;
+            white-space: nowrap;
+            box-shadow: 0 8px 28px rgba(43,122,140,0.5);
+            opacity: 0;
+            transform: translateX(14px) scale(0.9);
+            transform-origin: right center;
+            pointer-events: none;
+            transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1),
+                        transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .wa-bubble::after {
+            content: '';
+            position: absolute;
+            right: -8px; bottom: 12px;
+            border-width: 6px 0 6px 9px;
+            border-style: solid;
+            border-color: transparent transparent transparent #2B7A8C;
+        }
+        .wa-float {
+            width: 70px; height: 70px;
+            background: #25d366; color: white;
             border-radius: 50%; display: flex; align-items: center;
             justify-content: center; font-size: 38px;
             box-shadow: 0 10px 40px rgba(37,211,102,0.6);
-            z-index: 999; text-decoration: none;
+            text-decoration: none; flex-shrink: 0;
             animation: floatBtn 3s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
-        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        .wa-float:hover { animation: none; transform: scale(1.1); }
+        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+        .wa-wrapper:hover .wa-float {
+            animation: none;
+            transform: scale(1.1);
+            box-shadow: 0 14px 50px rgba(37,211,102,0.75);
+        }
+        .wa-wrapper:hover .wa-bubble {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            pointer-events: auto;
+        }
 
         /* ══════════════════════════════════════════
            RESPONSIVE
@@ -484,6 +474,7 @@
             .product { padding: 30px 20px; border-radius: 24px; }
             .product h3 { font-size: 26px; }
             .product img { height: 220px; }
+            .wa-bubble { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -713,7 +704,7 @@
                 <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#c3a2b0a8a2b1aaada7acaaadb7a6a4b1a2b0aaa4b1acb6b383a4aea2aaafeda0acae" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -741,7 +732,7 @@
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8eeffde5effce7e0eae1e7e0faebe9fceffde7e9fce1fbfecee9e3efe7e2a0ede1e3">[email&#160;protected]</a></li>
                     <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
                     <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
@@ -753,12 +744,18 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- ══════════ WHATSAPP FLOATING BUTTON ══════════ -->
+    <div class="wa-wrapper">
+        <div class="wa-bubble">
+            Order &amp; Konsultasi<br>via WhatsApp<br><strong>Klik Di Sini!</strong>
+        </div>
+        <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <!-- ══════════ JAVASCRIPT ══════════ -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ─── THEME SYSTEM ─── */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
