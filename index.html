@@ -97,7 +97,6 @@
         .logo img  { height: 70px; width: auto; }
         .logo span { font-family: var(--font); font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #2B7A8C, #3B96A9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; white-space: nowrap; }
 
-        /* nav-right wrapper (sesuai kontak.html) */
         .nav-right { display: flex; align-items: center; gap: 4px; }
 
         .nav-links { display: flex; align-items: center; gap: 2px; }
@@ -209,6 +208,108 @@
         .social-icons a:hover { background: #3B96A9; transform: translateY(-8px) scale(1.1); }
 
         /* ══════════════════════════════════════════
+           SUPPORT 6-GRID
+        ══════════════════════════════════════════ */
+        .support-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font); font-size: 13px; font-weight: 700;
+            letter-spacing: 3px; text-transform: uppercase; color: var(--primary-light);
+            background: rgba(43,122,140,0.12); border: 1px solid rgba(43,122,140,0.3);
+            padding: 7px 18px; border-radius: 999px; margin-bottom: 28px;
+        }
+        .support-desc {
+            font-family: var(--font); font-size: 1.15rem; line-height: 1.8;
+            color: var(--txt-3); max-width: 700px; margin: -30px auto 50px;
+            text-align: center;
+        }
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 0;
+        }
+        .support-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 36px 32px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), border-color 0.4s, box-shadow 0.45s, background 0.4s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+        .support-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            opacity: 0; transition: opacity 0.35s; border-radius: 24px 24px 0 0;
+        }
+        .support-card::after {
+            content: ''; position: absolute; bottom: -60px; right: -40px;
+            width: 160px; height: 160px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(43,122,140,0.12) 0%, transparent 70%);
+            transition: all 0.5s; pointer-events: none;
+        }
+        .support-card:hover { transform: translateY(-12px); border-color: var(--primary); box-shadow: 0 24px 64px var(--card-shadow); background: var(--card-hover-bg); }
+        .support-card:hover::before { opacity: 1; }
+        .support-card:hover::after { bottom: -30px; right: -20px; width: 220px; height: 220px; }
+
+        .card-icon-wrap {
+            width: 60px; height: 60px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 22px; position: relative; z-index: 1; flex-shrink: 0;
+            transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .support-card:hover .card-icon-wrap { transform: scale(1.12) rotate(-4deg); }
+        .card-icon-wrap i { font-size: 1.6rem; line-height: 1; }
+
+        .card-katalog .card-icon-wrap { background: rgba(43,122,140,0.18); }
+        .card-katalog .card-icon-wrap i { color: #3B96A9; }
+        .card-video   .card-icon-wrap { background: rgba(168,85,247,0.15); }
+        .card-video   .card-icon-wrap i { color: #c084fc; }
+        .card-teknis  .card-icon-wrap { background: rgba(34,197,94,0.14); }
+        .card-teknis  .card-icon-wrap i { color: #4ade80; }
+        .card-email   .card-icon-wrap { background: rgba(251,146,60,0.14); }
+        .card-email   .card-icon-wrap i { color: #fb923c; }
+        .card-wa      .card-icon-wrap { background: rgba(37,211,102,0.14); }
+        .card-wa      .card-icon-wrap i { color: #25d366; }
+        .card-ig      .card-icon-wrap { background: rgba(225,48,108,0.14); }
+        .card-ig      .card-icon-wrap i { color: #e1306c; }
+
+        .s-card-title {
+            font-family: var(--font); font-size: 1.25rem; font-weight: 800;
+            color: var(--txt-1); margin-bottom: 10px; position: relative; z-index: 1;
+        }
+        .s-card-desc {
+            font-family: var(--font); font-size: 0.93rem; line-height: 1.65;
+            color: var(--txt-3); flex: 1; position: relative; z-index: 1;
+        }
+        .s-card-cta {
+            display: inline-flex; align-items: center; gap: 7px; margin-top: 22px;
+            font-family: var(--font); font-size: 0.88rem; font-weight: 700;
+            letter-spacing: 0.5px; color: var(--primary-light); text-decoration: none;
+            position: relative; z-index: 1;
+            transition: gap 0.25s, color 0.25s;
+        }
+        .s-card-cta i { font-size: 0.75rem; transition: transform 0.25s; }
+        .support-card:hover .s-card-cta { gap: 10px; color: var(--txt-1); }
+        .support-card:hover .s-card-cta i { transform: translateX(3px); }
+
+        .card-badge {
+            position: absolute; top: 18px; right: 18px;
+            font-family: var(--font); font-size: 10px; font-weight: 800;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            padding: 4px 10px; border-radius: 999px; z-index: 2;
+        }
+        .badge-live { background: rgba(37,211,102,0.2); color: #25d366; border: 1px solid rgba(37,211,102,0.3); }
+        .badge-hot  { background: rgba(251,146,60,0.18); color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
+        .badge-new  { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); }
+
+        /* ══════════════════════════════════════════
            WHATSAPP BUBBLE
         ══════════════════════════════════════════ */
         .wa-wrapper { position: fixed; bottom: 30px; right: 30px; display: flex; align-items: center; gap: 14px; z-index: 9998; }
@@ -237,6 +338,9 @@
         .footer-social a:hover { background: #3B96A9; transform: translateY(-8px) scale(1.1); }
 
         /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .support-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 860px) {
             nav { padding: 0 18px; gap: 10px; }
             .nav-links { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--nav-mobile-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); flex-direction: column; justify-content: center; gap: 6px; transform: translateY(-100%); transition: transform 0.4s ease; z-index: 10000; padding-bottom: 100px; }
@@ -250,6 +354,9 @@
             .section-title { font-size: 40px; }
             .footer-content { grid-template-columns: 1fr; gap: 30px; }
             .wa-bubble { display: none; }
+        }
+        @media (max-width: 580px) {
+            .support-grid { grid-template-columns: 1fr; gap: 16px; }
         }
         @media (max-width: 768px) {
             .logo span { font-size: 22px; }
@@ -349,23 +456,23 @@
         <div class="grid-2">
             <div class="card">
                 <i class="fas fa-graduation-cap"></i>
-                <h3>Edukasi Pengembangan SDM &amp; CSR</h3>
-                <p>Program pelatihan teknologi gratis untuk guru dan siswa di daerah terpencil, donasi perangkat pendidikan, dan kerjasama dengan pemerintah untuk pengembangan laboratorium komputer. Telah melatih lebih dari 5.000 individu sejak 2015 dan berkontribusi dalam peningkatan literasi digital di Indonesia.</p>
+                <h3>Program Edukasi &amp; Pengembangan SDM</h3>
+                <p>Program pelatihan digital dan teknologi menjadi fokus utama dalam meningkatkan kompetensi tenaga pendidik. Program ini meliputi workshop penggunaan perangkat interaktif, pelatihan software pendukung pembelajaran, Sales & Marketing Digital, Blockchain & Revolusi Web3, dsbnya. serta pemberian sertifikat bagi tenaga pendidik. Kegiatan ini didukung melalui pengembangan kemampuan secara internal guna meningkatkan kualitas pembelajaran yang lebih inovatif dan efektif.</p>
             </div>
             <div class="card">
                 <i class="fas fa-handshake"></i>
-                <h3>Komitmen Kami</h3>
-                <p>Kami berkomitmen pada TKDN minimal 40%, praktik bisnis yang transparan dan beretika, perlindungan data pelanggan, penggunaan material ramah lingkungan, dan layanan purna jual 24/7. Kepuasan pelanggan adalah prioritas utama kami dalam setiap aspek bisnis.</p>
+                <h3>Sarana &amp; Prasana Teknologi</h3>
+                <p>Penyedia layanan barang dan jasa menyediakan fasilitas serta sistem teknologi untuk mendukung proses pengadaan yang lebih cepat, transparan, dan efisien. Layanan ini mencakup kebutuhan bisnis Business to Government (B2G) dan Business to Customer (B2C), baik melalui sistem digital maupun metode konvensional, sehingga memberikan solusi pengadaan yang fleksibel dan efektif.</p>
             </div>
             <div class="card">
                 <i class="fas fa-award"></i>
-                <h3>Kualitas Terjamin</h3>
-                <p>Semua produk yang kami sediakan adalah original, bergaransi resmi, dan telah melalui quality control ketat untuk memastikan performa optimal dan kepuasan pelanggan jangka panjang.</p>
+                <h3>Transparasi, Komitmen &amp; Kualitas Terjamin</h3>
+                <p>Kami berkomitmen menghadirkan proses pengadaan yang transparan, memastikan setiap transaksi dapat dipantau dengan jelas dan akuntabel. Setiap pembelian dilakukan dengan menjaga mutu dan kualitas barang sesuai kebutuhan, tanpa kompromi. Dilengkapi dengan pelayanan prima, kami menempatkan kepuasan pelanggan sebagai prioritas nomor satu, sehingga setiap pengalaman pengadaan menjadi cepat, aman, dan terpercaya.</p>
             </div>
             <div class="card">
                 <i class="fas fa-headset"></i>
                 <h3>Support 24/7</h3>
-                <p>Tim support kami siap membantu Anda kapan saja dengan respon cepat maksimal 3 hari kerja. Kami menyediakan dukungan teknis, konsultasi, dan solusi untuk setiap kebutuhan teknologi Anda.</p>
+                <p>Kami berkomitmen menghadirkan proses pengadaan yang transparan, memastikan setiap transaksi dapat dipantau dengan jelas dan akuntabel. Setiap pembelian dilakukan dengan menjaga mutu dan kualitas barang sesuai kebutuhan, tanpa kompromi. Dilengkapi dengan pelayanan prima, kami menempatkan kepuasan pelanggan sebagai prioritas nomor satu, sehingga setiap pengalaman pengadaan menjadi cepat, aman, dan terpercaya.</p>
             </div>
         </div>
     </section>
@@ -378,28 +485,28 @@
                 <img src="assets/image/Gemini_Generated_Image_r9amtgr9amtgr9am.png" alt="Interactive Flat Panel">
                 <div class="product-card-content">
                     <h3>Visual &amp; Interactive Display Solutions</h3>
-                    <p>Perangkat tampilan interaktif berteknologi tinggi dengan resolusi 4K UHD, dukungan multi-touch hingga 20 titik, ideal untuk ruang kelas dan meeting room modern.</p>
+                    <p>Interactive Flat Panel, Digital Signage, KIOSK Signage, Videotron In-Out, SmartTV, Videowall Bezel, Kamera Konferensi & Sistem Video Call, dsb.</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Laptop & PC">
                 <div class="product-card-content">
                     <h3>IT &amp; Computing Solutions</h3>
-                    <p>Laptop dan PC custom dengan komponen premium untuk performa tinggi, cocok untuk desain grafis, rendering, dan multitasking berat.</p>
+                    <p>Laptop Office & Gaming, PC Dekstop, PC Rakitan Office & Gaming, Server & Storage, Cybersecurity Product, Smart Display, LMS Software, Virtual Lab Kits, dsb.</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="assets/image/Gemini_Generated_Image_n49kg6n49kg6n49k.png" alt="Printer">
                 <div class="product-card-content">
                     <h3>AV &amp; Multimedia Solutions</h3>
-                    <p>Solusi pencetakan dan proyeksi berkualitas tinggi dengan fitur wireless, duplex otomatis, dan kecerahan hingga 5000 lumens.</p>
+                    <p>LCD/LED Monitor, Proyektor, Sound system professional, Kamera, Printer, Sistem Konferensi online, Business Intelligence (BI) software, Router, Switch, Access Point, Firewall, Data Center Equipment & UPS, dsb.</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mebeler">
                 <div class="product-card-content">
                     <h3>Home &amp; Comercial Appliance</h3>
-                    <p>Furniture ergonomis untuk ruang kerja dan belajar, termasuk meja, kursi, dan rak penyimpanan dengan desain modern dan fungsional.</p>
+                    <p>Mesin Kopi, Kulkas, Oven, AC dan Jasa Penginstalasian, Juicer, Blender, Vacum Cleaner, Kipas Angin, Freezer, Bakery Oven, dsb.</p>
                 </div>
             </div>
         </div>
@@ -409,7 +516,7 @@
     <section id="portofolio" class="section">
         <h2 class="section-title">Portofolio Proyek</h2>
         <div class="section-text">
-            <p>Dokumentasi hasil pekerjaan kami di berbagai sektor menunjukkan komitmen terhadap kualitas, inovasi, dan kepuasan klien. Setiap proyek diselesaikan tepat waktu dengan standar tertinggi.</p>
+            <p>Portofolio Proyek pengadaan barang dan jasa yang telah kami tangani. Dokumentasi ini menunjukkan transparansi, kualitas, dan kemampuan perusahaan dalam memenuhi kebutuhan klien secara profesional.</p>
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item">
@@ -436,53 +543,66 @@
         </div>
     </section>
 
-    <!-- SUPPORT -->
+    <!-- ══════════ SUPPORT — 6 GRID ══════════ -->
     <section id="support" class="section">
-        <h2 class="section-title">Support</h2>
-        <div class="section-text">
-            <p>Kami menyediakan berbagai sumber daya untuk membantu Anda memaksimalkan produk dan layanan kami dengan dukungan lengkap.</p>
-        </div>
-        <div class="grid-2">
-            <div class="card">
-                <i class="fas fa-book"></i>
-                <h3>Katalog Produk</h3>
-                <p>Akses katalog lengkap produk kami dengan spesifikasi detail, harga, dan opsi kustomisasi. Katalog diperbarui secara rutin.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-video"></i>
-                <h3>Video Tutorial</h3>
-                <p>Tonton video tutorial instalasi, penggunaan, dan tips optimalisasi produk. Dirancang untuk pemula hingga ahli.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-headset"></i>
-                <h3>Dukungan Teknis</h3>
-                <p>Bantuan langsung dari tim teknis kami melalui chat, email, atau telepon. Layanan 24/7.</p>
-            </div>
-        </div>
-    </section>
+        <h2 class="section-title" style="text-align:center;">Support</h2>
+        <p class="support-desc">
+            Kami menyediakan layanan dukungan informasi untuk memastikan akses data, panduan, dan bantuan teknis tersedia secara cepat dan akurat — membantu klien mengambil keputusan, memaksimalkan produk, serta menjaga operasional tetap lancar dan efisien.
+        </p>
 
-    <!-- KONTAK -->
-    <section id="kontak" class="section">
-        <h2 class="section-title">Kontak Kami</h2>
-        <div class="section-text">
-            <p>Tim Askarindogroup siap membantu segala kebutuhan teknologi Anda. Hubungi kami untuk konsultasi gratis.</p>
-        </div>
-        <div class="contact-cards">
-            <div class="contact-card">
-                <i class="fas fa-envelope"></i>
-                <h3>Email</h3>
-                <p><a href="mailto:askarindointegrasigroup@gmail.com">askarindointegrasigroup@gmail.com</a></p>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-whatsapp"></i>
-                <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/6285854542007" target="_blank">0858-5454-2007</a></p>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-instagram"></i>
-                <h3>Instagram</h3>
-                <p><a href="https://instagram.com/askarindogroup" target="_blank">@askarindogroup</a></p>
-            </div>
+        <div class="support-grid">
+
+            <!-- 1. Katalog Produk -->
+            <a href="produk.html" class="support-card card-katalog">
+                <div class="card-icon-wrap"><i class="fas fa-book-open"></i></div>
+                <div class="s-card-title">Katalog Produk</div>
+                <div class="s-card-desc">Jelajahi katalog lengkap produk kami — Interactive Flat Panel, IT Solutions, AV &amp; Multimedia, hingga Home Appliance — dengan spesifikasi detail dan update berkala.</div>
+                <div class="s-card-cta">Lihat Katalog <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <!-- 2. Video & Informasi -->
+            <a href="#" class="support-card card-video">
+                <span class="card-badge badge-new">Baru</span>
+                <div class="card-icon-wrap"><i class="fas fa-circle-play"></i></div>
+                <div class="s-card-title">Video &amp; Informasi</div>
+                <div class="s-card-desc">Tonton panduan visual, tutorial instalasi, dan tips optimalisasi produk. Konten dirancang untuk semua level pengguna — dari pemula hingga teknisi berpengalaman.</div>
+                <div class="s-card-cta">Tonton Sekarang <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <!-- 3. Dukungan Teknis -->
+            <a href="#" class="support-card card-teknis">
+                <span class="card-badge badge-live">Live</span>
+                <div class="card-icon-wrap"><i class="fas fa-headset"></i></div>
+                <div class="s-card-title">Dukungan Teknis</div>
+                <div class="s-card-desc">Tim teknisi kami siap membantu 24/7 melalui berbagai saluran — chat langsung, email, maupun telepon. Respons cepat, solusi tepat, dan layanan purna jual terpercaya.</div>
+                <div class="s-card-cta">Hubungi Tim <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <!-- 4. Email -->
+            <a href="mailto:askarindointegrasigroup@gmail.com" class="support-card card-email">
+                <div class="card-icon-wrap"><i class="fas fa-envelope"></i></div>
+                <div class="s-card-title">Email</div>
+                <div class="s-card-desc">Kirim pertanyaan, permintaan penawaran, atau laporan kendala langsung ke tim kami. Kami membalas setiap pesan dengan cepat dan profesional.</div>
+                <div class="s-card-cta">askarindointegrasigroup@gmail.com <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <!-- 5. WhatsApp -->
+            <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" class="support-card card-wa">
+                <span class="card-badge badge-hot">Cepat</span>
+                <div class="card-icon-wrap"><i class="fab fa-whatsapp"></i></div>
+                <div class="s-card-title">WhatsApp</div>
+                <div class="s-card-desc">Konsultasi langsung, order, dan tanya jawab teknis via WhatsApp. Respons paling cepat dan mudah — tersedia setiap hari termasuk akhir pekan.</div>
+                <div class="s-card-cta">0858-5454-2007 <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <!-- 6. Instagram -->
+            <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" class="support-card card-ig">
+                <div class="card-icon-wrap"><i class="fab fa-instagram"></i></div>
+                <div class="s-card-title">Instagram</div>
+                <div class="s-card-desc">Ikuti kami di Instagram untuk update produk terbaru, promo eksklusif, portofolio proyek, dan konten edukasi teknologi setiap harinya.</div>
+                <div class="s-card-cta">@askarindogroup <i class="fas fa-arrow-right"></i></div>
+            </a>
+
         </div>
     </section>
 

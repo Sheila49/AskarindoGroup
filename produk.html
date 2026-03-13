@@ -29,9 +29,6 @@
             font-weight: 800 900;
         }
 
-        /* ══════════════════════════════════════════
-           THEME VARIABLES — DARK (default)
-        ══════════════════════════════════════════ */
         :root {
             --font:              'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
             --primary:           #2B7A8C;
@@ -76,9 +73,6 @@
             --cat-g2:            #2B7A8C;
         }
 
-        /* ══════════════════════════════════════════
-           LIGHT THEME
-        ══════════════════════════════════════════ */
         body.light {
             --bg-page:           #ffffff;
             --bg-grad-a:         #ffffff;
@@ -119,7 +113,6 @@
             --cat-g2:            #2B7A8C;
         }
 
-        /* System preference: light */
         @media (prefers-color-scheme: light) {
             body:not(.dark):not(.light) {
                 --bg-page:           #ffffff;
@@ -155,9 +148,6 @@
             }
         }
 
-        /* ══════════════════════════════════════════
-           RESET & BASE
-        ══════════════════════════════════════════ */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -197,7 +187,7 @@
             100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
         }
 
-         /* ══ HEADER ══ */
+        /* ══ HEADER ══ */
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: var(--header-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--header-border); z-index: 9999; transition: background 0.3s, border-color 0.3s; }
         nav { max-width: 1400px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; gap: 20px; }
         .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; text-decoration: none; }
@@ -220,43 +210,80 @@
         .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
         .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* ══════════════════════════════════════════
-           HERO
-        ══════════════════════════════════════════ */
+        /* ══ HERO — pure background, no overlay ══ */
         .hero {
-            min-height: 100vh;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            padding: 100px 24px 60px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            background-image: url('784dd277-f2f0-4112-8739-c16767875997 (1).jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
+
+        /* Overlay DIHAPUS — background foto tampil murni */
+        .hero::before {
+            display: none;
+        }
+
+        .hero > * { position: relative; z-index: 1; }
+
+        .hero-logo {
+            margin-bottom: -60px;
+            animation: fadeUp 1s ease;
+        }
+        .hero-logo img {
+            height: 320px;
+            width: auto;
+            filter: drop-shadow(0 10px 30px rgba(255,255,255,0.35))
+                    drop-shadow(0 0 50px rgba(255,255,255,0.2));
+        }
+
         .hero h1 {
             font-family: var(--font);
-            font-size: clamp(50px, 10vw, 100px); font-weight: 900; line-height: 1.2;
-            padding-bottom: 0.15em;
-            background: linear-gradient(135deg, var(--hero-g1), var(--hero-g2));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: fadeUp 1s ease;
+            font-size: clamp(32px, 6vw, 90px);
+            font-weight: 900;
+            line-height: 1.1;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            margin-bottom: 12px;
+            animation: fadeUp 1.2s ease;
+            white-space: nowrap;
         }
         .hero p {
             font-family: var(--font);
-            font-size: clamp(18px, 3vw, 24px); color: var(--hero-txt);
-            margin: 20px 0 40px; line-height: 1.6; max-width: 700px;
-            animation: fadeUp 1.2s ease;
+            font-size: clamp(16px, 2.5vw, 26px);
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeUp 1.4s ease;
         }
         .hero .cta {
             font-family: var(--font);
             padding: 18px 50px;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            color: white; border-radius: 60px; font-size: 22px; font-weight: 600;
-            text-decoration: none; box-shadow: 0 20px 50px rgba(43,122,140,0.4);
+            background: var(--primary);
+            color: white;
+            border-radius: 60px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 20px 50px rgba(43,122,140,0.5);
+            animation: fadeUp 1.6s ease;
             transition: all 0.5s;
-            animation: fadeUp 1.4s ease;
         }
-        .hero .cta:hover { transform: translateY(-10px); box-shadow: 0 30px 70px rgba(43,122,140,0.6); }
+        .hero .cta:hover {
+            transform: translateY(-10px);
+            background: var(--primary-light);
+            box-shadow: 0 30px 70px rgba(43,122,140,0.7);
+        }
 
-        /* ══════════════════════════════════════════
-           CATEGORY SECTIONS
-        ══════════════════════════════════════════ */
+        /* ══ CATEGORY SECTIONS ══ */
         .category-section { max-width: 1600px; margin: 0 auto; padding: 140px 40px 100px; }
 
         .category-title {
@@ -277,9 +304,7 @@
             display: block; text-align: center;
         }
 
-        /* ══════════════════════════════════════════
-           PRODUCT GRID — ASYMMETRIC
-        ══════════════════════════════════════════ */
+        /* ══ PRODUCT GRID ══ */
         .product-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 40px; margin-bottom: 120px; }
 
         .ifp-grid    .product:nth-child(1) { grid-column: span 7; }
@@ -341,9 +366,7 @@
         }
         .btn:hover { background: #3B96A9; transform: scale(1.05); }
 
-        /* ══════════════════════════════════════════
-           FOOTER
-        ══════════════════════════════════════════ */
+        /* ══ FOOTER ══ */
         footer {
             background: var(--footer-bg);
             border-top: 1px solid var(--footer-border);
@@ -383,9 +406,7 @@
         }
         .footer-bottom p { font-family: var(--font); margin: 8px 0; font-size: 14px; }
 
-        /* ══════════════════════════════════════════
-           WA FLOAT BUBBLE
-        ══════════════════════════════════════════ */
+        /* ══ WA FLOAT ══ */
         .wa-wrapper {
             position: fixed; bottom: 30px; right: 30px;
             display: flex; align-items: center; gap: 14px;
@@ -393,68 +414,42 @@
         }
         .wa-bubble {
             position: relative;
-            background: #2B7A8C;
-            color: #fff;
-            padding: 13px 18px;
-            border-radius: 16px 16px 4px 16px;
-            font-family: var(--font);
-            font-size: 13.5px;
-            font-weight: 600;
-            line-height: 1.5;
-            white-space: nowrap;
-            box-shadow: 0 8px 28px rgba(43,122,140,0.5);
-            opacity: 0;
-            transform: translateX(14px) scale(0.9);
-            transform-origin: right center;
-            pointer-events: none;
+            background: #2B7A8C; color: #fff;
+            padding: 13px 18px; border-radius: 16px 16px 4px 16px;
+            font-family: var(--font); font-size: 13.5px; font-weight: 600; line-height: 1.5;
+            white-space: nowrap; box-shadow: 0 8px 28px rgba(43,122,140,0.5);
+            opacity: 0; transform: translateX(14px) scale(0.9);
+            transform-origin: right center; pointer-events: none;
             transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1),
                         transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
         }
         .wa-bubble::after {
-            content: '';
-            position: absolute;
-            right: -8px; bottom: 12px;
-            border-width: 6px 0 6px 9px;
-            border-style: solid;
+            content: ''; position: absolute; right: -8px; bottom: 12px;
+            border-width: 6px 0 6px 9px; border-style: solid;
             border-color: transparent transparent transparent #2B7A8C;
         }
         .wa-float {
-            width: 70px; height: 70px;
-            background: #25d366; color: white;
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; font-size: 38px;
-            box-shadow: 0 10px 40px rgba(37,211,102,0.6);
+            width: 70px; height: 70px; background: #25d366; color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 38px; box-shadow: 0 10px 40px rgba(37,211,102,0.6);
             text-decoration: none; flex-shrink: 0;
             animation: floatBtn 3s ease-in-out infinite;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-        .wa-wrapper:hover .wa-float {
-            animation: none;
-            transform: scale(1.1);
-            box-shadow: 0 14px 50px rgba(37,211,102,0.75);
-        }
-        .wa-wrapper:hover .wa-bubble {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-            pointer-events: auto;
-        }
+        .wa-wrapper:hover .wa-float { animation: none; transform: scale(1.1); box-shadow: 0 14px 50px rgba(37,211,102,0.75); }
+        .wa-wrapper:hover .wa-bubble { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; }
 
-        /* ══════════════════════════════════════════
-           RESPONSIVE
-        ══════════════════════════════════════════ */
+        /* ══ RESPONSIVE ══ */
         @media (max-width: 860px) {
             nav { padding: 0 18px; gap: 10px; }
             .nav-right { gap: 0; }
             .nav-links {
-                position: fixed; top: 0; left: 0;
-                width: 100%; height: 100vh;
-                background: var(--nav-mobile-bg);
-                backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: var(--nav-mobile-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
                 flex-direction: column; justify-content: center;
                 gap: 6px; transform: translateY(-100%);
-                transition: transform 0.4s ease; z-index: 10000;
-                padding-bottom: 100px;
+                transition: transform 0.4s ease; z-index: 10000; padding-bottom: 100px;
             }
             .nav-links.open { transform: translateY(0); }
             .nav-links a    { font-size: 19px; padding: 11px 22px; }
@@ -463,13 +458,16 @@
             .logo span      { font-size: 17px; }
             .appearance-toggle { display: none; }
             .nav-appearance {
-                display: flex;
-                position: absolute; bottom: 24px; right: 24px;
+                display: flex; position: absolute; bottom: 24px; right: 24px;
                 align-items: center; gap: 3px;
                 background: var(--pill-bg); border: 1px solid var(--pill-border);
                 border-radius: 999px; padding: 4px 5px;
                 transition: background 0.3s, border-color 0.3s;
             }
+            .hero-logo img  { height: 180px; }
+            .hero h1        { white-space: normal; font-size: clamp(28px, 8vw, 52px); }
+            .hero p         { font-size: 16px; }
+            .hero .cta      { font-size: 16px; padding: 14px 36px; }
             .category-section { padding: 80px 20px 60px; }
             .product { padding: 30px 20px; border-radius: 24px; }
             .product h3 { font-size: 26px; }
@@ -479,8 +477,6 @@
 
         @media (max-width: 768px) {
             .footer-content { grid-template-columns: 1fr; gap: 40px; }
-            .hero h1 { white-space: normal; }
-            .hero p { font-size: 18px; }
         }
     </style>
 </head>
@@ -489,7 +485,7 @@
     <div id="animated-bg"></div>
     <div id="particles"></div>
 
-    <!-- ══════════ HEADER ══════════ -->
+    <!-- HEADER -->
     <header>
         <nav>
             <a class="logo" href="index.html">
@@ -507,7 +503,6 @@
                     <a href="support.html">Support</a>
                     <a href="kontak.html">Kontak</a>
 
-                    <!-- Appearance Toggle Mobile -->
                     <div class="nav-appearance" role="group" aria-label="Pilih tema tampilan">
                         <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
                         <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
@@ -515,7 +510,6 @@
                     </div>
                 </div>
 
-                <!-- Appearance Toggle Desktop -->
                 <div class="appearance-toggle" role="group" aria-label="Pilih tema tampilan">
                     <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
                     <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
@@ -529,14 +523,14 @@
         </nav>
     </header>
 
-    <!-- ══════════ HERO ══════════ -->
+    <!-- HERO -->
     <section id="beranda" class="hero">
         <h1>Askarindo Integrasi Group</h1>
-        <p>Solusi Teknologi Terintegrasi untuk Masa Depan Indonesia</p>
-        <a href="#ifp" class="cta">Lihat Produk Unggulan</a>
+        <p>Produk Teknologi Premium untuk Masa Depan Indonesia</p>
+        <a href="#ifp" class="cta">Lihat Produk Unggulan ↓</a>
     </section>
 
-    <!-- ══════════ INTERACTIVE FLAT PANEL ══════════ -->
+    <!-- INTERACTIVE FLAT PANEL -->
     <section id="ifp" class="category-section">
         <div class="category-badge">Interactive Display</div>
         <h2 class="category-title">Interactive Flat Panel</h2>
@@ -584,7 +578,7 @@
         </div>
     </section>
 
-    <!-- ══════════ LAPTOP & PC ══════════ -->
+    <!-- LAPTOP & PC -->
     <section id="laptop" class="category-section">
         <div class="category-badge">Computing Power</div>
         <h2 class="category-title">Laptop & PC Rakitan</h2>
@@ -624,7 +618,7 @@
         </div>
     </section>
 
-    <!-- ══════════ PRINTER & PROYEKTOR ══════════ -->
+    <!-- PRINTER & PROYEKTOR -->
     <section id="printer" class="category-section">
         <div class="category-badge">Printing &amp; Projection</div>
         <h2 class="category-title">Printer & Proyektor</h2>
@@ -664,7 +658,7 @@
         </div>
     </section>
 
-    <!-- ══════════ MEBELER ══════════ -->
+    <!-- MEBELER -->
     <section id="mebel" class="category-section">
         <div class="category-badge">Ergonomic Furniture</div>
         <h2 class="category-title">Mebeler Ergonomis</h2>
@@ -696,7 +690,7 @@
         </div>
     </section>
 
-    <!-- ══════════ FOOTER ══════════ -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -704,7 +698,7 @@
                 <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="/cdn-cgi/l/email-protection#c3a2b0a8a2b1aaada7acaaadb7a6a4b1a2b0aaa4b1acb6b383a4aea2aaafeda0acae" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -732,7 +726,7 @@
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8eeffde5effce7e0eae1e7e0faebe9fceffde7e9fce1fbfecee9e3efe7e2a0ede1e3">[email&#160;protected]</a></li>
+                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
                     <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
                     <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
@@ -744,7 +738,7 @@
         </div>
     </footer>
 
-    <!-- ══════════ WHATSAPP FLOATING BUTTON ══════════ -->
+    <!-- WHATSAPP FLOATING BUTTON -->
     <div class="wa-wrapper">
         <div class="wa-bubble">
             Order &amp; Konsultasi<br>via WhatsApp<br><strong>Klik Di Sini!</strong>
@@ -754,9 +748,8 @@
         </a>
     </div>
 
-    <!-- ══════════ JAVASCRIPT ══════════ -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    /* ─── THEME SYSTEM ─── */
+    <script>
+    /* THEME SYSTEM */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
@@ -775,7 +768,7 @@
         if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
     });
 
-    /* ─── PARTICLES ─── */
+    /* PARTICLES */
     const pc = document.getElementById('particles');
     for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
@@ -786,7 +779,7 @@
         pc.appendChild(p);
     }
 
-    /* ─── HAMBURGER ─── */
+    /* HAMBURGER */
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('navMenu');
     function toggleMenu(f) {
@@ -799,7 +792,7 @@
     hamburger.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') toggleMenu(); });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    /* ─── SMOOTH SCROLL ─── */
+    /* SMOOTH SCROLL */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const el = document.querySelector(this.getAttribute('href'));
@@ -807,7 +800,7 @@
         });
     });
 
-    /* ─── SCROLL REVEAL ─── */
+    /* SCROLL REVEAL */
     const obs = new IntersectionObserver(entries => {
         entries.forEach(en => {
             if (en.isIntersecting) {
@@ -824,7 +817,7 @@
         obs.observe(el);
     });
 
-    /* ─── ACTIVE NAV HIGHLIGHT ─── */
+    /* ACTIVE NAV */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => {
