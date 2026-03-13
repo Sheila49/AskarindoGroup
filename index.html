@@ -6,19 +6,23 @@
     <title>Askarindo Integrasi Group - Solusi Teknologi Terintegrasi</title>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Mont Font dari Google Fonts / Bunny Fonts -->
+    <link href="https://fonts.bunny.net/css?family=montserrat:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     
     <style>
-        @font-face { font-family: 'Avenir'; src: local('Avenir Next'), local('Avenir'), local('Century Gothic'); font-weight: 300; }
-        @font-face { font-family: 'Avenir'; src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic'); font-weight: 400 500; }
-        @font-face { font-family: 'Avenir'; src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold'); font-weight: 600 700; }
-        @font-face { font-family: 'Avenir'; src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold'); font-weight: 800 900; }
+        /* ── MONT FONT DEFINITION ── */
+        :root {
+            --font: 'Montserrat', 'Mont', 'Century Gothic', 'Trebuchet MS', sans-serif;
+        }
+
+        /* Hapus semua @font-face Avenir, ganti ke Montserrat sebagai Mont */
 
         :root {
             --primary:           #2B7A8C;
             --primary-light:     #3B96A9;
             --primary-dark:      #1D5563;
             --secondary:         #4A92A3;
-            --font:              'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
+            --font:              'Montserrat', 'Mont', 'Century Gothic', 'Trebuchet MS', sans-serif;
             --bg-page:           #000000;
             --bg-grad-a:         #000000;
             --bg-grad-b:         #0d3d47;
@@ -207,9 +211,7 @@
         .social-icons a { width: 50px; height: 50px; background: #2B7A8C; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; transition: all 0.4s; text-decoration: none; box-shadow: 0 5px 20px rgba(43,122,140,0.4); }
         .social-icons a:hover { background: #3B96A9; transform: translateY(-8px) scale(1.1); }
 
-        /* ══════════════════════════════════════════
-           SUPPORT 6-GRID
-        ══════════════════════════════════════════ */
+        /* ── SUPPORT 6-GRID ── */
         .support-eyebrow {
             display: inline-flex; align-items: center; gap: 8px;
             font-family: var(--font); font-size: 13px; font-weight: 700;
@@ -309,9 +311,7 @@
         .badge-hot  { background: rgba(251,146,60,0.18); color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
         .badge-new  { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); }
 
-        /* ══════════════════════════════════════════
-           WHATSAPP BUBBLE
-        ══════════════════════════════════════════ */
+        /* ── WHATSAPP BUBBLE ── */
         .wa-wrapper { position: fixed; bottom: 30px; right: 30px; display: flex; align-items: center; gap: 14px; z-index: 9998; }
         .wa-bubble { position: relative; background: #2B7A8C; color: #fff; padding: 13px 18px; border-radius: 16px 16px 4px 16px; font-family: var(--font); font-size: 13.5px; font-weight: 600; line-height: 1.5; white-space: nowrap; box-shadow: 0 8px 28px rgba(43,122,140,0.5); opacity: 0; transform: translateX(14px) scale(0.9); transform-origin: right center; pointer-events: none; transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1); }
         .wa-bubble::after { content: ''; position: absolute; right: -8px; bottom: 12px; border-width: 6px 0 6px 9px; border-style: solid; border-color: transparent transparent transparent #2B7A8C; }
@@ -369,7 +369,7 @@
     <div id="animated-bg"></div>
     <div class="particles"></div>
 
-    <!-- ══════════ HEADER ══════════ -->
+    <!-- HEADER -->
     <header>
         <nav>
             <a class="logo" href="index.html">
@@ -543,7 +543,7 @@
         </div>
     </section>
 
-    <!-- ══════════ SUPPORT — 6 GRID ══════════ -->
+    <!-- SUPPORT -->
     <section id="support" class="section">
         <h2 class="section-title" style="text-align:center;">Support</h2>
         <p class="support-desc">
@@ -551,8 +551,6 @@
         </p>
 
         <div class="support-grid">
-
-            <!-- 1. Katalog Produk -->
             <a href="produk.html" class="support-card card-katalog">
                 <div class="card-icon-wrap"><i class="fas fa-book-open"></i></div>
                 <div class="s-card-title">Katalog Produk</div>
@@ -560,7 +558,6 @@
                 <div class="s-card-cta">Lihat Katalog <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- 2. Video & Informasi -->
             <a href="#" class="support-card card-video">
                 <span class="card-badge badge-new">Baru</span>
                 <div class="card-icon-wrap"><i class="fas fa-circle-play"></i></div>
@@ -569,7 +566,6 @@
                 <div class="s-card-cta">Tonton Sekarang <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- 3. Dukungan Teknis -->
             <a href="#" class="support-card card-teknis">
                 <span class="card-badge badge-live">Live</span>
                 <div class="card-icon-wrap"><i class="fas fa-headset"></i></div>
@@ -578,7 +574,6 @@
                 <div class="s-card-cta">Hubungi Tim <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- 4. Email -->
             <a href="mailto:askarindointegrasigroup@gmail.com" class="support-card card-email">
                 <div class="card-icon-wrap"><i class="fas fa-envelope"></i></div>
                 <div class="s-card-title">Email</div>
@@ -586,7 +581,6 @@
                 <div class="s-card-cta">askarindointegrasigroup@gmail.com <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- 5. WhatsApp -->
             <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" class="support-card card-wa">
                 <span class="card-badge badge-hot">Cepat</span>
                 <div class="card-icon-wrap"><i class="fab fa-whatsapp"></i></div>
@@ -595,14 +589,12 @@
                 <div class="s-card-cta">0858-5454-2007 <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- 6. Instagram -->
             <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" class="support-card card-ig">
                 <div class="card-icon-wrap"><i class="fab fa-instagram"></i></div>
                 <div class="s-card-title">Instagram</div>
                 <div class="s-card-desc">Ikuti kami di Instagram untuk update produk terbaru, promo eksklusif, portofolio proyek, dan konten edukasi teknologi setiap harinya.</div>
                 <div class="s-card-cta">@askarindogroup <i class="fas fa-arrow-right"></i></div>
             </a>
-
         </div>
     </section>
 
@@ -653,7 +645,7 @@
         </div>
     </footer>
 
-    <!-- ══════════ WHATSAPP FLOATING BUTTON ══════════ -->
+    <!-- WHATSAPP FLOATING BUTTON -->
     <div class="wa-wrapper">
         <div class="wa-bubble">
             Order &amp; Konsultasi<br>via WhatsApp<br><strong>Klik Di Sini!</strong>
@@ -664,7 +656,7 @@
     </div>
 
     <script>
-    /* ─── THEME SYSTEM ─── */
+    /* THEME SYSTEM */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
@@ -682,7 +674,7 @@
         if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
     });
 
-    /* ─── PARTICLES ─── */
+    /* PARTICLES */
     const particlesContainer = document.querySelector('.particles');
     for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
@@ -693,7 +685,7 @@
         particlesContainer.appendChild(p);
     }
 
-    /* ─── COUNTER ANIMATION ─── */
+    /* COUNTER ANIMATION */
     const animateCounter = (el) => {
         const target = parseInt(el.getAttribute('data-target'));
         const increment = target / (2000 / 16);
@@ -713,7 +705,7 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
 
-    /* ─── SMOOTH SCROLL ─── */
+    /* SMOOTH SCROLL */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const target = document.querySelector(this.getAttribute('href'));
@@ -721,7 +713,7 @@
         });
     });
 
-    /* ─── HAMBURGER ─── */
+    /* HAMBURGER */
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('navMenu');
     function toggleMenu(f) {
@@ -734,7 +726,7 @@
     hamburger.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') toggleMenu(); });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    /* ─── DRAG SCROLL ─── */
+    /* DRAG SCROLL */
     const dragTrack = document.getElementById('dragTrack');
     if (dragTrack) {
         let isDown = false, startX, scrollLeft;
@@ -746,7 +738,7 @@
         dragTrack.addEventListener('touchmove',  (e) => { dragTrack.scrollLeft = scrollLeft - (e.touches[0].pageX - dragTrack.offsetLeft - startX) * 1.5; });
     }
 
-    /* ─── ACTIVE NAV HIGHLIGHT ─── */
+    /* ACTIVE NAV */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => { if (a.getAttribute('href') === page) a.classList.add('active'); });
