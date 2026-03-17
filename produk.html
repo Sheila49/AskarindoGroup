@@ -172,7 +172,64 @@
             .cat-tab { min-width:120px; padding:16px 14px; font-size:.8rem; gap:7px; }
             .cat-tab-icon { width:26px; height:26px; font-size:.8rem; }
         }
+/* ── E-COMMERCE LOGOS ── */
+.ecommerce-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 40px 50px;
+}
+.ecommerce-label {
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--txt-3);
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 28px;
+}
 
+.ecommerce-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.ecommerce-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    transition: all 0.35s ease;
+    text-decoration: none;
+}
+.ecommerce-item:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: 0 8px 28px var(--card-shadow);
+    transform: translateY(-4px);
+}
+.ecommerce-item img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(40%) opacity(0.75);
+    transition: filter 0.35s ease;
+}
+.ecommerce-item:hover img {
+    filter: grayscale(0%) opacity(1);
+}
+@media (max-width: 860px) {
+    .ecommerce-section { padding: 30px 20px 40px; }
+    .ecommerce-logos { gap: 14px; }
+    .ecommerce-item { padding: 10px 16px; }
+    .ecommerce-item img { height: 28px; }
+}
         /* divider */
         .section-divider { max-width: 1400px; margin: 0 auto 0; padding: 0 40px; display: flex; align-items: center; gap: 24px; }
         .section-divider hr { flex: 1; border: none; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -512,7 +569,19 @@
             </div>
         </div>
     </section>
-
+<!-- ═══════════ E-COMMERCE LOGOS ═══════════ -->
+<section class="ecommerce-section">
+    <p class="ecommerce-label">Support by E-Purchasing :</p>
+    <div class="ecommerce-logos">
+        <a href="#" class="ecommerce-item"><img src="assets/e-commerce/Logo Bela Gratis Ongkir.png" alt="Tokopedia"></a>
+        <a href="#" class="ecommerce-item"><img src="assets/e-commerce/Logo Digipay.png" alt="Shopee"></a>
+        <a href="#" class="ecommerce-item"><img src="assets/e-commerce/Logo Inaproc.png" alt="Lazada"></a>
+        <a href="#" class="ecommerce-item"><img src="assets/e-commerce/Logo MbizM.png" alt="Bukalapak"></a>
+        <a href="#" class="ecommerce-item"><img src="assets/e-commerce/Logo PadiUMKM.png" alt="Blibli"></a>
+        <a href="#" class="ecommerce-item"><img src="assets/e-commerce/Logo Siplah Blibli.png" alt="TikTok Shop"></a>
+        <a href="#" class="ecommerce-item"><img src="assets/e-commerce/Logo Siplah Tokoladang.png" alt="OLX"></a>
+    </div>
+</section>
     <!-- Divider -->
     <div class="section-divider">
         <hr><span>Detail Produk per Kategori</span><hr>
@@ -524,39 +593,28 @@
         <h2 class="category-title">Interactive Flat Panel</h2>
         <div class="product-grid ifp-grid">
             <div class="product">
-                <img src="https://www.eskanusa.id/wp-content/uploads/2023/08/Samsung-Flip-Pro-WMB-Series-Interactive-Display-1.png" alt="Samsung Flip Pro 85">
-                <h3>Samsung Flip Pro 85"</h3>
+                <img src="assets/img_ifp/samsung_flip_pro/id-smart-signage-wm55b-b2c-lh55wmbwbgcxxd-538797981.avif" alt="Samsung Flip Pro - TKDN">
+                <h3>Samsung Flip Pro - TKDN</h3>
                 <p class="tagline">Kolaborasi 4K UHD dengan teknologi multi-touch 20 titik untuk meeting room dan ruang kelas modern</p>
-                <p class="price">Rp 145.000.000</p>
-                <a href="flip-85.html" class="btn">Pesan Sekarang →</a>
+                <a href="ifp_samsung_flip_pro_tkdn.html" class="btn">Pesan Sekarang →</a>
             </div>
             <div class="product">
                 <img src="https://www.viewsonic.com/globalassets/images/products/ifp7550-3/ifp7550-3-hero-image.png" alt="ViewBoard 75">
                 <h3>ViewBoard IFP7550 75"</h3>
                 <p class="tagline">Display interaktif 4K dengan myViewBoard software gratis dan stylus pen presisi tinggi</p>
-                <p class="price">Rp 68.500.000</p>
-                <a href="flip-75.html" class="btn">Pesan Sekarang →</a>
+                <a href="ifp_samsung-waf.html" class="btn">Pesan Sekarang →</a>
             </div>
             <div class="product">
                 <img src="https://www.benq.com/content/dam/b2c/en-us/product/display/rp6502/RP6502-hero.png" alt="BenQ Board 65">
                 <h3>BenQ Board RP6502 65"</h3>
                 <p class="tagline">Smart display dengan Air Quality Sensor dan Eye-Care technology untuk kesehatan mata</p>
-                <p class="price">Rp 42.800.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20BenQ%20Board%2065" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
             <div class="product">
                 <img src="https://i.pinimg.com/originals/e8/d3/3f/e8d33fc4e3d1c2c1c8d0e3e8d3c1c0c0.jpg" alt="Sharp AQUOS 86">
                 <h3>Sharp AQUOS Board 86"</h3>
                 <p class="tagline">Panel raksasa dengan teknologi bonding yang superior untuk auditorium dan convention hall</p>
-                <p class="price">Rp 125.000.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Sharp%20AQUOS%2086" target="_blank" class="btn">Pesan Sekarang →</a>
-            </div>
-            <div class="product">
-                <img src="https://www.prometheanworld.com/wp-content/uploads/2023/08/ActivPanel-9-Premium-hero.png" alt="Promethean 55">
-                <h3>Promethean ActivPanel 55"</h3>
-                <p class="tagline">Interactive panel khusus pendidikan dengan ClassFlow software dan unlimited cloud storage</p>
-                <p class="price">Rp 35.200.000</p>
-                <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Promethean%20ActivPanel%2055" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
         </div>
     </section>
