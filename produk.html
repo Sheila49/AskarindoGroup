@@ -4,58 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produk Premium – Askarindo Integrasi Group</title>
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
+    <link href="https://fonts.bunny.net/css?family=montserrat:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next'), local('Avenir'), local('Century Gothic');
-            font-weight: 300;
-        }
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic');
-            font-weight: 400 500;
-        }
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold');
-            font-weight: 600 700;
-        }
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold');
-            font-weight: 800 900;
-        }
-
         :root {
-            --font:              'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
+            --font:              'Montserrat','Mont','Century Gothic','Trebuchet MS',sans-serif;
             --primary:           #2B7A8C;
             --primary-light:     #3B96A9;
-
             --bg-page:           #000000;
             --bg-grad-a:         #000000;
             --bg-grad-b:         #0d3d47;
             --bg-grad-c:         #000000;
-
             --header-bg:         rgba(0,0,0,0.95);
             --header-border:     rgba(255,255,255,0.08);
             --nav-mobile-bg:     rgba(0,0,0,0.98);
-
             --txt-1:             #ffffff;
             --txt-2:             #cccccc;
             --txt-3:             #aaaaaa;
-
             --card-bg:           rgba(255,255,255,0.04);
             --card-border:       rgba(255,255,255,0.08);
             --card-hover-border: #2B7A8C;
             --card-shadow:       rgba(43,122,140,0.30);
-
             --hero-txt:          #cccccc;
             --tagline:           #aaaaaa;
             --price:             #3B96A9;
-
             --footer-bg:         rgba(0,0,0,0.80);
             --footer-border:     rgba(255,255,255,0.12);
             --footer-sep:        rgba(255,255,255,0.08);
@@ -63,478 +35,656 @@
             --footer-link:       #aaaaaa;
             --footer-link-h:     #3B96A9;
             --footer-title:      #ffffff;
-
             --pill-bg:           rgba(255,255,255,0.09);
             --pill-border:       rgba(255,255,255,0.12);
-
-            --hero-g1:           #ffffff;
-            --hero-g2:           #2B7A8C;
             --cat-g1:            #ffffff;
             --cat-g2:            #2B7A8C;
         }
-
         body.light {
-            --bg-page:           #ffffff;
-            --bg-grad-a:         #ffffff;
-            --bg-grad-b:         #f0f0f0;
-            --bg-grad-c:         #ffffff;
-
-            --header-bg:         rgba(255,255,255,0.92);
-            --header-border:     rgba(0,0,0,0.08);
-            --nav-mobile-bg:     rgba(255,255,255,0.99);
-
-            --txt-1:             #0a0a0a;
-            --txt-2:             #2a2a2a;
-            --txt-3:             #555555;
-
-            --card-bg:           rgba(0,0,0,0.03);
-            --card-border:       rgba(0,0,0,0.08);
-            --card-hover-border: #2B7A8C;
-            --card-shadow:       rgba(43,122,140,0.15);
-
-            --hero-txt:          #333333;
-            --tagline:           #555555;
-            --price:             #2B7A8C;
-
-            --footer-bg:         #111111;
-            --footer-border:     rgba(255,255,255,0.08);
-            --footer-sep:        rgba(255,255,255,0.06);
-            --footer-txt:        #888888;
-            --footer-link:       #888888;
-            --footer-link-h:     #3B96A9;
-            --footer-title:      #ffffff;
-
-            --pill-bg:           rgba(0,0,0,0.06);
-            --pill-border:       rgba(0,0,0,0.10);
-
-            --hero-g1:           #0a0a0a;
-            --hero-g2:           #2B7A8C;
-            --cat-g1:            #0a0a0a;
-            --cat-g2:            #2B7A8C;
+            --bg-page:#ffffff; --bg-grad-a:#ffffff; --bg-grad-b:#f0f0f0; --bg-grad-c:#ffffff;
+            --header-bg:rgba(255,255,255,0.92); --header-border:rgba(0,0,0,0.08);
+            --nav-mobile-bg:rgba(255,255,255,0.99);
+            --txt-1:#0a0a0a; --txt-2:#2a2a2a; --txt-3:#555555;
+            --card-bg:rgba(0,0,0,0.03); --card-border:rgba(0,0,0,0.08);
+            --card-hover-border:#2B7A8C; --card-shadow:rgba(43,122,140,0.15);
+            --hero-txt:#333333; --tagline:#555555; --price:#2B7A8C;
+            --footer-bg:#111111; --footer-border:rgba(255,255,255,0.08);
+            --footer-sep:rgba(255,255,255,0.06); --footer-txt:#888888;
+            --footer-link:#888888; --footer-link-h:#3B96A9; --footer-title:#ffffff;
+            --pill-bg:rgba(0,0,0,0.06); --pill-border:rgba(0,0,0,0.10);
+            --cat-g1:#0a0a0a; --cat-g2:#2B7A8C;
         }
-
-        @media (prefers-color-scheme: light) {
+        @media (prefers-color-scheme:light) {
             body:not(.dark):not(.light) {
-                --bg-page:           #ffffff;
-                --bg-grad-a:         #ffffff;
-                --bg-grad-b:         #f0f0f0;
-                --bg-grad-c:         #ffffff;
-                --header-bg:         rgba(255,255,255,0.92);
-                --header-border:     rgba(0,0,0,0.08);
-                --nav-mobile-bg:     rgba(255,255,255,0.99);
-                --txt-1:             #0a0a0a;
-                --txt-2:             #2a2a2a;
-                --txt-3:             #555555;
-                --card-bg:           rgba(0,0,0,0.03);
-                --card-border:       rgba(0,0,0,0.08);
-                --card-hover-border: #2B7A8C;
-                --card-shadow:       rgba(43,122,140,0.15);
-                --hero-txt:          #333333;
-                --tagline:           #555555;
-                --price:             #2B7A8C;
-                --footer-bg:         #111111;
-                --footer-border:     rgba(255,255,255,0.08);
-                --footer-sep:        rgba(255,255,255,0.06);
-                --footer-txt:        #888888;
-                --footer-link:       #888888;
-                --footer-link-h:     #3B96A9;
-                --footer-title:      #ffffff;
-                --pill-bg:           rgba(0,0,0,0.06);
-                --pill-border:       rgba(0,0,0,0.10);
-                --hero-g1:           #0a0a0a;
-                --hero-g2:           #2B7A8C;
-                --cat-g1:            #0a0a0a;
-                --cat-g2:            #2B7A8C;
+                --bg-page:#ffffff; --bg-grad-a:#ffffff; --bg-grad-b:#f0f0f0; --bg-grad-c:#ffffff;
+                --header-bg:rgba(255,255,255,0.92); --header-border:rgba(0,0,0,0.08);
+                --nav-mobile-bg:rgba(255,255,255,0.99);
+                --txt-1:#0a0a0a; --txt-2:#2a2a2a; --txt-3:#555555;
+                --card-bg:rgba(0,0,0,0.03); --card-border:rgba(0,0,0,0.08);
+                --card-hover-border:#2B7A8C; --card-shadow:rgba(43,122,140,0.15);
+                --hero-txt:#333333; --tagline:#555555; --price:#2B7A8C;
+                --footer-bg:#111111; --footer-border:rgba(255,255,255,0.08);
+                --footer-sep:rgba(255,255,255,0.06); --footer-txt:#888888;
+                --footer-link:#888888; --footer-link-h:#3B96A9; --footer-title:#ffffff;
+                --pill-bg:rgba(0,0,0,0.06); --pill-border:rgba(0,0,0,0.10);
+                --cat-g1:#0a0a0a; --cat-g2:#2B7A8C;
             }
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:var(--font); background:var(--bg-page); color:var(--txt-1); overflow-x:hidden; transition:background .3s,color .3s; }
 
-        body {
-            font-family: var(--font);
-            background: var(--bg-page);
-            color: var(--txt-1);
-            overflow-x: hidden;
-            transition: background 0.3s, color 0.3s;
+        #animated-bg { position:fixed; inset:0; z-index:-2; background:linear-gradient(135deg,var(--bg-grad-a) 0%,var(--bg-grad-b) 50%,var(--bg-grad-c) 100%); background-size:400% 400%; animation:gradientShift 18s ease infinite; transition:background .3s; }
+        @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes floatBtn { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+        #particles { position:fixed; inset:0; z-index:-1; pointer-events:none; }
+        .particle { position:absolute; width:2px; height:2px; background:rgba(43,122,140,.4); border-radius:50%; animation:floatParticle 20s infinite linear; }
+        @keyframes floatParticle { 0%{transform:translateY(100vh);opacity:0} 10%{opacity:.6} 90%{opacity:.6} 100%{transform:translateY(-100vh) translateX(80px);opacity:0} }
+
+        /* ── HEADER ── */
+        header { position:fixed; top:0; left:0; right:0; height:80px; background:var(--header-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--header-border); z-index:9999; transition:background .3s,border-color .3s; }
+        nav { max-width:1400px; margin:0 auto; height:100%; display:flex; align-items:center; justify-content:space-between; padding:0 40px; gap:20px; }
+        .logo { display:flex; align-items:center; gap:12px; flex-shrink:0; text-decoration:none; }
+        .logo img { height:70px; width:auto; }
+        .logo span { font-family:var(--font); font-size:28px; font-weight:800; background:linear-gradient(135deg,var(--primary),var(--primary-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; white-space:nowrap; }
+        .nav-right { display:flex; align-items:center; gap:4px; }
+        .nav-links { display:flex; align-items:center; gap:2px; }
+        .nav-links a { font-family:var(--font); color:var(--txt-2); text-decoration:none; font-weight:500; font-size:15px; padding:8px 14px; border-radius:8px; transition:color .25s,background .25s; white-space:nowrap; }
+        .nav-links a:hover { color:var(--primary-light); }
+        .nav-links a.active { color:var(--primary-light); }
+        .nav-appearance { display:none; }
+        .appearance-toggle { display:flex; align-items:center; gap:3px; background:var(--pill-bg); border:1px solid var(--pill-border); border-radius:999px; padding:4px 5px; flex-shrink:0; transition:background .3s,border-color .3s; }
+        .appearance-btn { width:32px; height:32px; border-radius:50%; border:none; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--txt-3); transition:background .2s,color .2s,box-shadow .2s; }
+        .appearance-btn:hover { background:var(--card-bg); color:var(--txt-1); }
+        .appearance-btn.active { background:#3B96A9; color:#fff; box-shadow:0 2px 10px rgba(59,150,169,.45); }
+        .hamburger { display:none; flex-direction:column; gap:6px; cursor:pointer; z-index:10001; padding:4px; }
+        .hamburger span { display:block; width:26px; height:2.5px; background:var(--txt-1); border-radius:2px; transition:all .35s ease; }
+        .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+        .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+        /* ── HERO ── */
+        .hero { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; position:relative; background-image:url('784dd277-f2f0-4112-8739-c16767875997 (1).jpg'); background-size:cover; background-position:center; background-attachment:fixed; }
+        .hero::before { display:none; }
+        .hero>* { position:relative; z-index:1; }
+        .hero-logo { margin-bottom:-60px; animation:fadeUp 1s ease; }
+        .hero-logo img { height:320px; width:auto; filter:drop-shadow(0 10px 30px rgba(255,255,255,.35)) drop-shadow(0 0 50px rgba(255,255,255,.2)); }
+        .hero h1 { font-family:var(--font); font-size:clamp(32px,6vw,90px); font-weight:900; line-height:1.1; color:#fff; text-shadow:2px 2px 4px rgba(0,0,0,.4); margin-bottom:12px; animation:fadeUp 1.2s ease; white-space:nowrap; }
+        .hero p  { font-family:var(--font); font-size:clamp(16px,2.5vw,26px); font-weight:600; color:#fff; text-shadow:1px 1px 3px rgba(0,0,0,.4); margin-bottom:30px; animation:fadeUp 1.4s ease; }
+        .hero .cta { font-family:var(--font); padding:18px 50px; background:var(--primary); color:#fff; border-radius:60px; font-size:20px; font-weight:700; text-decoration:none; box-shadow:0 20px 50px rgba(43,122,140,.5); animation:fadeUp 1.6s ease; transition:all .5s; }
+        .hero .cta:hover { transform:translateY(-10px); background:var(--primary-light); box-shadow:0 30px 70px rgba(43,122,140,.7); }
+
+        /* ══════════════════════════════════════════
+           PRODUK KAMI — OVERVIEW SECTION
+        ══════════════════════════════════════════ */
+        .produk-overview {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px 80px;
         }
 
-        #animated-bg {
-            position: fixed; inset: 0; z-index: -2;
-            background: linear-gradient(135deg, var(--bg-grad-a) 0%, var(--bg-grad-b) 50%, var(--bg-grad-c) 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 18s ease infinite;
-            transition: background 0.3s;
-        }
-        @keyframes gradientShift {
-            0%,100% { background-position: 0% 50%; }
-            50%      { background-position: 100% 50%; }
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
-        .particle {
-            position: absolute; width: 2px; height: 2px;
-            background: rgba(43,122,140,0.4); border-radius: 50%;
-            animation: floatParticle 20s infinite linear;
-        }
-        @keyframes floatParticle {
-            0%   { transform: translateY(100vh); opacity: 0; }
-            10%  { opacity: 0.6; }
-            90%  { opacity: 0.6; }
-            100% { transform: translateY(-100vh) translateX(80px); opacity: 0; }
-        }
-
-        /* ══ HEADER ══ */
-        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: var(--header-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--header-border); z-index: 9999; transition: background 0.3s, border-color 0.3s; }
-        nav { max-width: 1400px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; gap: 20px; }
-        .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; text-decoration: none; }
-        .logo img  { height: 70px; width: auto; }
-        .logo span { font-family: var(--font); font-size: 28px; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; white-space: nowrap; }
-        .nav-right { display: flex; align-items: center; gap: 4px; }
-        .nav-links { display: flex; align-items: center; gap: 2px; }
-        .nav-links a { font-family: var(--font); color: var(--txt-2); text-decoration: none; font-weight: 500; font-size: 15px; padding: 8px 14px; border-radius: 8px; transition: color 0.25s, background 0.25s; white-space: nowrap; }
-        .nav-links a:hover  { color: var(--primary-light); }
-        .nav-links a.active { color: var(--primary-light); }
-        .nav-appearance { display: none; }
-        .appearance-toggle { display: flex; align-items: center; gap: 3px; background: var(--pill-bg); border: 1px solid var(--pill-border); border-radius: 999px; padding: 4px 5px; flex-shrink: 0; transition: background 0.3s, border-color 0.3s; }
-        .appearance-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--txt-3); transition: background 0.2s, color 0.2s, box-shadow 0.2s; }
-        .appearance-btn:hover { background: var(--card-bg); color: var(--txt-1); }
-        .appearance-btn.active { background: #3B96A9; color: #ffffff; box-shadow: 0 2px 10px rgba(59,150,169,0.45); }
-        .appearance-btn:focus-visible { outline: 2px solid #3B96A9; outline-offset: 3px; }
-        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; padding: 4px; }
-        .hamburger span { display: block; width: 26px; height: 2.5px; background: var(--txt-1); border-radius: 2px; transition: all 0.35s ease; }
-        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-        /* ══ HERO — pure background, no overlay ══ */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .produk-overview-header {
             text-align: center;
-            padding: 0 20px;
-            position: relative;
-            background-image: url('784dd277-f2f0-4112-8739-c16767875997 (1).jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            margin-bottom: 70px;
         }
 
-        /* Overlay DIHAPUS — background foto tampil murni */
-        .hero::before {
-            display: none;
-        }
-
-        .hero > * { position: relative; z-index: 1; }
-
-        .hero-logo {
-            margin-bottom: -60px;
-            animation: fadeUp 1s ease;
-        }
-        .hero-logo img {
-            height: 320px;
-            width: auto;
-            filter: drop-shadow(0 10px 30px rgba(255,255,255,0.35))
-                    drop-shadow(0 0 50px rgba(255,255,255,0.2));
-        }
-
-        .hero h1 {
+        .produk-overview-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-family: var(--font);
-            font-size: clamp(32px, 6vw, 90px);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-light);
+            background: rgba(43,122,140,0.12);
+            border: 1px solid rgba(43,122,140,0.3);
+            padding: 8px 20px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+        }
+
+        .produk-overview-title {
+            font-family: var(--font);
+            font-size: clamp(36px, 6vw, 72px);
             font-weight: 900;
             line-height: 1.1;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-            margin-bottom: 12px;
-            animation: fadeUp 1.2s ease;
-            white-space: nowrap;
-        }
-        .hero p {
-            font-family: var(--font);
-            font-size: clamp(16px, 2.5vw, 26px);
-            font-weight: 600;
-            color: #ffffff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-            margin-bottom: 30px;
-            animation: fadeUp 1.4s ease;
-        }
-        .hero .cta {
-            font-family: var(--font);
-            padding: 18px 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 60px;
-            font-size: 20px;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 20px 50px rgba(43,122,140,0.5);
-            animation: fadeUp 1.6s ease;
-            transition: all 0.5s;
-        }
-        .hero .cta:hover {
-            transform: translateY(-10px);
-            background: var(--primary-light);
-            box-shadow: 0 30px 70px rgba(43,122,140,0.7);
-        }
-
-        /* ══ CATEGORY SECTIONS ══ */
-        .category-section { max-width: 1600px; margin: 0 auto; padding: 140px 40px 100px; }
-
-        .category-title {
-            font-family: var(--font);
-            font-size: clamp(40px, 7vw, 80px); font-weight: 900; margin-bottom: 60px;
-            line-height: 1.2; padding-bottom: 0.15em;
             background: linear-gradient(135deg, var(--cat-g1), var(--cat-g2));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-align: center;
-        }
-
-        .category-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            color: white; padding: 8px 20px; border-radius: 30px;
-            font-family: var(--font);
-            font-size: 14px; font-weight: 600; margin-bottom: 30px;
-            display: block; text-align: center;
-        }
-
-        /* ══ PRODUCT GRID ══ */
-        .product-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 40px; margin-bottom: 120px; }
-
-        .ifp-grid    .product:nth-child(1) { grid-column: span 7; }
-        .ifp-grid    .product:nth-child(2) { grid-column: span 5; }
-        .ifp-grid    .product:nth-child(3) { grid-column: span 5; }
-        .ifp-grid    .product:nth-child(4) { grid-column: span 7; }
-        .ifp-grid    .product:nth-child(5) { grid-column: span 12; }
-
-        .laptop-grid .product:nth-child(1) { grid-column: span 6; }
-        .laptop-grid .product:nth-child(2) { grid-column: span 6; }
-        .laptop-grid .product:nth-child(3) { grid-column: span 7; }
-        .laptop-grid .product:nth-child(4) { grid-column: span 5; }
-
-        .printer-grid .product:nth-child(1) { grid-column: span 5; }
-        .printer-grid .product:nth-child(2) { grid-column: span 7; }
-        .printer-grid .product:nth-child(3) { grid-column: span 6; }
-        .printer-grid .product:nth-child(4) { grid-column: span 6; }
-
-        .mebel-grid .product:nth-child(1) { grid-column: span 4; }
-        .mebel-grid .product:nth-child(2) { grid-column: span 4; }
-        .mebel-grid .product:nth-child(3) { grid-column: span 4; }
-
-        @media (max-width: 1024px) { .product { grid-column: span 12 !important; } }
-
-        .product {
-            padding: 50px 40px; border-radius: 40px;
-            background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
-            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative; overflow: hidden;
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .product:hover {
-            transform: translateY(-30px) scale(1.03);
-            box-shadow: 0 40px 100px var(--card-shadow);
-            border-color: var(--card-hover-border);
-        }
-        .product img {
-            width: 100%; height: 320px; object-fit: contain; margin-bottom: 30px;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-            transition: transform 0.8s;
-        }
-        .product:nth-child(odd):hover  img { transform: translateY(-20px) scale(1.1); }
-        .product:nth-child(even):hover img { transform: translateX(-15px) rotate(-5deg); }
-
-        .product h3 {
-            font-family: var(--font); font-size: 36px; font-weight: 800;
-            margin: 20px 0 12px; color: var(--txt-1);
-        }
-        .product .tagline { font-family: var(--font); font-size: 17px; color: var(--tagline); margin-bottom: 20px; line-height: 1.5; }
-        .product .price   { font-family: var(--font); font-size: 18px; color: var(--price); font-weight: 600; margin-bottom: 30px; }
-
-        .btn {
-            font-family: var(--font);
-            padding: 16px 40px;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            color: white; border-radius: 50px; font-weight: 600;
-            text-decoration: none; display: inline-block; transition: all 0.4s;
-        }
-        .btn:hover { background: #3B96A9; transform: scale(1.05); }
-
-        /* ══ FOOTER ══ */
-        footer {
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 80px 40px 30px; margin-top: 100px;
-            transition: background 0.3s, border-color 0.3s;
-        }
-        .footer-content {
-            max-width: 1400px; margin: 0 auto 50px;
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px;
-        }
-        .footer-section h3 {
-            font-family: var(--font); font-size: 28px; font-weight: 800;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
-        .footer-section h4 { font-family: var(--font); font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
-        .footer-section p  { font-family: var(--font); color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
-        .footer-section ul { list-style: none; }
-        .footer-section ul li { font-family: var(--font); margin-bottom: 12px; color: var(--footer-txt); }
-        .footer-section ul li a { font-family: var(--font); color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
-        .footer-section ul li a:hover { color: var(--footer-link-h); }
-        .footer-section ul li i { color: #2B7A8C; margin-right: 10px; width: 20px; }
-        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a {
-            width: 50px; height: 50px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px; color: white; background: #2B7A8C;
-            box-shadow: 0 5px 20px rgba(43,122,140,0.4);
-            transition: all 0.4s ease; text-decoration: none;
-        }
-        .social-icons a:hover { background: #3B96A9; transform: translateY(-8px) scale(1.1); }
-        .footer-bottom {
-            max-width: 1400px; margin: 0 auto; text-align: center;
-            padding-top: 30px; border-top: 1px solid var(--footer-sep);
-            color: var(--footer-txt);
-        }
-        .footer-bottom p { font-family: var(--font); margin: 8px 0; font-size: 14px; }
 
-        /* ══ WA FLOAT ══ */
-        .wa-wrapper {
-            position: fixed; bottom: 30px; right: 30px;
-            display: flex; align-items: center; gap: 14px;
-            z-index: 9998;
+        .produk-overview-sub {
+            font-family: var(--font);
+            font-size: 1.1rem;
+            color: var(--txt-3);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
-        .wa-bubble {
+
+        /* ══ PRODUK KAMI — SINGLE CARD TABS ══ */
+        .produk-cat-card-single {
             position: relative;
-            background: #2B7A8C; color: #fff;
-            padding: 13px 18px; border-radius: 16px 16px 4px 16px;
-            font-family: var(--font); font-size: 13.5px; font-weight: 600; line-height: 1.5;
-            white-space: nowrap; box-shadow: 0 8px 28px rgba(43,122,140,0.5);
-            opacity: 0; transform: translateX(14px) scale(0.9);
-            transform-origin: right center; pointer-events: none;
-            transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1),
-                        transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(43,122,140,0.30);
+            border-radius: 32px;
+            overflow: hidden;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 0 0 1px rgba(59,150,169,0.08), 0 40px 100px rgba(43,122,140,0.15);
         }
-        .wa-bubble::after {
-            content: ''; position: absolute; right: -8px; bottom: 12px;
-            border-width: 6px 0 6px 9px; border-style: solid;
-            border-color: transparent transparent transparent #2B7A8C;
-        }
-        .wa-float {
-            width: 70px; height: 70px; background: #25d366; color: white;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 38px; box-shadow: 0 10px 40px rgba(37,211,102,0.6);
-            text-decoration: none; flex-shrink: 0;
-            animation: floatBtn 3s ease-in-out infinite;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-        .wa-wrapper:hover .wa-float { animation: none; transform: scale(1.1); box-shadow: 0 14px 50px rgba(37,211,102,0.75); }
-        .wa-wrapper:hover .wa-bubble { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; }
+        body.light .produk-cat-card-single { background:rgba(0,0,0,0.02); border-color:rgba(43,122,140,0.20); }
 
-        /* ══ RESPONSIVE ══ */
-        @media (max-width: 860px) {
-            nav { padding: 0 18px; gap: 10px; }
-            .nav-right { gap: 0; }
-            .nav-links {
-                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-                background: var(--nav-mobile-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-                flex-direction: column; justify-content: center;
-                gap: 6px; transform: translateY(-100%);
-                transition: transform 0.4s ease; z-index: 10000; padding-bottom: 100px;
-            }
-            .nav-links.open { transform: translateY(0); }
-            .nav-links a    { font-size: 19px; padding: 11px 22px; }
-            .hamburger      { display: flex; }
-            .logo img       { height: 42px; }
-            .logo span      { font-size: 17px; }
-            .appearance-toggle { display: none; }
-            .nav-appearance {
-                display: flex; position: absolute; bottom: 24px; right: 24px;
-                align-items: center; gap: 3px;
-                background: var(--pill-bg); border: 1px solid var(--pill-border);
-                border-radius: 999px; padding: 4px 5px;
-                transition: background 0.3s, border-color 0.3s;
-            }
-            .hero-logo img  { height: 180px; }
-            .hero h1        { white-space: normal; font-size: clamp(28px, 8vw, 52px); }
-            .hero p         { font-size: 16px; }
-            .hero .cta      { font-size: 16px; padding: 14px 36px; }
-            .category-section { padding: 80px 20px 60px; }
-            .product { padding: 30px 20px; border-radius: 24px; }
-            .product h3 { font-size: 26px; }
-            .product img { height: 220px; }
-            .wa-bubble { display: none; }
+        /* glow top border removed */
+
+        /* ── TAB BAR — Underline Minimal ── */
+        .cat-tab-bar {
+            display: flex;
+            background: transparent;
+            overflow-x: auto;
+            scrollbar-width: none;
+            position: relative;
+        }
+        .cat-tab-bar::-webkit-scrollbar { display:none; }
+
+        .cat-tab {
+            flex: 1; min-width: 160px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 22px 24px;
+            font-family: var(--font); font-size: .88rem; font-weight: 500;
+            letter-spacing: .3px;
+            color: var(--txt-3);
+            cursor: pointer; border: none; background: transparent;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: color .25s, border-color .25s;
+            white-space: nowrap;
+            position: relative;
+        }
+        .cat-tab:hover { color: var(--primary-light); }
+        .cat-tab.active { color: #2B7A8C; font-weight: 700; }
+
+        .cat-tab-icon {
+            width: 28px; height: 28px; border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: .9rem; flex-shrink: 0;
+            transition: background .25s;
+        }
+        .cat-tab:nth-child(1) .cat-tab-icon { background:rgba(59,232,212,0.12); color:#3BE8D4; }
+        .cat-tab:nth-child(2) .cat-tab-icon { background:rgba(108,99,255,0.12); color:#8B83FF; }
+        .cat-tab:nth-child(3) .cat-tab-icon { background:rgba(247,151,30,0.12); color:#F7971E; }
+        .cat-tab:nth-child(4) .cat-tab-icon { background:rgba(232,93,74,0.12); color:#E85D4A; }
+        .cat-tab.active .cat-tab-icon { background:rgba(43,122,140,0.15); color:#2B7A8C; }
+
+        /* ── TAB PANELS ── */
+        .cat-panels { padding: 44px 48px 48px; }
+
+        .cat-panel { display: none; animation: panelIn .35s ease; }
+        .cat-panel.active { display: block; }
+        @keyframes panelIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .cat-panel-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
         }
 
-        @media (max-width: 768px) {
-            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+        /* left col */
+        .cat-panel-left {}
+        .cat-panel-num {
+            font-family: var(--font); font-size: 11px; font-weight: 700;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--primary-light); margin-bottom: 14px; display: block;
+        }
+        .cat-panel-title {
+            font-family: var(--font); font-size: clamp(1.6rem,3vw,2.2rem);
+            font-weight: 900; color: var(--txt-1); line-height: 1.2; margin-bottom: 18px;
+        }
+        .cat-panel-desc {
+            font-family: var(--font); font-size: 1rem; line-height: 1.75;
+            color: var(--txt-2); margin-bottom: 30px;
+        }
+        .cat-panel-cta {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: var(--font); font-size: .92rem; font-weight: 700;
+            padding: 14px 32px; border-radius: 50px;
+            background: linear-gradient(135deg,#2B7A8C,#3BE8D4);
+            color: #fff; text-decoration: none;
+            box-shadow: 0 10px 30px rgba(43,122,140,0.35);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .cat-panel-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(43,122,140,0.5); }
+        .cat-panel-cta i { font-size: .8rem; }
+
+        /* right col */
+        .cat-panel-right {}
+        .cat-panel-tags-label {
+            font-family: var(--font); font-size: 11px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--txt-3); margin-bottom: 16px; display: block;
+        }
+        .cat-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px;
+        }
+        .cat-tag {
+            font-family: var(--font); font-size: .82rem; font-weight: 600;
+            padding: 7px 14px; border-radius: 999px;
+            border: 1px solid rgba(59,232,212,0.2);
+            color: var(--primary-light);
+            background: rgba(43,122,140,0.08);
+            transition: border-color .25s, background .25s, transform .25s;
+            cursor: default;
+        }
+        body.light .cat-tag { border-color:rgba(43,122,140,0.20); background:rgba(43,122,140,0.06); }
+        .cat-tag:hover { border-color: #3BE8D4; background: rgba(59,232,212,0.12); transform: translateY(-2px); }
+
+        /* big decorative icon right side */
+        .cat-panel-deco {
+            width: 120px; height: 120px; border-radius: 28px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3.5rem; margin-bottom: 24px;
+            transition: transform .5s cubic-bezier(.34,1.56,.64,1);
+        }
+        .cat-panel-deco:hover { transform: scale(1.08) rotate(-4deg); }
+        .deco-1 { background:rgba(59,232,212,0.10); color:#3BE8D4; box-shadow:0 0 40px rgba(59,232,212,0.15); }
+        .deco-2 { background:rgba(108,99,255,0.10); color:#8B83FF; box-shadow:0 0 40px rgba(108,99,255,0.15); }
+        .deco-3 { background:rgba(247,151,30,0.10); color:#F7971E; box-shadow:0 0 40px rgba(247,151,30,0.15); }
+        .deco-4 { background:rgba(232,93,74,0.10); color:#E85D4A; box-shadow:0 0 40px rgba(232,93,74,0.15); }
+
+        /* responsive */
+        @media (max-width:860px) {
+            .cat-panels { padding:28px 20px 32px; }
+            .cat-panel-inner { grid-template-columns:1fr; gap:28px; }
+            .cat-tab { min-width:120px; padding:16px 14px; font-size:.8rem; gap:7px; }
+            .cat-tab-icon { width:26px; height:26px; font-size:.8rem; }
+        }
+
+        /* divider between overview and product listings */
+        .section-divider {
+            max-width: 1400px;
+            margin: 0 auto 0;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .section-divider hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        body.light .section-divider hr { border-top-color: rgba(0,0,0,0.08); }
+        .section-divider span {
+            font-family: var(--font);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--txt-3);
+            white-space: nowrap;
+        }
+
+        /* ── CATEGORY SECTIONS (existing) ── */
+        .category-section { max-width:1600px; margin:0 auto; padding:140px 40px 100px; }
+        .category-title { font-family:var(--font); font-size:clamp(40px,7vw,80px); font-weight:900; margin-bottom:60px; line-height:1.2; padding-bottom:.15em; background:linear-gradient(135deg,var(--cat-g1),var(--cat-g2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-align:center; }
+        .category-badge { display:block; background:linear-gradient(135deg,#2B7A8C,#3B96A9); color:#fff; padding:8px 20px; border-radius:30px; font-family:var(--font); font-size:14px; font-weight:600; margin-bottom:30px; text-align:center; width:fit-content; margin-left:auto; margin-right:auto; }
+
+        /* ── PRODUCT GRID ── */
+        .product-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:40px; margin-bottom:120px; }
+        .ifp-grid    .product:nth-child(1){grid-column:span 7}
+        .ifp-grid    .product:nth-child(2){grid-column:span 5}
+        .ifp-grid    .product:nth-child(3){grid-column:span 5}
+        .ifp-grid    .product:nth-child(4){grid-column:span 7}
+        .ifp-grid    .product:nth-child(5){grid-column:span 12}
+        .laptop-grid .product:nth-child(1){grid-column:span 6}
+        .laptop-grid .product:nth-child(2){grid-column:span 6}
+        .laptop-grid .product:nth-child(3){grid-column:span 7}
+        .laptop-grid .product:nth-child(4){grid-column:span 5}
+        .printer-grid .product:nth-child(1){grid-column:span 5}
+        .printer-grid .product:nth-child(2){grid-column:span 7}
+        .printer-grid .product:nth-child(3){grid-column:span 6}
+        .printer-grid .product:nth-child(4){grid-column:span 6}
+        .mebel-grid .product:nth-child(1){grid-column:span 4}
+        .mebel-grid .product:nth-child(2){grid-column:span 4}
+        .mebel-grid .product:nth-child(3){grid-column:span 4}
+        @media (max-width:1024px) { .product { grid-column:span 12 !important; } .produk-cat-grid { grid-template-columns:1fr; } }
+
+        .product { padding:50px 40px; border-radius:40px; background:var(--card-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid var(--card-border); transition:all .8s cubic-bezier(.25,.8,.25,1); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
+        .product:hover { transform:translateY(-30px) scale(1.03); box-shadow:0 40px 100px var(--card-shadow); border-color:var(--card-hover-border); }
+        .product img { width:100%; height:320px; object-fit:contain; margin-bottom:30px; filter:drop-shadow(0 20px 40px rgba(0,0,0,.5)); transition:transform .8s; }
+        .product:nth-child(odd):hover  img { transform:translateY(-20px) scale(1.1); }
+        .product:nth-child(even):hover img { transform:translateX(-15px) rotate(-5deg); }
+        .product h3 { font-family:var(--font); font-size:36px; font-weight:800; margin:20px 0 12px; color:var(--txt-1); }
+        .product .tagline { font-family:var(--font); font-size:17px; color:var(--tagline); margin-bottom:20px; line-height:1.5; }
+        .product .price   { font-family:var(--font); font-size:18px; color:var(--price); font-weight:600; margin-bottom:30px; }
+        .btn { font-family:var(--font); padding:16px 40px; background:linear-gradient(135deg,#2B7A8C,#3B96A9); color:#fff; border-radius:50px; font-weight:600; text-decoration:none; display:inline-block; transition:all .4s; }
+        .btn:hover { background:#3B96A9; transform:scale(1.05); }
+
+        /* ── FOOTER ── */
+        footer { background:var(--footer-bg); border-top:1px solid var(--footer-border); padding:80px 40px 30px; margin-top:100px; transition:background .3s,border-color .3s; }
+        .footer-content { max-width:1400px; margin:0 auto 50px; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:60px; }
+        .footer-section h3 { font-family:var(--font); font-size:28px; font-weight:800; background:linear-gradient(135deg,#2B7A8C,#3B96A9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:20px; }
+        .footer-section h4 { font-family:var(--font); font-size:18px; color:var(--footer-title); margin-bottom:20px; font-weight:600; }
+        .footer-section p  { font-family:var(--font); color:var(--footer-txt); line-height:1.8; margin-bottom:25px; }
+        .footer-section ul { list-style:none; }
+        .footer-section ul li { font-family:var(--font); margin-bottom:12px; color:var(--footer-txt); }
+        .footer-section ul li a { font-family:var(--font); color:var(--footer-link); text-decoration:none; transition:color .3s; }
+        .footer-section ul li a:hover { color:var(--footer-link-h); }
+        .footer-section ul li i { color:#2B7A8C; margin-right:10px; width:20px; }
+        .social-icons { display:flex; gap:15px; margin-top:20px; }
+        .social-icons a { width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; background:#2B7A8C; box-shadow:0 5px 20px rgba(43,122,140,.4); transition:all .4s ease; text-decoration:none; }
+        .social-icons a:hover { background:#3B96A9; transform:translateY(-8px) scale(1.1); }
+        .footer-bottom { max-width:1400px; margin:0 auto; text-align:center; padding-top:30px; border-top:1px solid var(--footer-sep); color:var(--footer-txt); }
+        .footer-bottom p { font-family:var(--font); margin:8px 0; font-size:14px; }
+
+        /* ── WA FLOAT ── */
+        .wa-wrapper { position:fixed; bottom:30px; right:30px; display:flex; align-items:center; gap:14px; z-index:9998; }
+        .wa-bubble { position:relative; background:#2B7A8C; color:#fff; padding:13px 18px; border-radius:16px 16px 4px 16px; font-family:var(--font); font-size:13.5px; font-weight:600; line-height:1.5; white-space:nowrap; box-shadow:0 8px 28px rgba(43,122,140,.5); opacity:0; transform:translateX(14px) scale(.9); transform-origin:right center; pointer-events:none; transition:opacity .35s cubic-bezier(.34,1.56,.64,1),transform .35s cubic-bezier(.34,1.56,.64,1); }
+        .wa-bubble::after { content:''; position:absolute; right:-8px; bottom:12px; border-width:6px 0 6px 9px; border-style:solid; border-color:transparent transparent transparent #2B7A8C; }
+        .wa-float { width:70px; height:70px; background:#25d366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:38px; box-shadow:0 10px 40px rgba(37,211,102,.6); text-decoration:none; flex-shrink:0; animation:floatBtn 3s ease-in-out infinite; transition:transform .3s ease,box-shadow .3s ease; }
+        .wa-wrapper:hover .wa-float { animation:none; transform:scale(1.1); box-shadow:0 14px 50px rgba(37,211,102,.75); }
+        .wa-wrapper:hover .wa-bubble { opacity:1; transform:translateX(0) scale(1); pointer-events:auto; }
+
+        /* ── PROYEK TERKINI ── */
+        .proyek-section { max-width:1400px; margin:0 auto; padding:80px 40px; }
+        .proyek-title { font-family:var(--font); text-align:center; font-size:clamp(32px,5vw,60px); font-weight:900; margin-bottom:20px; background:linear-gradient(135deg,var(--cat-g1),var(--cat-g2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .proyek-subtitle { font-family:var(--font); text-align:center; font-size:1.05rem; color:var(--txt-3); max-width:700px; margin:-10px auto 50px; line-height:1.7; }
+
+        .filter-buttons { display:flex; justify-content:center; gap:12px; margin-bottom:50px; flex-wrap:wrap; }
+        .filter-btn {
+            font-family:var(--font); padding:11px 28px;
+            background:rgba(43,122,140,0.08);
+            border:1.5px solid rgba(43,122,140,0.25);
+            border-radius:30px; color:var(--primary-light);
+            font-weight:600; cursor:pointer; transition:all .35s ease;
+            font-size:.93rem; letter-spacing:.3px;
+        }
+        body.light .filter-btn { background:rgba(43,122,140,0.06); border-color:rgba(43,122,140,0.20); color:var(--primary); }
+        .filter-btn:hover { background:rgba(43,122,140,0.18); border-color:var(--primary-light); transform:translateY(-2px); box-shadow:0 6px 20px rgba(43,122,140,0.25); }
+        .filter-btn.active { background:linear-gradient(135deg,#2B7A8C,#3BE8D4); border-color:transparent; color:#fff; transform:translateY(-2px); box-shadow:0 8px 24px rgba(43,122,140,0.45); }
+
+        .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:40px; margin-bottom:60px; }
+        .portfolio-item { background:var(--card-bg); border-radius:25px; overflow:hidden; border:1px solid var(--card-border); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:all .6s ease; cursor:pointer; }
+        .portfolio-item:hover { transform:translateY(-15px); border-color:var(--card-hover-border); box-shadow:0 30px 70px var(--card-shadow); }
+        .portfolio-image { width:100%; height:280px; object-fit:cover; transition:transform .6s ease; display:block; }
+        .portfolio-item:hover .portfolio-image { transform:scale(1.08); }
+        .portfolio-content { padding:30px 28px; }
+        .portfolio-category { font-family:var(--font); display:inline-block; background:linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; padding:6px 18px; border-radius:20px; font-size:13px; font-weight:600; margin-bottom:14px; }
+        .portfolio-content h3 { font-family:var(--font); font-size:1.5rem; margin-bottom:10px; color:var(--txt-1); font-weight:700; line-height:1.3; }
+        .portfolio-content p  { font-family:var(--font); color:var(--txt-3); line-height:1.7; margin-bottom:18px; font-size:.95rem; }
+        .portfolio-meta { font-family:var(--font); display:flex; gap:18px; font-size:.88rem; color:var(--txt-3); flex-wrap:wrap; }
+        .portfolio-meta span { display:flex; align-items:center; gap:7px; }
+        .portfolio-meta i { color:var(--primary-light); }
+
+        /* ── TESTIMONI marquee ── */
+        .testimoni-section { max-width:100%; margin:0; padding:0 0 80px; overflow:hidden; }
+        .testimoni-inner { max-width:1400px; margin:0 auto; padding:0 40px; }
+        .testimoni-title { font-family:var(--font); text-align:center; font-size:clamp(32px,5vw,60px); font-weight:900; margin-bottom:20px; background:linear-gradient(135deg,var(--cat-g1),var(--cat-g2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .testimoni-subtitle { font-family:var(--font); text-align:center; font-size:1.05rem; color:var(--txt-3); max-width:700px; margin:-10px auto 50px; line-height:1.7; }
+
+        /* marquee wrapper */
+        .testimonial-marquee-wrap {
+            width:100%; overflow:hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        }
+        .testimonial-track {
+            display:flex; gap:24px; width:max-content;
+            animation: testi-scroll 36s linear infinite;
+        }
+        .testimonial-track:hover { animation-play-state:paused; }
+        @keyframes testi-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+        /* card kecil */
+        .testimonial-card {
+            flex-shrink:0; width:320px;
+            background:var(--card-bg); padding:26px 26px 22px;
+            border-radius:20px; border:1px solid var(--card-border);
+            backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+            transition:border-color .4s, box-shadow .4s, transform .4s;
+        }
+        .testimonial-card:hover { border-color:var(--primary); box-shadow:0 16px 40px var(--card-shadow); transform:translateY(-6px); }
+        .quote-icon { font-size:1.8rem; color:var(--primary); opacity:.4; margin-bottom:12px; }
+        .testimonial-text { font-family:var(--font); font-size:.88rem; line-height:1.75; color:var(--txt-2); margin-bottom:18px; font-style:italic; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+        .testimonial-author { display:flex; align-items:center; gap:12px; }
+        .author-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-light)); display:flex; align-items:center; justify-content:center; font-family:var(--font); font-size:1rem; color:#fff; font-weight:700; flex-shrink:0; }
+        .author-info h4 { font-family:var(--font); color:var(--txt-1); font-size:.88rem; margin-bottom:2px; font-weight:700; }
+        .author-info p  { font-family:var(--font); color:var(--txt-3); font-size:.78rem; line-height:1.4; }
+        @media (max-width:860px) {
+            nav { padding:0 18px; gap:10px; }
+            .nav-right { gap:0; }
+            .nav-links { position:fixed; top:0; left:0; width:100%; height:100vh; background:var(--nav-mobile-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); flex-direction:column; justify-content:center; gap:6px; transform:translateY(-100%); transition:transform .4s ease; z-index:10000; padding-bottom:100px; }
+            .nav-links.open { transform:translateY(0); }
+            .nav-links a { font-size:19px; padding:11px 22px; }
+            .hamburger { display:flex; }
+            .logo img { height:42px; }
+            .logo span { font-size:17px; }
+            .appearance-toggle { display:none; }
+            .nav-appearance { display:flex; position:absolute; bottom:24px; right:24px; align-items:center; gap:3px; background:var(--pill-bg); border:1px solid var(--pill-border); border-radius:999px; padding:4px 5px; transition:background .3s,border-color .3s; }
+            .hero-logo img { height:180px; }
+            .hero h1 { white-space:normal; font-size:clamp(28px,8vw,52px); }
+            .hero p { font-size:16px; }
+            .hero .cta { font-size:16px; padding:14px 36px; }
+            .produk-overview { padding:80px 20px 60px; }
+            .produk-cat-grid { grid-template-columns:1fr; gap:20px; }
+            .produk-cat-card { padding:32px 24px 28px; }
+            .category-section { padding:80px 20px 60px; }
+            .product { padding:30px 20px; border-radius:24px; }
+            .product h3 { font-size:26px; }
+            .product img { height:220px; }
+            .wa-bubble { display:none; }
+        }
+        @media (max-width:768px) {
+            .footer-content { grid-template-columns:1fr; gap:40px; }
         }
     </style>
 </head>
 <body>
-
     <div id="animated-bg"></div>
     <div id="particles"></div>
 
-    <!-- HEADER -->
+    <!-- ═══════════ HEADER ═══════════ -->
     <header>
         <nav>
             <a class="logo" href="index.html">
                 <img src="logoaskarindo1-removebg-preview.png" alt="Askarindo Logo">
                 <span>Askarindogroup</span>
             </a>
-
             <div class="nav-right">
                 <div class="nav-links" id="navMenu">
-                    <a href="index.html">Beranda</a>
-                    <a href="tentangkami.html">Tentang Kami</a>
-                    <a href="programkomitmen.html">Program &amp; Komitmen</a>
+                    <a href="index.html">Tentang Kami</a>
                     <a href="produk.html" class="active">Produk</a>
-                    <a href="portofolio.html">Portofolio</a>
                     <a href="support.html">Support</a>
-                    <a href="kontak.html">Kontak</a>
-
                     <div class="nav-appearance" role="group" aria-label="Pilih tema tampilan">
                         <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
-                        <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
+                        <button class="appearance-btn" data-theme="dark"  title="Tema Gelap"  aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
                         <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem"><i class="fas fa-desktop"></i></button>
                     </div>
                 </div>
-
                 <div class="appearance-toggle" role="group" aria-label="Pilih tema tampilan">
                     <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
-                    <button class="appearance-btn" data-theme="dark" title="Tema Gelap" aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
+                    <button class="appearance-btn" data-theme="dark"  title="Tema Gelap"  aria-label="Tema Gelap"><i class="fas fa-moon"></i></button>
                     <button class="appearance-btn" data-theme="system" title="Ikut Sistem" aria-label="Ikut Sistem"><i class="fas fa-desktop"></i></button>
                 </div>
             </div>
-
             <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Buka menu">
                 <span></span><span></span><span></span>
             </div>
         </nav>
     </header>
 
-    <!-- HERO -->
+    <!-- ═══════════ HERO ═══════════ -->
     <section id="beranda" class="hero">
         <h1>Askarindo Integrasi Group</h1>
         <p>Produk Teknologi Premium untuk Masa Depan Indonesia</p>
-        <a href="#ifp" class="cta">Lihat Produk Unggulan ↓</a>
+        <a href="#produk-kami" class="cta">Lihat Produk Unggulan ↓</a>
     </section>
 
-    <!-- INTERACTIVE FLAT PANEL -->
+    <!-- ═══════════════════════════════════════════
+         PRODUK KAMI — OVERVIEW KATEGORI
+    ═══════════════════════════════════════════ -->
+    <section id="produk-kami" class="produk-overview">
+        <div class="produk-overview-header">
+            <div class="produk-overview-eyebrow">
+                <i class="fas fa-th-large"></i> Kategori Produk
+            </div>
+            <h2 class="produk-overview-title">Produk Kami</h2>
+            <p class="produk-overview-sub">Solusi teknologi terintegrasi dari empat lini produk unggulan kami — dirancang untuk memenuhi kebutuhan bisnis, pendidikan, dan pemerintahan secara menyeluruh.</p>
+        </div>
+
+        <div class="produk-cat-card-single">
+
+            <!-- TAB BAR -->
+            <div class="cat-tab-bar">
+                <button class="cat-tab active" data-tab="0">
+                    <span class="cat-tab-icon"><i class="fas fa-tv"></i></span>
+                    Visual &amp; Display
+                </button>
+                <button class="cat-tab" data-tab="1">
+                    <span class="cat-tab-icon"><i class="fas fa-laptop-code"></i></span>
+                    IT &amp; Computing
+                </button>
+                <button class="cat-tab" data-tab="2">
+                    <span class="cat-tab-icon"><i class="fas fa-photo-video"></i></span>
+                    AV &amp; Multimedia
+                </button>
+                <button class="cat-tab" data-tab="3">
+                    <span class="cat-tab-icon"><i class="fas fa-blender"></i></span>
+                    Home &amp; Appliance
+                </button>
+            </div>
+
+            <!-- PANELS -->
+            <div class="cat-panels">
+
+                <!-- Panel 1 -->
+                <div class="cat-panel active" data-panel="0">
+                    <div class="cat-panel-inner">
+                        <div class="cat-panel-left">
+                            <span class="cat-panel-num">Kategori 01</span>
+                            <div class="cat-panel-title">Visual &amp; Interactive Display Solutions</div>
+                            <p class="cat-panel-desc">Solusi layar interaktif dan digital dari skala ruang kelas hingga videotron outdoor — menghadirkan pengalaman visual yang imersif dan kolaboratif untuk bisnis, pendidikan, dan pemerintahan.</p>
+                            <a href="#ifp" class="cat-panel-cta">Lihat Produk <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="cat-panel-right">
+                            <div class="cat-panel-deco deco-1"><i class="fas fa-tv"></i></div>
+                            <span class="cat-panel-tags-label">Produk Tersedia</span>
+                            <div class="cat-tags">
+                                <span class="cat-tag">Interactive Flat Panel</span>
+                                <span class="cat-tag">Digital Signage</span>
+                                <span class="cat-tag">KIOSK Signage</span>
+                                <span class="cat-tag">Videotron In-Out</span>
+                                <span class="cat-tag">SmartTV</span>
+                                <span class="cat-tag">Videowall Bezel</span>
+                                <span class="cat-tag">Kamera Konferensi</span>
+                                <span class="cat-tag">Sistem Video Call</span>
+                                <span class="cat-tag">dsb.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2 -->
+                <div class="cat-panel" data-panel="1">
+                    <div class="cat-panel-inner">
+                        <div class="cat-panel-left">
+                            <span class="cat-panel-num">Kategori 02</span>
+                            <div class="cat-panel-title">IT &amp; Computing Solutions</div>
+                            <p class="cat-panel-desc">Ekosistem perangkat komputasi lengkap — dari laptop gaming, workstation profesional, hingga infrastruktur server, keamanan siber, dan solusi pendidikan digital.</p>
+                            <a href="#laptop" class="cat-panel-cta">Lihat Produk <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="cat-panel-right">
+                            <div class="cat-panel-deco deco-2"><i class="fas fa-laptop-code"></i></div>
+                            <span class="cat-panel-tags-label">Produk Tersedia</span>
+                            <div class="cat-tags">
+                                <span class="cat-tag">Laptop Office &amp; Gaming</span>
+                                <span class="cat-tag">PC Desktop</span>
+                                <span class="cat-tag">PC Rakitan</span>
+                                <span class="cat-tag">Server &amp; Storage</span>
+                                <span class="cat-tag">Cybersecurity Product</span>
+                                <span class="cat-tag">Smart Display</span>
+                                <span class="cat-tag">LMS Software</span>
+                                <span class="cat-tag">Virtual Lab Kits</span>
+                                <span class="cat-tag">dsb.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3 -->
+                <div class="cat-panel" data-panel="2">
+                    <div class="cat-panel-inner">
+                        <div class="cat-panel-left">
+                            <span class="cat-panel-num">Kategori 03</span>
+                            <div class="cat-panel-title">AV &amp; Multimedia Solutions</div>
+                            <p class="cat-panel-desc">Solusi audio-visual dan jaringan profesional — dari sound system, proyektor, kamera, hingga infrastruktur data center, firewall, dan keamanan jaringan enterprise.</p>
+                            <a href="#printer" class="cat-panel-cta">Lihat Produk <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="cat-panel-right">
+                            <div class="cat-panel-deco deco-3"><i class="fas fa-photo-video"></i></div>
+                            <span class="cat-panel-tags-label">Produk Tersedia</span>
+                            <div class="cat-tags">
+                                <span class="cat-tag">LCD/LED Monitor</span>
+                                <span class="cat-tag">Proyektor</span>
+                                <span class="cat-tag">Sound System Pro</span>
+                                <span class="cat-tag">Kamera</span>
+                                <span class="cat-tag">Printer</span>
+                                <span class="cat-tag">Konferensi Online</span>
+                                <span class="cat-tag">Router &amp; Switch</span>
+                                <span class="cat-tag">Firewall</span>
+                                <span class="cat-tag">Data Center &amp; UPS</span>
+                                <span class="cat-tag">dsb.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 4 -->
+                <div class="cat-panel" data-panel="3">
+                    <div class="cat-panel-inner">
+                        <div class="cat-panel-left">
+                            <span class="cat-panel-num">Kategori 04</span>
+                            <div class="cat-panel-title">Home &amp; Commercial Appliance</div>
+                            <p class="cat-panel-desc">Peralatan rumah tangga dan komersial berkualitas premium — dari dapur modern hingga kebutuhan operasional bisnis, dilengkapi layanan instalasi profesional.</p>
+                            <a href="#mebel" class="cat-panel-cta">Lihat Produk <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="cat-panel-right">
+                            <div class="cat-panel-deco deco-4"><i class="fas fa-blender"></i></div>
+                            <span class="cat-panel-tags-label">Produk Tersedia</span>
+                            <div class="cat-tags">
+                                <span class="cat-tag">Mesin Kopi</span>
+                                <span class="cat-tag">Kulkas</span>
+                                <span class="cat-tag">Oven &amp; Bakery Oven</span>
+                                <span class="cat-tag">AC + Instalasi</span>
+                                <span class="cat-tag">Juicer &amp; Blender</span>
+                                <span class="cat-tag">Vacuum Cleaner</span>
+                                <span class="cat-tag">Kipas Angin</span>
+                                <span class="cat-tag">Freezer</span>
+                                <span class="cat-tag">dsb.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /cat-panels -->
+        </div><!-- /produk-cat-card-single -->
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <hr><span>Detail Produk per Kategori</span><hr>
+    </div>
+
+    <!-- ═══════════ INTERACTIVE FLAT PANEL ═══════════ -->
     <section id="ifp" class="category-section">
         <div class="category-badge">Interactive Display</div>
         <h2 class="category-title">Interactive Flat Panel</h2>
-        
         <div class="product-grid ifp-grid">
             <div class="product">
                 <img src="https://www.eskanusa.id/wp-content/uploads/2023/08/Samsung-Flip-Pro-WMB-Series-Interactive-Display-1.png" alt="Samsung Flip Pro 85">
@@ -543,7 +693,6 @@
                 <p class="price">Rp 145.000.000</p>
                 <a href="flip-85.html" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://www.viewsonic.com/globalassets/images/products/ifp7550-3/ifp7550-3-hero-image.png" alt="ViewBoard 75">
                 <h3>ViewBoard IFP7550 75"</h3>
@@ -551,7 +700,6 @@
                 <p class="price">Rp 68.500.000</p>
                 <a href="flip-75.html" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://www.benq.com/content/dam/b2c/en-us/product/display/rp6502/RP6502-hero.png" alt="BenQ Board 65">
                 <h3>BenQ Board RP6502 65"</h3>
@@ -559,7 +707,6 @@
                 <p class="price">Rp 42.800.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20BenQ%20Board%2065" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://i.pinimg.com/originals/e8/d3/3f/e8d33fc4e3d1c2c1c8d0e3e8d3c1c0c0.jpg" alt="Sharp AQUOS 86">
                 <h3>Sharp AQUOS Board 86"</h3>
@@ -567,7 +714,6 @@
                 <p class="price">Rp 125.000.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Sharp%20AQUOS%2086" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://www.prometheanworld.com/wp-content/uploads/2023/08/ActivPanel-9-Premium-hero.png" alt="Promethean 55">
                 <h3>Promethean ActivPanel 55"</h3>
@@ -578,11 +724,10 @@
         </div>
     </section>
 
-    <!-- LAPTOP & PC -->
+    <!-- ═══════════ LAPTOP & PC ═══════════ -->
     <section id="laptop" class="category-section">
         <div class="category-badge">Computing Power</div>
-        <h2 class="category-title">Laptop & PC Rakitan</h2>
-        
+        <h2 class="category-title">Laptop &amp; PC Rakitan</h2>
         <div class="product-grid laptop-grid">
             <div class="product">
                 <img src="https://p3-ofp.static.pub/fes/cms/2024/06/27/9n7q8k7v8m9n0p8q9w8x9v0n1m2k3j456789.png" alt="ThinkPad P1">
@@ -591,7 +736,6 @@
                 <p class="price">Rp 85.500.000</p>
                 <a href="thinkpad-p1.html" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9530/media-gallery/xs9530-cnb-00000rf090-sl.psd?fmt=png-alpha&pscan=auto&scl=1&hei=804&wid=1606&qlt=100,1&resMode=sharp2&size=1606,804&chrss=full" alt="Dell XPS 15">
                 <h3>Dell XPS 15 9530</h3>
@@ -599,7 +743,6 @@
                 <p class="price">Rp 42.300.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Dell%20XPS%2015" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=600" alt="PC Rendering Pro">
                 <h3>PC Rakitan Rendering Pro</h3>
@@ -607,7 +750,6 @@
                 <p class="price">Rp 95.800.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20PC%20Rendering%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600" alt="PC Office Pro">
                 <h3>PC Rakitan Office Pro</h3>
@@ -618,11 +760,10 @@
         </div>
     </section>
 
-    <!-- PRINTER & PROYEKTOR -->
+    <!-- ═══════════ PRINTER & PROYEKTOR ═══════════ -->
     <section id="printer" class="category-section">
         <div class="category-badge">Printing &amp; Projection</div>
-        <h2 class="category-title">Printer & Proyektor</h2>
-        
+        <h2 class="category-title">Printer &amp; Proyektor</h2>
         <div class="product-grid printer-grid">
             <div class="product">
                 <img src="https://files.epson.com/assets/products/001/001/001/001001001/L18050_690x460.png" alt="Epson L18050">
@@ -631,7 +772,6 @@
                 <p class="price">Rp 16.200.000</p>
                 <a href="epson-l18050.html" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08260396.png" alt="HP LaserJet">
                 <h3>HP LaserJet Enterprise M611dn</h3>
@@ -639,7 +779,6 @@
                 <p class="price">Rp 14.500.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20HP%20LaserJet%20M611dn" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://www.epson.co.id/media/epson/products/projectors/eb-l630u/EB-L630U_hero.png" alt="Epson Projector">
                 <h3>Epson EB-L630U</h3>
@@ -647,7 +786,6 @@
                 <p class="price">Rp 48.800.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Epson%20EB-L630U" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://i.pinimg.com/736x/14/5a/ef/145aef8e8c8e8c8e8c8e8c8e8c8e8c8e.jpg" alt="Canon imagePROGRAF">
                 <h3>Canon imagePROGRAF PRO-4100</h3>
@@ -658,11 +796,10 @@
         </div>
     </section>
 
-    <!-- MEBELER -->
+    <!-- ═══════════ MEBELER ═══════════ -->
     <section id="mebel" class="category-section">
         <div class="category-badge">Ergonomic Furniture</div>
         <h2 class="category-title">Mebeler Ergonomis</h2>
-        
         <div class="product-grid mebel-grid">
             <div class="product">
                 <img src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Meja Executive">
@@ -671,7 +808,6 @@
                 <p class="price">Rp 8.500.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Meja%20Executive%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://images.pexels.com/photos/6633919/pexels-photo-6633919.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Kursi Gaming">
                 <h3>Kursi Gaming Pro Series</h3>
@@ -679,7 +815,6 @@
                 <p class="price">Rp 5.200.000</p>
                 <a href="https://wa.me/6285854542007?text=Saya%20tertarik%20dengan%20Kursi%20Gaming%20Pro" target="_blank" class="btn">Pesan Sekarang →</a>
             </div>
-
             <div class="product">
                 <img src="https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Rak Modular">
                 <h3>Rak Penyimpanan Modular</h3>
@@ -690,7 +825,277 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ═══════════ PROYEK TERKINI ═══════════ -->
+    <section id="proyek" class="proyek-section">
+        <h2 class="proyek-title">Proyek Terkini</h2>
+        <p class="proyek-subtitle">Setiap proyek adalah komitmen kami terhadap kualitas, inovasi, dan kepuasan pelanggan</p>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+            <button class="filter-btn" data-filter="pendidikan">Pendidikan</button>
+            <button class="filter-btn" data-filter="bisnis">Bisnis</button>
+            <button class="filter-btn" data-filter="pemerintahan">Pemerintahan</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-category="pendidikan">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Smart Classroom" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Pendidikan</span>
+                    <h3>Smart Classroom SMA Negeri 3 Jakarta</h3>
+                    <p>Instalasi 50 unit Interactive Flat Panel 75" dengan sistem pembelajaran digital terintegrasi untuk 25 ruang kelas modern.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> November 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Jakarta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="bisnis">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Setup" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Bisnis</span>
+                    <h3>Pengadaan PC &amp; Laptop Startup Tech</h3>
+                    <p>Supply 200 unit PC rakitan custom dan 50 unit laptop high-performance untuk perusahaan teknologi dengan spesifikasi khusus developer.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> Oktober 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Bandung</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="pemerintahan">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Government Office" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Pemerintahan</span>
+                    <h3>Modernisasi Ruang Rapat Pemkot Surabaya</h3>
+                    <p>Implementasi 15 unit proyektor laser 6000 lumens, sound system premium, dan furniture ergonomis untuk meeting room pemerintah.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> September 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Surabaya</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="pendidikan">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="University Lab" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Pendidikan</span>
+                    <h3>Lab Komputer Universitas Indonesia</h3>
+                    <p>Pembangunan 3 laboratorium komputer dengan 120 unit PC spesifikasi tinggi untuk jurusan Teknik Informatika dan desain grafis.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> Agustus 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Depok</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="bisnis">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Coworking Space" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Bisnis</span>
+                    <h3>Setup Co-working Space Premium</h3>
+                    <p>Penyediaan 80 meja kerja ergonomis, 100 kursi gaming pro, dan infrastructure IT lengkap untuk co-working space 5 lantai.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> Juli 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Bali</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="pemerintahan">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Command Center" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Pemerintahan</span>
+                    <h3>Command Center Kepolisian Daerah</h3>
+                    <p>Instalasi video wall 98", sistem CCTV terintegrasi, dan server monitoring untuk command center keamanan kota.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> Mei 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Medan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="bisnis">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Bisnis</span>
+                    <h3>Training Center Bank Mandiri</h3>
+                    <p>Setup ruang training dengan 40 unit laptop, proyektor interaktif, dan furniture modular untuk program pengembangan karyawan.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> April 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Semarang</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="pendidikan">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="STEM Lab" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Pendidikan</span>
+                    <h3>STEM Laboratory SMP Plus Al-Azhar</h3>
+                    <p>Pembangunan laboratorium STEM dengan 3D printer, robotics kit, Interactive Panel, dan peralatan coding untuk 300 siswa.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> Maret 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Tangerang</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="pendidikan">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Library Digital" class="portfolio-image">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Pendidikan</span>
+                    <h3>Perpustakaan Digital SDN 10 Yogyakarta</h3>
+                    <p>Transformasi perpustakaan konvensional menjadi digital library dengan 30 unit tablet, e-reader, dan sistem manajemen digital.</p>
+                    <div class="portfolio-meta">
+                        <span><i class="fas fa-calendar"></i> Juni 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Yogyakarta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ TESTIMONI KLIEN ═══════════ -->
+    <section id="testimoni" class="testimoni-section">
+        <div class="testimoni-inner">
+            <h2 class="testimoni-title">Testimoni Klien</h2>
+            <p class="testimoni-subtitle">Kepercayaan dan kepuasan klien adalah pencapaian terbesar kami</p>
+        </div>
+        <div class="testimonial-marquee-wrap">
+            <div class="testimonial-track">
+                <!-- SET 1 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Pelayanan luar biasa! Tim Askarindo sangat profesional dalam instalasi Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DH</div>
+                        <div class="author-info">
+                            <h4>Drs. Hendra Wijaya, M.Pd</h4>
+                            <p>Kepala Sekolah SMA Negeri 3 Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik. Highly recommended untuk semua kebutuhan IT!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Andi Saputra</h4>
+                            <p>CTO TechStartup Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Bapak Rahmat Kurniawan</h4>
+                            <p>Kepala Dinas Komunikasi Pemkot Surabaya</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Proses pengadaan transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, training untuk staff sangat membantu."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Prof. Dr. Siti Maryam</h4>
+                            <p>Dekan Fakultas Teknik Universitas Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern, sangat cocok untuk co-working space premium kami."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LP</div>
+                        <div class="author-info">
+                            <h4>Lisa Pratiwi</h4>
+                            <p>Owner Bali Co-work Hub</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Projector dan sound system bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">BP</div>
+                        <div class="author-info">
+                            <h4>Bambang Priambodo</h4>
+                            <p>VP Operations Bank Mandiri</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SET 2 duplikat seamless -->
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Pelayanan luar biasa! Tim Askarindo sangat profesional dalam instalasi Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DH</div>
+                        <div class="author-info">
+                            <h4>Drs. Hendra Wijaya, M.Pd</h4>
+                            <p>Kepala Sekolah SMA Negeri 3 Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik. Highly recommended untuk semua kebutuhan IT!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Andi Saputra</h4>
+                            <p>CTO TechStartup Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Bapak Rahmat Kurniawan</h4>
+                            <p>Kepala Dinas Komunikasi Pemkot Surabaya</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Proses pengadaan transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, training untuk staff sangat membantu."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Prof. Dr. Siti Maryam</h4>
+                            <p>Dekan Fakultas Teknik Universitas Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern, sangat cocok untuk co-working space premium kami."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LP</div>
+                        <div class="author-info">
+                            <h4>Lisa Pratiwi</h4>
+                            <p>Owner Bali Co-work Hub</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Projector dan sound system bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">BP</div>
+                        <div class="author-info">
+                            <h4>Bambang Priambodo</h4>
+                            <p>VP Operations Bank Mandiri</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -698,7 +1103,7 @@
                 <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#5130223a3023383f353e383f2534362330223836233e242111363c30383d7f323e3c" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -726,49 +1131,45 @@
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7415071f15061d1a101b1d1a0011130615071d13061b0104341319151d185a171b19">[email&#160;protected]</a></li>
                     <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
                     <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Askarindogroup. All rights reserved.</p>
+            <p>&copy; 2025 Askarindogroup. All rights reserved.</p>
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
 
-    <!-- WHATSAPP FLOATING BUTTON -->
+    <!-- ═══════════ WHATSAPP ═══════════ -->
     <div class="wa-wrapper">
-        <div class="wa-bubble">
-            Order &amp; Konsultasi<br>via WhatsApp<br><strong>Klik Di Sini!</strong>
-        </div>
+        <div class="wa-bubble">Order &amp; Konsultasi<br>via WhatsApp<br><strong>Klik Di Sini!</strong></div>
         <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <script>
-    /* THEME SYSTEM */
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    /* ── THEME ── */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
-
     function applyTheme(pref) {
-        const effective = pref === 'system' ? (sysMQ.matches ? 'dark' : 'light') : pref;
-        body.classList.remove('dark', 'light');
-        body.classList.add(effective);
+        const eff = pref === 'system' ? (sysMQ.matches ? 'dark' : 'light') : pref;
+        body.classList.remove('dark','light');
+        body.classList.add(eff);
         btns.forEach(b => b.classList.toggle('active', b.dataset.theme === pref));
     }
     function setTheme(pref) { localStorage.setItem('theme', pref); applyTheme(pref); }
-
     btns.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.theme)));
     applyTheme(localStorage.getItem('theme') || 'system');
     sysMQ.addEventListener('change', () => {
         if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
     });
 
-    /* PARTICLES */
+    /* ── PARTICLES ── */
     const pc = document.getElementById('particles');
     for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
@@ -779,7 +1180,7 @@
         pc.appendChild(p);
     }
 
-    /* HAMBURGER */
+    /* ── HAMBURGER ── */
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('navMenu');
     function toggleMenu(f) {
@@ -792,15 +1193,15 @@
     hamburger.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') toggleMenu(); });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    /* SMOOTH SCROLL */
+    /* ── SMOOTH SCROLL ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const el = document.querySelector(this.getAttribute('href'));
-            if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            if (el) { e.preventDefault(); el.scrollIntoView({ behavior:'smooth', block:'start' }); }
         });
     });
 
-    /* SCROLL REVEAL */
+    /* ── SCROLL REVEAL ── */
     const obs = new IntersectionObserver(entries => {
         entries.forEach(en => {
             if (en.isIntersecting) {
@@ -810,14 +1211,58 @@
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.product').forEach(el => {
+    document.querySelectorAll('.product, .produk-cat-card').forEach(el => {
         el.style.opacity    = '0';
         el.style.transform  = 'translateY(30px)';
         el.style.transition = 'all 0.6s ease';
         obs.observe(el);
     });
 
-    /* ACTIVE NAV */
+    /* stagger kategori cards */
+    document.querySelectorAll('.produk-cat-card').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.1}s`;
+    });
+
+    /* ── TAB SWITCHER PRODUK KAMI ── */
+    document.querySelectorAll('.cat-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const idx = tab.getAttribute('data-tab');
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            document.querySelector(`.cat-panel[data-panel="${idx}"]`).classList.add('active');
+        });
+    });
+
+    /* ── FILTER PROYEK ── */
+    const filterBtns     = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.getAttribute('data-filter');
+            portfolioItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => { item.style.opacity='1'; item.style.transform='translateY(0)'; }, 10);
+                } else {
+                    item.style.opacity='0'; item.style.transform='translateY(20px)';
+                    setTimeout(() => { item.style.display='none'; }, 300);
+                }
+            });
+        });
+    });
+
+    /* Scroll Reveal: portfolio only */
+    document.querySelectorAll('.portfolio-item').forEach(el => {
+        el.style.opacity    = '0';
+        el.style.transform  = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        obs.observe(el);
+    });
+
+    /* Active Nav */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => {
