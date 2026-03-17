@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Askarindo Integrasi Group</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=montserrat:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <style>
         @font-face { font-family: 'Avenir'; src: local('Avenir Next'), local('Avenir'), local('Century Gothic'); font-weight: 300; }
@@ -13,7 +14,8 @@
         @font-face { font-family: 'Avenir'; src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold'); font-weight: 800 900; }
 
         :root {
-            --font:              'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
+            --font:              'Montserrat', 'Mont', 'Century Gothic', 'Trebuchet MS', sans-serif;
+            --font-footer:       'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
             --primary:           #2B7A8C;
             --primary-light:     #3B96A9;
 
@@ -546,7 +548,7 @@
         .scroll-top.visible { opacity: 1; pointer-events: auto; }
         .scroll-top:hover { background: var(--card-hover-bg); border-color: var(--primary); transform: translateY(-3px); }
 
-        /* ══ FOOTER ══ */
+        /* ══ FOOTER — tetap Avenir ══ */
         footer {
             background: var(--footer-bg);
             border-top: 1px solid var(--footer-border);
@@ -558,16 +560,16 @@
             display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px;
         }
         .footer-section h3 {
-            font-family: var(--font); font-size: 28px; font-weight: 800;
+            font-family: var(--font-footer); font-size: 28px; font-weight: 800;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
-        .footer-section h4 { font-family: var(--font); font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
-        .footer-section p  { font-family: var(--font); color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
+        .footer-section h4 { font-family: var(--font-footer); font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
+        .footer-section p  { font-family: var(--font-footer); color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
         .footer-section ul { list-style: none; }
-        .footer-section ul li { font-family: var(--font); margin-bottom: 12px; color: var(--footer-txt); }
-        .footer-section ul li a { font-family: var(--font); color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
+        .footer-section ul li { font-family: var(--font-footer); margin-bottom: 12px; color: var(--footer-txt); }
+        .footer-section ul li a { font-family: var(--font-footer); color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
         .footer-section ul li a:hover { color: var(--footer-link-h); }
         .footer-section ul li i { color: #2B7A8C; margin-right: 10px; width: 20px; }
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
@@ -584,7 +586,7 @@
             padding-top: 30px; border-top: 1px solid var(--footer-sep);
             color: var(--footer-txt);
         }
-        .footer-bottom p { font-family: var(--font); margin: 8px 0; font-size: 14px; }
+        .footer-bottom p { font-family: var(--font-footer); margin: 8px 0; font-size: 14px; }
 
         /* ══ WA FLOAT BUBBLE ══ */
         .wa-wrapper {
@@ -768,7 +770,7 @@
                 <div class="support-icon"><i class="fas fa-envelope"></i></div>
                 <h3>Email Support</h3>
                 <p>Kirim pertanyaan detail via email. Kami akan merespons dalam waktu maksimal 2 jam.</p>
-                <a href="/cdn-cgi/l/email-protection#c8a9bba3a9baa1a6aca7a1a6bcadafbaa9bba1afbaa7bdb888afa5a9a1a4e6aba7a5f7bbbdaaa2adabbcf59bbdb8b8a7babcedfaf89aadb9bdadbbbc" class="support-btn">Kirim Email</a>
+                <a href="mailto:askarindointegrasigroup@gmail.com" class="support-btn">Kirim Email</a>
             </div>
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-phone-alt"></i></div>
@@ -937,7 +939,7 @@
                         <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-info-text">
                             <h4>Email</h4>
-                            <a href="/cdn-cgi/l/email-protection#4b2a38202a3922252f2422253f2e2c392a38222c39243e3b0b2c262a222765282426"><span class="__cf_email__" data-cfemail="ff9e8c949e8d96919b9096918b9a988d9e8c96988d908a8fbf98929e9693d19c9092">[email&#160;protected]</span></a>
+                            <a href="mailto:askarindointegrasigroup@gmail.com">askarindointegrasigroup@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -951,7 +953,7 @@
                         <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-info-text">
                             <h4>Lokasi</h4>
-                            <span>Jakarta, Indonesia</span>
+                            <span>Kota Surabaya, Indonesia</span>
                         </div>
                     </div>
                 </div>
@@ -1000,10 +1002,10 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Askarindogroup</h3>
-                <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
+                <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2023.</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="/cdn-cgi/l/email-protection#fd9c8e969c8f94939992949389989a8f9c8e949a8f92888dbd9a909c9491d39e9290" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -1029,14 +1031,14 @@
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b3d2c0d8d2c1daddd7dcdaddc7d6d4c1d2c0dad4c1dcc6c3f3d4ded2dadf9dd0dcde">[email&#160;protected]</a></li>
-                    <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
-                    <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
+                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Kota Surabaya, Indonesia</li>
+                    <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 17:00</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Askarindogroup. All rights reserved.</p>
+            <p>© 2026 Askarindogroup. All rights reserved.</p>
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
@@ -1060,32 +1062,26 @@
         <span>Pesan terkirim! Anda akan diarahkan ke WhatsApp.</span>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
     /* ── GOOGLE MAPS REVIEW ── */
     function openGoogleReview() {
-        // URL Maps langsung dengan action=write-review
         const WRITE_REVIEW_URL =
             'https://www.google.com/maps/place/Askarindo+Group/@-7.3236696,112.7748167,17z/' +
             'data=!4m6!3m5!1s0x2dd7fb84f9cf161b:0xc13bd5eb7af30dbe!8m2!3d-7.3236696!4d112.777397' +
             '!16s%2Fg%2F11myv2mn1l?entry=ttu&action=write-review';
-
         const ua = navigator.userAgent;
-
         if (/Android/i.test(ua)) {
-            // Android: coba buka Maps app via intent, fallback browser
             const intentUrl =
                 'intent://maps.google.com/maps?q=place_id:0x2dd7fb84f9cf161b:0xc13bd5eb7af30dbe&action=write-review' +
                 '#Intent;scheme=https;package=com.google.android.apps.maps;' +
                 'S.browser_fallback_url=' + encodeURIComponent(WRITE_REVIEW_URL) + ';end';
             window.location.href = intentUrl;
         } else if (/iPhone|iPad|iPod/i.test(ua)) {
-            // iOS: coba Maps app, fallback browser setelah 1.2 detik
             const fallback = setTimeout(() => { window.open(WRITE_REVIEW_URL, '_blank'); }, 1200);
             window.location.href =
                 'comgooglemaps://?q=place_id:0x2dd7fb84f9cf161b:0xc13bd5eb7af30dbe&action=write-review';
             window.addEventListener('blur', () => clearTimeout(fallback), { once: true });
         } else {
-            // Desktop: buka di tab baru
             window.open(WRITE_REVIEW_URL, '_blank');
         }
     }

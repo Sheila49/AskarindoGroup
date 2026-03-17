@@ -9,6 +9,7 @@
     <style>
         :root {
             --font:              'Montserrat','Mont','Century Gothic','Trebuchet MS',sans-serif;
+            --font-footer:       'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
             --primary:           #2B7A8C;
             --primary-light:     #3B96A9;
             --bg-page:           #000000;
@@ -71,6 +72,11 @@
             }
         }
 
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next'), local('Avenir'), local('Century Gothic'); font-weight: 300; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic'); font-weight: 400 500; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold'); font-weight: 600 700; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold'); font-weight: 800 900; }
+
         *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:var(--font); background:var(--bg-page); color:var(--txt-1); overflow-x:hidden; transition:background .3s,color .3s; }
 
@@ -116,188 +122,50 @@
         .hero .cta { font-family:var(--font); padding:18px 50px; background:var(--primary); color:#fff; border-radius:60px; font-size:20px; font-weight:700; text-decoration:none; box-shadow:0 20px 50px rgba(43,122,140,.5); animation:fadeUp 1.6s ease; transition:all .5s; }
         .hero .cta:hover { transform:translateY(-10px); background:var(--primary-light); box-shadow:0 30px 70px rgba(43,122,140,.7); }
 
-        /* ══════════════════════════════════════════
-           PRODUK KAMI — OVERVIEW SECTION
-        ══════════════════════════════════════════ */
-        .produk-overview {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 120px 40px 80px;
-        }
+        /* ══ PRODUK KAMI — OVERVIEW ══ */
+        .produk-overview { max-width: 1400px; margin: 0 auto; padding: 120px 40px 80px; }
+        .produk-overview-header { text-align: center; margin-bottom: 70px; }
+        .produk-overview-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--primary-light); background: rgba(43,122,140,0.12); border: 1px solid rgba(43,122,140,0.3); padding: 8px 20px; border-radius: 999px; margin-bottom: 24px; }
+        .produk-overview-title { font-family: var(--font); font-size: clamp(36px, 6vw, 72px); font-weight: 900; line-height: 1.1; background: linear-gradient(135deg, var(--cat-g1), var(--cat-g2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
+        .produk-overview-sub { font-family: var(--font); font-size: 1.1rem; color: var(--txt-3); max-width: 650px; margin: 0 auto; line-height: 1.7; }
 
-        .produk-overview-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .produk-overview-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--primary-light);
-            background: rgba(43,122,140,0.12);
-            border: 1px solid rgba(43,122,140,0.3);
-            padding: 8px 20px;
-            border-radius: 999px;
-            margin-bottom: 24px;
-        }
-
-        .produk-overview-title {
-            font-family: var(--font);
-            font-size: clamp(36px, 6vw, 72px);
-            font-weight: 900;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--cat-g1), var(--cat-g2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-
-        .produk-overview-sub {
-            font-family: var(--font);
-            font-size: 1.1rem;
-            color: var(--txt-3);
-            max-width: 650px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* ══ PRODUK KAMI — SINGLE CARD TABS ══ */
-        .produk-cat-card-single {
-            position: relative;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(43,122,140,0.30);
-            border-radius: 32px;
-            overflow: hidden;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            box-shadow: 0 0 0 1px rgba(59,150,169,0.08), 0 40px 100px rgba(43,122,140,0.15);
-        }
+        /* ══ SINGLE CARD TABS ══ */
+        .produk-cat-card-single { position: relative; background: rgba(255,255,255,0.04); border: 1px solid rgba(43,122,140,0.30); border-radius: 32px; overflow: hidden; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 0 0 1px rgba(59,150,169,0.08), 0 40px 100px rgba(43,122,140,0.15); }
         body.light .produk-cat-card-single { background:rgba(0,0,0,0.02); border-color:rgba(43,122,140,0.20); }
-
-        /* glow top border removed */
-
-        /* ── TAB BAR — Underline Minimal ── */
-        .cat-tab-bar {
-            display: flex;
-            background: transparent;
-            overflow-x: auto;
-            scrollbar-width: none;
-            position: relative;
-        }
+        .cat-tab-bar { display: flex; background: transparent; overflow-x: auto; scrollbar-width: none; position: relative; }
         .cat-tab-bar::-webkit-scrollbar { display:none; }
-
-        .cat-tab {
-            flex: 1; min-width: 160px;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 22px 24px;
-            font-family: var(--font); font-size: .88rem; font-weight: 500;
-            letter-spacing: .3px;
-            color: var(--txt-3);
-            cursor: pointer; border: none; background: transparent;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px;
-            transition: color .25s, border-color .25s;
-            white-space: nowrap;
-            position: relative;
-        }
+        .cat-tab { flex: 1; min-width: 160px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 22px 24px; font-family: var(--font); font-size: .88rem; font-weight: 500; letter-spacing: .3px; color: var(--txt-3); cursor: pointer; border: none; background: transparent; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color .25s, border-color .25s; white-space: nowrap; position: relative; }
         .cat-tab:hover { color: var(--primary-light); }
         .cat-tab.active { color: #2B7A8C; font-weight: 700; }
-
-        .cat-tab-icon {
-            width: 28px; height: 28px; border-radius: 7px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: .9rem; flex-shrink: 0;
-            transition: background .25s;
-        }
+        .cat-tab-icon { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; transition: background .25s; }
         .cat-tab:nth-child(1) .cat-tab-icon { background:rgba(59,232,212,0.12); color:#3BE8D4; }
         .cat-tab:nth-child(2) .cat-tab-icon { background:rgba(108,99,255,0.12); color:#8B83FF; }
         .cat-tab:nth-child(3) .cat-tab-icon { background:rgba(247,151,30,0.12); color:#F7971E; }
         .cat-tab:nth-child(4) .cat-tab-icon { background:rgba(232,93,74,0.12); color:#E85D4A; }
         .cat-tab.active .cat-tab-icon { background:rgba(43,122,140,0.15); color:#2B7A8C; }
-
-        /* ── TAB PANELS ── */
         .cat-panels { padding: 44px 48px 48px; }
-
         .cat-panel { display: none; animation: panelIn .35s ease; }
         .cat-panel.active { display: block; }
         @keyframes panelIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-
-        .cat-panel-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        /* left col */
-        .cat-panel-left {}
-        .cat-panel-num {
-            font-family: var(--font); font-size: 11px; font-weight: 700;
-            letter-spacing: 3px; text-transform: uppercase;
-            color: var(--primary-light); margin-bottom: 14px; display: block;
-        }
-        .cat-panel-title {
-            font-family: var(--font); font-size: clamp(1.6rem,3vw,2.2rem);
-            font-weight: 900; color: var(--txt-1); line-height: 1.2; margin-bottom: 18px;
-        }
-        .cat-panel-desc {
-            font-family: var(--font); font-size: 1rem; line-height: 1.75;
-            color: var(--txt-2); margin-bottom: 30px;
-        }
-        .cat-panel-cta {
-            display: inline-flex; align-items: center; gap: 10px;
-            font-family: var(--font); font-size: .92rem; font-weight: 700;
-            padding: 14px 32px; border-radius: 50px;
-            background: linear-gradient(135deg,#2B7A8C,#3BE8D4);
-            color: #fff; text-decoration: none;
-            box-shadow: 0 10px 30px rgba(43,122,140,0.35);
-            transition: transform .3s, box-shadow .3s;
-        }
+        .cat-panel-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+        .cat-panel-num { font-family: var(--font); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--primary-light); margin-bottom: 14px; display: block; }
+        .cat-panel-title { font-family: var(--font); font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 900; color: var(--txt-1); line-height: 1.2; margin-bottom: 18px; }
+        .cat-panel-desc { font-family: var(--font); font-size: 1rem; line-height: 1.75; color: var(--txt-2); margin-bottom: 30px; }
+        .cat-panel-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font); font-size: .92rem; font-weight: 700; padding: 14px 32px; border-radius: 50px; background: linear-gradient(135deg,#2B7A8C,#3BE8D4); color: #fff; text-decoration: none; box-shadow: 0 10px 30px rgba(43,122,140,0.35); transition: transform .3s, box-shadow .3s; }
         .cat-panel-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(43,122,140,0.5); }
         .cat-panel-cta i { font-size: .8rem; }
-
-        /* right col */
-        .cat-panel-right {}
-        .cat-panel-tags-label {
-            font-family: var(--font); font-size: 11px; font-weight: 700;
-            letter-spacing: 2px; text-transform: uppercase;
-            color: var(--txt-3); margin-bottom: 16px; display: block;
-        }
-        .cat-tags {
-            display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px;
-        }
-        .cat-tag {
-            font-family: var(--font); font-size: .82rem; font-weight: 600;
-            padding: 7px 14px; border-radius: 999px;
-            border: 1px solid rgba(59,232,212,0.2);
-            color: var(--primary-light);
-            background: rgba(43,122,140,0.08);
-            transition: border-color .25s, background .25s, transform .25s;
-            cursor: default;
-        }
+        .cat-panel-tags-label { font-family: var(--font); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--txt-3); margin-bottom: 16px; display: block; }
+        .cat-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+        .cat-tag { font-family: var(--font); font-size: .82rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(59,232,212,0.2); color: var(--primary-light); background: rgba(43,122,140,0.08); transition: border-color .25s, background .25s, transform .25s; cursor: default; }
         body.light .cat-tag { border-color:rgba(43,122,140,0.20); background:rgba(43,122,140,0.06); }
         .cat-tag:hover { border-color: #3BE8D4; background: rgba(59,232,212,0.12); transform: translateY(-2px); }
-
-        /* big decorative icon right side */
-        .cat-panel-deco {
-            width: 120px; height: 120px; border-radius: 28px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 3.5rem; margin-bottom: 24px;
-            transition: transform .5s cubic-bezier(.34,1.56,.64,1);
-        }
+        .cat-panel-deco { width: 120px; height: 120px; border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; margin-bottom: 24px; transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
         .cat-panel-deco:hover { transform: scale(1.08) rotate(-4deg); }
         .deco-1 { background:rgba(59,232,212,0.10); color:#3BE8D4; box-shadow:0 0 40px rgba(59,232,212,0.15); }
         .deco-2 { background:rgba(108,99,255,0.10); color:#8B83FF; box-shadow:0 0 40px rgba(108,99,255,0.15); }
         .deco-3 { background:rgba(247,151,30,0.10); color:#F7971E; box-shadow:0 0 40px rgba(247,151,30,0.15); }
         .deco-4 { background:rgba(232,93,74,0.10); color:#E85D4A; box-shadow:0 0 40px rgba(232,93,74,0.15); }
 
-        /* responsive */
         @media (max-width:860px) {
             .cat-panels { padding:28px 20px 32px; }
             .cat-panel-inner { grid-template-columns:1fr; gap:28px; }
@@ -305,32 +173,13 @@
             .cat-tab-icon { width:26px; height:26px; font-size:.8rem; }
         }
 
-        /* divider between overview and product listings */
-        .section-divider {
-            max-width: 1400px;
-            margin: 0 auto 0;
-            padding: 0 40px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-        .section-divider hr {
-            flex: 1;
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
+        /* divider */
+        .section-divider { max-width: 1400px; margin: 0 auto 0; padding: 0 40px; display: flex; align-items: center; gap: 24px; }
+        .section-divider hr { flex: 1; border: none; border-top: 1px solid rgba(255,255,255,0.08); }
         body.light .section-divider hr { border-top-color: rgba(0,0,0,0.08); }
-        .section-divider span {
-            font-family: var(--font);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--txt-3);
-            white-space: nowrap;
-        }
+        .section-divider span { font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--txt-3); white-space: nowrap; }
 
-        /* ── CATEGORY SECTIONS (existing) ── */
+        /* ── CATEGORY SECTIONS ── */
         .category-section { max-width:1600px; margin:0 auto; padding:140px 40px 100px; }
         .category-title { font-family:var(--font); font-size:clamp(40px,7vw,80px); font-weight:900; margin-bottom:60px; line-height:1.2; padding-bottom:.15em; background:linear-gradient(135deg,var(--cat-g1),var(--cat-g2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-align:center; }
         .category-badge { display:block; background:linear-gradient(135deg,#2B7A8C,#3B96A9); color:#fff; padding:8px 20px; border-radius:30px; font-family:var(--font); font-size:14px; font-weight:600; margin-bottom:30px; text-align:center; width:fit-content; margin-left:auto; margin-right:auto; }
@@ -366,22 +215,45 @@
         .btn { font-family:var(--font); padding:16px 40px; background:linear-gradient(135deg,#2B7A8C,#3B96A9); color:#fff; border-radius:50px; font-weight:600; text-decoration:none; display:inline-block; transition:all .4s; }
         .btn:hover { background:#3B96A9; transform:scale(1.05); }
 
-        /* ── FOOTER ── */
-        footer { background:var(--footer-bg); border-top:1px solid var(--footer-border); padding:80px 40px 30px; margin-top:100px; transition:background .3s,border-color .3s; }
-        .footer-content { max-width:1400px; margin:0 auto 50px; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:60px; }
-        .footer-section h3 { font-family:var(--font); font-size:28px; font-weight:800; background:linear-gradient(135deg,#2B7A8C,#3B96A9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:20px; }
-        .footer-section h4 { font-family:var(--font); font-size:18px; color:var(--footer-title); margin-bottom:20px; font-weight:600; }
-        .footer-section p  { font-family:var(--font); color:var(--footer-txt); line-height:1.8; margin-bottom:25px; }
-        .footer-section ul { list-style:none; }
-        .footer-section ul li { font-family:var(--font); margin-bottom:12px; color:var(--footer-txt); }
-        .footer-section ul li a { font-family:var(--font); color:var(--footer-link); text-decoration:none; transition:color .3s; }
-        .footer-section ul li a:hover { color:var(--footer-link-h); }
-        .footer-section ul li i { color:#2B7A8C; margin-right:10px; width:20px; }
-        .social-icons { display:flex; gap:15px; margin-top:20px; }
-        .social-icons a { width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; background:#2B7A8C; box-shadow:0 5px 20px rgba(43,122,140,.4); transition:all .4s ease; text-decoration:none; }
-        .social-icons a:hover { background:#3B96A9; transform:translateY(-8px) scale(1.1); }
-        .footer-bottom { max-width:1400px; margin:0 auto; text-align:center; padding-top:30px; border-top:1px solid var(--footer-sep); color:var(--footer-txt); }
-        .footer-bottom p { font-family:var(--font); margin:8px 0; font-size:14px; }
+        /* ══ FOOTER — Avenir ══ */
+        footer {
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 80px 40px 30px; margin-top: 100px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .footer-content {
+            max-width: 1400px; margin: 0 auto 50px;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px;
+        }
+        .footer-section h3 {
+            font-family: var(--font-footer); font-size: 28px; font-weight: 800;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .footer-section h4 { font-family: var(--font-footer); font-size: 18px; color: var(--footer-title); margin-bottom: 20px; font-weight: 600; }
+        .footer-section p  { font-family: var(--font-footer); color: var(--footer-txt); line-height: 1.8; margin-bottom: 25px; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { font-family: var(--font-footer); margin-bottom: 12px; color: var(--footer-txt); }
+        .footer-section ul li a { font-family: var(--font-footer); color: var(--footer-link); text-decoration: none; transition: color 0.3s; }
+        .footer-section ul li a:hover { color: var(--footer-link-h); }
+        .footer-section ul li i { color: #2B7A8C; margin-right: 10px; width: 20px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a {
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; color: white; background: #2B7A8C;
+            box-shadow: 0 5px 20px rgba(43,122,140,0.4);
+            transition: all 0.4s ease; text-decoration: none;
+        }
+        .social-icons a:hover { background: #3B96A9; transform: translateY(-8px) scale(1.1); }
+        .footer-bottom {
+            max-width: 1400px; margin: 0 auto; text-align: center;
+            padding-top: 30px; border-top: 1px solid var(--footer-sep);
+            color: var(--footer-txt);
+        }
+        .footer-bottom p { font-family: var(--font-footer); margin: 8px 0; font-size: 14px; }
 
         /* ── WA FLOAT ── */
         .wa-wrapper { position:fixed; bottom:30px; right:30px; display:flex; align-items:center; gap:14px; z-index:9998; }
@@ -397,14 +269,7 @@
         .proyek-subtitle { font-family:var(--font); text-align:center; font-size:1.05rem; color:var(--txt-3); max-width:700px; margin:-10px auto 50px; line-height:1.7; }
 
         .filter-buttons { display:flex; justify-content:center; gap:12px; margin-bottom:50px; flex-wrap:wrap; }
-        .filter-btn {
-            font-family:var(--font); padding:11px 28px;
-            background:rgba(43,122,140,0.08);
-            border:1.5px solid rgba(43,122,140,0.25);
-            border-radius:30px; color:var(--primary-light);
-            font-weight:600; cursor:pointer; transition:all .35s ease;
-            font-size:.93rem; letter-spacing:.3px;
-        }
+        .filter-btn { font-family:var(--font); padding:11px 28px; background:rgba(43,122,140,0.08); border:1.5px solid rgba(43,122,140,0.25); border-radius:30px; color:var(--primary-light); font-weight:600; cursor:pointer; transition:all .35s ease; font-size:.93rem; letter-spacing:.3px; }
         body.light .filter-btn { background:rgba(43,122,140,0.06); border-color:rgba(43,122,140,0.20); color:var(--primary); }
         .filter-btn:hover { background:rgba(43,122,140,0.18); border-color:var(--primary-light); transform:translateY(-2px); box-shadow:0 6px 20px rgba(43,122,140,0.25); }
         .filter-btn.active { background:linear-gradient(135deg,#2B7A8C,#3BE8D4); border-color:transparent; color:#fff; transform:translateY(-2px); box-shadow:0 8px 24px rgba(43,122,140,0.45); }
@@ -422,33 +287,16 @@
         .portfolio-meta span { display:flex; align-items:center; gap:7px; }
         .portfolio-meta i { color:var(--primary-light); }
 
-        /* ── TESTIMONI marquee ── */
+        /* ── TESTIMONI ── */
         .testimoni-section { max-width:100%; margin:0; padding:0 0 80px; overflow:hidden; }
         .testimoni-inner { max-width:1400px; margin:0 auto; padding:0 40px; }
         .testimoni-title { font-family:var(--font); text-align:center; font-size:clamp(32px,5vw,60px); font-weight:900; margin-bottom:20px; background:linear-gradient(135deg,var(--cat-g1),var(--cat-g2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
         .testimoni-subtitle { font-family:var(--font); text-align:center; font-size:1.05rem; color:var(--txt-3); max-width:700px; margin:-10px auto 50px; line-height:1.7; }
-
-        /* marquee wrapper */
-        .testimonial-marquee-wrap {
-            width:100%; overflow:hidden;
-            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-        }
-        .testimonial-track {
-            display:flex; gap:24px; width:max-content;
-            animation: testi-scroll 36s linear infinite;
-        }
+        .testimonial-marquee-wrap { width:100%; overflow:hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); }
+        .testimonial-track { display:flex; gap:24px; width:max-content; animation: testi-scroll 36s linear infinite; }
         .testimonial-track:hover { animation-play-state:paused; }
         @keyframes testi-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-        /* card kecil */
-        .testimonial-card {
-            flex-shrink:0; width:320px;
-            background:var(--card-bg); padding:26px 26px 22px;
-            border-radius:20px; border:1px solid var(--card-border);
-            backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-            transition:border-color .4s, box-shadow .4s, transform .4s;
-        }
+        .testimonial-card { flex-shrink:0; width:320px; background:var(--card-bg); padding:26px 26px 22px; border-radius:20px; border:1px solid var(--card-border); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:border-color .4s, box-shadow .4s, transform .4s; }
         .testimonial-card:hover { border-color:var(--primary); box-shadow:0 16px 40px var(--card-shadow); transform:translateY(-6px); }
         .quote-icon { font-size:1.8rem; color:var(--primary); opacity:.4; margin-bottom:12px; }
         .testimonial-text { font-family:var(--font); font-size:.88rem; line-height:1.75; color:var(--txt-2); margin-bottom:18px; font-style:italic; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
@@ -456,6 +304,7 @@
         .author-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-light)); display:flex; align-items:center; justify-content:center; font-family:var(--font); font-size:1rem; color:#fff; font-weight:700; flex-shrink:0; }
         .author-info h4 { font-family:var(--font); color:var(--txt-1); font-size:.88rem; margin-bottom:2px; font-weight:700; }
         .author-info p  { font-family:var(--font); color:var(--txt-3); font-size:.78rem; line-height:1.4; }
+
         @media (max-width:860px) {
             nav { padding:0 18px; gap:10px; }
             .nav-right { gap:0; }
@@ -526,9 +375,7 @@
         <a href="#produk-kami" class="cta">Lihat Produk Unggulan ↓</a>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         PRODUK KAMI — OVERVIEW KATEGORI
-    ═══════════════════════════════════════════ -->
+    <!-- ═══════════ PRODUK KAMI — OVERVIEW ═══════════ -->
     <section id="produk-kami" class="produk-overview">
         <div class="produk-overview-header">
             <div class="produk-overview-eyebrow">
@@ -539,7 +386,6 @@
         </div>
 
         <div class="produk-cat-card-single">
-
             <!-- TAB BAR -->
             <div class="cat-tab-bar">
                 <button class="cat-tab active" data-tab="0">
@@ -562,8 +408,6 @@
 
             <!-- PANELS -->
             <div class="cat-panels">
-
-                <!-- Panel 1 -->
                 <div class="cat-panel active" data-panel="0">
                     <div class="cat-panel-inner">
                         <div class="cat-panel-left">
@@ -589,8 +433,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Panel 2 -->
                 <div class="cat-panel" data-panel="1">
                     <div class="cat-panel-inner">
                         <div class="cat-panel-left">
@@ -616,8 +458,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Panel 3 -->
                 <div class="cat-panel" data-panel="2">
                     <div class="cat-panel-inner">
                         <div class="cat-panel-left">
@@ -644,8 +484,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Panel 4 -->
                 <div class="cat-panel" data-panel="3">
                     <div class="cat-panel-inner">
                         <div class="cat-panel-left">
@@ -671,9 +509,8 @@
                         </div>
                     </div>
                 </div>
-
-            </div><!-- /cat-panels -->
-        </div><!-- /produk-cat-card-single -->
+            </div>
+        </div>
     </section>
 
     <!-- Divider -->
@@ -839,7 +676,7 @@
 
         <div class="portfolio-grid">
             <div class="portfolio-item" data-category="pendidikan">
-                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Smart Classroom" class="portfolio-image">
+                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.52 (2).jpeg" alt="Smart Classroom" class="portfolio-image">
                 <div class="portfolio-content">
                     <span class="portfolio-category">Pendidikan</span>
                     <h3>Smart Classroom SMA Negeri 3 Jakarta</h3>
@@ -875,7 +712,7 @@
                 </div>
             </div>
             <div class="portfolio-item" data-category="pendidikan">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="University Lab" class="portfolio-image">
+                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.52 (1).jpeg" alt="University Lab" class="portfolio-image">
                 <div class="portfolio-content">
                     <span class="portfolio-category">Pendidikan</span>
                     <h3>Lab Komputer Universitas Indonesia</h3>
@@ -923,7 +760,7 @@
                 </div>
             </div>
             <div class="portfolio-item" data-category="pendidikan">
-                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="STEM Lab" class="portfolio-image">
+                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.49 (1).jpeg" alt="STEM Lab" class="portfolio-image">
                 <div class="portfolio-content">
                     <span class="portfolio-category">Pendidikan</span>
                     <h3>STEM Laboratory SMP Plus Al-Azhar</h3>
@@ -935,7 +772,7 @@
                 </div>
             </div>
             <div class="portfolio-item" data-category="pendidikan">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Library Digital" class="portfolio-image">
+                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.48 (2).jpeg" alt="Library Digital" class="portfolio-image">
                 <div class="portfolio-content">
                     <span class="portfolio-category">Pendidikan</span>
                     <h3>Perpustakaan Digital SDN 10 Yogyakarta</h3>
@@ -949,7 +786,7 @@
         </div>
     </section>
 
-    <!-- ═══════════ TESTIMONI KLIEN ═══════════ -->
+    <!-- ═══════════ TESTIMONI ═══════════ -->
     <section id="testimoni" class="testimoni-section">
         <div class="testimoni-inner">
             <h2 class="testimoni-title">Testimoni Klien</h2>
@@ -957,16 +794,12 @@
         </div>
         <div class="testimonial-marquee-wrap">
             <div class="testimonial-track">
-                <!-- SET 1 -->
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                     <p class="testimonial-text">"Pelayanan luar biasa! Tim Askarindo sangat profesional dalam instalasi Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">DH</div>
-                        <div class="author-info">
-                            <h4>Drs. Hendra Wijaya, M.Pd</h4>
-                            <p>Kepala Sekolah SMA Negeri 3 Jakarta</p>
-                        </div>
+                        <div class="author-info"><h4>Drs. Hendra Wijaya, M.Pd</h4><p>Kepala Sekolah SMA Negeri 3 Jakarta</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -974,10 +807,7 @@
                     <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik. Highly recommended untuk semua kebutuhan IT!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AS</div>
-                        <div class="author-info">
-                            <h4>Andi Saputra</h4>
-                            <p>CTO TechStartup Indonesia</p>
-                        </div>
+                        <div class="author-info"><h4>Andi Saputra</h4><p>CTO TechStartup Indonesia</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -985,10 +815,7 @@
                     <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RK</div>
-                        <div class="author-info">
-                            <h4>Bapak Rahmat Kurniawan</h4>
-                            <p>Kepala Dinas Komunikasi Pemkot Surabaya</p>
-                        </div>
+                        <div class="author-info"><h4>Bapak Rahmat Kurniawan</h4><p>Kepala Dinas Komunikasi Pemkot Surabaya</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -996,10 +823,7 @@
                     <p class="testimonial-text">"Proses pengadaan transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, training untuk staff sangat membantu."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SM</div>
-                        <div class="author-info">
-                            <h4>Prof. Dr. Siti Maryam</h4>
-                            <p>Dekan Fakultas Teknik Universitas Indonesia</p>
-                        </div>
+                        <div class="author-info"><h4>Prof. Dr. Siti Maryam</h4><p>Dekan Fakultas Teknik Universitas Indonesia</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -1007,10 +831,7 @@
                     <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern, sangat cocok untuk co-working space premium kami."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">LP</div>
-                        <div class="author-info">
-                            <h4>Lisa Pratiwi</h4>
-                            <p>Owner Bali Co-work Hub</p>
-                        </div>
+                        <div class="author-info"><h4>Lisa Pratiwi</h4><p>Owner Bali Co-work Hub</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -1018,22 +839,16 @@
                     <p class="testimonial-text">"Projector dan sound system bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">BP</div>
-                        <div class="author-info">
-                            <h4>Bambang Priambodo</h4>
-                            <p>VP Operations Bank Mandiri</p>
-                        </div>
+                        <div class="author-info"><h4>Bambang Priambodo</h4><p>VP Operations Bank Mandiri</p></div>
                     </div>
                 </div>
-                <!-- SET 2 duplikat seamless -->
+                <!-- duplicate set for seamless scroll -->
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                     <p class="testimonial-text">"Pelayanan luar biasa! Tim Askarindo sangat profesional dalam instalasi Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">DH</div>
-                        <div class="author-info">
-                            <h4>Drs. Hendra Wijaya, M.Pd</h4>
-                            <p>Kepala Sekolah SMA Negeri 3 Jakarta</p>
-                        </div>
+                        <div class="author-info"><h4>Drs. Hendra Wijaya, M.Pd</h4><p>Kepala Sekolah SMA Negeri 3 Jakarta</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -1041,10 +856,7 @@
                     <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik. Highly recommended untuk semua kebutuhan IT!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AS</div>
-                        <div class="author-info">
-                            <h4>Andi Saputra</h4>
-                            <p>CTO TechStartup Indonesia</p>
-                        </div>
+                        <div class="author-info"><h4>Andi Saputra</h4><p>CTO TechStartup Indonesia</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -1052,10 +864,7 @@
                     <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RK</div>
-                        <div class="author-info">
-                            <h4>Bapak Rahmat Kurniawan</h4>
-                            <p>Kepala Dinas Komunikasi Pemkot Surabaya</p>
-                        </div>
+                        <div class="author-info"><h4>Bapak Rahmat Kurniawan</h4><p>Kepala Dinas Komunikasi Pemkot Surabaya</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -1063,10 +872,7 @@
                     <p class="testimonial-text">"Proses pengadaan transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, training untuk staff sangat membantu."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SM</div>
-                        <div class="author-info">
-                            <h4>Prof. Dr. Siti Maryam</h4>
-                            <p>Dekan Fakultas Teknik Universitas Indonesia</p>
-                        </div>
+                        <div class="author-info"><h4>Prof. Dr. Siti Maryam</h4><p>Dekan Fakultas Teknik Universitas Indonesia</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -1074,10 +880,7 @@
                     <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern, sangat cocok untuk co-working space premium kami."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">LP</div>
-                        <div class="author-info">
-                            <h4>Lisa Pratiwi</h4>
-                            <p>Owner Bali Co-work Hub</p>
-                        </div>
+                        <div class="author-info"><h4>Lisa Pratiwi</h4><p>Owner Bali Co-work Hub</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -1085,36 +888,31 @@
                     <p class="testimonial-text">"Projector dan sound system bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">BP</div>
-                        <div class="author-info">
-                            <h4>Bambang Priambodo</h4>
-                            <p>VP Operations Bank Mandiri</p>
-                        </div>
+                        <div class="author-info"><h4>Bambang Priambodo</h4><p>VP Operations Bank Mandiri</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════ FOOTER ═══════════ -->
+    <!-- ══════════ FOOTER ══════════ -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Askarindogroup</h3>
-                <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
+                <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2023.</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="/cdn-cgi/l/email-protection#5130223a3023383f353e383f2534362330223836233e242111363c30383d7f323e3c" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h4>Menu</h4>
                 <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="tentangkami.html">Tentang Kami</a></li>
+                    <li><a href="index.html">Tentang Kami</a></li>
                     <li><a href="produk.html">Produk</a></li>
-                    <li><a href="portofolio.html">Portofolio</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="support-kontak.html">Support</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1131,14 +929,14 @@
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7415071f15061d1a101b1d1a0011130615071d13061b0104341319151d185a171b19">[email&#160;protected]</a></li>
-                    <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
-                    <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
+                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Kota Surabaya, Indonesia</li>
+                    <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 17:00</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Askarindogroup. All rights reserved.</p>
+            <p>© 2026 Askarindogroup. All rights reserved.</p>
             <p>Solusi Teknologi Terintegrasi untuk Indonesia</p>
         </div>
     </footer>
@@ -1151,7 +949,7 @@
         </a>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
     /* ── THEME ── */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
@@ -1218,12 +1016,11 @@
         obs.observe(el);
     });
 
-    /* stagger kategori cards */
     document.querySelectorAll('.produk-cat-card').forEach((el, i) => {
         el.style.transitionDelay = `${i * 0.1}s`;
     });
 
-    /* ── TAB SWITCHER PRODUK KAMI ── */
+    /* ── TAB SWITCHER ── */
     document.querySelectorAll('.cat-tab').forEach(tab => {
         tab.addEventListener('click', () => {
             const idx = tab.getAttribute('data-tab');
@@ -1254,7 +1051,6 @@
         });
     });
 
-    /* Scroll Reveal: portfolio only */
     document.querySelectorAll('.portfolio-item').forEach(el => {
         el.style.opacity    = '0';
         el.style.transform  = 'translateY(30px)';
@@ -1262,7 +1058,7 @@
         obs.observe(el);
     });
 
-    /* Active Nav */
+    /* ── ACTIVE NAV ── */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => {
