@@ -3,31 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support & Bantuan - Askarindo Integrasi Group</title>
-    
+    <title>Support - Askarindo Integrasi Group</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
+
     <style>
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next'), local('Avenir'), local('Century Gothic');
-            font-weight: 300;
-        }
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic');
-            font-weight: 400 500;
-        }
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold');
-            font-weight: 600 700;
-        }
-        @font-face {
-            font-family: 'Avenir';
-            src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold');
-            font-weight: 800 900;
-        }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next'), local('Avenir'), local('Century Gothic'); font-weight: 300; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Medium'), local('Avenir Medium'), local('Century Gothic'); font-weight: 400 500; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Demi Bold'), local('Avenir Heavy'), local('Century Gothic Bold'); font-weight: 600 700; }
+        @font-face { font-family: 'Avenir'; src: local('Avenir Next Heavy'), local('Avenir Black'), local('Century Gothic Bold'); font-weight: 800 900; }
 
         :root {
             --font:              'Avenir', 'Avenir Next', 'Century Gothic', 'Trebuchet MS', sans-serif;
@@ -79,8 +62,14 @@
             --emergency-bg:      rgba(255,0,0,0.10);
             --emergency-border:  rgba(255,0,0,0.30);
 
-            --download-btn-bg:   rgba(43,122,140,0.20);
-            --download-btn-bdr:  rgba(43,122,140,0.50);
+            --form-bg:           rgba(255,255,255,0.04);
+            --form-border:       rgba(255,255,255,0.15);
+            --form-focus:        rgba(43,122,140,0.10);
+            --form-opt-bg:       #080808;
+            --form-ph:           #555555;
+
+            --map-bg:            rgba(255,255,255,0.04);
+            --map-border:        rgba(255,255,255,0.08);
         }
 
         body.light {
@@ -119,8 +108,13 @@
             --title-g2:          #2B7A8C;
             --emergency-bg:      rgba(255,0,0,0.05);
             --emergency-border:  rgba(255,0,0,0.20);
-            --download-btn-bg:   rgba(43,122,140,0.10);
-            --download-btn-bdr:  rgba(43,122,140,0.35);
+            --form-bg:           #ffffff;
+            --form-border:       rgba(0,0,0,0.13);
+            --form-focus:        rgba(43,122,140,0.05);
+            --form-opt-bg:       #ffffff;
+            --form-ph:           #bbbbbb;
+            --map-bg:            rgba(0,0,0,0.03);
+            --map-border:        rgba(0,0,0,0.08);
         }
 
         @media (prefers-color-scheme: light) {
@@ -160,8 +154,13 @@
                 --title-g2:          #2B7A8C;
                 --emergency-bg:      rgba(255,0,0,0.05);
                 --emergency-border:  rgba(255,0,0,0.20);
-                --download-btn-bg:   rgba(43,122,140,0.10);
-                --download-btn-bdr:  rgba(43,122,140,0.35);
+                --form-bg:           #ffffff;
+                --form-border:       rgba(0,0,0,0.13);
+                --form-focus:        rgba(43,122,140,0.05);
+                --form-opt-bg:       #ffffff;
+                --form-ph:           #bbbbbb;
+                --map-bg:            rgba(0,0,0,0.03);
+                --map-border:        rgba(0,0,0,0.08);
             }
         }
 
@@ -228,7 +227,6 @@
         }
 
         .nav-right { display: flex; align-items: center; gap: 4px; }
-
         .nav-links { display: flex; align-items: center; gap: 2px; }
         .nav-links a {
             font-family: var(--font);
@@ -276,14 +274,14 @@
 
         /* ══ HERO ══ */
         .hero-section {
-            min-height: 70vh;
+            min-height: 65vh;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             padding: 120px 24px 60px;
         }
         .hero-section h1 {
             font-family: var(--font);
-            font-size: clamp(50px, 10vw, 100px); font-weight: 900; line-height: 1.25;
+            font-size: clamp(46px, 9vw, 96px); font-weight: 900; line-height: 1.2;
             padding-bottom: 0.1em;
             background: linear-gradient(135deg, var(--hero-g1), var(--hero-g2));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -291,8 +289,8 @@
         }
         .hero-section p {
             font-family: var(--font);
-            font-size: clamp(18px, 3vw, 24px); color: var(--txt-2);
-            max-width: 800px; line-height: 1.6;
+            font-size: clamp(16px, 2.5vw, 22px); color: var(--txt-2);
+            max-width: 800px; line-height: 1.65;
             animation: fadeUp 1.2s ease;
         }
         @keyframes fadeUp {
@@ -305,79 +303,64 @@
 
         .section-title {
             font-family: var(--font); text-align: center;
-            font-size: clamp(40px, 7vw, 70px); font-weight: 900; margin-bottom: 20px;
+            font-size: clamp(36px, 6.5vw, 68px); font-weight: 900; margin-bottom: 14px;
             background: linear-gradient(135deg, var(--title-g1), var(--title-g2));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .section-subtitle {
             font-family: var(--font);
-            text-align: center; font-size: 1.1rem; color: var(--txt-3);
-            max-width: 700px; margin: 0 auto 60px; line-height: 1.7;
+            text-align: center; font-size: 1.05rem; color: var(--txt-3);
+            max-width: 700px; margin: 0 auto 55px; line-height: 1.75;
         }
 
         /* ══ SUPPORT CARDS ══ */
         .support-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; margin: 60px 0;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 28px; margin: 55px 0;
         }
         .support-card {
-            background: var(--card-bg); padding: 40px 35px;
-            border-radius: 25px; border: 1px solid var(--card-border);
+            background: var(--card-bg); padding: 38px 32px;
+            border-radius: 24px; border: 1px solid var(--card-border);
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             transition: all 0.5s ease; text-align: center;
         }
         .support-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-14px);
             border-color: var(--card-hover-border);
             background: var(--card-hover-bg);
             box-shadow: 0 20px 50px var(--card-shadow);
         }
         .support-icon {
-            width: 80px; height: 80px; margin: 0 auto 25px;
+            width: 78px; height: 78px; margin: 0 auto 22px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; font-size: 2rem; color: white;
+            justify-content: center; font-size: 1.9rem; color: white;
         }
-        .support-card h3 { font-family: var(--font); font-size: 1.5rem; margin-bottom: 15px; color: var(--txt-1); }
+        .support-card h3 { font-family: var(--font); font-size: 1.4rem; margin-bottom: 14px; color: var(--txt-1); font-weight: 700; }
         .support-card p  { font-family: var(--font); color: var(--txt-2); line-height: 1.7; margin-bottom: 20px; }
         .support-btn {
             font-family: var(--font);
-            display: inline-block; padding: 12px 30px;
+            display: inline-block; padding: 11px 28px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white; border-radius: 50px; font-weight: 600;
-            text-decoration: none; transition: all 0.3s ease;
+            text-decoration: none; transition: all 0.3s ease; font-size: 0.9rem;
         }
         .support-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(43,122,140,0.5); }
-
-        /* ══ SERVICE HOURS ══ */
-        .service-hours {
-            background: var(--hours-bg); border: 1px solid var(--hours-border);
-            border-radius: 25px; padding: 50px 40px; margin: 60px 0;
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-        }
-        .hours-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px; margin-top: 40px;
-        }
-        .hours-item { text-align: center; }
-        .hours-item i { font-size: 2.5rem; color: #3B96A9; margin-bottom: 15px; display: block; }
-        .hours-item h4 { font-family: var(--font); font-size: 1.2rem; margin-bottom: 10px; color: var(--txt-1); }
-        .hours-item p  { font-family: var(--font); color: var(--txt-2); line-height: 1.6; }
 
         /* ══ EMERGENCY ══ */
         .emergency-contact {
             background: var(--emergency-bg);
             border: 2px solid var(--emergency-border);
-            border-radius: 25px; padding: 40px;
-            text-align: center; margin: 60px 0;
+            border-radius: 24px; padding: 40px;
+            text-align: center; margin: 0 0 0 0;
         }
-        .emergency-contact h3 { font-family: var(--font); font-size: 2rem; color: #ff4444; margin-bottom: 15px; }
-        .emergency-contact p  { font-family: var(--font); color: var(--txt-2); margin-bottom: 25px; font-size: 1.1rem; }
+        .emergency-contact h3 { font-family: var(--font); font-size: 1.9rem; color: #ff4444; margin-bottom: 14px; font-weight: 700; }
+        .emergency-contact p  { font-family: var(--font); color: var(--txt-2); margin-bottom: 24px; font-size: 1.05rem; }
         .emergency-btn {
             font-family: var(--font);
-            display: inline-block; padding: 15px 40px;
+            display: inline-block; padding: 14px 38px;
             background: linear-gradient(135deg, #ff0000, #ff6600);
-            color: white; border-radius: 50px; font-size: 18px;
+            color: white; border-radius: 50px; font-size: 17px;
             font-weight: 600; text-decoration: none;
             box-shadow: 0 10px 30px rgba(255,0,0,0.4);
             transition: all 0.3s ease;
@@ -385,36 +368,36 @@
         .emergency-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,0,0,0.6); }
 
         /* ══ FAQ ══ */
-        .faq-container { max-width: 900px; margin: 60px auto; }
+        .faq-container { max-width: 900px; margin: 55px auto; }
         .faq-item {
             background: var(--faq-bg); border: 1px solid var(--faq-border);
-            border-radius: 20px; margin-bottom: 20px; overflow: hidden;
+            border-radius: 18px; margin-bottom: 18px; overflow: hidden;
             transition: all 0.3s ease;
         }
         .faq-item:hover { border-color: var(--primary); }
         .faq-question {
             font-family: var(--font);
-            padding: 25px 30px; cursor: pointer;
+            padding: 22px 28px; cursor: pointer;
             display: flex; justify-content: space-between; align-items: center;
-            font-weight: 600; font-size: 1.1rem; color: var(--txt-1);
+            font-weight: 600; font-size: 1.05rem; color: var(--txt-1);
         }
-        .faq-question i { color: #3B96A9; transition: transform 0.3s ease; }
+        .faq-question i { color: #3B96A9; transition: transform 0.3s ease; flex-shrink: 0; margin-left: 14px; }
         .faq-question.active i { transform: rotate(180deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
         .faq-answer-content {
             font-family: var(--font);
-            padding: 0 30px 25px;
+            padding: 0 28px 22px;
             color: var(--faq-answer); line-height: 1.8;
         }
         .faq-item.active .faq-answer { max-height: 500px; }
 
         /* ══ WARRANTY ══ */
         .warranty-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; margin: 60px 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 28px; margin: 55px 0;
         }
         .warranty-card {
-            background: var(--card-bg); padding: 35px;
+            background: var(--card-bg); padding: 34px;
             border-radius: 20px; border: 1px solid var(--card-border);
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             transition: transform 0.4s, border-color 0.4s, background 0.4s;
@@ -426,73 +409,142 @@
         }
         .warranty-badge {
             font-family: var(--font);
-            display: inline-block; padding: 8px 20px;
+            display: inline-block; padding: 7px 18px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            border-radius: 20px; font-weight: 600; font-size: 0.9rem; color: #fff;
-            margin-bottom: 20px;
+            border-radius: 20px; font-weight: 600; font-size: 0.88rem; color: #fff;
+            margin-bottom: 18px;
         }
-        .warranty-card h4 { font-family: var(--font); font-size: 1.4rem; margin-bottom: 15px; color: var(--txt-1); }
+        .warranty-card h4 { font-family: var(--font); font-size: 1.35rem; margin-bottom: 14px; color: var(--txt-1); font-weight: 700; }
         .warranty-card ul { font-family: var(--font); list-style: none; color: var(--txt-2); }
-        .warranty-card ul li {
-            padding: 8px 0; display: flex; align-items: flex-start; gap: 10px;
-        }
-        .warranty-card ul li i { color: #3B96A9; margin-top: 4px; }
+        .warranty-card ul li { padding: 7px 0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
+        .warranty-card ul li i { color: #3B96A9; margin-top: 3px; flex-shrink: 0; }
 
-        /* ══ DOWNLOAD ══ */
-        .download-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px; margin: 60px 0;
-        }
-        .download-card {
-            background: var(--card-bg); padding: 35px;
-            border-radius: 20px; border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-        }
-        .download-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--card-hover-border);
-            background: var(--card-hover-bg);
-        }
-        .download-icon { font-size: 2.5rem; color: #3B96A9; margin-bottom: 20px; display: block; }
-        .download-card h4 { font-family: var(--font); font-size: 1.3rem; margin-bottom: 10px; color: var(--txt-1); }
-        .download-card p  { font-family: var(--font); color: var(--txt-3); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6; }
-        .download-btn {
-            font-family: var(--font);
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 10px 25px;
-            background: var(--download-btn-bg);
-            border: 1px solid var(--download-btn-bdr);
-            border-radius: 30px; color: #3B96A9;
-            text-decoration: none; font-weight: 500; transition: all 0.3s ease;
-        }
-        .download-btn:hover {
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            color: white; border-color: transparent;
+        /* ══ SECTION DIVIDER ══ */
+        .section-divider {
+            max-width: 1400px; margin: 0 auto;
+            border: none; border-top: 1px solid var(--card-border);
+            opacity: 0.5;
         }
 
-        /* ══ CTA ══ */
-        .cta-section {
-            background: var(--hours-bg); border: 1px solid var(--hours-border);
-            border-radius: 30px; padding: 60px 40px;
-            text-align: center; margin: 80px 0;
+        /* ══ LOKASI / MAP ══ */
+        .map-container {
+            border-radius: 20px; border: 1px solid var(--map-border);
+            margin: 0 0 0 0; height: 430px; overflow: hidden;
+            transition: border-color 0.3s; background: var(--map-bg);
+        }
+        .map-container:hover { border-color: rgba(43,122,140,0.4); }
+
+        /* ══ CONTACT FORM (Kirim Pesan) ══ */
+        .contact-form-section {
+            background: var(--hours-bg);
+            border: 1px solid var(--hours-border);
+            border-radius: 28px;
+            padding: 56px 48px;
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
         }
-        .cta-section h2 {
-            font-family: var(--font);
-            font-size: clamp(35px, 6vw, 55px); margin-bottom: 20px; color: var(--txt-1); font-weight: 900;
+        .contact-form-inner {
+            display: grid; grid-template-columns: 1fr 1.1fr;
+            gap: 50px; align-items: start;
         }
-        .cta-section p { font-family: var(--font); font-size: 1.2rem; color: var(--txt-2); margin-bottom: 30px; }
-        .cta-btn {
+        .contact-left h2 {
             font-family: var(--font);
-            display: inline-block; padding: 18px 45px;
+            font-size: clamp(28px, 4vw, 44px); font-weight: 900; margin-bottom: 14px;
+            background: linear-gradient(135deg, var(--title-g1), var(--title-g2));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .contact-left p {
+            font-family: var(--font);
+            color: var(--txt-2); line-height: 1.75; margin-bottom: 32px;
+            font-size: 1rem;
+        }
+        .contact-info-item {
+            display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;
+        }
+        .contact-info-icon {
+            width: 46px; height: 46px; min-width: 46px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            color: white; border-radius: 50px; font-size: 18px;
-            font-weight: 600; text-decoration: none;
-            box-shadow: 0 15px 40px rgba(43,122,140,0.4);
-            transition: all 0.4s ease;
+            border-radius: 12px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.1rem; color: #fff;
         }
-        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(43,122,140,0.6); }
+        .contact-info-text h4 { font-family: var(--font); font-size: 0.95rem; font-weight: 700; color: var(--txt-1); margin-bottom: 3px; }
+        .contact-info-text a,
+        .contact-info-text span {
+            font-family: var(--font);
+            color: #3B96A9; font-size: 0.88rem; text-decoration: none;
+            font-weight: 500; transition: color 0.25s;
+        }
+        .contact-info-text a:hover { color: var(--txt-1); }
+
+        .contact-form { }
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block; margin-bottom: 6px;
+            font-family: var(--font);
+            color: var(--txt-2); font-weight: 600; font-size: 0.86rem;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%; padding: 12px 16px;
+            background: var(--form-bg); border: 1px solid var(--form-border);
+            border-radius: 11px; color: var(--txt-1);
+            font-family: var(--font); font-size: 0.92rem;
+            transition: border-color 0.25s, background 0.25s;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--form-ph); }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none; border-color: var(--primary); background: var(--form-focus);
+        }
+        .form-group textarea  { resize: vertical; min-height: 120px; }
+        .form-group select option { background: var(--form-opt-bg); color: var(--txt-1); }
+        .submit-btn {
+            width: 100%; padding: 15px;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            color: #fff; border: none; border-radius: 11px;
+            font-family: var(--font);
+            font-size: 0.97rem; font-weight: 700; cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 24px rgba(43,122,140,0.38);
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            margin-top: 4px;
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(43,122,140,0.55); }
+
+        /* ══ TOAST ══ */
+        .toast {
+            position: fixed; bottom: 100px; right: 26px;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            color: #fff; padding: 14px 22px; border-radius: 12px;
+            font-family: var(--font); font-size: 0.88rem; font-weight: 600;
+            box-shadow: 0 8px 24px rgba(43,122,140,0.5);
+            z-index: 9997; display: none;
+        }
+        .toast.show {
+            display: flex; align-items: center; gap: 8px;
+            animation: slideIn 0.35s ease;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(40px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ══ SCROLL TOP ══ */
+        .scroll-top {
+            position: fixed; bottom: 26px; left: 26px;
+            width: 46px; height: 46px;
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            color: var(--txt-1); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px; cursor: pointer; z-index: 997;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s, background 0.3s, border-color 0.3s;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+        .scroll-top.visible { opacity: 1; pointer-events: auto; }
+        .scroll-top:hover { background: var(--card-hover-bg); border-color: var(--primary); transform: translateY(-3px); }
 
         /* ══ FOOTER ══ */
         footer {
@@ -563,18 +615,19 @@
             box-shadow: 0 10px 40px rgba(37,211,102,0.6);
             text-decoration: none; flex-shrink: 0;
             animation: floatBtn 3s ease-in-out infinite;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-        .wa-wrapper:hover .wa-float {
-            animation: none; transform: scale(1.1);
-            box-shadow: 0 14px 50px rgba(37,211,102,0.75);
-        }
-        .wa-wrapper:hover .wa-bubble {
-            opacity: 1; transform: translateX(0) scale(1); pointer-events: auto;
-        }
+        .wa-wrapper:hover .wa-float { animation: none; transform: scale(1.1); box-shadow: 0 14px 50px rgba(37,211,102,0.75); }
+        .wa-wrapper:hover .wa-bubble { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; }
 
         /* ══ RESPONSIVE ══ */
+        @media (max-width: 960px) {
+            .contact-form-inner { grid-template-columns: 1fr; gap: 36px; }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .support-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 860px) {
             nav { padding: 0 18px; gap: 10px; }
             .nav-right { gap: 0; }
@@ -600,17 +653,57 @@
                 align-items: center; gap: 3px;
                 background: var(--pill-bg); border: 1px solid var(--pill-border);
                 border-radius: 999px; padding: 4px 5px;
-                transition: background 0.3s, border-color 0.3s;
             }
             .support-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .wa-bubble      { display: none; }
+            .wa-bubble { display: none; }
         }
 
         @media (max-width: 768px) {
             .footer-content { grid-template-columns: 1fr; gap: 40px; }
             .section { padding: 48px 20px; }
+            .contact-form-section { padding: 36px 22px; }
+        }
+
+        /* ══ FEEDBACK CTA ══ */
+        .cta-section {
+            background: var(--hours-bg);
+            border: 1px solid var(--hours-border);
+            border-radius: 28px; padding: 60px 40px;
+            text-align: center;
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        }
+        .cta-section h2 {
+            font-family: var(--font);
+            font-size: clamp(28px, 5vw, 48px); font-weight: 900;
+            margin-bottom: 16px; color: var(--txt-1);
+        }
+        .cta-section p {
+            font-family: var(--font);
+            font-size: 1.1rem; color: var(--txt-2);
+            margin-bottom: 28px; line-height: 1.7;
+        }
+        .cta-btn {
+            font-family: var(--font);
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 42px;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            color: white; border-radius: 50px; font-size: 17px;
+            font-weight: 700; text-decoration: none;
+            box-shadow: 0 15px 40px rgba(43,122,140,0.4);
+            transition: all 0.4s ease;
+        }
+        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(43,122,140,0.6); }
+
+        @media (max-width: 768px) {
             .cta-section { padding: 40px 20px; }
+        }
+
+        @media print {
+            #animated-bg, #particles, .wa-wrapper,
+            .scroll-top, .appearance-toggle,
+            .hamburger, .toast { display: none !important; }
+            header { position: static; }
+            body   { background: #fff; color: #000; }
         }
     </style>
 </head>
@@ -629,13 +722,9 @@
 
             <div class="nav-right">
                 <div class="nav-links" id="navMenu">
-                    <a href="index.html">Beranda</a>
-                    <a href="tentangkami.html">Tentang Kami</a>
-                    <a href="programkomitmen.html">Program &amp; Komitmen</a>
+                    <a href="index.html">Tentang Kami</a>
                     <a href="produk.html">Produk</a>
-                    <a href="portofolio.html">Portofolio</a>
-                    <a href="support.html" class="active">Support</a>
-                    <a href="kontak.html">Kontak</a>
+                    <a href="support-kontak.html" class="active">Support</a>
 
                     <div class="nav-appearance" role="group" aria-label="Pilih tema tampilan">
                         <button class="appearance-btn" data-theme="light" title="Tema Terang" aria-label="Tema Terang"><i class="fas fa-sun"></i></button>
@@ -658,16 +747,16 @@
     </header>
 
     <!-- ══════════ HERO ══════════ -->
-    <section id="beranda" class="hero-section">
-        <h1>Support & Bantuan</h1>
-        <p>Tim support kami siap membantu Anda 24/7 dengan solusi cepat dan profesional untuk setiap kebutuhan teknis</p>
+    <section class="hero-section">
+        <h1>Support</h1>
+        <p>Tim kami siap membantu Anda 24/7 — dari dukungan teknis hingga konsultasi produk, semua dalam satu tempat</p>
     </section>
 
-    <!-- ══════════ SUPPORT SERVICES ══════════ -->
+    <!-- ══════════ LAYANAN SUPPORT ══════════ -->
     <section id="layanan" class="section">
         <h2 class="section-title">Layanan Support Kami</h2>
         <p class="section-subtitle">Berbagai kanal dukungan untuk memastikan pengalaman terbaik Anda</p>
-        
+
         <div class="support-grid">
             <div class="support-card">
                 <div class="support-icon"><i class="fab fa-whatsapp"></i></div>
@@ -679,7 +768,7 @@
                 <div class="support-icon"><i class="fas fa-envelope"></i></div>
                 <h3>Email Support</h3>
                 <p>Kirim pertanyaan detail via email. Kami akan merespons dalam waktu maksimal 2 jam.</p>
-                <a href="mailto:askarindointegrasigroup@gmail.com?subject=Support%20Request" class="support-btn">Kirim Email</a>
+                <a href="/cdn-cgi/l/email-protection#c8a9bba3a9baa1a6aca7a1a6bcadafbaa9bba1afbaa7bdb888afa5a9a1a4e6aba7a5f7bbbdaaa2adabbcf59bbdb8b8a7babcedfaf89aadb9bdadbbbc" class="support-btn">Kirim Email</a>
             </div>
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-phone-alt"></i></div>
@@ -701,45 +790,15 @@
             </div>
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Training & Edukasi</h3>
+                <h3>Training &amp; Edukasi</h3>
                 <p>Pelatihan gratis untuk memaksimalkan penggunaan produk dan teknologi yang Anda miliki.</p>
                 <a href="https://wa.me/6285854542007?text=Request%20Training%20Session" target="_blank" class="support-btn">Daftar Training</a>
             </div>
         </div>
     </section>
 
-    <!-- ══════════ JAM LAYANAN ══════════ -->
-    <div class="section">
-        <div class="service-hours">
-            <h2 class="section-title" style="margin-bottom: 10px;">Jam Layanan Support</h2>
-            <p class="section-subtitle" style="margin-bottom: 0;">Kami berkomitmen memberikan layanan terbaik dengan ketersediaan maksimal</p>
-            <div class="hours-grid">
-                <div class="hours-item">
-                    <i class="fas fa-clock"></i>
-                    <h4>Support Online</h4>
-                    <p>24/7 Nonstop<br>Setiap hari termasuk hari libur</p>
-                </div>
-                <div class="hours-item">
-                    <i class="fas fa-headset"></i>
-                    <h4>Hotline Support</h4>
-                    <p>Senin - Jumat: 08:00 - 20:00<br>Sabtu - Minggu: 09:00 - 17:00</p>
-                </div>
-                <div class="hours-item">
-                    <i class="fas fa-user-tie"></i>
-                    <h4>Onsite Visit</h4>
-                    <p>Senin - Sabtu: 08:00 - 18:00<br>Minggu: By Appointment</p>
-                </div>
-                <div class="hours-item">
-                    <i class="fas fa-bolt"></i>
-                    <h4>Response Time</h4>
-                    <p>WhatsApp: &lt; 15 menit<br>Email: &lt; 2 jam<br>Onsite: &lt; 24 jam</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- ══════════ EMERGENCY ══════════ -->
-    <div class="section">
+    <div class="section" style="padding-top: 0;">
         <div class="emergency-contact">
             <h3><i class="fas fa-exclamation-triangle"></i> Support Darurat</h3>
             <p>Untuk kerusakan kritis atau masalah mendesak yang memerlukan penanganan segera</p>
@@ -753,7 +812,7 @@
     <section id="faq" class="section">
         <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
         <p class="section-subtitle">Temukan jawaban cepat untuk pertanyaan umum seputar produk dan layanan kami</p>
-        
+
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question"><span>Berapa lama garansi produk yang dibeli?</span><i class="fas fa-chevron-down"></i></div>
@@ -791,10 +850,10 @@
     </section>
 
     <!-- ══════════ GARANSI ══════════ -->
-    <section id="garansi" class="section">
+    <section id="garansi" class="section" style="padding-top: 0;">
         <h2 class="section-title">Informasi Garansi</h2>
         <p class="section-subtitle">Perlindungan menyeluruh untuk investasi teknologi Anda</p>
-        
+
         <div class="warranty-grid">
             <div class="warranty-card">
                 <span class="warranty-badge">Garansi Resmi</span>
@@ -809,7 +868,7 @@
             </div>
             <div class="warranty-card">
                 <span class="warranty-badge">Garansi Premium</span>
-                <h4>Furniture & Mebel</h4>
+                <h4>Furniture &amp; Mebel</h4>
                 <ul>
                     <li><i class="fas fa-check-circle"></i> Meja &amp; Kursi: 1 tahun garansi struktur</li>
                     <li><i class="fas fa-check-circle"></i> Cabinet &amp; Rak: 1 tahun garansi material</li>
@@ -832,100 +891,109 @@
         </div>
     </section>
 
-    <!-- ══════════ DOWNLOAD ══════════ -->
-    <section id="download" class="section">
-        <h2 class="section-title">Download Center</h2>
-        <p class="section-subtitle">Unduh manual, driver, dan software pendukung untuk produk Anda</p>
-        
-        <div class="download-grid">
-            <div class="download-card">
-                <i class="fas fa-book download-icon"></i>
-                <h4>User Manual</h4>
-                <p>Panduan lengkap penggunaan produk dalam Bahasa Indonesia dan Inggris</p>
-                <a href="https://wa.me/6285854542007?text=Request%20User%20Manual" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Manual</a>
-            </div>
-            <div class="download-card">
-                <i class="fas fa-compact-disc download-icon"></i>
-                <h4>Driver & Software</h4>
-                <p>Driver terbaru dan software pendukung untuk berbagai produk</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Driver%20Software" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Driver</a>
-            </div>
-            <div class="download-card">
-                <i class="fas fa-wrench download-icon"></i>
-                <h4>Troubleshooting Guide</h4>
-                <p>Panduan mengatasi masalah umum dan tips maintenance</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Troubleshooting%20Guide" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Guide</a>
-            </div>
-            <div class="download-card">
-                <i class="fas fa-file-video download-icon"></i>
-                <h4>Video Tutorial</h4>
-                <p>Tutorial video step-by-step untuk instalasi dan penggunaan</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Video%20Tutorial" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Video</a>
-            </div>
-            <div class="download-card">
-                <i class="fas fa-file-pdf download-icon"></i>
-                <h4>Katalog Produk</h4>
-                <p>Katalog lengkap semua produk dengan spesifikasi detail</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Katalog%20Produk" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Katalog</a>
-            </div>
-            <div class="download-card">
-                <i class="fas fa-certificate download-icon"></i>
-                <h4>Sertifikasi & Dokumen</h4>
-                <p>Sertifikat produk, TKDN, ISO, dan dokumen legal lainnya</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Sertifikasi%20Dokumen" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Dokumen</a>
-            </div>
-            <div class="download-card">
-                <i class="fas fa-laptop-code download-icon"></i>
-                <h4>Firmware Update</h4>
-                <p>Update firmware terbaru untuk Interactive Flat Panel &amp; perangkat lainnya</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Firmware%20Update" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Firmware</a>
-            </div>
-            <div class="download-card">
-                <i class="fas fa-file-contract download-icon"></i>
-                <h4>Formulir & Template</h4>
-                <p>Form pemesanan, surat penawaran, SPK, dan template dokumen proyek</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Formulir%20&%20Template" target="_blank" class="download-btn"><i class="fas fa-download"></i> Request Formulir</a>
-            </div>
-        </div>
-    </section>
+    <!-- ══════════ LOKASI / MAP ══════════ -->
+    <section id="lokasi" class="section" style="padding-top: 0;">
+        <h2 class="section-title">Lokasi Kami</h2>
+        <p class="section-subtitle">Kunjungi kantor dan showroom kami untuk melihat produk secara langsung</p>
 
-    <!-- ══════════ HUBUNGI SUPPORT ══════════ -->
-    <section id="kontak" class="section">
-        <h2 class="section-title">Hubungi Support</h2>
-        <p class="section-subtitle">Pilih cara tercepat untuk menghubungi tim support kami</p>
-        
-        <div class="support-grid">
-            <div class="support-card">
-                <div class="support-icon"><i class="fab fa-whatsapp"></i></div>
-                <h3>WhatsApp</h3>
-                <p>Support 24/7 via WhatsApp untuk respons tercepat</p>
-                <a href="https://wa.me/6285854542007?text=Halo%20Support%20Askarindogroup" target="_blank" class="support-btn">+62 858-5454-2007</a>
-            </div>
-            <div class="support-card">
-                <div class="support-icon"><i class="fas fa-envelope"></i></div>
-                <h3>Email</h3>
-                <p>Kirim pertanyaan detail via email</p>
-                <a href="mailto:askarindointegrasigroup@gmail.com?subject=Support%20Request" class="support-btn">askarindointegrasigroup@gmail.com</a>
-            </div>
-            <div class="support-card">
-                <div class="support-icon"><i class="fab fa-instagram"></i></div>
-                <h3>Instagram</h3>
-                <p>Follow dan DM kami untuk info terbaru</p>
-                <a href="https://instagram.com/askarindogroup" target="_blank" class="support-btn">@askarindogroup</a>
-            </div>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2688477708484!2d112.777397!3d-7.3236696000000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb84f9cf161b%3A0xc13bd5eb7af30dbe!2sAskarindo%20Group!5e0!3m2!1sid!2sid!4v1772348023485!5m2!1sid!2sid"
+                width="100%" height="430" style="border:0; display:block;"
+                allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Peta Lokasi Askarindogroup">
+            </iframe>
         </div>
     </section>
 
     <!-- ══════════ FEEDBACK CTA ══════════ -->
-    <div class="section">
+    <div class="section" style="padding-top: 0;">
         <div class="cta-section">
             <h2>Puas dengan Layanan Kami?</h2>
-            <p>Berikan feedback Anda untuk membantu kami meningkatkan kualitas layanan</p>
-            <a href="https://wa.me/6285854542007?text=Feedback:%20" target="_blank" class="cta-btn">
-                <i class="fas fa-comment-dots"></i> Berikan Feedback
-            </a>
+            <p>Berikan ulasan Anda di Google Maps untuk membantu kami meningkatkan kualitas layanan</p>
+            <button onclick="openGoogleReview()" class="cta-btn">
+                <i class="fab fa-google"></i> Berikan Ulasan di Google
+            </button>
         </div>
     </div>
+
+    <!-- ══════════ KIRIM PESAN (before footer) ══════════ -->
+    <section id="kontak" class="section" style="padding-top: 0;">
+        <div class="contact-form-section">
+            <div class="contact-form-inner">
+                <div class="contact-left">
+                    <h2>Kirim Pesan</h2>
+                    <p>Isi formulir dan tim kami akan segera menghubungi Anda. Atau hubungi langsung melalui kanal di bawah ini.</p>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-info-text">
+                            <h4>WhatsApp &amp; Telepon</h4>
+                            <a href="https://wa.me/6285854542007" target="_blank">0858-5454-2007</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Email</h4>
+                            <a href="/cdn-cgi/l/email-protection#4b2a38202a3922252f2422253f2e2c392a38222c39243e3b0b2c262a222765282426"><span class="__cf_email__" data-cfemail="ff9e8c949e8d96919b9096918b9a988d9e8c96988d908a8fbf98929e9693d19c9092">[email&#160;protected]</span></a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Instagram</h4>
+                            <a href="https://instagram.com/askarindogroup" target="_blank">@askarindogroup</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Lokasi</h4>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="cname">Nama Lengkap *</label>
+                            <input type="text" id="cname" placeholder="Masukkan nama lengkap Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cemail">Email *</label>
+                            <input type="email" id="cemail" placeholder="nama@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cphone">Nomor Telepon / WhatsApp *</label>
+                            <input type="tel" id="cphone" placeholder="+62 xxx-xxxx-xxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="csubject">Subjek *</label>
+                            <select id="csubject" required>
+                                <option value="">Pilih subjek pesan</option>
+                                <option>Pertanyaan Produk</option>
+                                <option>Request Penawaran</option>
+                                <option>Technical Support</option>
+                                <option>Kerjasama / Partnership</option>
+                                <option>Komplain / Feedback</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cmessage">Pesan *</label>
+                            <textarea id="cmessage" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ══════════ FOOTER ══════════ -->
     <footer>
@@ -935,18 +1003,16 @@
                 <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2010.</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#fd9c8e969c8f94939992949389989a8f9c8e949a8f92888dbd9a909c9491d39e9290" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h4>Menu</h4>
                 <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="tentangkami.html">Tentang Kami</a></li>
+                    <li><a href="index.html">Tentang Kami</a></li>
                     <li><a href="produk.html">Produk</a></li>
-                    <li><a href="portofolio.html">Portofolio</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="support-kontak.html">Support</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -963,7 +1029,7 @@
                 <h4>Hubungi Kami</h4>
                 <ul>
                     <li><i class="fas fa-phone"></i> +62 858-5454-2007</li>
-                    <li><i class="fas fa-envelope"></i> askarindointegrasigroup@gmail.com</li>
+                    <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b3d2c0d8d2c1daddd7dcdaddc7d6d4c1d2c0dad4c1dcc6c3f3d4ded2dadf9dd0dcde">[email&#160;protected]</a></li>
                     <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
                     <li><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 20:00</li>
                 </ul>
@@ -985,7 +1051,46 @@
         </a>
     </div>
 
-    <script>
+    <button class="scroll-top" id="scrollTop" aria-label="Kembali ke atas">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Pesan terkirim! Anda akan diarahkan ke WhatsApp.</span>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    /* ── GOOGLE MAPS REVIEW ── */
+    function openGoogleReview() {
+        // URL Maps langsung dengan action=write-review
+        const WRITE_REVIEW_URL =
+            'https://www.google.com/maps/place/Askarindo+Group/@-7.3236696,112.7748167,17z/' +
+            'data=!4m6!3m5!1s0x2dd7fb84f9cf161b:0xc13bd5eb7af30dbe!8m2!3d-7.3236696!4d112.777397' +
+            '!16s%2Fg%2F11myv2mn1l?entry=ttu&action=write-review';
+
+        const ua = navigator.userAgent;
+
+        if (/Android/i.test(ua)) {
+            // Android: coba buka Maps app via intent, fallback browser
+            const intentUrl =
+                'intent://maps.google.com/maps?q=place_id:0x2dd7fb84f9cf161b:0xc13bd5eb7af30dbe&action=write-review' +
+                '#Intent;scheme=https;package=com.google.android.apps.maps;' +
+                'S.browser_fallback_url=' + encodeURIComponent(WRITE_REVIEW_URL) + ';end';
+            window.location.href = intentUrl;
+        } else if (/iPhone|iPad|iPod/i.test(ua)) {
+            // iOS: coba Maps app, fallback browser setelah 1.2 detik
+            const fallback = setTimeout(() => { window.open(WRITE_REVIEW_URL, '_blank'); }, 1200);
+            window.location.href =
+                'comgooglemaps://?q=place_id:0x2dd7fb84f9cf161b:0xc13bd5eb7af30dbe&action=write-review';
+            window.addEventListener('blur', () => clearTimeout(fallback), { once: true });
+        } else {
+            // Desktop: buka di tab baru
+            window.open(WRITE_REVIEW_URL, '_blank');
+        }
+    }
+
+    /* ── THEME ── */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
@@ -997,13 +1102,13 @@
         btns.forEach(b => b.classList.toggle('active', b.dataset.theme === pref));
     }
     function setTheme(pref) { localStorage.setItem('theme', pref); applyTheme(pref); }
-
     btns.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.theme)));
     applyTheme(localStorage.getItem('theme') || 'system');
     sysMQ.addEventListener('change', () => {
         if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
     });
 
+    /* ── PARTICLES ── */
     const pc = document.getElementById('particles');
     for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
@@ -1014,6 +1119,7 @@
         pc.appendChild(p);
     }
 
+    /* ── HAMBURGER ── */
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('navMenu');
     function toggleMenu(f) {
@@ -1026,6 +1132,7 @@
     hamburger.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') toggleMenu(); });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
+    /* ── SMOOTH SCROLL ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const el = document.querySelector(this.getAttribute('href'));
@@ -1033,6 +1140,7 @@
         });
     });
 
+    /* ── FAQ ── */
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const faqItem = question.parentElement;
@@ -1048,6 +1156,35 @@
         });
     });
 
+    /* ── CONTACT FORM ── */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name    = document.getElementById('cname').value.trim();
+        const email   = document.getElementById('cemail').value.trim();
+        const phone   = document.getElementById('cphone').value.trim();
+        const subject = document.getElementById('csubject').value.trim();
+        const message = document.getElementById('cmessage').value.trim();
+        if (!name || !email || !phone || !subject || !message) return;
+        const txt = encodeURIComponent(
+            `Halo Askarindogroup,\n\nNama: ${name}\nEmail: ${email}\nTelepon: ${phone}\nSubjek: ${subject}\n\nPesan:\n${message}`
+        );
+        window.open(`https://wa.me/6285854542007?text=${txt}`, '_blank');
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3500);
+        this.reset();
+    });
+
+    /* ── SCROLL TOP ── */
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ── INTERSECTION OBSERVER ── */
     const obs = new IntersectionObserver(entries => {
         entries.forEach(en => {
             if (en.isIntersecting) {
@@ -1057,13 +1194,14 @@
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.support-card, .faq-item, .download-card, .warranty-card, .hours-item').forEach(el => {
+    document.querySelectorAll('.support-card, .faq-item, .warranty-card, .contact-info-item').forEach(el => {
         el.style.opacity    = '0';
-        el.style.transform  = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transform  = 'translateY(28px)';
+        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
         obs.observe(el);
     });
 
+    /* ── ACTIVE NAV ── */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => {
