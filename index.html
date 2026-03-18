@@ -173,8 +173,8 @@
         .vm-images { display:flex; flex-direction:column; border-right:1px solid var(--vm-border); }
         .vm-images .img-half { flex:1; background:rgba(43,122,140,.15); overflow:hidden; position:relative; }
         .vm-images .img-half+.img-half { border-top:1px solid var(--vm-border); }
-        .vm-images .img-half img { width:100%; height:100%; object-fit:cover; filter:brightness(.55) saturate(.7); transition:transform .5s ease; }
-        .vm-images .img-half:hover img { transform:scale(1.05); }
+        .vm-images .img-half img { width:100%; height:100%; object-fit:cover; filter:brightness(.55) saturate(.7); transition:transform .5s ease, filter .5s ease; }
+        .vm-images .img-half:hover img { transform:scale(1.05); filter:brightness(1) saturate(1); }
         .vm-images .img-half .img-label { position:absolute; bottom:14px; left:14px; font-family:var(--font); font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--vm-img-label); }
         .vm-block { padding:50px 48px; border-right:1px solid var(--vm-border); position:relative; }
         .vm-block:last-child { border-right:none; }
@@ -218,33 +218,12 @@
         .cert-card h4 { font-family:var(--font); font-size:1.2rem; margin-bottom:10px; color:var(--txt-1); font-weight:700; }
         .cert-card p  { font-family:var(--font); color:var(--txt-3); font-size:.9rem; line-height:1.5; }
 
-        /* ── MARQUEE — rounded cards ── */
-        .logo-marquee-wrapper {
-            width:100%; overflow:hidden;
-            background:var(--marquee-bg);
-            padding:24px 0;
-            border-top:1px solid var(--marquee-border);
-            border-bottom:1px solid var(--marquee-border);
-            margin:0 0 60px;
-        }
-        .logo-marquee-track { display:flex; gap:16px; width:max-content; animation:marquee-left 40s linear infinite; align-items:center; padding: 0 8px; }
+        /* ── MARQUEE ── */
+        .logo-marquee-wrapper { width:100%; overflow:hidden; background:var(--marquee-bg); padding:24px 0; border-top:1px solid var(--marquee-border); border-bottom:1px solid var(--marquee-border); margin:0 0 60px; }
+        .logo-marquee-track { display:flex; gap:16px; width:max-content; animation:marquee-left 40s linear infinite; align-items:center; padding:0 8px; }
         .logo-marquee-track:hover { animation-play-state:paused; }
-        .logo-item {
-            display:flex; align-items:center; justify-content:center; flex-shrink:0;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 12px 20px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: border-color .3s, transform .3s, box-shadow .3s;
-            min-width: 120px;
-        }
-        .logo-item:hover {
-            border-color: var(--primary-light);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px var(--card-shadow);
-        }
+        .logo-item { display:flex; align-items:center; justify-content:center; flex-shrink:0; background:var(--card-bg); border:1px solid var(--card-border); border-radius:16px; padding:12px 20px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition:border-color .3s, transform .3s, box-shadow .3s; min-width:120px; }
+        .logo-item:hover { border-color:var(--primary-light); transform:translateY(-4px); box-shadow:0 8px 24px var(--card-shadow); }
         .logo-item img { height:38px !important; max-width:120px; width:auto; object-fit:contain; opacity:.88; transition:opacity .3s; mix-blend-mode:screen; filter:contrast(1.1) brightness(1.1); }
         body.light .logo-item img { mix-blend-mode:multiply; filter:contrast(1.1) brightness(.95); }
         .logo-item:hover img { opacity:1; }
@@ -287,22 +266,88 @@
         .wa-wrapper:hover .wa-float { animation:none; transform:scale(1.1); box-shadow:0 14px 50px rgba(37,211,102,.75); }
         .wa-wrapper:hover .wa-bubble { opacity:1; transform:translateX(0) scale(1); pointer-events:auto; }
 
-        /* ── FOOTER — Avenir ── */
-        footer { background:rgb(0,0,0); border-top:1px solid rgba(255,255,255,.12); padding:80px 40px 30px; margin-top:100px; }
-        .footer-content { max-width:1400px; margin:0 auto 50px; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:60px; }
-        .footer-section h3 { font-family:var(--font-footer); font-size:28px; font-weight:800; background:linear-gradient(135deg,#2B7A8C,#3B96A9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:20px; }
-        .footer-section h4 { font-family:var(--font-footer); font-size:18px; font-weight:700; color:#fff; margin-bottom:20px; }
-        .footer-section p  { font-family:var(--font-footer); color:#aaa; line-height:1.8; margin-bottom:25px; }
-        .footer-section ul { list-style:none; }
-        .footer-section ul li { font-family:var(--font-footer); margin-bottom:12px; color:#aaa; }
-        .footer-section ul li a { font-family:var(--font-footer); color:#aaa; text-decoration:none; transition:color .3s; }
-        .footer-section ul li a:hover { color:#3B96A9; }
-        .footer-section ul li i { color:#2B7A8C; margin-right:10px; width:20px; }
-        .footer-bottom { max-width:1400px; margin:0 auto; text-align:center; padding-top:30px; border-top:1px solid rgba(255,255,255,.08); color:#666; }
-        .footer-bottom p { font-family:var(--font-footer); margin:8px 0; font-size:14px; }
-        .footer-social { display:flex; gap:15px; margin-top:20px; }
-        .footer-social a { width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; background:#2B7A8C; text-decoration:none; box-shadow:0 5px 20px rgba(43,122,140,.4); transition:all .4s ease; }
-        .footer-social a:hover { background:#3B96A9; transform:translateY(-8px) scale(1.1); }
+        /* ══════════════════════════════════════
+           ── FOOTER — semua warna hardcoded
+              agar tidak berubah di mode terang
+           ══════════════════════════════════════ */
+        footer {
+            background: #000000;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            padding: 80px 40px 30px;
+            margin-top: 100px;
+        }
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+        }
+        .footer-section h3 {
+            font-family: var(--font-footer);
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .footer-section h4 {
+            font-family: var(--font-footer);
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .footer-section p {
+            font-family: var(--font-footer);
+            color: #aaaaaa;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li {
+            font-family: var(--font-footer);
+            margin-bottom: 12px;
+            color: #aaaaaa;
+        }
+        .footer-section ul li a {
+            font-family: var(--font-footer);
+            color: #aaaaaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover { color: #3B96A9; }
+        .footer-section ul li i {
+            color: #2B7A8C;
+            margin-right: 10px;
+            width: 20px;
+        }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #ffffff;
+            background: #2B7A8C;
+            box-shadow: 0 5px 20px rgba(43,122,140,0.4);
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+        .social-icons a:hover { background: #3B96A9; transform: translateY(-8px) scale(1.1); }
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #666666;
+        }
+        .footer-bottom p { font-family: var(--font-footer); margin: 8px 0; font-size: 14px; }
 
         /* ── RESPONSIVE ── */
         @media (max-width:1024px) {
@@ -448,11 +493,11 @@
         <div class="visi-misi-3col">
             <div class="vm-images">
                 <div class="img-half">
-                    <img src="assets/image/foto-visi1.jpg" alt="Foto Visi" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4a55,#0d3d47)'">
+                    <img src="assets\portofolio\ee19ac3e-d9d5-488d-ade3-477320906f64.jpg" alt="Foto Visi" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4a55,#0d3d47)'">
                     <span class="img-label">Visi</span>
                 </div>
                 <div class="img-half">
-                    <img src="assets/image/foto-misi1.jpg" alt="Foto Misi" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d3d47,#1a4a55)'">
+                    <img src="assets\portofolio\adff1732-99a1-4b39-83bf-4bba3fba0059.jpg" alt="Foto Misi" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d3d47,#1a4a55)'">
                     <span class="img-label">Misi</span>
                 </div>
             </div>
@@ -645,7 +690,7 @@
                     <div class="slide-caption">Instalasi Jaringan &amp; Perangkat Pendidikan – Instansi Pemerintah</div>
                 </div>
                 <div class="portofolio-img-item">
-                    <div class="portofolio-img-placeholder"><img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.47.jpeg" alt="Portofolio 2"></div>
+                    <div class="portofolio-img-placeholder"><img src="assets\portofolio\WhatsApp Image 2026-03-16 at 13.46.47.jpg" alt="Portofolio 2"></div>
                     <div class="slide-caption">Pengadaan Sarpras Teknologi – Universitas Negeri</div>
                 </div>
                 <div class="portofolio-img-item">
@@ -674,7 +719,7 @@
         <div class="cta-section">
             <h2>Siap Bertransformasi Bersama Kami?</h2>
             <p>Mari wujudkan visi digital Anda dengan solusi teknologi terbaik dari Askarindo Integrasi Group</p>
-            <a href="kontak.html" class="cta-btn">Hubungi Kami Sekarang</a>
+            <a href="support.html" class="cta-btn">Hubungi Kami Sekarang</a>
         </div>
     </div>
 
@@ -684,7 +729,7 @@
             <div class="footer-section">
                 <h3>Askarindogroup</h3>
                 <p>Penyedia solusi teknologi terintegrasi terpercaya untuk pendidikan, bisnis, dan pemerintahan di Indonesia sejak 2023.</p>
-                <div class="footer-social">
+                <div class="social-icons">
                     <a href="https://instagram.com/askarindogroup" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:askarindointegrasigroup@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://wa.me/6285854542007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -693,11 +738,9 @@
             <div class="footer-section">
                 <h4>Menu</h4>
                 <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="tentangkami.html">Tentang Kami</a></li>
+                    <li><a href="index.html">Tentang Kami</a></li>
                     <li><a href="produk.html">Produk</a></li>
-                    <li><a href="programkomitmen.html">Program &amp; Komitmen</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="support.html">Support</a></li>
                 </ul>
             </div>
             <div class="footer-section">
