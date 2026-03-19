@@ -200,12 +200,12 @@
         .solusi-sub { font-family:var(--font); font-size:1rem; color:var(--txt-3); max-width:580px; margin:0 auto; line-height:1.7; }
 
         /* equal-height: stretch agar semua kartu setinggi kartu tertinggi */
-        .paket-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; align-items:stretch; }
+        .paket-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-items:stretch; }
 
         .paket-card {
             position:relative; background:var(--card-bg);
             border:1px solid var(--card-border); border-radius:28px;
-            padding:40px 32px 36px; display:flex; flex-direction:column;
+            padding:32px 24px 28px; display:flex; flex-direction:column;
             height:100%; /* pastikan flex mengisi penuh grid-row */
             backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
             transition:transform .5s cubic-bezier(.25,.8,.25,1), box-shadow .5s, border-color .4s;
@@ -239,6 +239,7 @@
         .icon-edu { background:rgba(59,232,212,0.12); color:#3BE8D4; box-shadow:0 0 30px rgba(59,232,212,0.12); }
         .icon-bis { background:rgba(247,151,30,0.12); color:#F7971E; box-shadow:0 0 30px rgba(247,151,30,0.14); }
         .icon-gov { background:rgba(108,99,255,0.12); color:#8B83FF; box-shadow:0 0 30px rgba(108,99,255,0.12); }
+        .icon-sig { background:rgba(232,93,74,0.12); color:#E85D4A; box-shadow:0 0 30px rgba(232,93,74,0.12); }
 
         .paket-label { font-family:var(--font); font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--txt-3); margin-bottom:8px; display:block; }
         .paket-name  { font-family:var(--font); font-size:1.5rem; font-weight:900; color:var(--txt-1); line-height:1.2; margin-bottom:10px; }
@@ -300,11 +301,13 @@
         .paket-custom-note a { color:var(--primary); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(43,122,140,0.35); transition:border-color .25s,color .25s; }
         .paket-custom-note a:hover { color:var(--primary-light); border-color:var(--primary-light); }
 
-        @media (max-width:1024px) {
-            .paket-grid { grid-template-columns:1fr; gap:20px; }
+        @media (max-width:1280px) {
+            .paket-grid { grid-template-columns:repeat(2,1fr); gap:20px; }
             .paket-card.paket-featured { transform:scale(1); }
         }
-        @media (max-width:600px) { .solusi-section { padding:0 20px 80px; } }
+        @media (max-width:640px) {
+            .paket-grid { grid-template-columns:1fr; gap:16px; }
+}
         /* ════ END PATCH 2 ════ */
 
         /* ── E-COMMERCE LOGOS ── */
@@ -625,6 +628,10 @@
                                 <span class="cat-tag">Vacuum Cleaner</span>
                                 <span class="cat-tag">Kipas Angin</span>
                                 <span class="cat-tag">Freezer</span>
+                                <span class="cat-tag">Kursi Set Siswa Pelajar</span>
+                                <span class="cat-tag">Kursi Rapat</span>
+                                <span class="cat-tag">Lemari Arsip</span>
+                                <span class="cat-tag">Brankas</span>
                                 <span class="cat-tag">dsb.</span>
                             </div>
                         </div>
@@ -652,14 +659,14 @@
                 <div class="paket-icon-wrap icon-edu"><i class="fas fa-graduation-cap"></i></div>
                 <span class="paket-label">Paket A</span>
                 <div class="paket-name">Smart Classroom Kit</div>
-                <p class="paket-tagline">Solusi ruang kelas digital lengkap — dari layar interaktif hingga perangkat guru &amp; siswa, siap instalasi hari ini.</p>
+                <p class="paket-tagline">Transformasi ruang kelas biasa menjadi pengalaman belajar luar biasa — teknologi interaktif, audio jernih, dan ekosistem digital lengkap dalam satu solusi.</p>
                 <ul class="paket-items">
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Interactive Flat Panel 75″ (ViewSonic / Samsung)</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>1 Unit Laptop Guru (Core i5, 16GB RAM)</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Sound System Kelas (Speaker 2×30W + Mic Wireless)</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Bracket &amp; Kabel Instalasi Lengkap</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>LMS Software Lisensi 1 Tahun</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Meja &amp; Kursi Ergonomis Guru</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>IFP / Projector & Motorized Screen</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Audio Sistem (Speaker & Microphone)</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Learning Management System</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Video Conference Sistem</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Smart Lighting & Power</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Wireless Presentasi Tools</li>
                 </ul>
                 <span class="paket-bonus-label">✦ Bonus Termasuk</span>
                 <div class="paket-bonus-tags">
@@ -683,15 +690,13 @@
                 <div class="paket-icon-wrap icon-bis"><i class="fas fa-briefcase"></i></div>
                 <span class="paket-label">Paket B</span>
                 <div class="paket-name">Office Pro Bundle</div>
-                <p class="paket-tagline">Ekosistem kantor modern yang komplit — ruang meeting, workstation, hingga infrastruktur jaringan dalam satu paket.</p>
+                <p class="paket-tagline">Rapat lebih produktif, kolaborasi tanpa batas. Hadirkan standar ruang meeting kelas enterprise langsung di kantor Anda.</p>
                 <ul class="paket-items">
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Interactive Flat Panel 86″ + Kamera Konferensi</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>5 Unit PC Rakitan Office (Core i7, 32GB, NVMe)</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Router WiFi 6 + Switch Managed 24 Port</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Printer Laser Duplex Otomatis</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>5 Set Meja + Kursi Ergonomis Premium</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>UPS &amp; Surge Protector Workstation</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>AC + Instalasi Ruang Meeting</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Interactive Flat Panel (IFP)</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Webcam PTZ</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Microphone & Speaker</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Wireless Presentation System</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Video Conferencing Software</li>
                 </ul>
                 <span class="paket-bonus-label">✦ Bonus Termasuk</span>
                 <div class="paket-bonus-tags">
@@ -712,18 +717,17 @@
 
             <!-- ── PAKET C: PEMERINTAHAN ── -->
             <div class="paket-card">
-                <div class="paket-icon-wrap icon-gov"><i class="fas fa-landmark"></i></div>
+                <div class="paket-icon-wrap icon-sig"><i class="fas fa-tv"></i></div>
                 <span class="paket-label">Paket C</span>
-                <div class="paket-name">Government Command Suite</div>
-                <p class="paket-tagline">Solusi command center &amp; ruang rapat pemerintahan — video wall, keamanan jaringan, dan infrastruktur enterprise siap operasional.</p>
+                <div class="paket-name">SecureWatch CCTV Suite</div>
+                <p class="paket-tagline">Sistem keamanan visual tanpa celah — rekam, simpan, dan awasi aset Anda 24 jam penuh dengan infrastruktur CCTV berstandar profesional.</p>
                 <ul class="paket-items">
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Videowall 4×2 (8 Panel LED 55″ Bezel Ultra-Thin)</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Server Rack + Storage NAS Enterprise</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Firewall &amp; Cybersecurity Appliance</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Sound System Auditorium (Profesional)</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>10 Unit PC Workstation + Monitor Dual</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Furnitur Meja Rapat + Kursi Executive (10 Pax)</li>
-                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Sistem CCTV IP Camera 16 Titik</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Camera CCTV</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>NVR (Network Video Recorder)</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Switch POE</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Storage CCTV</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Kabel LAN</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Monitor</li>
                 </ul>
                 <span class="paket-bonus-label">✦ Bonus Termasuk</span>
                 <div class="paket-bonus-tags">
@@ -739,6 +743,32 @@
                 </div>
                 <a href="https://wa.me/6285854542007?text=Halo%2C%20saya%20tertarik%20dengan%20Paket%20C%20Government%20Command%20Suite%20dari%20Askarindo" target="_blank" class="paket-cta">
                     <i class="fab fa-whatsapp"></i> Tanya Harga Paket C
+                </a>
+            </div>
+            <div class="paket-card">
+                <div class="paket-icon-wrap icon-gov"><i class="fas fa-landmark"></i></div>
+                <span class="paket-label">Paket D</span>
+                <div class="paket-name">Digital Signage Command</div>
+                <p class="paket-tagline">Tampilkan brand dan informasi Anda dengan impak maksimal — dari layar digital indoor hingga videotron outdoor yang memukau di setiap sudut ruang.</p>
+                <ul class="paket-items">
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Digital Signage</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Videowall Display</li>
+                    <li><span class="pi-icon"><i class="fas fa-check"></i></span>Videotron Indoor & Outdoor</li>
+                </ul>
+                <span class="paket-bonus-label">✦ Bonus Termasuk</span>
+                <div class="paket-bonus-tags">
+                    <span class="paket-bonus-tag">Survey Lokasi Gratis</span>
+                    <span class="paket-bonus-tag">Instalasi Penuh</span>
+                    <span class="paket-bonus-tag">Training Tim</span>
+                    <span class="paket-bonus-tag">Garansi 3 Tahun</span>
+                </div>
+                <div class="paket-divider"></div>
+                <div class="paket-price-wrap">
+                    <p class="paket-price-note">Mulai dari</p>
+                    <div class="paket-price">Hubungi Kami <span>/ proyek</span></div>
+                </div>
+                <a href="https://wa.me/6285854542007?text=Halo%2C%20saya%20tertarik%20dengan%20Paket%20C%20Government%20Command%20Suite%20dari%20Askarindo" target="_blank" class="paket-cta">
+                    <i class="fab fa-whatsapp"></i> Tanya Harga Paket D
                 </a>
             </div>
 
@@ -1034,109 +1064,101 @@
 
     <!-- ═══════════ TESTIMONI ═══════════ -->
     <section id="testimoni" class="testimoni-section">
-        <div class="testimoni-inner">
-            <h2 class="testimoni-title">Testimoni Klien</h2>
-            <p class="testimoni-subtitle">Kepercayaan dan kepuasan klien adalah pencapaian terbesar kami</p>
-        </div>
         <div class="testimonial-marquee-wrap">
             <div class="testimonial-track">
+
+                <!-- === SET 1 === -->
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Pelayanan luar biasa! Tim Askarindo sangat profesional dalam instalasi Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
+                    <p class="testimonial-text">"Pelayanan pembelian IFP dan Mebeler dari Askarindo sangat memuaskan. Proses cepat, tim responsif, dan hasil instalasi rapi sesuai harapan kami."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">DH</div>
-                        <div class="author-info"><h4>Drs. Hendra Wijaya, M.Pd</h4><p>Kepala Sekolah SMA Negeri 3 Jakarta</p></div>
+                        <div class="author-avatar">FH</div>
+                        <div class="author-info"><h4>Farida Hanim Handayani, S.Pd., M.Pd</h4><p>Kepala Sekolah SMKN 1 Jenangan Ponorogo</p></div>
                     </div>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik. Highly recommended untuk semua kebutuhan IT!"</p>
+                    <p class="testimonial-text">"Askarindo adalah rekanan penyedia yang sangat transparan dan detail dalam administrasi. Kerjasama yang profesional dan bisa kami andalkan."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">AS</div>
-                        <div class="author-info"><h4>Andi Saputra</h4><p>CTO TechStartup Indonesia</p></div>
+                        <div class="author-avatar">IN</div>
+                        <div class="author-info"><h4>Indiyah Nurhayati, M.Pd</h4><p>Kepala Cabang Dinas Pendidikan Wil. Blitar</p></div>
                     </div>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RK</div>
-                        <div class="author-info"><h4>Bapak Rahmat Kurniawan</h4><p>Kepala Dinas Komunikasi Pemkot Surabaya</p></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Proses pengadaan transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, training untuk staff sangat membantu."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div class="author-info"><h4>Prof. Dr. Siti Maryam</h4><p>Dekan Fakultas Teknik Universitas Indonesia</p></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern, sangat cocok untuk co-working space premium kami."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">LP</div>
-                        <div class="author-info"><h4>Lisa Pratiwi</h4><p>Owner Bali Co-work Hub</p></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Projector dan sound system bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">BP</div>
-                        <div class="author-info"><h4>Bambang Priambodo</h4><p>VP Operations Bank Mandiri</p></div>
-                    </div>
-                </div>
-                <!-- duplicate set for seamless scroll -->
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Pelayanan luar biasa! Tim Askarindo sangat profesional dalam instalasi Interactive Panel di sekolah kami. Siswa dan guru sangat antusias dengan teknologi baru ini."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">DH</div>
-                        <div class="author-info"><h4>Drs. Hendra Wijaya, M.Pd</h4><p>Kepala Sekolah SMA Negeri 3 Jakarta</p></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Harga kompetitif dengan kualitas terbaik. PC rakitan yang kami pesan memiliki performa sangat baik. Highly recommended untuk semua kebutuhan IT!"</p>
+                    <p class="testimonial-text">"Pelayanan belanja modal sangat memuaskan. Meja Kursi Set Siswa, Meja Kursi Guru, dan PC Desktop yang kami terima berkualitas baik dan sesuai spesifikasi."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AS</div>
-                        <div class="author-info"><h4>Andi Saputra</h4><p>CTO TechStartup Indonesia</p></div>
+                        <div class="author-info"><h4>Agus Siswanto, S.Pd., M.Pd</h4><p>Kepala Sekolah SMKN Tambakboyo Tuban</p></div>
                     </div>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Support after-sales yang sangat responsif. Setiap kendala teknis selalu ditangani dengan cepat. Kerjasama yang sangat memuaskan."</p>
+                    <p class="testimonial-text">"Pembelian dan instalasi Videotron Indoor untuk Aula sekolah kami berjalan lancar. Tim Askarindo bekerja profesional dan hasil akhirnya sangat memuaskan."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">RK</div>
-                        <div class="author-info"><h4>Bapak Rahmat Kurniawan</h4><p>Kepala Dinas Komunikasi Pemkot Surabaya</p></div>
+                        <div class="author-avatar">SN</div>
+                        <div class="author-info"><h4>Sunardi, S.Pd., M.Pd</h4><p>Kepala Sekolah SMKN 3 Madiun</p></div>
                     </div>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Proses pengadaan transparan dan profesional. Dokumentasi lengkap, instalasi tepat waktu, training untuk staff sangat membantu."</p>
+                    <p class="testimonial-text">"Sangat puas dengan pelayanan Askarindo untuk kebutuhan sarana prasarana IT kami. Tepat waktu, berkualitas, dan sangat mendukung program SMK Pusat Keunggulan."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div class="author-info"><h4>Prof. Dr. Siti Maryam</h4><p>Dekan Fakultas Teknik Universitas Indonesia</p></div>
+                        <div class="author-avatar">SH</div>
+                        <div class="author-info"><h4>Suharto, M.Pd</h4><p>Kepala Sekolah SMKN 1 Mejayan Madiun</p></div>
                     </div>
                 </div>
+
+                <!-- === SET 2 (duplikat untuk seamless scroll) === -->
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Furniture yang kami pesan sangat ergonomis dan berkualitas tinggi. Design modern, sangat cocok untuk co-working space premium kami."</p>
+                    <p class="testimonial-text">"Pelayanan pembelian IFP dan Mebeler dari Askarindo sangat memuaskan. Proses cepat, tim responsif, dan hasil instalasi rapi sesuai harapan kami."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">LP</div>
-                        <div class="author-info"><h4>Lisa Pratiwi</h4><p>Owner Bali Co-work Hub</p></div>
+                        <div class="author-avatar">FH</div>
+                        <div class="author-info"><h4>Farida Hanim Handayani, S.Pd., M.Pd</h4><p>Kepala Sekolah SMKN 1 Jenangan Ponorogo</p></div>
                     </div>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Projector dan sound system bekerja sempurna. Tim teknis sangat kompeten dan ramah. Sangat puas dengan hasil proyeknya!"</p>
+                    <p class="testimonial-text">"Askarindo adalah rekanan penyedia yang sangat transparan dan detail dalam administrasi. Kerjasama yang profesional dan bisa kami andalkan."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">BP</div>
-                        <div class="author-info"><h4>Bambang Priambodo</h4><p>VP Operations Bank Mandiri</p></div>
+                        <div class="author-avatar">IN</div>
+                        <div class="author-info"><h4>Indiyah Nurhayati, M.Pd</h4><p>Kepala Cabang Dinas Pendidikan Wil. Blitar</p></div>
                     </div>
                 </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Pelayanan belanja modal sangat memuaskan. Meja Kursi Set Siswa, Meja Kursi Guru, dan PC Desktop yang kami terima berkualitas baik dan sesuai spesifikasi."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info"><h4>Agus Siswanto, S.Pd., M.Pd</h4><p>Kepala Sekolah SMKN Tambakboyo Tuban</p></div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Pembelian dan instalasi Videotron Indoor untuk Aula sekolah kami berjalan lancar. Tim Askarindo bekerja profesional dan hasil akhirnya sangat memuaskan."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SN</div>
+                        <div class="author-info"><h4>Sunardi, S.Pd., M.Pd</h4><p>Kepala Sekolah SMKN 3 Madiun</p></div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Sangat puas dengan pelayanan Askarindo untuk kebutuhan sarana prasarana IT kami. Tepat waktu, berkualitas, dan sangat mendukung program SMK Pusat Keunggulan."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SH</div>
+                        <div class="author-info"><h4>Suharto, M.Pd</h4><p>Kepala Sekolah SMKN 1 Mejayan Madiun</p></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
