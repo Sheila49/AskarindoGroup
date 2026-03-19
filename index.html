@@ -171,169 +171,169 @@
 
         /* ── VISI MISI ── */
         /* ── VISI MISI (single card layout) ── */
-.vm-card {
-    border: 1px solid rgba(255,255,255,0.09);
-    border-radius: 24px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.025);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-.vm-top-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 22px 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.vm-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.10); }
-.vm-label-text {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.30);
-    white-space: nowrap;
-}
-.vm-visi-row {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.vm-visi-content { padding: 48px 44px; }
-.vm2-tag {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--primary-light);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.vm2-tag::after {
-    content: '';
-    flex: 1;
-    max-width: 36px;
-    height: 1.5px;
-    background: var(--primary-light);
-}
-.vm-visi-big {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(30px, 3.5vw, 46px);
-    font-weight: 800;
-    line-height: 1.1;
-    color: var(--txt-1);
-    margin-bottom: 22px;
-    letter-spacing: -0.02em;
-}
-.vm-visi-big span { color: var(--primary-light); }
-.vm-visi-body { font-size: 14px; color: var(--txt-3); line-height: 1.85; }
-.vm-visi-photo {
-    position: relative;
-    overflow: hidden;
-    border-left: 1px solid rgba(255,255,255,0.07);
-}
-.vm-visi-photo img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.50) saturate(0.60);
-    transition: filter 0.45s;
-}
-.vm-visi-photo:hover img { filter: brightness(0.72) saturate(0.82); }
-.vm-visi-photo::before {
-    content: '';
-    position: absolute;
-    right: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, var(--primary), var(--primary-light));
-    z-index: 2;
-}
-.vm-photo-num {
-    position: absolute;
-    bottom: -8px; right: 4px;
-    font-family: 'Syne', sans-serif;
-    font-size: 100px;
-    font-weight: 800;
-    line-height: 1;
-    color: rgba(43,122,140,0.10);
-    pointer-events: none;
-    user-select: none;
-}
-.vm-misi-row {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-}
-.vm-misi-photo {
-    position: relative;
-    overflow: hidden;
-    border-right: 1px solid rgba(255,255,255,0.07);
-    min-height: 380px;
-}
-.vm-misi-photo img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.48) saturate(0.58);
-    transition: filter 0.45s;
-}
-.vm-misi-photo:hover img { filter: brightness(0.70) saturate(0.80); }
-.vm-misi-photo::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, var(--primary), var(--primary-light));
-    z-index: 2;
-}
-.vm-misi-content { padding: 48px 44px; }
-.vm-misi-big {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(24px, 2.8vw, 36px);
-    font-weight: 800;
-    line-height: 1.15;
-    color: var(--txt-1);
-    margin-bottom: 28px;
-    letter-spacing: -0.02em;
-}
-.vm-misi-grid { display: flex; flex-direction: column; gap: 12px; }
-.vm-misi-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 14px 18px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: border-color .3s, background .3s, transform .3s;
-}
-.vm-misi-item:hover {
-    border-color: rgba(43,122,140,0.40);
-    background: rgba(43,122,140,0.07);
-    transform: translateX(4px);
-}
-.vm-misi-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: rgba(59,150,169,0.32);
-    line-height: 1;
-    flex-shrink: 0;
-    min-width: 26px;
-    padding-top: 1px;
-}
-.vm-misi-item p { font-size: 13px; color: var(--txt-3); line-height: 1.72; }
+        .vm-card {
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .vm-top-label {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 22px 40px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .vm-label-line { flex: 1; height: 1px; background: var(--card-border); }
+        .vm-label-text {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--txt-3);
+            white-space: nowrap;
+        }
+        .vm-visi-row {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .vm-visi-content { padding: 48px 44px; }
+        .vm2-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--primary-light);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .vm2-tag::after {
+            content: '';
+            flex: 1;
+            max-width: 36px;
+            height: 1.5px;
+            background: var(--primary-light);
+        }
+        .vm-visi-big {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(30px, 3.5vw, 46px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--txt-1);
+            margin-bottom: 22px;
+            letter-spacing: -0.02em;
+        }
+        .vm-visi-big span { color: var(--primary-light); }
+        .vm-visi-body { font-size: 14px; color: var(--txt-3); line-height: 1.85; }
+        .vm-visi-photo {
+            position: relative;
+            overflow: hidden;
+            border-left: 1px solid var(--card-border);
+        }
+        .vm-visi-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.50) saturate(0.60);
+            transition: filter 0.45s;
+        }
+        .vm-visi-photo:hover img { filter: brightness(0.72) saturate(0.82); }
+        .vm-visi-photo::before {
+            content: '';
+            position: absolute;
+            right: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--primary-light));
+            z-index: 2;
+        }
+        .vm-photo-num {
+            position: absolute;
+            bottom: -8px; right: 4px;
+            font-family: 'Syne', sans-serif;
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 1;
+            color: rgba(43,122,140,0.10);
+            pointer-events: none;
+            user-select: none;
+        }
+        .vm-misi-row {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+        .vm-misi-photo {
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid var(--card-border);
+            min-height: 380px;
+        }
+        .vm-misi-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.48) saturate(0.58);
+            transition: filter 0.45s;
+        }
+        .vm-misi-photo:hover img { filter: brightness(0.70) saturate(0.80); }
+        .vm-misi-photo::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--primary-light));
+            z-index: 2;
+        }
+        .vm-misi-content { padding: 48px 44px; }
+        .vm-misi-big {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(24px, 2.8vw, 36px);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--txt-1);
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+        .vm-misi-grid { display: flex; flex-direction: column; gap: 12px; }
+        .vm-misi-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            transition: border-color .3s, background .3s, transform .3s;
+        }
+        .vm-misi-item:hover {
+            border-color: rgba(43,122,140,0.40);
+            background: rgba(43,122,140,0.07);
+            transform: translateX(4px);
+        }
+        .vm-misi-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: rgba(59,150,169,0.32);
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 26px;
+            padding-top: 1px;
+        }
+        .vm-misi-item p { font-size: 13px; color: var(--txt-3); line-height: 1.72; }
 
-@media (max-width: 860px) {
-    .vm-visi-row { grid-template-columns: 1fr; }
-    .vm-visi-photo { height: 180px; border-left: none; border-top: 1px solid rgba(255,255,255,0.07); }
-    .vm-misi-row { grid-template-columns: 1fr; }
-    .vm-misi-photo { min-height: 160px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .vm-visi-content, .vm-misi-content { padding: 32px 24px; }
-    .vm-top-label { padding: 18px 24px; }
-}
+        @media (max-width: 860px) {
+            .vm-visi-row { grid-template-columns: 1fr; }
+            .vm-visi-photo { height: 180px; border-left: none; border-top: 1px solid var(--card-border); }
+            .vm-misi-row { grid-template-columns: 1fr; }
+            .vm-misi-photo { min-height: 160px; border-right: none; border-bottom: 1px solid var(--card-border); }
+            .vm-visi-content, .vm-misi-content { padding: 32px 24px; }
+            .vm-top-label { padding: 18px 24px; }
+        }
 
         /* ── NILAI UTAMA ── */
         .values-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin:0 0 60px; }
