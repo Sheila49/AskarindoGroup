@@ -170,23 +170,170 @@
         .timeline-content p  { font-family:var(--font); line-height:1.6; color:var(--txt-2); }
 
         /* ── VISI MISI ── */
-        .visi-misi-3col { display:grid; grid-template-columns:220px 1fr 1fr; gap:0; margin:0 0 60px; border:1px solid var(--vm-border); border-radius:20px; overflow:hidden; min-height:460px; }
-        .vm-images { display:flex; flex-direction:column; border-right:1px solid var(--vm-border); }
-        .vm-images .img-half { flex:1; background:rgba(43,122,140,.15); overflow:hidden; position:relative; }
-        .vm-images .img-half+.img-half { border-top:1px solid var(--vm-border); }
-        .vm-images .img-half img { width:100%; height:100%; object-fit:cover; filter:brightness(.55) saturate(.7); transition:transform .5s ease, filter .5s ease; }
-        .vm-images .img-half:hover img { transform:scale(1.05); filter:brightness(1) saturate(1); }
-        .vm-images .img-half .img-label { position:absolute; bottom:14px; left:14px; font-family:var(--font); font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--vm-img-label); }
-        .vm-block { padding:50px 48px; border-right:1px solid var(--vm-border); position:relative; }
-        .vm-block:last-child { border-right:none; }
-        .vm-block::before { content:''; position:absolute; inset:0; background:var(--vm-before); }
-        .vm-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--vm-border); }
-        .vm-header h3 { font-family:var(--font); font-size:1.6rem; font-weight:700; color:var(--txt-1); }
-        .vm-number { font-family:var(--font); font-size:2rem; font-weight:900; color:var(--vm-num); line-height:1; }
-        .vm-list { list-style:none; display:flex; flex-direction:column; gap:20px; position:relative; z-index:1; }
-        .vm-list li { display:flex; gap:18px; align-items:flex-start; font-family:var(--font); font-size:.95rem; color:var(--txt-2); line-height:1.65; }
-        .vm-list li .num { font-family:var(--font); font-size:1rem; font-weight:700; color:var(--vm-list-num); flex-shrink:0; min-width:18px; }
-        .vm-text { font-family:var(--font); font-size:.95rem; color:var(--txt-2); line-height:1.8; position:relative; z-index:1; }
+        /* ── VISI MISI (single card layout) ── */
+.vm-card {
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.025);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.vm-top-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.vm-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.10); }
+.vm-label-text {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.30);
+    white-space: nowrap;
+}
+.vm-visi-row {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.vm-visi-content { padding: 48px 44px; }
+.vm2-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.vm2-tag::after {
+    content: '';
+    flex: 1;
+    max-width: 36px;
+    height: 1.5px;
+    background: var(--primary-light);
+}
+.vm-visi-big {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--txt-1);
+    margin-bottom: 22px;
+    letter-spacing: -0.02em;
+}
+.vm-visi-big span { color: var(--primary-light); }
+.vm-visi-body { font-size: 14px; color: var(--txt-3); line-height: 1.85; }
+.vm-visi-photo {
+    position: relative;
+    overflow: hidden;
+    border-left: 1px solid rgba(255,255,255,0.07);
+}
+.vm-visi-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.50) saturate(0.60);
+    transition: filter 0.45s;
+}
+.vm-visi-photo:hover img { filter: brightness(0.72) saturate(0.82); }
+.vm-visi-photo::before {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary), var(--primary-light));
+    z-index: 2;
+}
+.vm-photo-num {
+    position: absolute;
+    bottom: -8px; right: 4px;
+    font-family: 'Syne', sans-serif;
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(43,122,140,0.10);
+    pointer-events: none;
+    user-select: none;
+}
+.vm-misi-row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+}
+.vm-misi-photo {
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    min-height: 380px;
+}
+.vm-misi-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.48) saturate(0.58);
+    transition: filter 0.45s;
+}
+.vm-misi-photo:hover img { filter: brightness(0.70) saturate(0.80); }
+.vm-misi-photo::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary), var(--primary-light));
+    z-index: 2;
+}
+.vm-misi-content { padding: 48px 44px; }
+.vm-misi-big {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(24px, 2.8vw, 36px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--txt-1);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+}
+.vm-misi-grid { display: flex; flex-direction: column; gap: 12px; }
+.vm-misi-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: border-color .3s, background .3s, transform .3s;
+}
+.vm-misi-item:hover {
+    border-color: rgba(43,122,140,0.40);
+    background: rgba(43,122,140,0.07);
+    transform: translateX(4px);
+}
+.vm-misi-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: rgba(59,150,169,0.32);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 26px;
+    padding-top: 1px;
+}
+.vm-misi-item p { font-size: 13px; color: var(--txt-3); line-height: 1.72; }
+
+@media (max-width: 860px) {
+    .vm-visi-row { grid-template-columns: 1fr; }
+    .vm-visi-photo { height: 180px; border-left: none; border-top: 1px solid rgba(255,255,255,0.07); }
+    .vm-misi-row { grid-template-columns: 1fr; }
+    .vm-misi-photo { min-height: 160px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .vm-visi-content, .vm-misi-content { padding: 32px 24px; }
+    .vm-top-label { padding: 18px 24px; }
+}
 
         /* ── NILAI UTAMA ── */
         .values-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin:0 0 60px; }
@@ -617,36 +764,53 @@
     </section>
 
     <!-- ═══════════ VISI & MISI ═══════════ -->
-    <section id="visi-misi" class="section">
-        <h2 class="section-title">Visi &amp; Misi</h2>
-        <p class="section-subtitle">Perusahaan berkomitmen menjadi mitra terpercaya dalam solusi teknologi dan pengadaan. Hal ini diwujudkan melalui penyediaan layanan berkualitas, solusi yang tepat, serta kemitraan jangka panjang di berbagai sektor.</p>
-        <div class="visi-misi-3col">
-            <div class="vm-images">
-                <div class="img-half">
-                    <img src="assets\portofolio\ee19ac3e-d9d5-488d-ade3-477320906f64.jpg" alt="Foto Visi" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4a55,#0d3d47)'">
-                    <span class="img-label">Visi</span>
-                </div>
-                <div class="img-half">
-                    <img src="assets\portofolio\adff1732-99a1-4b39-83bf-4bba3fba0059.jpg" alt="Foto Misi" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d3d47,#1a4a55)'">
-                    <span class="img-label">Misi</span>
-                </div>
+<section id="visi-misi" class="section">
+    <h2 class="section-title">Visi &amp; Misi</h2>
+    <p class="section-subtitle">Perusahaan berkomitmen menjadi mitra terpercaya dalam solusi teknologi dan pengadaan. Hal ini diwujudkan melalui penyediaan layanan berkualitas, solusi yang tepat, serta kemitraan jangka panjang di berbagai sektor.</p>
+
+    <div class="vm-card">
+
+        <!-- Label -->
+        <div class="vm-top-label">
+            <div class="vm-label-line"></div>
+            <span class="vm-label-text">Tentang Askarindogroup</span>
+            <div class="vm-label-line"></div>
+        </div>
+
+        <!-- VISI -->
+        <div class="vm-visi-row">
+            <div class="vm-visi-content">
+                <div class="vm2-tag">Visi</div>
+                <h3 class="vm-visi-big">Unggul.<br>Inovatif.<br><span>Berkelanjutan.</span></h3>
+                <p class="vm-visi-body">Menjadi Perusahaan yang unggul dalam penyediaan solusi teknologi dan pengadaan terintegrasi yang inovatif, adaptif, dan berkelanjutan.</p>
             </div>
-            <div class="vm-block">
-                <div class="vm-header"><h3>Visi</h3><span class="vm-number">01</span></div>
-                <p class="vm-text">Menjadi Perusahaan yang unggul dalam penyediaan solusi teknologi dan pengadaan terintegrasi yang inovatif, adaptif, dan berkelanjutan.</p>
-            </div>
-            <div class="vm-block">
-                <div class="vm-header"><h3>Misi</h3><span class="vm-number">02</span></div>
-                <ul class="vm-list">
-                    <li><span class="num">1</span><span>Mengembangkan layanan digital dan teknologi yang inovatif, adaptif, dan relevan dengan kebutuhan.</span></li>
-                    <li><span class="num">2</span><span>Menyediakabn sarana dan prasaranan berkualitas yang terintegrasi untuk mendukung operasional mitra.</span></li>
-                    <li><span class="num">3</span><span>Membangun kemitraan strategis yang profesional, terpercaya, dan berkelanjutan.</span></li>
-                    <li><span class="num">4</span><span>Memberikan solusi terpadu yang meningkatkan efesiensi, produktivitas, dan pertumbuhan jangka panjang.</span></li>
-                    <li><span class="num">5</span><span>Menjadikan perusahaan yang dapat bekerjasama dan berkolaborasi di berbagai sektor stakeholder.</span></li>
-                </ul>
+            <div class="vm-visi-photo">
+                <img src="assets/visimisi/pexels-shvetsa-4226122.jpg.jpeg" alt="Foto Visi" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4a55,#0d3d47)'">
+                <div class="vm-photo-num">01</div>
             </div>
         </div>
-    </section>
+
+        <!-- MISI -->
+        <div class="vm-misi-row">
+            <div class="vm-misi-photo">
+                <img src="assets/visimisi/pexels-yankrukov-7793687.jpg.jpeg" alt="Foto Misi" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d3d47,#1a4a55)'">
+                <div class="vm-photo-num">02</div>
+            </div>
+            <div class="vm-misi-content">
+                <div class="vm2-tag">Misi</div>
+                <h3 class="vm-misi-big">Lima Langkah<br>Menuju Dampak Nyata</h3>
+                <div class="vm-misi-grid">
+                    <div class="vm-misi-item"><span class="vm-misi-num">1</span><p>Mengembangkan layanan digital dan teknologi yang inovatif, adaptif, dan relevan dengan kebutuhan.</p></div>
+                    <div class="vm-misi-item"><span class="vm-misi-num">2</span><p>Menyediakan sarana dan prasarana berkualitas yang terintegrasi untuk mendukung operasional mitra.</p></div>
+                    <div class="vm-misi-item"><span class="vm-misi-num">3</span><p>Membangun kemitraan strategis yang profesional, terpercaya, dan berkelanjutan.</p></div>
+                    <div class="vm-misi-item"><span class="vm-misi-num">4</span><p>Memberikan solusi terpadu yang meningkatkan efisiensi, produktivitas, dan pertumbuhan jangka panjang.</p></div>
+                    <div class="vm-misi-item"><span class="vm-misi-num">5</span><p>Menjadikan perusahaan yang dapat bekerjasama dan berkolaborasi di berbagai sektor stakeholder.</p></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- ═══════════ NILAI UTAMA ═══════════ -->
     <section id="nilai-utama" class="section">
