@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Askarindo Integrasi Group</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logoaskarindo1-removebg-preview.png">
     <link href="https://fonts.bunny.net/css?family=montserrat:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <style>
@@ -72,6 +73,13 @@
 
             --map-bg:            rgba(255,255,255,0.04);
             --map-border:        rgba(255,255,255,0.08);
+
+            /* Validation colors */
+            --error-color:       #ff4d4d;
+            --error-bg:          rgba(255,77,77,0.08);
+            --error-border:      rgba(255,77,77,0.55);
+            --success-color:     #3B96A9;
+            --success-border:    rgba(59,150,169,0.55);
         }
 
         body.light {
@@ -117,6 +125,8 @@
             --form-ph:           #bbbbbb;
             --map-bg:            rgba(0,0,0,0.03);
             --map-border:        rgba(0,0,0,0.08);
+            --error-bg:          rgba(255,77,77,0.05);
+            --error-border:      rgba(255,77,77,0.40);
         }
 
         @media (prefers-color-scheme: light) {
@@ -163,6 +173,8 @@
                 --form-ph:           #bbbbbb;
                 --map-bg:            rgba(0,0,0,0.03);
                 --map-border:        rgba(0,0,0,0.08);
+                --error-bg:          rgba(255,77,77,0.05);
+                --error-border:      rgba(255,77,77,0.40);
             }
         }
 
@@ -477,10 +489,12 @@
         }
         .contact-info-text a:hover { color: var(--txt-1); }
 
+        /* ══ FORM FIELDS ══ */
         .contact-form { }
-        .form-group { margin-bottom: 16px; }
+        .form-group { margin-bottom: 16px; position: relative; }
         .form-group label {
-            display: block; margin-bottom: 6px;
+            display: flex; align-items: center; gap: 6px;
+            margin-bottom: 6px;
             font-family: var(--font);
             color: var(--txt-2); font-weight: 600; font-size: 0.86rem;
         }
@@ -491,7 +505,7 @@
             background: var(--form-bg); border: 1px solid var(--form-border);
             border-radius: 11px; color: var(--txt-1);
             font-family: var(--font); font-size: 0.92rem;
-            transition: border-color 0.25s, background 0.25s;
+            transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
         }
         .form-group input::placeholder,
         .form-group textarea::placeholder { color: var(--form-ph); }
@@ -499,21 +513,110 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none; border-color: var(--primary); background: var(--form-focus);
+            box-shadow: 0 0 0 3px rgba(43,122,140,0.12);
         }
         .form-group textarea  { resize: vertical; min-height: 120px; }
         .form-group select option { background: var(--form-opt-bg); color: var(--txt-1); }
+
+        /* Placeholder styling for select */
+        .form-group select:required:invalid { color: var(--form-ph); }
+        .form-group select option[value=""] { color: var(--form-ph); }
+        .form-group select option:not([value=""]) { color: var(--txt-1); }
+
+        /* ══ VALIDATION STATES ══ */
+        .form-group.has-error input,
+        .form-group.has-error textarea,
+        .form-group.has-error select,
+        .form-group.has-error .lainnya-input {
+            border-color: var(--error-border) !important;
+            background: var(--error-bg) !important;
+            box-shadow: 0 0 0 3px rgba(255,77,77,0.10) !important;
+        }
+        .form-group.has-success input,
+        .form-group.has-success textarea,
+        .form-group.has-success select,
+        .form-group.has-success .lainnya-input {
+            border-color: var(--success-border) !important;
+            box-shadow: 0 0 0 3px rgba(43,122,140,0.10) !important;
+        }
+
+        /* ══ ERROR MESSAGE ══ */
+        .field-error {
+            display: none;
+            font-family: var(--font);
+            font-size: 0.78rem; font-weight: 600;
+            color: var(--error-color);
+            margin-top: 6px;
+            align-items: center; gap: 5px;
+            animation: errorAppear 0.25s ease;
+        }
+        .field-error.show { display: flex; }
+        @keyframes errorAppear {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .field-error i { font-size: 0.75rem; flex-shrink: 0; }
+
+        /* ══ FIELD ICON (✓ / ✗) ══ */
+        .field-icon {
+            position: absolute; right: 14px;
+            top: 38px; /* below label */
+            font-size: 13px; pointer-events: none;
+            opacity: 0; transition: opacity 0.2s;
+        }
+        .form-group.has-error   .field-icon { opacity: 1; color: var(--error-color); }
+        .form-group.has-success .field-icon { opacity: 1; color: var(--success-color); }
+        /* nudge icon inside textarea & select */
+        .form-group.textarea-group .field-icon { top: 42px; }
+        .form-group input,
+        .form-group select { padding-right: 38px; }
+
+        /* ══ LAINNYA INPUT WRAPPER ══ */
+        .subject-wrapper { position: relative; }
+        .lainnya-input {
+            width: 100%; padding: 12px 38px 12px 16px;
+            background: var(--form-bg); border: 1px solid var(--primary);
+            border-radius: 11px; color: var(--txt-1);
+            font-family: var(--font); font-size: 0.92rem;
+            box-shadow: 0 0 0 3px rgba(43,122,140,0.12);
+            transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+            display: none; /* hidden until Lainnya clicked */
+        }
+        .lainnya-input::placeholder { color: var(--form-ph); }
+        .lainnya-input:focus {
+            outline: none; border-color: var(--primary); background: var(--form-focus);
+            box-shadow: 0 0 0 3px rgba(43,122,140,0.15);
+        }
+        .lainnya-input.visible { display: block; animation: lainnyaSlide 0.28s ease; }
+        @keyframes lainnyaSlide {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .lainnya-back-btn {
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; cursor: pointer;
+            color: var(--txt-3); font-size: 0.82rem; font-family: var(--font);
+            font-weight: 600; padding: 4px 6px; border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+            display: flex; align-items: center; gap: 4px;
+            white-space: nowrap;
+        }
+        .lainnya-back-btn:hover { color: var(--primary-light); background: var(--card-bg); }
+
+        /* ══ SUBMIT BUTTON ══ */
         .submit-btn {
             width: 100%; padding: 15px;
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: #fff; border: none; border-radius: 11px;
             font-family: var(--font);
             font-size: 0.97rem; font-weight: 700; cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
             box-shadow: 0 8px 24px rgba(43,122,140,0.38);
             display: flex; align-items: center; justify-content: center; gap: 8px;
             margin-top: 4px;
         }
-        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(43,122,140,0.55); }
+        .submit-btn:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(43,122,140,0.55); }
+        .submit-btn:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
 
         /* ══ TOAST ══ */
         .toast {
@@ -548,7 +651,7 @@
         .scroll-top.visible { opacity: 1; pointer-events: auto; }
         .scroll-top:hover { background: var(--card-hover-bg); border-color: var(--primary); transform: translateY(-3px); }
 
-        /* ══ FOOTER — tetap Avenir ══ */
+        /* ══ FOOTER ══ */
         footer {
             background: var(--footer-bg);
             border-top: 1px solid var(--footer-border);
@@ -623,13 +726,43 @@
         .wa-wrapper:hover .wa-float { animation: none; transform: scale(1.1); box-shadow: 0 14px 50px rgba(37,211,102,0.75); }
         .wa-wrapper:hover .wa-bubble { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; }
 
+        /* ══ FEEDBACK CTA ══ */
+        .cta-section {
+            background: var(--hours-bg);
+            border: 1px solid var(--hours-border);
+            border-radius: 28px; padding: 60px 40px;
+            text-align: center;
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        }
+        .cta-section h2 {
+            font-family: var(--font);
+            font-size: clamp(28px, 5vw, 48px); font-weight: 900;
+            margin-bottom: 16px; color: var(--txt-1);
+        }
+        .cta-section p {
+            font-family: var(--font);
+            font-size: 1.1rem; color: var(--txt-2);
+            margin-bottom: 28px; line-height: 1.7;
+        }
+        .cta-btn {
+            font-family: var(--font);
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 42px;
+            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
+            color: white; border-radius: 50px; font-size: 17px;
+            font-weight: 700; text-decoration: none;
+            box-shadow: 0 15px 40px rgba(43,122,140,0.4);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(43,122,140,0.6); }
+
         /* ══ RESPONSIVE ══ */
         @media (max-width: 960px) {
             .contact-form-inner { grid-template-columns: 1fr; gap: 36px; }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
             .support-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 860px) {
             nav { padding: 0 18px; gap: 10px; }
             .nav-right { gap: 0; }
@@ -659,44 +792,10 @@
             .support-grid { grid-template-columns: 1fr; }
             .wa-bubble { display: none; }
         }
-
         @media (max-width: 768px) {
             .footer-content { grid-template-columns: 1fr; gap: 40px; }
             .section { padding: 48px 20px; }
             .contact-form-section { padding: 36px 22px; }
-        }
-
-        /* ══ FEEDBACK CTA ══ */
-        .cta-section {
-            background: var(--hours-bg);
-            border: 1px solid var(--hours-border);
-            border-radius: 28px; padding: 60px 40px;
-            text-align: center;
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-        }
-        .cta-section h2 {
-            font-family: var(--font);
-            font-size: clamp(28px, 5vw, 48px); font-weight: 900;
-            margin-bottom: 16px; color: var(--txt-1);
-        }
-        .cta-section p {
-            font-family: var(--font);
-            font-size: 1.1rem; color: var(--txt-2);
-            margin-bottom: 28px; line-height: 1.7;
-        }
-        .cta-btn {
-            font-family: var(--font);
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 42px;
-            background: linear-gradient(135deg, #2B7A8C, #3B96A9);
-            color: white; border-radius: 50px; font-size: 17px;
-            font-weight: 700; text-decoration: none;
-            box-shadow: 0 15px 40px rgba(43,122,140,0.4);
-            transition: all 0.4s ease;
-        }
-        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(43,122,140,0.6); }
-
-        @media (max-width: 768px) {
             .cta-section { padding: 40px 20px; }
         }
 
@@ -764,7 +863,7 @@
                 <div class="support-icon"><i class="fab fa-whatsapp"></i></div>
                 <h3>WhatsApp Support</h3>
                 <p>Chat langsung dengan tim support kami untuk bantuan cepat dan responsif. Tersedia 24/7.</p>
-                <a href="https://wa.me/6285854542007?text=Halo,%20saya%20butuh%20bantuan%20support" target="_blank" class="support-btn">Chat Sekarang</a>
+                <a href="#kontak" target="_blank" class="support-btn">Chat Sekarang</a>
             </div>
             <div class="support-card">
                 <div class="support-icon"><i class="fas fa-envelope"></i></div>
@@ -920,13 +1019,13 @@
         </div>
     </div>
 
-    <!-- ══════════ KIRIM PESAN (before footer) ══════════ -->
+    <!-- ══════════ KIRIM PESAN ══════════ -->
     <section id="kontak" class="section" style="padding-top: 0;">
         <div class="contact-form-section">
             <div class="contact-form-inner">
                 <div class="contact-left">
                     <h2>Kirim Pesan</h2>
-                    <p>Isi formulir dan tim kami akan segera menghubungi Anda. Atau hubungi langsung melalui kanal di bawah ini.</p>
+                    <p>Isi formulir Anda, atau hubungi kami via kanal di bawah ini.</p>
 
                     <div class="contact-info-item">
                         <div class="contact-info-icon"><i class="fab fa-whatsapp"></i></div>
@@ -958,37 +1057,73 @@
                     </div>
                 </div>
 
+                <!-- ══ FORM ══ -->
                 <div class="contact-form">
                     <form id="contactForm" novalidate>
-                        <div class="form-group">
-                            <label for="cname">Nama Lengkap *</label>
-                            <input type="text" id="cname" placeholder="Masukkan nama lengkap Anda" required>
+
+                        <!-- Nama -->
+                        <div class="form-group" id="fg-name">
+                            <label for="cname">Nama Lengkap <span style="color:var(--error-color)">*</span></label>
+                            <input type="text" id="cname" placeholder="Masukkan nama lengkap Anda" autocomplete="name">
+                            <i class="field-icon fas fa-check" id="icon-name"></i>
+                            <p class="field-error" id="err-name"><i class="fas fa-exclamation-circle"></i><span></span></p>
                         </div>
-                        <div class="form-group">
-                            <label for="cemail">Email *</label>
-                            <input type="email" id="cemail" placeholder="nama@email.com" required>
+
+                        <!-- Email -->
+                        <div class="form-group" id="fg-email">
+                            <label for="cemail">Email <span style="color:var(--error-color)">*</span></label>
+                            <input type="email" id="cemail" placeholder="nama@email.com" autocomplete="email">
+                            <i class="field-icon fas fa-check" id="icon-email"></i>
+                            <p class="field-error" id="err-email"><i class="fas fa-exclamation-circle"></i><span></span></p>
                         </div>
-                        <div class="form-group">
-                            <label for="cphone">Nomor Telepon / WhatsApp *</label>
-                            <input type="tel" id="cphone" placeholder="+62 xxx-xxxx-xxxx" required>
+
+                        <!-- Telepon -->
+                        <div class="form-group" id="fg-phone">
+                            <label for="cphone">Nomor Telepon / WhatsApp <span style="color:var(--error-color)">*</span></label>
+                            <input type="tel" id="cphone" placeholder="+62 xxx-xxxx-xxxx" autocomplete="tel" inputmode="tel">
+                            <i class="field-icon fas fa-check" id="icon-phone"></i>
+                            <p class="field-error" id="err-phone"><i class="fas fa-exclamation-circle"></i><span></span></p>
                         </div>
-                        <div class="form-group">
-                            <label for="csubject">Subjek *</label>
-                            <select id="csubject" required>
-                                <option value="">Pilih subjek pesan</option>
-                                <option>Pertanyaan Produk</option>
-                                <option>Request Penawaran</option>
-                                <option>Technical Support</option>
-                                <option>Kerjasama / Partnership</option>
-                                <option>Komplain / Feedback</option>
-                                <option>Lainnya</option>
-                            </select>
+
+                        <!-- Subjek -->
+                        <div class="form-group" id="fg-subject">
+                            <label for="csubject">Subjek <span style="color:var(--error-color)">*</span></label>
+                            <div class="subject-wrapper">
+                                <!-- SELECT (default visible) -->
+                                <select id="csubject" required>
+                                    <option value="" disabled selected hidden>Pilih subjek pesan</option>
+                                    <option>Pertanyaan Produk</option>
+                                    <option>Request Penawaran</option>
+                                    <option>Technical Support</option>
+                                    <option>Kerjasama / Partnership</option>
+                                    <option>Komplain / Feedback</option>
+                                    <option value="__lainnya__">Lainnya (ketik sendiri...)</option>
+                                </select>
+                                <!-- TEXT INPUT (shown when Lainnya selected) -->
+                                <input
+                                    type="text"
+                                    id="csubject-custom"
+                                    class="lainnya-input"
+                                    placeholder="Tulis subjek pesan Anda..."
+                                    maxlength="120"
+                                    autocomplete="off"
+                                >
+                                <button type="button" class="lainnya-back-btn" id="lainnya-back" style="display:none;" title="Kembali ke pilihan">
+                                    <i class="fas fa-chevron-left"></i> Pilih dari daftar
+                                </button>
+                            </div>
+                            <i class="field-icon fas fa-check" id="icon-subject"></i>
+                            <p class="field-error" id="err-subject"><i class="fas fa-exclamation-circle"></i><span></span></p>
                         </div>
-                        <div class="form-group">
-                            <label for="cmessage">Pesan *</label>
-                            <textarea id="cmessage" placeholder="Tulis pesan Anda di sini..." required></textarea>
+
+                        <!-- Pesan -->
+                        <div class="form-group textarea-group" id="fg-message">
+                            <label for="cmessage">Pesan <span style="color:var(--error-color)">*</span></label>
+                            <textarea id="cmessage" placeholder="Tulis pesan Anda di sini..." rows="5"></textarea>
+                            <p class="field-error" id="err-message"><i class="fas fa-exclamation-circle"></i><span></span></p>
                         </div>
-                        <button type="submit" class="submit-btn">
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
                             <i class="fas fa-paper-plane"></i> Kirim Pesan
                         </button>
                     </form>
@@ -1020,11 +1155,11 @@
             <div class="footer-section">
                 <h4>Layanan</h4>
                 <ul>
-                    <li><a href="#">Konsultasi Gratis</a></li>
-                    <li><a href="#">Instalasi &amp; Setup</a></li>
-                    <li><a href="#">Pelatihan Pengguna</a></li>
-                    <li><a href="#">Maintenance</a></li>
-                    <li><a href="#">Garansi &amp; Support</a></li>
+                    <li><a href="#layanan">Konsultasi Gratis</a></li>
+                    <li><a href="#layanan">Instalasi &amp; Setup</a></li>
+                    <li><a href="#layanan">Pelatihan Pengguna</a></li>
+                    <li><a href="#garansi">Maintenance</a></li>
+                    <li><a href="#garansi">Garansi &amp; Support</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1043,7 +1178,7 @@
         </div>
     </footer>
 
-    <!-- ══════════ WHATSAPP FLOATING BUTTON ══════════ -->
+    <!-- ══════════ WA FLOAT ══════════ -->
     <div class="wa-wrapper">
         <div class="wa-bubble">
             Order &amp; Konsultasi<br>via WhatsApp<br><strong>Klik Di Sini!</strong>
@@ -1063,7 +1198,9 @@
     </div>
 
     <script>
-    /* ── GOOGLE MAPS REVIEW ── */
+    /* ══════════════════════════════════════
+       GOOGLE REVIEW
+    ══════════════════════════════════════ */
     function openGoogleReview() {
         const WRITE_REVIEW_URL =
             'https://www.google.com/maps/place/Askarindo+Group/@-7.3236696,112.7748167,17z/' +
@@ -1086,7 +1223,9 @@
         }
     }
 
-    /* ── THEME ── */
+    /* ══════════════════════════════════════
+       THEME
+    ══════════════════════════════════════ */
     const body  = document.body;
     const sysMQ = window.matchMedia('(prefers-color-scheme: dark)');
     const btns  = document.querySelectorAll('.appearance-btn');
@@ -1104,7 +1243,9 @@
         if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
     });
 
-    /* ── PARTICLES ── */
+    /* ══════════════════════════════════════
+       PARTICLES
+    ══════════════════════════════════════ */
     const pc = document.getElementById('particles');
     for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
@@ -1115,7 +1256,9 @@
         pc.appendChild(p);
     }
 
-    /* ── HAMBURGER ── */
+    /* ══════════════════════════════════════
+       HAMBURGER
+    ══════════════════════════════════════ */
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('navMenu');
     function toggleMenu(f) {
@@ -1128,7 +1271,9 @@
     hamburger.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') toggleMenu(); });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    /* ── SMOOTH SCROLL ── */
+    /* ══════════════════════════════════════
+       SMOOTH SCROLL
+    ══════════════════════════════════════ */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const el = document.querySelector(this.getAttribute('href'));
@@ -1136,7 +1281,9 @@
         });
     });
 
-    /* ── FAQ ── */
+    /* ══════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════ */
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const faqItem = question.parentElement;
@@ -1152,26 +1299,253 @@
         });
     });
 
-    /* ── CONTACT FORM ── */
+    /* ══════════════════════════════════════
+       LAINNYA — SUBJECT TOGGLE
+    ══════════════════════════════════════ */
+    const selectEl      = document.getElementById('csubject');
+    const customInput   = document.getElementById('csubject-custom');
+    const backBtn       = document.getElementById('lainnya-back');
+    let   isCustomMode  = false;
+
+    function enterCustomMode() {
+        isCustomMode = true;
+        selectEl.style.display      = 'none';
+        customInput.classList.add('visible');
+        backBtn.style.display       = 'flex';
+        customInput.focus();
+        // clear any previous validation state on subject group
+        setFieldState('subject', null);
+    }
+
+    function exitCustomMode() {
+        isCustomMode = false;
+        selectEl.style.display      = '';
+        customInput.classList.remove('visible');
+        backBtn.style.display       = 'none';
+        customInput.value           = '';
+        selectEl.value              = '';   // reset to placeholder
+        setFieldState('subject', null);
+    }
+
+    selectEl.addEventListener('change', () => {
+        if (selectEl.value === '__lainnya__') enterCustomMode();
+    });
+    backBtn.addEventListener('click', exitCustomMode);
+
+    /* ══════════════════════════════════════
+       FORM VALIDATION HELPERS
+    ══════════════════════════════════════ */
+    /**
+     * setFieldState(field, state, message)
+     * state: 'error' | 'success' | null (clear)
+     */
+    function setFieldState(field, state, message) {
+        const fg   = document.getElementById('fg-' + field);
+        const err  = document.getElementById('err-' + field);
+        const icon = document.getElementById('icon-' + field);
+
+        fg.classList.remove('has-error', 'has-success');
+
+        if (state === 'error') {
+            fg.classList.add('has-error');
+            if (err) {
+                err.querySelector('span').textContent = message || '';
+                err.classList.add('show');
+            }
+            if (icon) {
+                icon.className = 'field-icon fas fa-times';
+            }
+        } else if (state === 'success') {
+            fg.classList.add('has-success');
+            if (err) err.classList.remove('show');
+            if (icon) {
+                icon.className = 'field-icon fas fa-check';
+            }
+        } else {
+            // clear
+            if (err) err.classList.remove('show');
+            if (icon) {
+                icon.className = 'field-icon fas fa-check';
+            }
+        }
+    }
+
+    /* ── Validators ── */
+    function validateName() {
+        const val = document.getElementById('cname').value.trim();
+        if (!val) {
+            setFieldState('name', 'error', 'Nama lengkap wajib diisi.');
+            return false;
+        }
+        if (val.length < 2) {
+            setFieldState('name', 'error', 'Nama minimal 2 karakter.');
+            return false;
+        }
+        if (/\d/.test(val)) {
+            setFieldState('name', 'error', 'Nama tidak boleh mengandung angka.');
+            return false;
+        }
+        setFieldState('name', 'success');
+        return true;
+    }
+
+    function validateEmail() {
+        const val = document.getElementById('cemail').value.trim();
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (!val) {
+            setFieldState('email', 'error', 'Email wajib diisi.');
+            return false;
+        }
+        if (!emailRe.test(val)) {
+            setFieldState('email', 'error', 'Format email tidak valid. Contoh: nama@email.com');
+            return false;
+        }
+        setFieldState('email', 'success');
+        return true;
+    }
+
+    function validatePhone() {
+        const raw = document.getElementById('cphone').value.trim();
+        // strip spaces, dashes, plus sign for digit-count check
+        const digits = raw.replace(/[\s\-\+\(\)]/g, '');
+        if (!raw) {
+            setFieldState('phone', 'error', 'Nomor telepon wajib diisi.');
+            return false;
+        }
+        // Must contain only digits, spaces, dashes, plus, parentheses
+        if (!/^[\d\s\-\+\(\)]+$/.test(raw)) {
+            setFieldState('phone', 'error', 'Nomor telepon hanya boleh berisi angka (dan +, -, spasi).');
+            return false;
+        }
+        if (digits.length < 9) {
+            setFieldState('phone', 'error', 'Nomor telepon terlalu pendek (minimal 9 digit).');
+            return false;
+        }
+        if (digits.length > 15) {
+            setFieldState('phone', 'error', 'Nomor telepon terlalu panjang (maksimal 15 digit).');
+            return false;
+        }
+        setFieldState('phone', 'success');
+        return true;
+    }
+
+    function validateSubject() {
+        if (isCustomMode) {
+            const val = customInput.value.trim();
+            if (!val) {
+                setFieldState('subject', 'error', 'Subjek pesan wajib diisi.');
+                return false;
+            }
+            if (val.length < 3) {
+                setFieldState('subject', 'error', 'Subjek terlalu pendek (minimal 3 karakter).');
+                return false;
+            }
+        } else {
+            if (!selectEl.value || selectEl.value === '__lainnya__') {
+                setFieldState('subject', 'error', 'Pilih subjek pesan terlebih dahulu.');
+                return false;
+            }
+        }
+        setFieldState('subject', 'success');
+        return true;
+    }
+
+    function validateMessage() {
+        const val = document.getElementById('cmessage').value.trim();
+        if (!val) {
+            setFieldState('message', 'error', 'Pesan wajib diisi.');
+            return false;
+        }
+        if (val.length < 10) {
+            setFieldState('message', 'error', 'Pesan terlalu pendek (minimal 10 karakter).');
+            return false;
+        }
+        setFieldState('message', 'success');
+        return true;
+    }
+
+    /* ── Real-time validation (on blur) ── */
+    document.getElementById('cname').addEventListener('blur',     validateName);
+    document.getElementById('cemail').addEventListener('blur',    validateEmail);
+    document.getElementById('cphone').addEventListener('blur',    validatePhone);
+    document.getElementById('cmessage').addEventListener('blur',  validateMessage);
+    selectEl.addEventListener('blur', () => { if (!isCustomMode) validateSubject(); });
+    customInput.addEventListener('blur', () => { if (isCustomMode) validateSubject(); });
+
+    /* ── Phone: block non-numeric keys (allow control keys) ── */
+    document.getElementById('cphone').addEventListener('keypress', function(e) {
+        const allowed = /[\d\+\-\(\)\s]/;
+        if (!allowed.test(e.key) && !e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            // Flash error immediately
+            setFieldState('phone', 'error', 'Nomor telepon hanya boleh berisi angka.');
+        }
+    });
+
+    /* ── Clear error on input ── */
+    document.getElementById('cname').addEventListener('input',    () => setFieldState('name', null));
+    document.getElementById('cemail').addEventListener('input',   () => setFieldState('email', null));
+    document.getElementById('cphone').addEventListener('input',   () => setFieldState('phone', null));
+    document.getElementById('cmessage').addEventListener('input', () => setFieldState('message', null));
+    customInput.addEventListener('input',  () => setFieldState('subject', null));
+    selectEl.addEventListener('change',    () => { if (selectEl.value !== '__lainnya__') setFieldState('subject', null); });
+
+    /* ══════════════════════════════════════
+       CONTACT FORM SUBMIT
+    ══════════════════════════════════════ */
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
+
+        // Run all validators
+        const ok = [
+            validateName(),
+            validateEmail(),
+            validatePhone(),
+            validateSubject(),
+            validateMessage()
+        ].every(Boolean);
+
+        if (!ok) {
+            // Scroll to first error field
+            const firstError = document.querySelector('.form-group.has-error');
+            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+
         const name    = document.getElementById('cname').value.trim();
         const email   = document.getElementById('cemail').value.trim();
         const phone   = document.getElementById('cphone').value.trim();
-        const subject = document.getElementById('csubject').value.trim();
+        const subject = isCustomMode ? customInput.value.trim() : selectEl.value;
         const message = document.getElementById('cmessage').value.trim();
-        if (!name || !email || !phone || !subject || !message) return;
+
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+
         const txt = encodeURIComponent(
             `Halo Askarindogroup,\n\nNama: ${name}\nEmail: ${email}\nTelepon: ${phone}\nSubjek: ${subject}\n\nPesan:\n${message}`
         );
-        window.open(`https://wa.me/6285854542007?text=${txt}`, '_blank');
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 3500);
-        this.reset();
+
+        setTimeout(() => {
+            window.open(`https://wa.me/6285854542007?text=${txt}`, '_blank');
+
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+
+            this.reset();
+            exitCustomMode();
+            // Clear all validation states
+            ['name','email','phone','subject','message'].forEach(f => setFieldState(f, null));
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Pesan';
+        }, 600);
     });
 
-    /* ── SCROLL TOP ── */
+    /* ══════════════════════════════════════
+       SCROLL TOP
+    ══════════════════════════════════════ */
     const scrollTopBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
         scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
@@ -1180,7 +1554,9 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    /* ── INTERSECTION OBSERVER ── */
+    /* ══════════════════════════════════════
+       INTERSECTION OBSERVER
+    ══════════════════════════════════════ */
     const obs = new IntersectionObserver(entries => {
         entries.forEach(en => {
             if (en.isIntersecting) {
@@ -1197,7 +1573,9 @@
         obs.observe(el);
     });
 
-    /* ── ACTIVE NAV ── */
+    /* ══════════════════════════════════════
+       ACTIVE NAV
+    ══════════════════════════════════════ */
     (function() {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a').forEach(a => {
