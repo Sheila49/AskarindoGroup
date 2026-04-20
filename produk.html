@@ -406,11 +406,6 @@
         .proyek-section { max-width:1400px; margin:0 auto; padding:80px 40px; }
         .proyek-title { font-family:var(--font); text-align:center; font-size:clamp(32px,5vw,60px); font-weight:900; margin-bottom:20px; background:linear-gradient(135deg,var(--cat-g1),var(--cat-g2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
         .proyek-subtitle { font-family:var(--font); text-align:center; font-size:1.05rem; color:var(--txt-3); max-width:700px; margin:-10px auto 50px; line-height:1.7; }
-        .filter-buttons { display:flex; justify-content:center; gap:12px; margin-bottom:50px; flex-wrap:wrap; }
-        .filter-btn { font-family:var(--font); padding:11px 28px; background:rgba(43,122,140,0.08); border:1.5px solid rgba(43,122,140,0.25); border-radius:30px; color:var(--primary-light); font-weight:600; cursor:pointer; transition:all .35s ease; font-size:.93rem; letter-spacing:.3px; }
-        body.light .filter-btn { background:rgba(43,122,140,0.06); border-color:rgba(43,122,140,0.20); color:var(--primary); }
-        .filter-btn:hover { background:rgba(43,122,140,0.18); border-color:var(--primary-light); transform:translateY(-2px); box-shadow:0 6px 20px rgba(43,122,140,0.25); }
-        .filter-btn.active { background:linear-gradient(135deg,#2B7A8C,#3BE8D4); border-color:transparent; color:#fff; transform:translateY(-2px); box-shadow:0 8px 24px rgba(43,122,140,0.45); }
         .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:40px; margin-bottom:60px; }
         .portfolio-item { background:var(--card-bg); border-radius:25px; overflow:hidden; border:1px solid var(--card-border); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:all .6s ease; cursor:pointer; }
         .portfolio-item:hover { transform:translateY(-15px); border-color:var(--card-hover-border); box-shadow:0 30px 70px var(--card-shadow); }
@@ -672,7 +667,7 @@
             <!-- ── PAKET A: PENDIDIKAN ── -->
             <div class="paket-card">
                 <div class="paket-icon-wrap icon-edu"><i class="fas fa-graduation-cap"></i></div>
-                <span class="paket-label">Paket A</span>
+                <span class="paket-label">Solusi A</span>
                 <div class="paket-name">Smart Classroom Kit</div>
                 <p class="paket-tagline">Transformasi ruang kelas biasa menjadi pengalaman belajar luar biasa — teknologi interaktif, audio jernih, dan ekosistem digital lengkap dalam satu solusi.</p>
                 <ul class="paket-items">
@@ -703,7 +698,7 @@
             <div class="paket-card paket-featured">
                 <div class="paket-badge">⭐ Terlaris</div>
                 <div class="paket-icon-wrap icon-bis"><i class="fas fa-briefcase"></i></div>
-                <span class="paket-label">Paket B</span>
+                <span class="paket-label">Solusi B</span>
                 <div class="paket-name">Office Pro Bundle</div>
                 <p class="paket-tagline">Rapat lebih produktif, kolaborasi tanpa batas. Hadirkan standar ruang meeting kelas enterprise langsung di kantor Anda.</p>
                 <ul class="paket-items">
@@ -733,7 +728,7 @@
             <!-- ── PAKET C: PEMERINTAHAN ── -->
             <div class="paket-card">
                 <div class="paket-icon-wrap icon-sig"><i class="fas fa-tv"></i></div>
-                <span class="paket-label">Paket C</span>
+                <span class="paket-label">Solusi C</span>
                 <div class="paket-name">SecureWatch CCTV Suite</div>
                 <p class="paket-tagline">Sistem keamanan visual tanpa celah — rekam, simpan, dan awasi aset Anda 24 jam penuh dengan infrastruktur CCTV berstandar profesional.</p>
                 <ul class="paket-items">
@@ -762,7 +757,7 @@
             </div>
             <div class="paket-card">
                 <div class="paket-icon-wrap icon-gov"><i class="fas fa-landmark"></i></div>
-                <span class="paket-label">Paket D</span>
+                <span class="paket-label">Solusi D</span>
                 <div class="paket-name">Digital Signage Command</div>
                 <p class="paket-tagline">Tampilkan brand dan informasi Anda dengan impak maksimal — dari layar digital indoor hingga videotron outdoor yang memukau di setiap sudut ruang.</p>
                 <ul class="paket-items">
@@ -951,140 +946,133 @@
     </section>
 
     <!-- ═══════════ PROYEK TERKINI ═══════════ -->
-    <section id="proyek" class="proyek-section">
-        <h2 class="proyek-title">Proyek Terkini</h2>
-        <p class="proyek-subtitle">Setiap proyek adalah komitmen kami terhadap kualitas, inovasi, dan kepuasan pelanggan</p>
+<section id="proyek" class="proyek-section">
+    <h2 class="proyek-title">Proyek Terkini</h2>
+    <p class="proyek-subtitle">Setiap proyek adalah komitmen kami terhadap kualitas, inovasi, dan kepuasan pelanggan</p>
 
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">Semua Proyek</button>
-            <button class="filter-btn" data-filter="pendidikan">Pendidikan</button>
-            <button class="filter-btn" data-filter="bisnis">Bisnis</button>
-            <button class="filter-btn" data-filter="pemerintahan">Pemerintahan</button>
-        </div>
-
-        <div class="portfolio-grid">
-            <div class="portfolio-item" data-category="pendidikan">
-                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.52 (2).jpeg" alt="Smart Classroom" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Pendidikan</span>
-                    <h3>Smart Classroom SMA Negeri 3 Jakarta</h3>
-                    <p>Instalasi 50 unit Interactive Flat Panel 75" dengan sistem pembelajaran digital terintegrasi untuk 25 ruang kelas modern.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> November 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Jakarta</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="bisnis">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Setup" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Bisnis</span>
-                    <h3>Pengadaan PC &amp; Laptop Startup Tech</h3>
-                    <p>Supply 200 unit PC rakitan custom dan 50 unit laptop high-performance untuk perusahaan teknologi dengan spesifikasi khusus developer.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> Oktober 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Bandung</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="pemerintahan">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Government Office" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Pemerintahan</span>
-                    <h3>Modernisasi Ruang Rapat Pemkot Surabaya</h3>
-                    <p>Implementasi 15 unit proyektor laser 6000 lumens, sound system premium, dan furniture ergonomis untuk meeting room pemerintah.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> September 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Surabaya</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="pendidikan">
-                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.52 (1).jpeg" alt="University Lab" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Pendidikan</span>
-                    <h3>Lab Komputer Universitas Indonesia</h3>
-                    <p>Pembangunan 3 laboratorium komputer dengan 120 unit PC spesifikasi tinggi untuk jurusan Teknik Informatika dan desain grafis.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> Agustus 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Depok</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="bisnis">
-                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Coworking Space" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Bisnis</span>
-                    <h3>Setup Co-working Space Premium</h3>
-                    <p>Penyediaan 80 meja kerja ergonomis, 100 kursi gaming pro, dan infrastructure IT lengkap untuk co-working space 5 lantai.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> Juli 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Bali</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="pemerintahan">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Command Center" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Pemerintahan</span>
-                    <h3>Command Center Kepolisian Daerah</h3>
-                    <p>Instalasi video wall 98", sistem CCTV terintegrasi, dan server monitoring untuk command center keamanan kota.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> Mei 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Medan</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="bisnis">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Bisnis</span>
-                    <h3>Training Center Bank Mandiri</h3>
-                    <p>Setup ruang training dengan 40 unit laptop, proyektor interaktif, dan furniture modular untuk program pengembangan karyawan.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> April 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Semarang</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="pendidikan">
-                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.49 (1).jpeg" alt="STEM Lab" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Pendidikan</span>
-                    <h3>STEM Laboratory SMP Plus Al-Azhar</h3>
-                    <p>Pembangunan laboratorium STEM dengan 3D printer, robotics kit, Interactive Panel, dan peralatan coding untuk 300 siswa.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> Maret 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Tangerang</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="pendidikan">
-                <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.48 (2).jpeg" alt="Library Digital" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Pendidikan</span>
-                    <h3>Perpustakaan Digital SDN 10 Yogyakarta</h3>
-                    <p>Transformasi perpustakaan konvensional menjadi digital library dengan 30 unit tablet, e-reader, dan sistem manajemen digital.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> Juni 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Yogyakarta</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="pendidikan">
-                <img src="assets/portofolio/image.png" alt="STEM Lab" class="portfolio-image">
-                <div class="portfolio-content">
-                    <span class="portfolio-category">Pendidikan</span>
-                    <h3>STEM Laboratory SMP Plus Al-Azhar</h3>
-                    <p>Pembangunan laboratorium STEM dengan 3D printer, robotics kit, Interactive Panel, dan peralatan coding untuk 300 siswa.</p>
-                    <div class="portfolio-meta">
-                        <span><i class="fas fa-calendar"></i> Maret 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Tangerang</span>
-                    </div>
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.52 (2).jpeg" alt="Smart Classroom" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Pendidikan</span>
+                <h3>Smart Classroom SMA Negeri 3 Jakarta</h3>
+                <p>Instalasi 50 unit Interactive Flat Panel 75" dengan sistem pembelajaran digital terintegrasi untuk 25 ruang kelas modern.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> November 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Jakarta</span>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Setup" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Bisnis</span>
+                <h3>Pengadaan PC &amp; Laptop Startup Tech</h3>
+                <p>Supply 200 unit PC rakitan custom dan 50 unit laptop high-performance untuk perusahaan teknologi dengan spesifikasi khusus developer.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> Oktober 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Bandung</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Government Office" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Pemerintahan</span>
+                <h3>Modernisasi Ruang Rapat Pemkot Surabaya</h3>
+                <p>Implementasi 15 unit proyektor laser 6000 lumens, sound system premium, dan furniture ergonomis untuk meeting room pemerintah.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> September 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Surabaya</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.52 (1).jpeg" alt="University Lab" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Pendidikan</span>
+                <h3>Lab Komputer Universitas Indonesia</h3>
+                <p>Pembangunan 3 laboratorium komputer dengan 120 unit PC spesifikasi tinggi untuk jurusan Teknik Informatika dan desain grafis.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> Agustus 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Depok</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Coworking Space" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Bisnis</span>
+                <h3>Setup Co-working Space Premium</h3>
+                <p>Penyediaan 80 meja kerja ergonomis, 100 kursi gaming pro, dan infrastructure IT lengkap untuk co-working space 5 lantai.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> Juli 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Bali</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Command Center" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Pemerintahan</span>
+                <h3>Command Center Kepolisian Daerah</h3>
+                <p>Instalasi video wall 98", sistem CCTV terintegrasi, dan server monitoring untuk command center keamanan kota.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> Mei 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Medan</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Bisnis</span>
+                <h3>Training Center Bank Mandiri</h3>
+                <p>Setup ruang training dengan 40 unit laptop, proyektor interaktif, dan furniture modular untuk program pengembangan karyawan.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> April 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Semarang</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.49 (1).jpeg" alt="STEM Lab" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Pendidikan</span>
+                <h3>STEM Laboratory SMP Plus Al-Azhar</h3>
+                <p>Pembangunan laboratorium STEM dengan 3D printer, robotics kit, Interactive Panel, dan peralatan coding untuk 300 siswa.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> Maret 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Tangerang</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="assets/portofolio/WhatsApp Image 2026-03-16 at 13.46.48 (2).jpeg" alt="Library Digital" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Pendidikan</span>
+                <h3>Perpustakaan Digital SDN 10 Yogyakarta</h3>
+                <p>Transformasi perpustakaan konvensional menjadi digital library dengan 30 unit tablet, e-reader, dan sistem manajemen digital.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> Juni 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Yogyakarta</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="assets/portofolio/image.png" alt="STEM Lab" class="portfolio-image">
+            <div class="portfolio-content">
+                <span class="portfolio-category">Pendidikan</span>
+                <h3>STEM Laboratory SMP Plus Al-Azhar</h3>
+                <p>Pembangunan laboratorium STEM dengan 3D printer, robotics kit, Interactive Panel, dan peralatan coding untuk 300 siswa.</p>
+                <div class="portfolio-meta">
+                    <span><i class="fas fa-calendar"></i> Maret 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Tangerang</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- ═══════════ TESTIMONI ═══════════ -->
     <section id="testimoni" class="testimoni-section">

@@ -337,6 +337,7 @@
             border-radius: 24px; border: 1px solid var(--card-border);
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             transition: all 0.5s ease; text-align: center;
+            display: flex; flex-direction: column; align-items: center;
         }
         .support-card:hover {
             transform: translateY(-14px);
@@ -358,28 +359,10 @@
             background: linear-gradient(135deg, #2B7A8C, #3B96A9);
             color: white; border-radius: 50px; font-weight: 600;
             text-decoration: none; transition: all 0.3s ease; font-size: 0.9rem;
+            margin-top: auto;
         }
         .support-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(43,122,140,0.5); }
 
-        /* ══ EMERGENCY ══ */
-        .emergency-contact {
-            background: var(--emergency-bg);
-            border: 2px solid var(--emergency-border);
-            border-radius: 24px; padding: 40px;
-            text-align: center; margin: 0 0 0 0;
-        }
-        .emergency-contact h3 { font-family: var(--font); font-size: 1.9rem; color: #ff4444; margin-bottom: 14px; font-weight: 700; }
-        .emergency-contact p  { font-family: var(--font); color: var(--txt-2); margin-bottom: 24px; font-size: 1.05rem; }
-        .emergency-btn {
-            font-family: var(--font);
-            display: inline-block; padding: 14px 38px;
-            background: linear-gradient(135deg, #ff0000, #ff6600);
-            color: white; border-radius: 50px; font-size: 17px;
-            font-weight: 600; text-decoration: none;
-            box-shadow: 0 10px 30px rgba(255,0,0,0.4);
-            transition: all 0.3s ease;
-        }
-        .emergency-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,0,0,0.6); }
 
         /* ══ FAQ ══ */
         .faq-container { max-width: 900px; margin: 55px auto; }
@@ -872,83 +855,53 @@
                 <a href="mailto:askarindointegrasigroup@gmail.com" class="support-btn">Kirim Email</a>
             </div>
             <div class="support-card">
-                <div class="support-icon"><i class="fas fa-phone-alt"></i></div>
-                <h3>Hotline Support</h3>
-                <p>Hubungi hotline kami untuk bantuan darurat dan konsultasi teknis langsung.</p>
-                <a href="tel:+6285854542007" class="support-btn">+62 858-5454-2007</a>
-            </div>
-            <div class="support-card">
-                <div class="support-icon"><i class="fas fa-tools"></i></div>
-                <h3>Remote Support</h3>
-                <p>Teknisi kami dapat melakukan remote access untuk troubleshooting lebih efektif.</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Remote%20Support" target="_blank" class="support-btn">Request Remote</a>
-            </div>
-            <div class="support-card">
                 <div class="support-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <h3>Onsite Support</h3>
                 <p>Tim teknisi siap datang ke lokasi Anda untuk instalasi dan perbaikan kompleks.</p>
                 <a href="https://wa.me/6285854542007?text=Request%20Onsite%20Support" target="_blank" class="support-btn">Jadwalkan Kunjungan</a>
             </div>
-            <div class="support-card">
-                <div class="support-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Training &amp; Edukasi</h3>
-                <p>Pelatihan gratis untuk memaksimalkan penggunaan produk dan teknologi yang Anda miliki.</p>
-                <a href="https://wa.me/6285854542007?text=Request%20Training%20Session" target="_blank" class="support-btn">Daftar Training</a>
-            </div>
-        </div>
     </section>
-
-    <!-- ══════════ EMERGENCY ══════════ -->
-    <div class="section" style="padding-top: 0;">
-        <div class="emergency-contact">
-            <h3><i class="fas fa-exclamation-triangle"></i> Support Darurat</h3>
-            <p>Untuk kerusakan kritis atau masalah mendesak yang memerlukan penanganan segera</p>
-            <a href="https://wa.me/6285854542007?text=URGENT:%20Emergency%20Support%20Needed" target="_blank" class="emergency-btn">
-                <i class="fas fa-phone-volume"></i> Hubungi Emergency Support
-            </a>
-        </div>
-    </div>
 
     <!-- ══════════ FAQ ══════════ -->
-    <section id="faq" class="section">
-        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
-        <p class="section-subtitle">Temukan jawaban cepat untuk pertanyaan umum seputar produk dan layanan kami</p>
+<section id="faq" class="section">
+    <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+    <p class="section-subtitle">Temukan jawaban cepat untuk pertanyaan umum seputar produk dan layanan kami</p>
 
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question"><span>Berapa lama garansi produk yang dibeli?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Semua produk kami dilengkapi dengan garansi resmi dari distributor/brand. Garansi bervariasi: Interactive Flat Panel (3 tahun), Laptop &amp; PC (1-3 tahun), Printer (1 tahun), Proyektor (2 tahun), dan Furniture (1 tahun). Garansi mencakup kerusakan pabrik dan spare parts original.</div></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><span>Bagaimana cara mengklaim garansi?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Hubungi support kami via WhatsApp/Email dengan menyertakan: nomor invoice, foto produk, dan deskripsi masalah. Tim kami akan memverifikasi dan mengarahkan ke service center terdekat atau mengatur pickup jika diperlukan. Proses klaim biasanya selesai dalam 3-7 hari kerja.</div></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><span>Apakah tersedia layanan instalasi?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Ya, kami menyediakan layanan instalasi profesional untuk semua produk. Untuk pembelian dalam jumlah besar (10+ unit) atau proyek institusi, instalasi GRATIS. Untuk pembelian retail, biaya instalasi bervariasi tergantung kompleksitas dan lokasi.</div></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><span>Apakah ada biaya untuk support teknis?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Support online (WhatsApp, Email, Remote) 100% GRATIS selama masa garansi dan selamanya untuk konsultasi umum. Onsite support dalam masa garansi GRATIS. Setelah garansi, biaya onsite support disesuaikan dengan lokasi dan kompleksitas masalah.</div></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><span>Bagaimana jika produk rusak saat pengiriman?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Semua pengiriman kami diasuransikan penuh. Jika terjadi kerusakan saat pengiriman, segera laporkan maksimal 2x24 jam dengan video unboxing dan foto kerusakan. Kami akan mengganti dengan unit baru tanpa biaya tambahan atau refund 100%.</div></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><span>Apakah produk bisa dikustomisasi sesuai kebutuhan?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Tentu! Kami menerima custom order untuk PC Rakitan dengan spesifikasi khusus, branding logo untuk pembelian korporat, dan modifikasi furniture sesuai dimensi ruangan. Minimal order untuk custom adalah 5 unit dengan lead time 7-14 hari kerja.</div></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><span>Bagaimana cara mendapatkan training untuk produk?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Training GRATIS untuk semua pembelian proyek (20+ unit). Training mencakup: cara penggunaan, maintenance, troubleshooting dasar. Tersedia dalam format onsite atau online. Request training via WhatsApp dengan jadwal yang fleksibel sesuai kebutuhan Anda.</div></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><span>Apa yang dilakukan jika produk tidak sesuai ekspektasi?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><div class="faq-answer-content">Kami memiliki kebijakan Return &amp; Exchange 7 hari untuk produk yang tidak sesuai (dalam kondisi segel, belum digunakan). Untuk kasus tertentu, kami bisa diskusikan solusi terbaik seperti tukar model atau refund parsial. Kepuasan Anda adalah prioritas kami.</div></div>
-            </div>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question"><span>Berapa lama garansi produk yang dibeli?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Garansi resmi 1–3 tahun tergantung jenis produk, mencakup kerusakan pabrik dan spare parts original.</div></div>
         </div>
-    </section>
+        <div class="faq-item">
+            <div class="faq-question"><span>Bagaimana cara mengklaim garansi?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Hubungi kami via WhatsApp atau Email dengan nomor invoice dan foto produk. Proses klaim diselesaikan dalam 3–7 hari kerja.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Apakah tersedia layanan instalasi?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Tersedia. Instalasi gratis untuk pembelian proyek (10+ unit), berbayar untuk pembelian retail sesuai lokasi dan kompleksitas.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Apakah ada biaya untuk support teknis?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Support online gratis selamanya. Onsite support gratis selama masa garansi, berbayar setelahnya.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Bagaimana jika produk rusak saat pengiriman?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Laporkan maksimal 2x24 jam disertai video unboxing. Kami ganti unit baru atau refund 100% tanpa biaya tambahan.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Apakah produk bisa dikustomisasi?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Bisa, untuk PC rakitan, branding korporat, dan furniture custom. Minimal order 50 unit dengan lead time 7–14 hari kerja.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Apakah tersedia training penggunaan produk?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Gratis untuk pembelian proyek (20+ unit), mencakup penggunaan, maintenance, dan troubleshooting dasar secara onsite maupun online.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Bagaimana jika produk tidak sesuai ekspektasi?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><div class="faq-answer-content">Kami terima return & exchange dalam 7 hari untuk produk tersegel yang belum digunakan. Kepuasan pelanggan adalah prioritas kami.</div></div>
+        </div>
+    </div>
+</section>
 
     <!-- ══════════ GARANSI ══════════ -->
     <section id="garansi" class="section" style="padding-top: 0;">
